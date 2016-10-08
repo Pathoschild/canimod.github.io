@@ -1,0 +1,11 @@
+title: Can I Mod
+url: "http://canimod.com"
+baseurl: ""
+
+markdown: kramdown
+
+tracking_id: #
+
+sass:
+    style: compressed
+    sass_dir: _sass
