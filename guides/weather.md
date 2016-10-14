@@ -180,7 +180,7 @@ day | season | year |weather|overriden by
 27|fall|any|weather_festival|newday
 1|winter|any|weather_festival|newday and tv
 8|winter|any|weather_festival|newday
-25|winterany|weather_festival|newday
+25|winter|any|weather_festival|newday
 
 # Comments (Modding)
 
