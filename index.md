@@ -26,6 +26,8 @@ A few tips for downloading mods:
 Join the Stardew Valley modding community in the [official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/)
 and [on Discord](https://discordapp.com/invite/0t3fh2xhHVc6Vdyx)!
 
+## Hosted Guides
+* [Weather.md], a breakdown of the weather system and fixed days.
 
 ## Further reading
 * [Stardew Valley wiki](http://stardewvalleywiki.com/)
