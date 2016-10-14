@@ -41,7 +41,7 @@ day | season | year |weather
 27|fall|any|weather_festival
 1|winter|any|weather_festival
 8|winter|any|weather_festival
-25|winterany|weather_festival
+25|winter|any|weather_festival
 
 [1] The game first sets it to weather_sunny and then in a later check to weather_rain
 
@@ -86,12 +86,12 @@ Description:
 
 It will check the weather, and do the following:
 
-*Sunny or Wedding: A 50% chance of one of two strings: "It's going to be clear and sunny all day." or "It's going to be a beautiful, sunny day tommorow!"
-*Rain: "It's going to rain all day tomorrow"
-*Debris: Spring: "Partially cloudy with a light breeze. Expect lots of pollen!" Not Fall: "It's going to snow all day. Make sure you bundle up, folks!" and defaults with: "It's going to be cloudy, with gusts of wind throught the day."
-*Storm: "Looks like a storm is approaching. Thunder and lightning is expected."
-*Festival: It attempts to read the festival data, will spit out an amusing "Um... that's odd. My information sheet just says 'null'. This is embarrassing..." if it fails to read the data, other wise will read out where it is and when it is.
-*Snow: A 50% chance of one of two strings: "Expect a few inches of snow tomorrow" or "Bundle up, folks. It's going to snow tomorrow!"
+* Sunny or Wedding: A 50% chance of one of two strings: "It's going to be clear and sunny all day." or "It's going to be a beautiful, sunny day tommorow!"
+* Rain: "It's going to rain all day tomorrow"
+* Debris: Spring: "Partially cloudy with a light breeze. Expect lots of pollen!" Not Fall: "It's going to snow all day. Make sure you bundle up, folks!" and defaults with: "It's going to be cloudy, with gusts of wind throught the day."
+* Storm: "Looks like a storm is approaching. Thunder and lightning is expected."
+* Festival: It attempts to read the festival data, will spit out an amusing "Um... that's odd. My information sheet just says 'null'. This is embarrassing..." if it fails to read the data, other wise will read out where it is and when it is.
+* Snow: A 50% chance of one of two strings: "Expect a few inches of snow tomorrow" or "Bundle up, folks. It's going to snow tomorrow!"
 
 It returns an empty string for all other weathers. (which should be none, but.)
 
