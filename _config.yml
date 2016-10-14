@@ -1,5 +1,6 @@
 title: Can I Mod
 url: "http://canimod.com"
+repo_url: "https://github.com/canimod/canimod.github.io"
 baseurl: ""
 
 markdown: kramdown
