@@ -1,3 +1,34 @@
-.content {
-	width: 45em;
+body {
+	background: #f3eeeb;
+}
+
+.header, .content {
+	max-width:90em;
+	margin: 2em;
+	padding: 1em;
+	padding-right: 0;
+	background: #FFF;
+	border-radius: 10px;
+}
+
+.header {
+	position: relative;
+}
+
+.header img.logo {
+	display: inline-block;
+	max-width: 50%;
+	padding-right: 1em;
+	border: 0;
+}
+
+.header img.repolink {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+}
+
+.header ul {
+	display: inline-block;
 }
