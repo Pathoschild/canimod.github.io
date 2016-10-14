@@ -27,7 +27,7 @@ Join the Stardew Valley modding community in the [official Stardew Valley forums
 and [on Discord](https://discordapp.com/invite/0t3fh2xhHVc6Vdyx)!
 
 ## Hosted Guides
-* [Weather.md], a breakdown of the weather system and fixed days.
+* [Weather.md](weather.md), a breakdown of the weather system and fixed days.
 
 ## Further reading
 * [Stardew Valley wiki](http://stardewvalleywiki.com/)
