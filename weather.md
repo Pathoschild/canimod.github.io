@@ -194,3 +194,7 @@ A. Err.. Outside the scope of this, I'm afraid
 Q. I see that debris has code for winter but cannot be triggered
 
 A. Correct. It's also got an offset of 0, so you might have to do something about drawing the debris.
+
+Q. Any modding limitations?
+
+A. _Yes_. Bear in mind that SMAPI's PlayerEvents.LoadedGame and TimeEvents.DayOfMonthChanged run before SDV runs it's new day. The overrides and festival days will override your weather. That said, you can get snow and windy weather out of season.
