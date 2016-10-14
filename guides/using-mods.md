@@ -45,8 +45,10 @@ Here's how to install it:
    mods.
 
 ### Downloading mods
-Once you have SMAPI, [Nexus Mods](https://nexusmods.com/stardewvalley) is the best place to find
-mods. You can also [discuss mods and modding in the official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/).
+Once you have SMAPI, [Nexus Mods](https://nexusmods.com/stardewvalley) is one of the best places to find
+mods. You can also [discuss mods and modding in the official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/), where you can also download other mods.
+
+(It is __strongly__ recommended you never use sites such as stardewvalleymods.net)
 
 A few tips for downloading mods:
 
@@ -56,6 +58,14 @@ A few tips for downloading mods:
    answering questions on the forums, that typically means the mod has been abandoned. If the mod
    wasn't updated after the last Stardew Valley update, it probably doesn't work anymore.
 2. Try one mod at a time. That way if the game crashes, you know which one is broken.
+
+### Using SMAPI on Steam
+
+You can configure Steam to load the StardewValleyAPI directly. To do so, follow these steps
+
+1. Go to Steam, and right click Stardew Valley. Click on Properties
+2. Click 'Set Launch Options'
+3. If you have it installed in the default location, your command will be: ```"C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%``` (replace the file path wherever your stardew valley is installed.)
 
 ### Having trouble?
 *TODO*
