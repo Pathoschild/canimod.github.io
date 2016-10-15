@@ -190,7 +190,7 @@ A. Override the function that does forecasts. Very difficult, although theoretic
 
 Q. I want to set snowy weather outside Winter!
 
-A. You can, as long as you keep in mind what will try to override that.
+A. You can, as long as you keep in mind what days try to override that.
 
 Q. What about adding new weathers?
 
@@ -202,4 +202,4 @@ A. Correct. It's also got an offset of 0, so you might have to do something abou
 
 Q. Any modding limitations?
 
-A. _Yes_. Bear in mind that SMAPI's PlayerEvents.LoadedGame and TimeEvents.DayOfMonthChanged run before SDV runs it's new day. The overrides and festival days will override your weather. That said, you can get snow and windy weather out of season.
+A. _Yes_. Bear in mind that SMAPI's PlayerEvents.LoadedGame and TimeEvents.DayOfMonthChanged run before SDV runs it's new day. The overrides and festival days will override your weather. That said, you can get snow and windy weather out of season. Also, debris weather will generally render as whatever the day was before due to how updateWeatherIcon() handles that in summer, but as snow in winter.
