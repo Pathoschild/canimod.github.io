@@ -68,7 +68,7 @@ If the number is over the chance of rain, it checks you've played for at least 2
 
 Then, it finally sets the weather to sunny
 
-It then checks to make sure that the next day is a festival day. If so, it sets it to weather_festival. If the current day is the 2nd day of spring, it makes sure the third day is rainy. (again.) (It's sets this by making sure you've played 2 days.)
+It then checks to make sure that the next day is a festival day. If so, it sets it to weather_festival. If the current day is the 2nd day of spring, it makes sure the third day is rainy. (again.) (It's sets this by making sure you've played 2 days.) and updates your current weather icon near the end of the function (After a bunch of other things.)
 
 ## TV channel
 
@@ -181,6 +181,14 @@ day | season | year |weather|overriden by
 1|winter|any|weather_festival|newday and tv
 8|winter|any|weather_festival|newday
 25|winter|any|weather_festival|newday
+
+# Weather Icon
+Thanks to Entoarox, the logic for this is pretty simple: 
+The following will always apply: snowing sets _7_, sunny _2_, wedding _0_, festival _1_, raining _4_, stormy _5_
+
+In spring, debris weather is _3_, summer will be __unset__, fall _6_, and winter _7_ (the same as snowing)
+
+These icons are located in _LooseSprite/Cursors.xnb_
 
 # Comments (Modding)
 
