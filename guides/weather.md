@@ -68,7 +68,7 @@ If the number is over the chance of rain, it checks you've played for at least 2
 
 Then, it finally sets the weather to sunny
 
-It then checks to make sure that the next day is a festival day. If so, it sets it to weather_festival. If the current day is the 2nd day of spring, it makes sure the third day is rainy. (again.) (It's sets this by making sure you've played 2 days.)
+It then checks to make sure that the next day is a festival day. If so, it sets it to weather_festival. If the current day is the 2nd day of spring, it makes sure the third day is rainy. (again.) (It's sets this by making sure you've played 2 days.) and updates your current weather icon near the end of the function (After a bunch of other things.)
 
 ## TV channel
 
@@ -182,6 +182,14 @@ day | season | year |weather|overriden by
 8|winter|any|weather_festival|newday
 25|winter|any|weather_festival|newday
 
+# Weather Icon
+Thanks to Entoarox, the logic for this is pretty simple: 
+The following will always apply: snowing sets _7_, sunny _2_, wedding _0_, festival _1_, raining _4_, stormy _5_
+
+In spring, debris weather is _3_, summer will be __unset__, fall _6_, and winter _7_ (the same as snowing)
+
+These icons are located in _LooseSprite/Cursors.xnb_
+
 # Comments (Modding)
 
 Q. How do I fix the TV not being accurate, or add new strings?
@@ -190,7 +198,7 @@ A. Override the function that does forecasts. Very difficult, although theoretic
 
 Q. I want to set snowy weather outside Winter!
 
-A. You can, as long as you keep in mind what will try to override that.
+A. You can, as long as you keep in mind what days try to override that.
 
 Q. What about adding new weathers?
 
@@ -202,4 +210,4 @@ A. Correct. It's also got an offset of 0, so you might have to do something abou
 
 Q. Any modding limitations?
 
-A. _Yes_. Bear in mind that SMAPI's PlayerEvents.LoadedGame and TimeEvents.DayOfMonthChanged run before SDV runs it's new day. The overrides and festival days will override your weather. That said, you can get snow and windy weather out of season.
+A. _Yes_. Bear in mind that SMAPI's PlayerEvents.LoadedGame and TimeEvents.DayOfMonthChanged run before SDV runs it's new day. The overrides and festival days will override your weather. That said, you can get snow and windy weather out of season. Also, debris weather will generally render as whatever the day was before due to how updateWeatherIcon() handles that in summer, but as snow in winter.
