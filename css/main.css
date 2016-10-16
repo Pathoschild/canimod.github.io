@@ -1,35 +1,49 @@
 body {
-	background: #f3eeeb;
-	font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #f3eeeb;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 .header, .content {
-	max-width:90em;
-	margin: 2em auto;
-	padding: 1em;
-	padding-right: 0;
-	background: #FFF;
-	border-radius: 10px;
+    max-width: 90em;
+    margin: 2em auto;
+    padding: 1em;
+    padding-right: 0;
+    background: #FFF;
+    border-radius: 10px;
 }
 
 .header {
-	position: relative;
+    position: relative;
 }
 
 .header img.logo {
-	display: inline-block;
-	max-width: 50%;
-	padding-right: 1em;
-	border: 0;
+    display: inline-block;
+    max-width: 50%;
+    padding-right: 1em;
+    border: 0;
 }
 
 .header img.repolink {
-	position: absolute;
-	top: 0;
-	right: 0;
-	border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
 
 .header ul {
-	display: inline-block;
+    display: inline-block;
+}
+
+body[data-section="main-page"] .playerbox,
+body[data-section="main-page"] .devbox {
+    float: left;
+    width: 16em;
+    border: 2px solid #0C0;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    margin-right: 0.5em;
+}
+
+body[data-section="main-page"] .devbox {
+    border: 2px solid #C00;
 }
