@@ -43,3 +43,20 @@ that! :)
 Since maintainers can commit changes to the public site without approval, they must
 [enable two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/)
 to reduce security vulnerabilities.
+
+## Running the site locally
+When working on bigger changes, previewing the site with your changes can be helpful. We use [Jekyll](https://jekyllrb.com/)
+to compile the markdown content and site files into a regular HTML site. Here's how to run the site
+on your local machine:
+
+1. Install Jekyll (see instructions [for Linux/Mac](https://jekyllrb.com/docs/installation/) or [for Windows](https://jekyllrb.com/docs/windows/)).
+2. In a terminal, navigate to the repository directory and launch the server.
+
+   ```
+   cd <path to repository>
+   jekyll serve
+   ```
+
+3. This will compile the site and serve it from [localhost:4000](http://localhost:4000/). On Linux
+   or Mac, the server will detect any changes to the content and update the site. On Windows,
+   you'll need to run the command again to see changes.
