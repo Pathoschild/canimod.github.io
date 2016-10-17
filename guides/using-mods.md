@@ -100,5 +100,39 @@ A few tips for downloading mods:
    * Ask! The next player will thank you. If the author never responds, the mod is probably
      abandoned.
 
-## Troubleshooting mods
-*TODO*
+## What to do when something breaks
+So something went wrong with your mods. That sucks. Let's try to fix it yourself, then we'll
+ask the mod developer if we can't.
+
+### Fixing it yourself
+Let's run through a quick checklist:
+
+1. Are you running the latest Stardew Valley and SMAPI? Your current versions are listed at the top
+   of the console window:
+
+   > ![](images/using-mods/smapi-versions.png)
+   
+   Make sure "SDV Version" matches the [latest version of Stardew Valley](http://stardewvalleywiki.com/Version_History),
+   and "SMAPI Version" matches the [latest version of SMAPI](https://github.com/cjsu/SMAPI/releases).
+   If not, update them and try again.
+
+2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
+   problems. Try manually downloading the mod.
+
+3. Are your mods in two places? (Some mod managers do this.) Make sure all your mods are in
+   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try again.
+
+### Asking for help
+Couldn't fix it yourself? Most mod developers are happy to help, but they'll need some information
+to figure it out.
+
+1. Cause the problem again. (This makes sure any details are in the latest log.)
+3. Choose how you'll contact the mod author. Use any support forums, discussion threads, or the 'bugs' section on
+   Nexus Mods if possible. Only contact them directly if you can't find any of those.
+4. Send them a message with the following information:
+   * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`.
+   * ❑ Which mod is failing?
+   * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
+        all happen?)
+   * ❑ What were you doing when it broke? Did you notice a pattern (e.g. it always breaks when you
+        do X)?
