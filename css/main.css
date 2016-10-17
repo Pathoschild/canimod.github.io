@@ -48,6 +48,25 @@ h2 {
     border-bottom: 1px solid #AAA;
 }
 
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th, table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+
+
 /*********
 ** Main page
 *********/
