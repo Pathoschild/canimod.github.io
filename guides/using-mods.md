@@ -101,8 +101,8 @@ A few tips for downloading mods:
      abandoned.
 
 ## What to do when something breaks
-So something went wrong with your mods. That sucks. Let's try to fix it yourself, then we'll
-ask the mod developer if we can't.
+Oh no! Something went wrong with your mods. Let's try to fix it yourself, then we'll ask the mod
+developer if we can't.
 
 ### Fixing it yourself
 Let's run through a quick checklist:
@@ -127,8 +127,9 @@ Couldn't fix it yourself? Most mod developers are happy to help, but they'll nee
 to figure it out.
 
 1. Cause the problem again. (This makes sure any details are in the latest log.)
-3. Choose how you'll contact the mod author. Use any support forums, discussion threads, or the 'bugs' section on
-   Nexus Mods if possible. Only contact them directly if you can't find any of those.
+3. Choose how you'll contact the mod developer. Use any support forums, discussion threads, or the
+   'bugs' section on Nexus Mods if possible. Only contact them directly if you can't find any of
+   those.
 4. Send them a message with the following information:
    * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`.
    * ❑ Which mod is failing?
