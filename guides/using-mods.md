@@ -76,7 +76,7 @@ over the coming months. :)
 If you've done everything above, the hard part is done! To install a mod, just unzip it into the
 game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
 
-There two main places to download mods:
+There are two main places to download mods:
 
 * [Nexus Mods](https://nexusmods.com/stardewvalley) has a huge repository of mods available.
 * [The official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/)
@@ -119,7 +119,7 @@ Let's run through a quick checklist:
 2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
    problems. Try manually downloading the mod.
 
-3. Are your mods in two places? (Some mod managers do this.) Make sure all your mods are in
+3. Are your mods in two places? (Some mod managers do that.) Make sure all your mods are in
    `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try again.
 
 ### Asking for help

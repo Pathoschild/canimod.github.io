@@ -1,7 +1,6 @@
 ---
 layout: default
 section: main-page
-title: introduction
 ---
 
 Welcome to Stardew Valley modding! Mods can be very rewarding, but they're also pretty anarchic.
