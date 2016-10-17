@@ -37,6 +37,23 @@ body {
 }
 
 /*********
+** Table of contents
+*********/
+#toc {
+    display: table;
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid #aaa;
+    background: #f9f9f9;
+}
+
+#toc ul {
+    margin: 0;
+    padding-left: 1em;
+    list-style: none;
+}
+
+/*********
 ** Common page elements
 *********/
 h1 {

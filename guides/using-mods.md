@@ -1,9 +1,8 @@
 ---
 layout: default
 title: Using mods
+intro: Welcome to Stardew Valley modding! This guide will help you install mods and troubleshoot problems.
 ---
-
-Welcome to Stardew Valley modding! This guide will help you install mods and troubleshoot problems.
 
 ## Some background
 
