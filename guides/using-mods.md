@@ -3,35 +3,53 @@ layout: default
 title: Using mods
 ---
 
-Welcome to Stardew Valley modding! Mods can be very rewarding, but they're also pretty anarchic.
-This guide will help you install the prerequisities, download mods, and troubleshoot problems.
+Welcome to Stardew Valley modding! This guide will help you install mods and troubleshoot problems.
 
-## Types of mods
-There are generally two types of mods:
+## Some background
 
-* **Asset mods** simply overwrite your game files. They work on any platform, but they're difficult
-  to uninstall (since you'd need to restore the original game files), and two asset mods that
-  change the same file can't be used at the same time.
-* **SMAPI mods** use the SMAPI mod loader to interact with your game. These are very easy to
-  install once SMAPI is set up (just drop them into the `Mods` folder), very easy to uninstall
-  (just remove them), and there are rarely conflicts between different mods. Unfortunately these
-  are limited to Windows players, though progress is being made towards Linux/Mac mods.
+### What are mods?
+A _mod_ is just a package of files which change Stardew Valley in some way. Mods can add features
+(like showing NPCs on the map), change game mechanics (like making fences decay more slowly), make
+cosmetic changes (like making your house look like a hobbit-hole), and more.
 
-## Asset mods
-Asset mods can be fragile — you shouldn't use them unless you're aware of the risks. If all else
-fails, you may need to reinstall your game to restore the original game files. However, some things
-just aren't possible without overwriting game files. If you want to use an asset mod, follow the
-instructions from the mod page.
+In general, mods can be grouped into two types:
 
-## SMAPI mods
+* **API mods** use a mod loader or API to hook into the game. These mods are powerful and
+  convenient. After the one-time setup, you install mods by dropping them into a folder and
+  uninstall them by deleting their folder. You can use multiple API mods, and they'll rarely
+  conflict. Ideally you would only use API mods, but there are a few things they can't do yet.
+  Which leads us to...
+* **File replacement mods** overwrite core game files. These are difficult to uninstall (you'll
+  need to recover the original game files), and you can't use two mods that change the same files.
+  However, they can do some things that API mods can't do yet. These are typically used to change
+  images in the game.
 
-### Install SMAPI
-SMAPI mods use the [SMAPI](https://github.com/cjsu/SMAPI) ("Stardew Modding API") mod loader. It
-extends Stardew Valley to let mods respond to events without actually changing the game code, so
-you can stop using mods at any time.
+If you're just starting out, you should avoid file replacement mods for now. It's easier for
+something to go wrong with those, and harder to fix when it does. That said, feel free to use them
+if you really want to.
 
-Here's how to install it:
+The rest of this page is about using API mods.
 
+### What are SMAPI, Storm, and Farmhand?
+You need something that will load the mods and let them change the game. That something is commonly
+called the _modding API_ for simplicity. The _de facto_ modding API is [SMAPI](https://github.com/cjsu/SMAPI),
+which nearly all mods use. It's compatible with the latest versions of the game and decently
+powerful. **This is the one you should use.**
+
+When you look for mods, you might see two other names mentioned: _[Farmhand](https://github.com/ClxS/Stardew-Farmhand)_
+is a powerful API that will replace SMAPI when it's released. It can run SMAPI mods, but also
+offers abstraction APIs over the game to simplify mod development. _[Storm](http://community.playstarbound.com/threads/storm-modding-api.108484/)_
+is a defunct API that was meant to replace SMAPI, but was never finished and is no longer
+maintained.
+
+The rest of this article will focus on SMAPI. You should not use Storm mods, and Farmhand isn't
+released yet.
+
+## Installing SMAPI
+SMAPI is the modding API which runs the game with mods. It's safely installed alongside your normal
+game, and you can stop using it at any time simply by running the game normally.
+
+### On Windows
 1. Make sure you're running the latest version of the game.
 2. Download the [latest version of SMAPI](https://github.com/cjsu/SMAPI/releases).
 3. Unzip the files into your game directory. Typical location:
@@ -43,29 +61,48 @@ Here's how to install it:
 
 4. Make sure to run `StardewModdingAPI.exe` instead of the default executable when you want to use
    mods.
+5. If you use Steam, you can configure Steam to launch the game with mods:
+   1. In the Steam client, right-click Stardew Valley and choose 'Properties'.
+   2. Click 'Set Launch Options'.
+   3. Enter the following command, including the quotes. If necessary, correct the path to match
+      your install folder.
 
-### Downloading mods
-Once you have SMAPI, [Nexus Mods](https://nexusmods.com/stardewvalley) is one of the best places to find
-mods. You can also [discuss mods and modding in the official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/), where you can also download other mods.
+      ```
+      "C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%
+      ```
 
-(It is __strongly__ recommended you never use sites such as stardewvalleymods.net)
+### On Linux or Mac
+Mods aren't really supported on Linux/Mac yet (mainly due to the game's crossplatform differences).
+There's some very promising developments on this front, and you may see mods becoming available
+over the coming months. :)
+
+## Downloading & installing mods
+If you've done everything above, the hard part is done! To install a mod, just unzip it into the
+game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
+
+There two main places to download mods:
+
+* [Nexus Mods](https://nexusmods.com/stardewvalley) has a huge repository of mods available.
+* [The official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/)
+  is a good place to ask questions, and some mods are available there. It's a bit more ad hoc, but
+  feel free to ask for help.
+* Stardewvalleymods.net **is not recommended**. The site operates by stealing mods without
+  permission and profiting from the ad revenue. To be fair, their site can be convenient: they
+  repackage mods from many authors into one place, and you can search by game version to filter out
+  abandoned mods. However, there's no guarantee they're hosting the latest version and there's very
+  little oversight to prevent abuse. (Morally, you should also question the ethics of letting a
+  company profit by stealing free work from volunteers.)
 
 A few tips for downloading mods:
 
-1. Make sure the mod still works with the latest version of the game. Many mods are abandoned after
-   their authors stop playing. You can check by reading the latest messages (if on the forums) or
-   checking the bugs/discussions/comments sections (if on Nexus Mods). If the author has stopped
-   answering questions on the forums, that typically means the mod has been abandoned. If the mod
-   wasn't updated after the last Stardew Valley update, it probably doesn't work anymore.
-2. Try one mod at a time. That way if the game crashes, you know which one is broken.
+1. Try one mod at a time. That way if the game crashes, you know which one is broken.
+2. Make sure the mod still works with the latest version of the game. Many mods are abandoned after
+   their authors lose interest. There are a few ways to find out:
+   * Does the mod description say which game versions it's compatible with?
+   * When you look at the latest comments for that mod, are several people saying it doesn't
+     work anymore? If so, it probably won't work for you either.
+   * Ask! The next player will thank you. If the author never responds, the mod is probably
+     abandoned.
 
-### Using SMAPI on Steam
-
-You can configure Steam to load the StardewValleyAPI directly. To do so, follow these steps
-
-1. Go to Steam, and right click Stardew Valley. Click on Properties
-2. Click 'Set Launch Options'
-3. If you have it installed in the default location, your command will be: ```"C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%``` (replace the file path wherever your stardew valley is installed.)
-
-### Having trouble?
+## Troubleshooting mods
 *TODO*
