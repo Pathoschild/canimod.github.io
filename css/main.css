@@ -87,6 +87,11 @@ table th, table td {
     border: 1px solid #ddd;
 }
 
+blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+}
 
 /*********
 ** Main page
