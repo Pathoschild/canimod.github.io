@@ -20,7 +20,7 @@ This is a collaborative open-source site documenting the anarchy.
 <div class="devbox">
     <h3>For developers</h3>
     <ul>
-        <li><a href="guides/creating-a-mod">Creating a SMAPI mod</a></li>
+        <li><a href="guides/creating-a-smapi-mod">Creating a SMAPI mod</a></li>
         <li>Advanced topics:<ul>
             <li><a href="guides/weather">Weather</a></li>
         </ul></li>
