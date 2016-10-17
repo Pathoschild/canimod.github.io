@@ -32,5 +32,3 @@ This is a collaborative open-source site documenting the anarchy.
     </ul>
 </div>
 <br clear="all" />
-
-_Think this site should have more? [Contribute now!](https://github.com/canimod/canimod.github.io#readme)_

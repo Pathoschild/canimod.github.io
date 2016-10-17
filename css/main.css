@@ -6,34 +6,41 @@ body {
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.header, .content {
+#header, #content {
     max-width: 90em;
-    margin: 2em auto;
+    margin: 2em auto 0 auto;
     padding: 1em;
     background: #FFF;
     border-radius: 10px;
 }
 
-.header {
+#header {
     position: relative;
 }
 
-.header img.logo {
+#header img.logo {
     display: inline-block;
     max-width: 50%;
     padding-right: 1em;
     border: 0;
 }
 
-.header img.repolink {
+#header img.repolink {
     position: absolute;
     top: 0;
     right: 0;
     border: 0;
 }
 
-.header ul {
+#header ul {
     display: inline-block;
+}
+
+#footer {
+    font-style: italic;
+    max-width: 90em;
+    margin: 0 auto;
+    padding: 1em;
 }
 
 /*********
