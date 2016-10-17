@@ -1,10 +1,11 @@
 ---
 layout: default
-title: SMAPI config file
+title: Creating a SMAPI mod
 ---
 
-# So, you want a config file
+This is a work in progress.
 
+## Creating a config file
 SMAPI comes with a built in config class (which uses json). Most of it is automatic, but there are a few things you need to do. This guide assumes you understand c# to a certain degree.
 
 1. Make sure you have a working mod - i.e, has a properly written manifest.json and Entry() method. 

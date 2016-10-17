@@ -1,6 +1,6 @@
 ---
 layout: default
-title: using mods
+title: Using mods
 ---
 
 Welcome to Stardew Valley modding! Mods can be very rewarding, but they're also pretty anarchic.

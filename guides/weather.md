@@ -1,6 +1,6 @@
 ---
 layout: default
-title: weather
+title: Weather
 ---
 
 Weather in Stardew Valley runs from multiple sources.

@@ -1,3 +1,6 @@
+/*********
+** Layout
+*********/
 body {
     background: #f3eeeb;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -7,7 +10,6 @@ body {
     max-width: 90em;
     margin: 2em auto;
     padding: 1em;
-    padding-right: 0;
     background: #FFF;
     border-radius: 10px;
 }
@@ -34,6 +36,21 @@ body {
     display: inline-block;
 }
 
+/*********
+** Common page elements
+*********/
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+h2 {
+    border-bottom: 1px solid #AAA;
+}
+
+/*********
+** Main page
+*********/
 body[data-section="main-page"] .playerbox,
 body[data-section="main-page"] .devbox {
     float: left;
