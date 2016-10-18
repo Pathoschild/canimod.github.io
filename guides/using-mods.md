@@ -33,8 +33,8 @@ which nearly all mods use. It's compatible with the latest versions of the game 
 powerful. **This is the one you should use.**
 
 When you look for mods, you might see two other names mentioned: _[Farmhand](https://github.com/ClxS/Stardew-Farmhand)_
-is a powerful API that will replace SMAPI when it's released. It can run SMAPI mods, but also
-offers abstraction APIs over the game to simplify mod development. _[Storm](http://community.playstarbound.com/threads/storm-modding-api.108484/)_
+is a powerful API that will replace SMAPI when it's released. It can run SMAPI mods (with a few
+exceptions), but also offers abstraction APIs over the game to simplify mod development. _[Storm](http://community.playstarbound.com/threads/storm-modding-api.108484/)_
 is a defunct API that was meant to replace SMAPI, but was never finished and is no longer
 maintained.
 
