@@ -11,7 +11,6 @@ A SMAPI mod uses the [SMAPI](https://github.com/cjsu/SMAPI) modding API to exten
 You can run code when something happens (e.g. mouse clicked or menu opened), or periodically (e.g.
 once per game tick).
 
-### What kind of code will I use?
 SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses XNA (on Windows) or
 MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen, user input, etc).
 
@@ -41,7 +40,6 @@ Here are some things which are **not** required:
 * A good grasp of math. You'll mainly use math for positioning when drawing to the screen, and
   that's mostly adding/subtracting offsets or multiplying for pixel zoom.
 
-### I don't know if I can do this
 The next two sections will walk you through creating a very simple mod. If you follow along, you'll
 have created a mod! All that will be left is making it do what you want. :)
 
