@@ -16,7 +16,8 @@ SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses 
 MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen, user input, etc).
 
 ### Am I qualified to make a SMAPI mod?
-There are two general requirements:
+If you're an experienced developer, you should be fine; if you have little or no experience, there
+are two general requirements:
 
 * Determination. Even with no development experience, you can learn along the way if you're
   determined. You should be prepared for a steep learning curve depending on the scope of your mod,
