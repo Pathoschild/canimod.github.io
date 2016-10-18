@@ -127,10 +127,12 @@ Couldn't fix it yourself? Most mod developers are happy to help, but they'll nee
 to figure it out.
 
 1. Cause the problem again. (This makes sure any details are in the latest log.)
-3. Choose how you'll contact the mod developer. Use any support forums, discussion threads, or the
-   'bugs' section on Nexus Mods if possible. Only contact them directly if you can't find any of
-   those.
-4. Send them a message with the following information:
+2. Choose how you'll contact the mod developer. Use any support forums, discussion threads, or the
+   'bugs' section on Nexus Mods if possible. Otherwise try contacting the author directly (use the
+   'Contact' button on the Nexus Mods page). If you can't contact the author (or they never respond),
+   [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
+   and someone else will help if they can.
+3. Send them a message with the following information:
    * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`.
    * ❑ Which mod is failing?
    * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
