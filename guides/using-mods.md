@@ -82,14 +82,16 @@ Linux support is experimental. If you run into any problems or need help, come <
    | Steam    | `~/.local/share/Steam/steamapps/common/Stardew Valley` |
 
 3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
-4. Unzip the [latest version of SMAPI for Linux](https://github.com/vizv/SMAPI/releases) (unofficial) into your game directory.
+4. Unzip the [latest version of SMAPI for Linux](https://github.com/vizv/SMAPI/releases)
+   (unofficial) into your game directory.
 
 That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
 anytime by running `StardewValley.unmodded` instead.
 
 ### On Mac
 <p class="warning">
-Mac support is experimental. If you run into any problems or need help, come <a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
+Mac support is experimental. If you run into any problems or need help, come
+<a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
 </p>
 
 1. Make sure you're running the latest version of the the game.
@@ -101,8 +103,12 @@ Mac support is experimental. If you run into any problems or need help, come <a 
    | Steam    | `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS` |
 
 3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
-4. Unzip the [latest version of SMAPI for Mac](https://github.com/MacLeek/SMAPI/releases) (unofficial) into a temporary directory.
-4.Double click the "install" file, and the script will automatically put all the other files in the correct places. Note that this release contains several mods pre-installed, so check out the Mods folder located in the game path to make sure you remove any mods you don't want after installation.
+4. Unzip the [latest version of SMAPI for Mac](https://github.com/MacLeek/SMAPI/releases)
+   (unofficial) into a temporary directory.
+5. Double-click the `install` file, which will automatically add the other files to the right
+   places.
+6. The installer will preinstall several mods in the `Mods` directory under the game directory.
+   You can safely remove any mods you don't want.
 
 That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
 anytime by running `StardewValley.unmodded` instead.
@@ -154,14 +160,15 @@ Let's run through a quick checklist:
    > ![](images/using-mods/smapi-versions.png)
    
    Make sure "SDV Version" matches the [latest version of Stardew Valley](http://stardewvalleywiki.com/Version_History),
-   and "SMAPI Version" matches the [latest version of SMAPI](https://github.com/cjsu/SMAPI/releases).
+   and "SMAPI Version" matches the latest version of SMAPI ([see download links](#installing-smapi)).
    If not, update them and try again.
 
 2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
    problems. Try manually downloading the mod.
 
 3. Are your mods in two places? (Some mod managers do that.) Make sure all your mods are in
-   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try again.
+   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try
+   again.
 
 ### Asking for help
 Couldn't fix it yourself? Most mod developers are happy to help, but they'll need some information
@@ -174,7 +181,13 @@ to figure it out.
    [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
    and someone else will help if they can.
 3. Send them a message with the following information:
-   * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`. (Note: On a Mac, your log directory is also located in the same directory as your save directory. To get to it from the Finder menubar select "Go", and then "Go to Folder...". Then enter "~/.config/". This will bring you to the equivalent of "%appdata%" above.)
+   * ❑ A copy of the latest log file:
+
+     | Platform | Path  |
+     |:-------- |:----- |
+     | Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt` |
+     | Linux    | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt` |
+     | Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".</small>
    * ❑ Which mod is failing?
    * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
         all happen?)
