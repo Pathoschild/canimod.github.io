@@ -2,7 +2,7 @@ title: Can I Mod
 url: "http://canimod.com"
 repo_url: "https://github.com/canimod/canimod.github.io"
 baseurl: ""
-cache_version: "r10" # appended to asset paths
+cache_version: "r11" # appended to asset paths
 
 markdown: kramdown
 

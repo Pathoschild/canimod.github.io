@@ -116,3 +116,13 @@ body[data-section="main-page"] .devbox {
 body[data-section="main-page"] .devbox {
     border: 2px solid #C00;
 }
+
+/*********
+** Article styles
+*********/
+p.warning {
+    display:inline-block;
+    padding:0.5em;
+    border:1px solid orange;
+    border-left:8px solid orange;
+}

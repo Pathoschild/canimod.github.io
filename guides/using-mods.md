@@ -52,29 +52,71 @@ game, and you can stop using mods anytime by just not running its launcher.
 
    | Platform | Path  |
    |:-------- |:----- |
-   | Steam    | `C:\Program Files (x86)\Steam\steamapps\common\StardewValley` |
    | GOG      | `C:\Program Files (x86)\GalaxyClient\Games\Stardew Valley` |
+   | Steam    | `C:\Program Files (x86)\Steam\steamapps\common\StardewValley` |
 
 That's it. Just launch `StardewModdingAPI.exe` instead of the default executable to use the game
-with mods. If you play the game through Steam, you can configure Steam to launch the modding API
-directly:
+with mods.
 
-1. In the Steam client, right-click Stardew Valley and choose 'Properties'.
-2. Click 'Set Launch Options'.
+If you play the game through Steam, you can configure Steam to launch SMAPI directly:
+
+1. In the Steam client, right-click Stardew Valley and choose _Properties_.
+2. Click _Set Launch Options_.
 3. Enter the following command, including the quotes. (Correct the path if needed.)
 
    ```
    "C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%
    ```
 
-### On Linux or Mac
-Mods aren't really supported on Linux/Mac yet (mainly due to the game's crossplatform differences).
-There's some very promising developments on this front, and you may see mods becoming available
-over the coming months. :)
+### On Linux
+<p class="warning">
+Linux support is experimental. If you run into any problems or need help, come <a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
+</p>
+
+1. Make sure you're running the latest version of the the game.
+2. Find your game directory (which has the `StardewValley.exe` file). Typical locations:
+
+   | Platform | Path  |
+   |:-------- |:----- |
+   | GOG      | `~/GOG Games/Stardew Valley/game` |
+   | Steam    | `~/.local/share/Steam/steamapps/common/Stardew Valley` |
+
+3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
+4. Unzip the [latest version of SMAPI for Linux](https://github.com/vizv/SMAPI/releases) (unofficial) into your game directory.
+
+That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
+anytime by running `StardewValley.unmodded` instead.
+
+### On Mac
+<p class="warning">
+Mac support is experimental. If you run into any problems or need help, come <a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
+</p>
+
+1. Make sure you're running the latest version of the the game.
+2. Find your game directory (which has the `StardewValley.exe` file). Typical locations:
+
+   | Platform | Path  |
+   |:-------- |:----- |
+   | GOG      | _unknown_ (let us know!) |
+   | Steam    | `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS` |
+
+3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
+4. Unzip the [latest version of SMAPI for Mac](https://github.com/MacLeek/SMAPI/releases) (unofficial) into a temporary directory.
+4. Open the `SMAPIMAC` directory (so you see `StardewModdingAPI.exe` and other files).
+5. Copy all the files in that directory into your game directory.
+
+That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
+anytime by running `StardewValley.unmodded` instead.
 
 ## Downloading & installing mods
 If you've done everything above, the hard part is done! To install a mod, just unzip it into the
 game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
+
+<p class="warning">
+<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod has a Linux/Mac version
+or specifies Linux/Mac compatibility. SMAPI mods need to be compiled specifically for Linux and Mac.
+Most mods are still Windows-only since Linux/Mac modding is new.
+</p>
 
 There are two main places to download mods:
 
