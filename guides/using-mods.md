@@ -102,8 +102,7 @@ Mac support is experimental. If you run into any problems or need help, come <a 
 
 3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
 4. Unzip the [latest version of SMAPI for Mac](https://github.com/MacLeek/SMAPI/releases) (unofficial) into a temporary directory.
-4. Open the `SMAPIMAC` directory (so you see `StardewModdingAPI.exe` and other files).
-5. Copy all the files in that directory into your game directory.
+4.Double click the "install" file, and the script will automatically put all the other files in the correct places. Note that this release contains several mods pre-installed, so check out the Mods folder located in the game path to make sure you remove any mods you don't want after installation.
 
 That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
 anytime by running `StardewValley.unmodded` instead.
@@ -175,7 +174,7 @@ to figure it out.
    [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
    and someone else will help if they can.
 3. Send them a message with the following information:
-   * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`.
+   * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`. (Note: On a Mac, your log directory is also located in the same directory as your save directory. To get to it from the Finder menubar select "Go", and then "Go to Folder...". Then enter "~/.config/". This will bring you to the equivalent of "%appdata%" above.)
    * ❑ Which mod is failing?
    * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
         all happen?)
