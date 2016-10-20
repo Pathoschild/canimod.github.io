@@ -1,21 +1,33 @@
 /*********
 ** Layout
 *********/
+html {
+    background: url('/images/background.png') #db8053;
+}
+
 body {
-    background: #f3eeeb;
     font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-#header, #content {
+#header, #content, #footer {
     max-width: 90em;
-    margin: 2em auto 0 auto;
-    padding: 1em;
-    background: #FFF;
-    border-radius: 10px;
+    background: #ffd789;
+    padding: .75em;
 }
 
-#header {
+#header, #content, #footer {
     position: relative;
+    border-radius: 10px;
+    border: 22px solid transparent;
+    -webkit-border-image: url('/images/borders.png') 20;
+    -o-border-image: url('/images/borders.png') 20;
+    border-image: url('/images/borders.png') 20;
+    border-image-width: 36px;
+    margin: 2em auto 0 auto;
 }
 
 #header img.logo {
@@ -27,8 +39,8 @@ body {
 
 #header img.repolink {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -11px;
+    right: -11px;
     border: 0;
 }
 
@@ -38,9 +50,7 @@ body {
 
 #footer {
     font-style: italic;
-    max-width: 90em;
-    margin: 0 auto;
-    padding: 1em;
+    margin: 2em auto;
 }
 
 /*********
@@ -50,8 +60,8 @@ body {
     display: table;
     margin-top: 1em;
     padding: 1em;
-    border: 1px solid #aaa;
-    background: #f9f9f9;
+    border: 1px solid #96473a;
+    background: #f9b163;
 }
 
 #toc ul {
@@ -69,7 +79,7 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #AAA;
+    border-bottom: 1px solid #96473a;
 }
 
 li > p {
@@ -81,8 +91,12 @@ table {
     border-collapse: collapse;
 }
 
+table tr {
+    background-color: #f9b163;
+}
+
 table tr:nth-child(2n) {
-    background-color: #f8f8f8;
+    background-color: #db8053;
 }
 
 table th {
@@ -91,13 +105,13 @@ table th {
 
 table th, table td {
     padding: 6px 13px;
-    border: 1px solid #ddd;
+    border: 1px solid #96473a;
 }
 
 blockquote {
     padding: 0 1em;
     color: #777;
-    border-left: 0.25em solid #ddd;
+    border-left: 0.25em solid #96473a;
 }
 
 /*********
@@ -107,14 +121,14 @@ body[data-section="main-page"] .playerbox,
 body[data-section="main-page"] .devbox {
     float: left;
     width: 16em;
-    border: 2px solid #0C0;
+    border: 2px solid #96473a;
     border-radius: 10px;
     padding: 0.5em 1em;
     margin-right: 0.5em;
 }
 
 body[data-section="main-page"] .devbox {
-    border: 2px solid #C00;
+    border: 2px solid #96473a;
 }
 
 /*********
