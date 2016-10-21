@@ -2,7 +2,7 @@
 ** Layout
 *********/
 html {
-    background: url('/images/background.png') #db8053;
+    background: url("/images/background.png") #db8053;
 }
 
 body {
@@ -23,9 +23,9 @@ body {
     position: relative;
     border-radius: 10px;
     border: 22px solid transparent;
-    -webkit-border-image: url('/images/borders.png') 20;
-    -o-border-image: url('/images/borders.png') 20;
-    border-image: url('/images/borders.png') 20;
+    -webkit-border-image: url("/images/borders.png") 20;
+    -o-border-image: url("/images/borders.png") 20;
+    border-image: url("/images/borders.png") 20;
     border-image-width: 36px;
     margin: 2em auto 0 auto;
 }
@@ -70,23 +70,24 @@ body {
     list-style-position: inside;
 }
 
+#toc li,
+#toc li a {
+    color: #5b3514;
+}
+
 /*********
 ** Common page elements
 *********/
 a {
     text-decoration: none;
-    color: #dd34bb;
 }
+
 a:hover {
     text-decoration: underline;
 }
 
 ul li {
-    list-style-image: url('/images/bullet.png');
-    color: #5b3514;
-}
-ul li a {
-    color: #5b2b2a;
+    list-style-image: url("/images/bullet.png");
 }
 
 h1 {
@@ -112,11 +113,12 @@ table tr {
 }
 
 table tr:nth-child(2n) {
-    background-color: #db8053;
+    background-color: #eca456;
 }
 
 table th {
     font-weight: bold;
+    background-color: #db8053;
 }
 
 table th, table td {
@@ -177,6 +179,6 @@ body[data-section="main-page"] h3 {
 p.warning {
     display:inline-block;
     padding:0.5em;
-    border:1px solid orange;
-    border-left:8px solid orange;
+    border:1px solid #96473a;
+    border-left:8px solid red;
 }
