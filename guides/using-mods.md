@@ -185,9 +185,9 @@ to figure it out.
 
      | Platform | Path  |
      |:-------- |:----- |
-     | Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt` |
+     | Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small> |
      | Linux    | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt` |
-     | Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".</small>
+     | Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
    * ❑ Which mod is failing?
    * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
         all happen?)
