@@ -92,20 +92,34 @@ set that up.
 This section is still experimental. If you run into any problems or need help, come <a href="#help">ask us for help</a>. :)
 </p>
 
+1. Reference the [`Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+   This will automatically configure your project to load the right modding dependencies for the
+   current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
+   debugging the mod in-game.
+   * <small>In Visual Studio: click _Tools » NuGet Package Manager » Manage NuGet Packages for
+     Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
+     _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
+     _Install_ button.</small>
+   * <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
+     `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
+     for Stardew Valley mods_ and click _Add Package_.</small>
 
-Next we'll reference the [`Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+That's all you need (usually). Try building the project; if you get an error that says "failed to
+find the game install path automatically", your game is probably not installed to its default path.
+You just need to specify where it is:
 
-This will automatically configure your project to load the right modding dependencies for the
-current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
-debugging the mod in-game.
+1. Open your `*.csproj` file for editing.
+2. Right under the `<Project ...>` line, add this (with your install path):
+  
+   ```xml
+   <PropertyGroup>
+      <GamePath>your\path\to\Stardew Valley</GamePath>
+   </PropertyGroup>
+   ```
 
-* <small>In Visual Studio: click _Tools » NuGet Package Manager » Manage NuGet Packages for
-  Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
-  _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
-  _Install_ button.</small>
-* <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
-  `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
-  for Stardew Valley mods_ and click _Add Package_.</small>
+   That will add the path to the places it checks. It it doesn't exist, it'll fall back to the
+   default paths, so your mod will still work on other computers (e.g. if someone else recompiles
+   it on a different platform for you).
 
 ### Creating your mod manifest
 The mod manifest tells SMAPI about your mod.
