@@ -93,18 +93,18 @@ This section is still experimental. If you run into any problems or need help, c
 </p>
 
 
-Next we'll reference the [`Stardew.ModdingBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+Next we'll reference the [`Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
 
 This will automatically configure your project to load the right modding dependencies for the
 current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
 debugging the mod in-game.
 
 * <small>In Visual Studio: click _Tools » NuGet Package Manager » Manage NuGet Packages for
-  Solution_ and search for `Pathoschild.Stardew.ModdingBuildConfig`. Select the package named
+  Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
   _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
   _Install_ button.</small>
 * <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
-  `Pathoschild.Stardew.ModdingBuildConfig`. Select the package named _MSBuild config
+  `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
   for Stardew Valley mods_ and click _Add Package_.</small>
 
 ### Creating your mod manifest
