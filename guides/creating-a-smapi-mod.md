@@ -80,7 +80,7 @@ set that up.
 2. Create a new solution with a library project.
    * <small>In Visual Studio, choose _Class Library_ under _Visual C#_.</small>
    * <small>In MonoDevelop, choose _Library_ under _Other » .NET_.</small>
-3. Change the target framework to .NET 4.5 (for compatibility with Mono on Linux).
+3. Change the target framework to .NET 4.5 (for compatibility with Linux).
    * <small>In Visual Studio: right-click on the project, click the _Application_ tab, and change
      the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
    * <small>In MonoDevelop: right-click on the project, click the _Build » General_ tab, and change
@@ -153,6 +153,8 @@ Almost done! Now for the code SMAPI will run.
    ```c#
    using StardewModdingAPI;
    using StardewModdingAPI.Events;
+   using StardewValley;
+   using Microsoft.Xna.Framework;
 
    namespace <your project name>
    {
@@ -377,20 +379,19 @@ Ready to share your mod with the world?
 Let's say you created a mod named _Pineapples Everywhere_ which turns all NPCs into pineapples;
 here's how you would release it for others to use.
 
-### Packaging your mod
+### Sharing your mod
 
 1. Copy your `manifest.json` and compiled files into a folder matching your mod's name (like
    `PineapplesEverywhere`). A few tips:
    * Only use letters in the folder name (no spaces or symbols) to simplify troubleshooting later.
    * Add your default `config.json` if you have settings, so users can edit it before first run.
    * Include the compiled `*.pdb` file, so error messages include line numbers.
-2. Create a zip archive with your mod's name, version, and platform (like
-   `PineapplesEverywhere-1.0-Windows.zip`).
+2. Create a zip archive with your mod's name, version, and platform.
 
 Your mod structure should look something like this:
 
 ```
-PineapplesEverywhere-Windows-1.0.zip
+PineapplesEverywhere-1.0-Windows.zip
    PineapplesEverywhere/
       PineapplesEverywhere.dll
       PineapplesEverywhere.pdb
@@ -399,22 +400,28 @@ PineapplesEverywhere-Windows-1.0.zip
 
 ```
 
-### Uploading to mod sites
 The best places to share your mod are [Nexus Mods](http://www.nexusmods.com/stardewvalley) and
 the [official modding forums](http://community.playstarbound.com/forums/mods.215/).
 
 ### Supporting multiple platforms
 Letting players on Linux, Mac, and Windows use your mod involves one extra step.
 
-Your mod needs to be compiled and packaged separately on each platform. For example, for Linux
-support you need to compile your code on a Linux machine and create a separate mod package
-(like `PineapplesEverywhere-1.0-Linux.zip`). If you're using the [crossplatform configuration](#configuring-the-build),
-your mod can in theory be compiled on every platform changes. Some bugs might occur due to internal
-differences between each platform.
+You need to compile two mod packages: one for Windows, and one for Linux and Mac. For example, for
+Linux support you'd compile the mod on either Linux or Mac, and create a separate mod package
+(like `PineapplesEverywhere-1.0-LinuxOrMac.zip`). If you're using the [crossplatform
+configuration](#configuring-the-build), your mod can be compiled on every platform with no code
+changes.
 
-If you only have access to one platform, don't worry — often users will recompile it for you if
-your code is open-source (e.g. on GitHub). Make sure to mention you're using the [crossplatform configuration](#configuring-the-build)
-to make things easy for them.
+The easiest way to do this is:
+
+1. Compile one package on your computer.
+2. Create a [virtual machine](https://www.virtualbox.org/) with Windows (if your computer is Linux
+   or Mac) or Linux (if your computer is Windows).
+3. Compile the second mod in the virtual machine.
+
+If you're not comfortable using virtual machines, some users may recompile it for you if they want
+to use your mod. Make sure to publish your source code (e.g. on GitHub) and mention that you're
+using the [crossplatform mod configuration](#configuring-the-build) to make things easy for them.
 
 ## See also
 If you read the entire guide, congratulations! If you'd like to read _even more_ documentation,
