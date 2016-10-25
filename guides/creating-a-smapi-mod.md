@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Creating a SMAPI mod
-intro: Ready to make your own mod? This page will guide you from creating an empty project to building a small mod.
+intro: Ready to make your own mod? This page will guide you from creating an empty project to building a small mod that runs on Linux, Mac, and Windows.
 ---
 
 ## Introduction
@@ -11,12 +11,12 @@ A SMAPI mod uses the [SMAPI](https://github.com/cjsu/SMAPI) modding API to exten
 You can run code when something happens (e.g. mouse clicked or menu opened), or periodically (e.g.
 once per game tick).
 
-### What kind of code will I use?
 SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses XNA (on Windows) or
 MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen, user input, etc).
 
 ### Am I qualified to make a SMAPI mod?
-There are two general requirements:
+If you're an experienced developer, you should be fine; if you have little or no experience, there
+are two general requirements:
 
 * Determination. Even with no development experience, you can learn along the way if you're
   determined. You should be prepared for a steep learning curve depending on the scope of your mod,
@@ -40,7 +40,6 @@ Here are some things which are **not** required:
 * A good grasp of math. You'll mainly use math for positioning when drawing to the screen, and
   that's mostly adding/subtracting offsets or multiplying for pixel zoom.
 
-### I don't know if I can do this
 The next two sections will walk you through creating a very simple mod. If you follow along, you'll
 have created a mod! All that will be left is making it do what you want. :)
 
@@ -73,74 +72,54 @@ features, but it's only available on Windows. MonoDevelop is an open-source alte
 on Linux, Mac, and Windows, but it's less robust and mature.
 
 ## Creating a minimal mod
-A SMAPI mod is essentially a compiled library (DLL) with an entry method that gets called by SMAPI,
-so let's set that up.
+A SMAPI mod is a compiled library (DLL) with an entry method that gets called by SMAPI, so let's
+set that up.
 
 ### Creating the project structure
 1. Open Visual Studio or MonoDevelop.
 2. Create a new solution with a library project.
    * <small>In Visual Studio, choose _Class Library_ under _Visual C#_.</small>
    * <small>In MonoDevelop, choose _Library_ under _Other » .NET_.</small>
+3. Change the target framework to .NET 4.5 (for compatibility with Linux).
+   * <small>In Visual Studio: right-click on the project, click the _Application_ tab, and change
+     the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
+   * <small>In MonoDevelop: right-click on the project, click the _Build » General_ tab, and change
+     the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
 3. Delete the `Class1.cs` or `MyClass.cs` file.
 
-### Configuring MSBuild
-Now you need to edit the project configuration. This will add the mod dependencies: Stardew Valley,
-SMAPI, and XNA (Windows) or MonoGame (Linux/Mac). This will also tell your editor how to package
-your mod, copy it into the game folder, and launch the game.
+### Configuring the build
+<p class="warning">
+This section is still experimental. If you run into any problems or need help, come <a href="#help">ask us for help</a>. :)
+</p>
 
-This part can be intimidating if you haven't done it before, but hopefully you'll just copy & paste
-and it'll work. :)
+1. Reference the [`Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+   This will automatically configure your project to load the right modding dependencies for the
+   current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
+   debugging the mod in-game.
+   * <small>In Visual Studio: click _Tools » NuGet Package Manager » Manage NuGet Packages for
+     Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
+     _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
+     _Install_ button.</small>
+   * <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
+     `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
+     for Stardew Valley mods_ and click _Add Package_.</small>
 
-1. Open your `<project name>.csproj` file for editing.
-2. Find the first `<ItemGroup>` line, and replace it with this:
-   * For Windows:
+That's all you need (usually). Try building the project; if you get an error that says "failed to
+find the game install path automatically", your game is probably not installed to its default path.
+You just need to specify where it is:
 
-     ```xml
-     <PropertyGroup>
-       <GamePath>C:\Program Files (x86)\GalaxyClient\Games\Stardew Valley</GamePath>
-       <GamePath Condition="!Exists('$(GamePath)')">C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley</GamePath>
-       <StartAction>Program</StartAction>
-       <StartProgram>$(GamePath)\StardewModdingAPI.exe</StartProgram>
-       <StartWorkingDirectory>$(GamePath)</StartWorkingDirectory>
-      </PropertyGroup>
-      <ItemGroup>
-        <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-        <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-        <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-        <Reference Include="Stardew Valley">
-          <HintPath>$(GamePath)\Stardew Valley.exe</HintPath>
-        </Reference>
-        <Reference Include="StardewModdingAPI">
-          <HintPath>$(GamePath)\StardewModdingAPI.exe</HintPath>
-        </Reference>
-        <Reference Include="xTile">
-          <HintPath>$(GamePath)\xTile.dll</HintPath>
-        </Reference>
-     ```
-
-   * For Linux/Mac: TODO ([you can contribute!](https://github.com/canimod/canimod.github.io#readme))
-3. Find the line near the bottom that looks like this:
-
+1. Open your `*.csproj` file for editing.
+2. Right under the `<Project ...>` line, add this (with your install path):
+  
    ```xml
-   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+   <PropertyGroup>
+      <GamePath>your\path\to\Stardew Valley</GamePath>
+   </PropertyGroup>
    ```
 
-4. Right under that line, paste this:
-   * For Windows:
-
-     ```xml
-     <PropertyGroup>
-       <PostBuildEvent>
-         set modDir=$(GamePath)\Mods\$(ProjectName)
-         if not exist "%modDir%" (mkdir "%modDir%")
-         copy "$(TargetDir)\$(TargetName).dll" "%modDir%\$(TargetName).dll"
-         copy "$(TargetDir)\$(TargetName).pdb" "%modDir%\$(TargetName).pdb"
-         copy "$(ProjectDir)manifest.json" "%modDir%\manifest.json"
-       </PostBuildEvent>
-     </PropertyGroup>
-     ```
-
-   * For Linux/Mac: TODO ([you can contribute!](https://github.com/canimod/canimod.github.io#readme))
+   That will add the path to the places it checks. It it doesn't exist, it'll fall back to the
+   default paths, so your mod will still work on other computers (e.g. if someone else recompiles
+   it on a different platform for you).
 
 ### Creating your mod manifest
 The mod manifest tells SMAPI about your mod.
@@ -174,6 +153,8 @@ Almost done! Now for the code SMAPI will run.
    ```c#
    using StardewModdingAPI;
    using StardewModdingAPI.Events;
+   using StardewValley;
+   using Microsoft.Xna.Framework;
 
    namespace <your project name>
    {
@@ -205,9 +186,13 @@ Almost done! Now for the code SMAPI will run.
    ```
 
 ### Trying your mod
-Launch the project by pressing `F5` in Visual Studio or MonoDevelop. This should compile your mod,
-copy it into the game's `Mod` folder, and launch the game. The mod so far will just send a message
-to the console window whenever you press a key in the game:
+
+1. Build the project.
+2. In the game's `Mods` directory, add a folder with your mod's name.
+3. Copy your `manifest.json` and compiled files into the folder you created.
+4. Run the game through SMAPI.
+
+The mod so far will just send a message to the console window whenever you press a key in the game:
 
 > ![example log output](images/creating-a-smapi-mod/keypress-log.png)
 
@@ -303,7 +288,7 @@ before the game is loaded, when there's no character yet.
 | `SeasonOfYearChanged` | Called after the season changes. |
 | `YearOfGameChanged` | Called after the year changes. |
 
-## Building a more complex mod
+## Building a bigger mod
 If you've been following along, you've created a basic mod and have an idea what events SMAPI
 provides. We only have two more building blocks to show you, then the rest will be up to you.
 
@@ -387,6 +372,56 @@ Here's how to unpack the XNB data files:
 1. Download the [Easy XNB Pack/UnPack Toolkit](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/page-6#post-2837587).
 2. Copy the entire `Stardew Valley\Content` game folder into `XNB-Mod-Toolkit\Packed`.
 3. Run `XNB-Mod-Toolkit\UNPACK FILES.bat` to unpack the files into `XNB-Mod-Toolkit\Unpacked`.
+
+## Releasing your mod
+Ready to share your mod with the world?
+
+Let's say you created a mod named _Pineapples Everywhere_ which turns all NPCs into pineapples;
+here's how you would release it for others to use.
+
+### Sharing your mod
+
+1. Copy your `manifest.json` and compiled files into a folder matching your mod's name (like
+   `PineapplesEverywhere`). A few tips:
+   * Only use letters in the folder name (no spaces or symbols) to simplify troubleshooting later.
+   * Add your default `config.json` if you have settings, so users can edit it before first run.
+   * Include the compiled `*.pdb` file, so error messages include line numbers.
+2. Create a zip archive with your mod's name, version, and platform.
+
+Your mod structure should look something like this:
+
+```
+PineapplesEverywhere-1.0-Windows.zip
+   PineapplesEverywhere/
+      PineapplesEverywhere.dll
+      PineapplesEverywhere.pdb
+      config.json
+      manifest.json
+
+```
+
+The best places to share your mod are [Nexus Mods](http://www.nexusmods.com/stardewvalley) and
+the [official modding forums](http://community.playstarbound.com/forums/mods.215/).
+
+### Supporting multiple platforms
+Letting players on Linux, Mac, and Windows use your mod involves one extra step.
+
+You need to compile two mod packages: one for Windows, and one for Linux and Mac. For example, for
+Linux support you'd compile the mod on either Linux or Mac, and create a separate mod package
+(like `PineapplesEverywhere-1.0-LinuxOrMac.zip`). If you're using the [crossplatform
+configuration](#configuring-the-build), your mod can be compiled on every platform with no code
+changes.
+
+The easiest way to do this is:
+
+1. Compile one package on your computer.
+2. Create a [virtual machine](https://www.virtualbox.org/) with Windows (if your computer is Linux
+   or Mac) or Linux (if your computer is Windows).
+3. Compile the second mod in the virtual machine.
+
+If you're not comfortable using virtual machines, some users may recompile it for you if they want
+to use your mod. Make sure to publish your source code (e.g. on GitHub) and mention that you're
+using the [crossplatform mod configuration](#configuring-the-build) to make things easy for them.
 
 ## See also
 If you read the entire guide, congratulations! If you'd like to read _even more_ documentation,

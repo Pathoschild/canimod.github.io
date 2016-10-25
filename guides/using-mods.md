@@ -33,8 +33,8 @@ which nearly all mods use. It's compatible with the latest versions of the game 
 powerful. **This is the one you should use.**
 
 When you look for mods, you might see two other names mentioned: _[Farmhand](https://github.com/ClxS/Stardew-Farmhand)_
-is a powerful API that will replace SMAPI when it's released. It can run SMAPI mods, but also
-offers abstraction APIs over the game to simplify mod development. _[Storm](http://community.playstarbound.com/threads/storm-modding-api.108484/)_
+is a powerful API that will replace SMAPI when it's released. It can run SMAPI mods (with a few
+exceptions), but also offers abstraction APIs over the game to simplify mod development. _[Storm](http://community.playstarbound.com/threads/storm-modding-api.108484/)_
 is a defunct API that was meant to replace SMAPI, but was never finished and is no longer
 maintained.
 
@@ -52,29 +52,76 @@ game, and you can stop using mods anytime by just not running its launcher.
 
    | Platform | Path  |
    |:-------- |:----- |
-   | Steam    | `C:\Program Files (x86)\Steam\steamapps\common\StardewValley` |
    | GOG      | `C:\Program Files (x86)\GalaxyClient\Games\Stardew Valley` |
+   | Steam    | `C:\Program Files (x86)\Steam\steamapps\common\StardewValley` |
 
 That's it. Just launch `StardewModdingAPI.exe` instead of the default executable to use the game
-with mods. If you play the game through Steam, you can configure Steam to launch the modding API
-directly:
+with mods.
 
-1. In the Steam client, right-click Stardew Valley and choose 'Properties'.
-2. Click 'Set Launch Options'.
+If you play the game through Steam, you can configure Steam to launch SMAPI directly:
+
+1. In the Steam client, right-click Stardew Valley and choose _Properties_.
+2. Click _Set Launch Options_.
 3. Enter the following command, including the quotes. (Correct the path if needed.)
 
    ```
    "C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%
    ```
 
-### On Linux or Mac
-Mods aren't really supported on Linux/Mac yet (mainly due to the game's crossplatform differences).
-There's some very promising developments on this front, and you may see mods becoming available
-over the coming months. :)
+### On Linux
+<p class="warning">
+Linux support is experimental. If you run into any problems or need help, come <a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
+</p>
+
+1. Make sure you're running the latest version of the the game.
+2. Find your game directory (which has the `StardewValley.exe` file). Typical locations:
+
+   | Platform | Path  |
+   |:-------- |:----- |
+   | GOG      | `~/GOG Games/Stardew Valley/game` |
+   | Steam    | `~/.local/share/Steam/steamapps/common/Stardew Valley` |
+
+3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
+4. Unzip the [latest version of SMAPI for Linux](https://github.com/vizv/SMAPI/releases)
+   (unofficial) into your game directory.
+
+That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
+anytime by running `StardewValley.unmodded` instead.
+
+### On Mac
+<p class="warning">
+Mac support is experimental. If you run into any problems or need help, come
+<a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
+</p>
+
+1. Make sure you're running the latest version of the the game.
+2. Find your game directory (which has the `StardewValley.exe` file). Typical locations:
+
+   | Platform | Path  |
+   |:-------- |:----- |
+   | GOG      | _unknown_ (let us know!) |
+   | Steam    | `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS` |
+
+3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
+4. Unzip the [latest version of SMAPI for Mac](https://github.com/MacLeek/SMAPI/releases)
+   (unofficial) into a temporary directory.
+5. Double-click the `install` file, which will automatically add the other files to the right
+   places.
+6. The installer will preinstall several mods in the `Mods` directory under the game directory.
+   You can safely remove any mods you don't want.
+
+That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
+anytime by running `StardewValley.unmodded` instead.
 
 ## Downloading & installing mods
 If you've done everything above, the hard part is done! To install a mod, just unzip it into the
 game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
+
+<p class="warning">
+<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod has a Linux/Mac version
+or specifies Linux/Mac compatibility. SMAPI mods need to be compiled specifically for Linux and Mac.
+Most mods are still Windows-only since Linux/Mac modding is new.
+</p>
 
 There are two main places to download mods:
 
@@ -113,25 +160,34 @@ Let's run through a quick checklist:
    > ![](images/using-mods/smapi-versions.png)
    
    Make sure "SDV Version" matches the [latest version of Stardew Valley](http://stardewvalleywiki.com/Version_History),
-   and "SMAPI Version" matches the [latest version of SMAPI](https://github.com/cjsu/SMAPI/releases).
+   and "SMAPI Version" matches the latest version of SMAPI ([see download links](#installing-smapi)).
    If not, update them and try again.
 
 2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
    problems. Try manually downloading the mod.
 
 3. Are your mods in two places? (Some mod managers do that.) Make sure all your mods are in
-   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try again.
+   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try
+   again.
 
 ### Asking for help
 Couldn't fix it yourself? Most mod developers are happy to help, but they'll need some information
 to figure it out.
 
 1. Cause the problem again. (This makes sure any details are in the latest log.)
-3. Choose how you'll contact the mod developer. Use any support forums, discussion threads, or the
-   'bugs' section on Nexus Mods if possible. Only contact them directly if you can't find any of
-   those.
-4. Send them a message with the following information:
-   * ❑ A copy of the log file at `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`.
+2. Choose how you'll contact the mod developer. Use any support forums, discussion threads, or the
+   'bugs' section on Nexus Mods if possible. Otherwise try contacting the author directly (use the
+   'Contact' button on the Nexus Mods page). If you can't contact the author (or they never respond),
+   [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
+   and someone else will help if they can.
+3. Send them a message with the following information:
+   * ❑ A copy of the latest log file:
+
+     | Platform | Path  |
+     |:-------- |:----- |
+     | Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small> |
+     | Linux    | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt` |
+     | Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
    * ❑ Which mod is failing?
    * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
         all happen?)
