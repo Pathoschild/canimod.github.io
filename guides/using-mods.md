@@ -125,7 +125,7 @@ Most mods are still Windows-only since Linux/Mac modding is new.
 
 There are two main places to download mods:
 
-* [Nexus Mods](https://nexusmods.com/stardewvalley) has a huge repository of mods available.
+* [Nexus Mods](http://nexusmods.com/stardewvalley/) has a huge repository of mods available.
 * [The official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/)
   is a good place to ask questions, and some mods are available there. It's a bit more ad hoc, but
   feel free to ask for help.
