@@ -80,12 +80,13 @@ day | season | year |weather
 ----|--------|-------|-------
 1|spring|any|weather_sunny[1]
 1|summer|any|weather_sunny[1]
-12|summer|any|weather_lightning
-24|summer|any|weather_lightning
+13|summer|any|weather_lightning[2]
+25|summer|any|weather_lightning[2]
 1|fall|any|weather_sunny[1]
 1|winter|any|weather_sunny[1]
 
 [1] also set (and therefore overriden) by the newDay() function
+[2] These are set by current_day mod 12, which results in the 13th and 25th.
 
 Description:
 
@@ -170,9 +171,8 @@ day | season | year |weather|overriden by
 24|spring|any|weather_festival|newday
 1|summer|any|weather_sunny|newday and tv
 11|summer|any|weather_festival|newday
-12|summer|any|weather_lightning|tv
-13|summer|any|weather_lightning|newday
-24|summer|any|weather_lightning|tv
+13|summer|any|weather_lightning|newday and tv
+25|summer|any|weather_lightning|tv
 26|summer|any|weather_lightning|newday
 28|summer|any|weather_festival|newday
 1|fall|any|weather_sunny|newday and tv
