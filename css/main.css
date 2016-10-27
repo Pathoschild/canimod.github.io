@@ -113,9 +113,6 @@ table {
   margin: 12px 0;
   border-spacing: 0;
   border-collapse: unset;
-}
-table { 
-  width: 100%;
   margin-bottom: 20px;
   border: 1px solid #96473a;
 }
