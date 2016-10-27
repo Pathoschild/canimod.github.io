@@ -215,27 +215,27 @@ event once), and the `Released` variant is raised when they release it.
 
 | event | summary |
 |:----- |:------- |
-| `ControllerButtonPressed`<br />`ControllerButtonReleased` | The player pressed/released a button on a gamepad or controller. |
-| `ControllerTriggerPressed`<br />`ControllerTriggerReleased` | The player pressed/released a trigger button on a gamepad or controller. |
-| `KeyPressed`<br />`KeyReleased` | The player pressed/released a keyboard key. |
-| `KeyboardChanged` | The game's `KeyboardState` changed. This represents the current set of held-down keys, so it's triggered when the player presses or releases a key. |
-| `MouseChanged` | The game's `MouseState` changed. This represents the cursor's position and each button's up/down state, so it's triggered when the player moves the mouse or presses/releases a button. |
+| ControllerButtonPressed<br />ControllerButtonReleased | The player pressed/released a button on a gamepad or controller. |
+| ControllerTriggerPressed<br />ControllerTriggerReleased | The player pressed/released a trigger button on a gamepad or controller. |
+| KeyPressed<br />KeyReleased | The player pressed/released a keyboard key. |
+| KeyboardChanged | The game's `KeyboardState` changed. This represents the current set of held-down keys, so it's triggered when the player presses or releases a key. |
+| MouseChanged | The game's `MouseState` changed. This represents the cursor's position and each button's up/down state, so it's triggered when the player moves the mouse or presses/releases a button. |
 
 ### Game events
 `GameEvents` are raised when the game changes state.
 
 | event | summary |
 |:----- |:------- |
-| `Initialize` | Called during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's `Game.Initialize` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
-| `GameLoaded` | Called during launch after configuring Stardew Valley, loading it into memory, and opening the game window. The window is still blank by this point. |
-| `LoadContent` | Called before XNA loads or reloads graphics resources. Called from [XNA's `Game.LoadContent` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
-| `UpdateTick` | Called when the game updates its state (≈60 times per second). |
-| `SecondUpdateTick` | Called every other tick (≈30 times per second). |
-| `FourthUpdateTick` | Called every fourth tick (≈15 times per second). |
-| `EighthUpdateTick` | Called every eighth tick (≈8 times per second). |
-| `QuarterSecondTick` | Called every 15th tick (≈4 times per second). |
-| `HalfSecondTick` | Called every 30th tick (≈twice per second). |
-| `OneSecondTick` | Called every 60th tick (≈once per second). |
+| Initialize | Called during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's _Game.Initialize_ method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
+| GameLoaded | Called during launch after configuring Stardew Valley, loading it into memory, and opening the game window. The window is still blank by this point. |
+| LoadContent | Called before XNA loads or reloads graphics resources. Called from [XNA's _Game.LoadContent_ method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
+| UpdateTick | Called when the game updates its state (≈60 times per second). |
+| SecondUpdateTick | Called every other tick (≈30 times per second). |
+| FourthUpdateTick | Called every fourth tick (≈15 times per second). |
+| EighthUpdateTick | Called every eighth tick (≈8 times per second). |
+| QuarterSecondTick | Called every 15th tick (≈4 times per second). |
+| HalfSecondTick | Called every 30th tick (≈twice per second). |
+| OneSecondTick | Called every 60th tick (≈once per second). |
 
 ### Graphics events
 `GraphicsEvents` are raised during the game's draw loop, when the game is
@@ -243,9 +243,9 @@ rendering content to the window.
 
 | event | summary |
 |:----- |:------- |
-| `OnPreRenderEvent`<br />`OnPostRenderEvent` | Called before and after drawing everything to the screen during a draw loop.
-| `OnPreRenderGuiEvent`<br />`OnPostRenderGuiEvent` | When a menu is open (`Game1.activeClickableMenu != null`), called before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
-| `OnPreRenderHudEvent`<br />`OnPostRenderHudEvent` | Called before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
+| OnPreRenderEvent<br />OnPostRenderEvent | Called before and after drawing everything to the screen during a draw loop.
+| OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), called before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
+| OnPreRenderHudEvent<br />OnPostRenderHudEvent | Called before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
 | _other events_ | SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
 
 ### Location events
@@ -253,26 +253,26 @@ rendering content to the window.
 
 | event | summary |
 |:----- |:------- |
-| `CurrentLocationChanged` | Called after the player after transitions into a new area. Handlers are given the previous and new locations as arguments. |
-| `LocationObjectsChanged` | Called after the list of objects in the current location changes (e.g. an object is added or removed). Handlers are given the new list of objects as an argument. |
-| `LocationsChanged` | Called after a game location is added or removed. Handlers are passed the new list of locations as an argument. |
+| CurrentLocationChanged | Called after the player after transitions into a new area. Handlers are given the previous and new locations as arguments. |
+| LocationObjectsChanged | Called after the list of objects in the current location changes (e.g. an object is added or removed). Handlers are given the new list of objects as an argument. |
+| LocationsChanged | Called after a game location is added or removed. Handlers are passed the new list of locations as an argument. |
 
 ### Mine events
 `MineEvents` are raised when something happens in [The Mines](http://stardewvalleywiki.com/The_Mines).
 
 | event | summary |
 |:----- |:------- |
-| `MineLevelChanged` | Called after the player transitions to a new level of the mine. Handlers are passed the previous and new mine level as arguments. |
+| MineLevelChanged | Called after the player transitions to a new level of the mine. Handlers are passed the previous and new mine level as arguments. |
 
 ### Player events
 `PlayerEvents` are raised when the player data changes.
 
 | event | summary |
 |:----- |:------- |
-| `LoadedGame` | Called after the player loads a saved game. |
-| `FarmerChanged` | Called after the game changes player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
-| `InventoryChanged` | Called after the player's inventory changes in any way (added or removed item, sorted, etc). |
-| `LeveledUp` | Called after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
+| LoadedGame | Called after the player loads a saved game. |
+| FarmerChanged | Called after the game changes player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
+| InventoryChanged | Called after the player's inventory changes in any way (added or removed item, sorted, etc). |
+| LeveledUp | Called after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
 
 Notable bug: the `FarmerChanged`, `InventoryChanged`, and `LeveledUp` events are raised at various times
 before the game is loaded, when there's no character yet.
@@ -282,11 +282,11 @@ before the game is loaded, when there's no character yet.
 
 | event | summary |
 |:----- |:------- |
-| `TimeOfDayChanged` | Called after the in-game clock changes. |
-| `OnNewDay` | Called when the player is transitioning to a new day and the game is performing its day update logic. This event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
-| `DayOfMonthChanged` | Called after the day of month changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
-| `SeasonOfYearChanged` | Called after the season changes. |
-| `YearOfGameChanged` | Called after the year changes. |
+| TimeOfDayChanged | Called after the in-game clock changes. |
+| OnNewDay | Called when the player is transitioning to a new day and the game is performing its day update logic. This event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
+| DayOfMonthChanged | Called after the day of month changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
+| SeasonOfYearChanged | Called after the season changes. |
+| YearOfGameChanged | Called after the year changes. |
 
 ## Building a bigger mod
 If you've been following along, you've created a basic mod and have an idea what events SMAPI
