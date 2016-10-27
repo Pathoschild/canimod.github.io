@@ -103,28 +103,53 @@ li > p {
     margin: 0;
 }
 
+/**********
+** Table **
+**********/
 table {
-    border-spacing: 0;
-    border-collapse: collapse;
+  font-family: arial;
+  max-width: 100%;
+  background-color: transparent;
+  margin: 12px 0;
+  border-spacing: 0;
+  border-collapse: unset;
 }
-
-table tr {
-    background-color: #f9b163;
+table { 
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #96473a;
 }
-
-table tr:nth-child(2n) {
-    background-color: #eca456;
+table th,
+table td {
+  font-weight: normal;
+  font-size: 13px;
+  padding: 6px 13px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
 }
-
-table th {
-    font-weight: bold;
-    background-color: #db8053;
+table thead th {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #db8053;
+  vertical-align: bottom;
+} 
+table tbody > tr:nth-child(even) > td,
+table tbody > tr:nth-child(even) > th { 
+  border-top: 1px solid #96473a;
+  background-color: #eca456;
 }
-
-table th, table td {
-    padding: 6px 13px;
-    border: 1px solid #96473a;
+table tbody > tr:nth-child(odd) > td,
+table tbody > tr:nth-child(odd) > th {
+  border-top: 1px solid #96473a;
+  background-color: #f9b163;
 }
+table tbody > tr > td:not(:first-child) {
+  font-size: 14px;
+}
+/**********
+** Table **
+**********/
 
 blockquote {
     padding: 0 1em;
@@ -132,17 +157,25 @@ blockquote {
     border-left: 0.25em solid #96473a;
 }
 
-pre {
+pre, code {
     background: #151915;
     white-space: pre;
     word-wrap: break-word;
     overflow: auto;
 }
 
-pre.highlight {
+pre.highlight, code {
     border-radius: 4px;
     border: 1px solid #292929;
     position: relative;
+}
+
+code {
+    display: inline;
+    padding: 2px 4px 2px;
+    overflow-x: auto;
+    line-height: 17px;
+    color: #aed581;
 }
 
 pre.highlight code {
