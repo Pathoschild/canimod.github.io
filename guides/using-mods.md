@@ -171,25 +171,4 @@ Let's run through a quick checklist:
    again.
 
 ### Asking for help
-Couldn't fix it yourself? Most mod developers are happy to help, but they'll need some information
-to figure it out.
-
-1. Cause the problem again. (This makes sure any details are in the latest log.)
-2. Choose how you'll contact the mod developer. Use any support forums, discussion threads, or the
-   'bugs' section on Nexus Mods if possible. Otherwise try contacting the author directly (use the
-   'Contact' button on the Nexus Mods page). If you can't contact the author (or they never respond),
-   [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
-   and someone else will help if they can.
-3. Send them a message with the following information:
-   * ❑ A copy of the latest log file:
-
-     | Platform | Path  |
-     |:-------- |:----- |
-     | Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small> |
-     | Linux    | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt` |
-     | Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
-   * ❑ Which mod is failing?
-   * ❑ How exactly does it fail? (Does the game close? Does the screen go black? Does nothing at
-        all happen?)
-   * ❑ What were you doing when it broke? Did you notice a pattern (e.g. it always breaks when you
-        do X)?
+Couldn't fix it yourself? See _[asking for help](/guides/asking-for-help)._
