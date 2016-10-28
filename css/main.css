@@ -103,51 +103,6 @@ li > p {
     margin: 0;
 }
 
-/**********
-** Table **
-**********/
-table {
-  font-family: arial;
-  max-width: 100%;
-  background-color: transparent;
-  margin: 12px 0;
-  border-spacing: 0;
-  border-collapse: unset;
-  margin-bottom: 20px;
-  border: 1px solid #96473a;
-}
-table th,
-table td {
-  font-weight: normal;
-  font-size: 13px;
-  padding: 6px 13px;
-  line-height: 20px;
-  text-align: left;
-  vertical-align: middle;
-}
-table thead th {
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #db8053;
-  vertical-align: bottom;
-} 
-table tbody > tr:nth-child(even) > td,
-table tbody > tr:nth-child(even) > th { 
-  border-top: 1px solid #96473a;
-  background-color: #eca456;
-}
-table tbody > tr:nth-child(odd) > td,
-table tbody > tr:nth-child(odd) > th {
-  border-top: 1px solid #96473a;
-  background-color: #f9b163;
-}
-table tbody > tr > td:not(:first-child) {
-  font-size: 14px;
-}
-/**********
-** Table **
-**********/
-
 blockquote {
     padding: 0 1em;
     color: #777;
@@ -169,18 +124,47 @@ pre.highlight, code {
 
 code {
     display: inline;
-    padding: 2px 4px 2px;
-    overflow-x: auto;
-    line-height: 17px;
+    padding: 1px 4px;
+    font-size: 0.9em;
     color: #aed581;
 }
 
 pre.highlight code {
     display: block;
-    padding: 15px 16px 14px;
+    padding: 15px 16px;
     overflow-x: auto;
-    line-height: 19px;
     color: #aed581;
+}
+
+/*********
+** Table
+*********/
+table {
+    margin: 12px 0;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    border: 1px solid #96473a;
+}
+
+table th,
+table td {
+    padding: 6px 13px;
+    border-top: 1px solid #96473a;
+    background-color: #eca456;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table thead th {
+    font-weight: bold;
+    background-color: #db8053;
+    vertical-align: bottom;
+}
+
+table tbody tr:nth-child(odd) td,
+table tbody tr:nth-child(odd) th {
+    background-color: #f9b163;
 }
 
 /*********
@@ -207,8 +191,8 @@ body[data-section="main-page"] h3 {
 ** Article styles
 *********/
 p.warning {
-    display:inline-block;
-    padding:0.5em;
-    border:1px solid #96473a;
-    border-left:8px solid red;
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid #96473a;
+    border-left: 8px solid red;
 }
