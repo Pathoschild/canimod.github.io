@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Creating a SMAPI mod
-intro: Ready to make your own mod? This page will guide you from creating an empty project to building a small mod that runs on Linux, Mac, and Windows.
+intro: Ready to make your own mod? This page will guide you from creating an empty project to building a small mod that runs on Linux, Mac, and Windows. If you just want the quick version, see the <a href="#quick-start"><em>quick start</em> section</a>.
 ---
 
 ## Introduction
@@ -40,7 +40,7 @@ Here are some things which are **not** required:
 * A good grasp of math. You'll mainly use math for positioning when drawing to the screen, and
   that's mostly adding/subtracting offsets or multiplying for pixel zoom.
 
-The next two sections will walk you through creating a very simple mod. If you follow along, you'll
+The next few sections will walk you through creating a very simple mod. If you follow along, you'll
 have created a mod! All that will be left is making it do what you want. :)
 
 <span id="help"></span>
@@ -49,6 +49,19 @@ have created a mod! All that will be left is making it do what you want. :)
 The Stardew Valley modding community is very welcoming. Feel free to ask questions in the
 [modding forums](http://community.playstarbound.com/forums/mods.215/) or join the
 [Farmhand/SMAPI Discord server](https://discordapp.com/invite/0t3fh2xhHVc6Vdyx).
+
+## Quick start
+The rest of this page will help you create a mod. To give you some context, here's what you'll do
+by following along. (You don't need to remember this section.)
+
+1. Create an empty C# library project.
+2. Target .NET Framework 4.5 (for Linux compatibility).
+3. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
+   to automatically add the right references depending on the platform the mod is being compiled on.
+4. Create an entry class which subclasses `StardewModdingAPI.Mod`.
+5. Override the `Entry` method, and write your code using [the SMAPI events](#available-events).
+6. Create a [`manifest.json` file](#creating-your-mod-manifest) which describes your mod for SMAPI.
+6. Create [a zip file containing the mod files](#sharing-your-mod) for release.
 
 ## Getting started
 
@@ -92,7 +105,7 @@ set that up.
 This section is still experimental. If you run into any problems or need help, come <a href="#help">ask us for help</a>. :)
 </p>
 
-1. Reference the [`Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
    This will automatically configure your project to load the right modding dependencies for the
    current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
    debugging the mod in-game.
@@ -359,7 +372,6 @@ should create a new instance.
 ### Decompiling the game code
 When you start working on more complex mods, you may need to look at how the game code works.
 
-
 Here's how to decompile the game code so you can look at it:
 
 1. Open `StardewValley.exe` in [dotPeek](https://www.jetbrains.com/decompiler/).
@@ -380,7 +392,6 @@ Let's say you created a mod named _Pineapples Everywhere_ which turns all NPCs i
 here's how you would release it for others to use.
 
 ### Sharing your mod
-
 1. Copy your `manifest.json` and compiled files into a folder matching your mod's name (like
    `PineapplesEverywhere`). A few tips:
    * Only use letters in the folder name (no spaces or symbols) to simplify troubleshooting later.
@@ -397,7 +408,6 @@ PineapplesEverywhere-1.0-Windows.zip
       PineapplesEverywhere.pdb
       config.json
       manifest.json
-
 ```
 
 The best places to share your mod are [Nexus Mods](http://www.nexusmods.com/stardewvalley) and
