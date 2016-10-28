@@ -109,20 +109,26 @@ blockquote {
     border-left: 0.25em solid #96473a;
 }
 
-pre, code {
+code {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+pre, :not(a) > code {
     background: #151915;
     white-space: pre;
     word-wrap: break-word;
     overflow: auto;
+    font-family: monospace;
 }
 
-pre.highlight, code {
+pre.highlight, :not(a) > code {
     border-radius: 4px;
     border: 1px solid #292929;
     position: relative;
 }
 
-code {
+:not(a) > code {
     display: inline;
     padding: 1px 4px;
     font-size: 0.9em;

@@ -11,7 +11,7 @@ Making a mod compile on Linux, Mac, and Windows is pretty straightforward now.
    <small>_Warning: if you're crossplatforming someone else's mod, get their permission before modifying
    and re-releasing their work._</small>
 2. Remove any references to `Microsoft.Xna.*`, Stardew Valley, `StardewModdingAPI`, and `xTile`.
-3. Reference the [_Pathoschild.Stardew.ModBuildConfig_ NuGet package](https://www.nuget.org/packages/Pathoschild.Stardew.ModBuildConfig)
+3. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://www.nuget.org/packages/Pathoschild.Stardew.ModBuildConfig)
   (see [details](https://github.com/Pathoschild/Stardew.ModBuildConfig#readme)).
 
 That's it! Most mods will compile fine on Linux, Mac, and Windows with those changes. (A few mods
