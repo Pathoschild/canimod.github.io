@@ -173,7 +173,7 @@ table tbody tr:nth-child(odd) th {
 body[data-section="main-page"] .playerbox,
 body[data-section="main-page"] .devbox {
     float: left;
-    width: 16em;
+    width: 18em;
     margin-right: 0.5em;
 }
 
