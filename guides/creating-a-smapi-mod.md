@@ -413,25 +413,8 @@ PineapplesEverywhere-1.0-Windows.zip
 The best places to share your mod are [Nexus Mods](http://www.nexusmods.com/stardewvalley) and
 the [official modding forums](http://community.playstarbound.com/forums/mods.215/).
 
-### Supporting multiple platforms
-Letting players on Linux, Mac, and Windows use your mod involves one extra step.
-
-You need to compile two mod packages: one for Windows, and one for Linux and Mac. For example, for
-Linux support you'd compile the mod on either Linux or Mac, and create a separate mod package
-(like `PineapplesEverywhere-1.0-LinuxOrMac.zip`). If you're using the [crossplatform
-configuration](#configuring-the-build), your mod can be compiled on every platform with no code
-changes.
-
-The easiest way to do this is:
-
-1. Compile one package on your computer.
-2. Create a [virtual machine](https://www.virtualbox.org/) with Windows (if your computer is Linux
-   or Mac) or Linux (if your computer is Windows).
-3. Compile the second mod in the virtual machine.
-
-If you're not comfortable using virtual machines, some users may recompile it for you if they want
-to use your mod. Make sure to publish your source code (e.g. on GitHub) and mention that you're
-using the [crossplatform mod configuration](#configuring-the-build) to make things easy for them.
+### Releasing on multiple platforms
+Want to share your mod on Linux, Mac, and Windows? See _[crossplatforming a SMAPI mod](crossplatforming-a-smapi-mod)_.
 
 ## See also
 If you read the entire guide, congratulations! If you'd like to read _even more_ documentation,

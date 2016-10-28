@@ -1,10 +1,14 @@
 ---
 layout: default
 title: Crossplatforming a SMAPI mod
-intro: This page explains how to take an existing mod which only works on one platform, and make it compatible with Linux, Mac, and Windows. This assume you're already familiar with SMAPI development and are migrating an existing mod; if not, see <em><a href="/guides/creating-a-smapi-mod">creating a SMAPI mod</a></em> instead.
+intro: This page explains how to take an existing mod and make it compatible with Linux, Mac, and Windows. This guide assumes you're already familiar with SMAPI development; if not, see <em><a href="/guides/creating-a-smapi-mod">creating a SMAPI mod</a></em> instead.
 ---
 
 ## Making a mod crossplatform
+_If the mod already uses the crossplatform build configuration (e.g. because you used the _[creating a
+SMAPI mod](creating-a-smapi-mod)_ guide to make it), you can skip this section._
+
+
 Making a mod compile on Linux, Mac, and Windows is pretty straightforward now.
 
 1. Download the mod's source code.  
@@ -42,6 +46,20 @@ If your main computer is Mac or Linux, create a Windows virtual machine (VM):
 4. Install [Visual Studio Community](https://www.visualstudio.com/vs/community/) in your VM.
 
 ### Compiling a crossplatform mod
-Just compile one version on your main computer and the other in the virtual machine. Done! For more
-information on preparing mod packages (including naming and best practices), see
-_[creating a SMAPI mod](creating-a-smapi-mod)_.
+1. Compile one version on your main computer.
+2. Compile another version in your virtual machine.
+3. Create two archives with your mod's name, version, and platform.
+
+   For example, your mod structure should look something like this (`config.json` will only appear
+   if you added settings):
+
+   ```
+   PineapplesEverywhere-1.2-Windows.zip
+      PineapplesEverywhere/
+         PineapplesEverywhere.dll
+         PineapplesEverywhere.pdb
+         config.json
+         manifest.json
+   ```
+
+Done! For more information on packaging your mod, see _[creating a SMAPI mod: releasing your mod](creating-a-smapi-mod#releasing-your-mod)_.
