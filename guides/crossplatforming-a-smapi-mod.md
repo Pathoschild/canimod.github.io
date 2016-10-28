@@ -81,4 +81,8 @@ Done! For more information on packaging your mod, see _[creating a SMAPI mod: re
 The current status of cross-compiling is that we only recently found out that it works. Currently we have a cross-platform tool that works on Linux, but also could work on Mac.
 
 ### Cross-compiling on Linux
-(I'll propose now and see what happens ...)
+You can download the [build scripts](https://github.com/rumangerst/StardewValleyMisc/releases/tag/crosscompile-linux-1.0) for cross-compiling on Linux. Then open the README.md file and follow the instructions.
+
+You'll need to gather some files like the XNA runtime (You can use WINE), SMAPI and other libraries. Also do this for Linux. For Mac you can just copy the files for Linux as there's no difference according to current knowledge.
+
+This tool includes support for [SilVerPLuM](https://github.com/rumangerst/SilVerPLuM) if you edit the entries in the Silverplum directory to match with your mod. You also have the option to ignore this.
