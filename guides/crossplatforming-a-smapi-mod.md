@@ -39,7 +39,7 @@ We recommend [VirtualBox](https://www.virtualbox.org/) for creating virtual mach
 ### Linux virtual machine (Windows users)
 
 1. Install [VirtualBox](https://www.virtualbox.org/).
-2. [Create a VM with Ubuntu](https://brb.nci.nih.gov/bdge/installUbuntu.html).
+2. You can install [Ubuntu](https://brb.nci.nih.gov/bdge/installUbuntu.html), although you might run into problems with Steam. You can also use [Manjaro](https://manjaro.org/get-manjaro/), which comes with Steam preinstalled or any other distribution.
 3. Install Stardew Valley in your VM.
 4. Install [MonoDevelop](http://www.monodevelop.com/) in your VM.
 
