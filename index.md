@@ -30,7 +30,8 @@ This is a collaborative open-source site documenting the anarchy.
             <li><a href="guides/crossplatforming-a-smapi-mod">Crossplatforming a SMAPI mod</a></li>
             <li>Advanced topics:
                 <ul>
-                    <li><a href="guides/npc-gift-tastes">NPC Gift tastes</a></li>
+                    <li><a href="guides/npc-gift-tastes">NPC gift tastes</a></li>
+                    <li><a href="guides/object-data">Object data</a></li>
                     <li><a href="guides/weather">Weather</a></li>
                 </ul>
             </li>
