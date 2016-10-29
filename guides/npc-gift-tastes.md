@@ -87,8 +87,6 @@ This contains two types of data:
   This data means she should personally love item 66, dislikes category -5, etc.
 
 ## How a gift taste is determined
-
-### Problem
 The data format allows tastes to conflict in multiple ways:
 
 * between an item ID and category ID;
@@ -96,7 +94,6 @@ The data format allows tastes to conflict in multiple ways:
 * between conflicting values (e.g. Jodi both loves and hates Daffodils specifically);
 * and any combination of the above (e.g. between a universal item ID and personal category ID).
 
-### Algorithm
 The game uses a rather complicated algorithm to determine how much an NPC likes an gift (see
 `NPC::getGiftTasteForThisItem`). Here's a cleaned up version of the algorithm in pseudocode:
 
