@@ -90,6 +90,7 @@ This contains two types of data:
 
 ### Problem
 The data format allows tastes to conflict in multiple ways:
+
 * between an item ID and category ID;
 * between a universal taste and personal taste;
 * between conflicting values (e.g. Jodi both loves and hates Daffodils specifically);
