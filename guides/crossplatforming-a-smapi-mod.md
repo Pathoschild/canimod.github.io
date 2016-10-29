@@ -35,11 +35,11 @@ your computer, and the other in a virtual machine.
 #### If your main computer is Windows
 
 1. Install [VirtualBox](https://www.virtualbox.org/).
-2. Add [this premade Linux virtual machine](https://drive.google.com/file/d/0B3c8rHzBL-BiQlViajdEeFJVMk0/view)
+2. Add [this premade Linux virtual machine](https://www.dropbox.com/s/nrq9xsde2afp4ey/StardewValleyLinuxModding.7z)
    (requires a 64-bit computer).  
    _<small>In VirtualBox, click Machine » Add and choose the downloaded `.vbox` file. This is a
-   [Manjaro](https://manjaro.org/get-manjaro/) virtual machine with Chromium (web browser), Steam,
-   and [MonoDevelop](http://www.monodevelop.com/) preinstalled.</small>_
+   [Manjaro](https://manjaro.org/) virtual machine with Chromium (web browser), Steam, and
+   [MonoDevelop](http://www.monodevelop.com/) preinstalled.</small>_
 4. Launch the virtual machine, and install Stardew Valley from the Steam client (preinstalled) or GOG website.  
    _<small>Tip: don't change the default install path, or you'll need to customise the mod's build
    configuration.</small>_
@@ -94,7 +94,7 @@ but hasn't been extensively tested.
    they're nearly identical.</small>_
 
 The build scripts include support for [SilVerPLuM](https://github.com/rumangerst/SilVerPLuM) if you
-edit the entries in the Silverplum directory to match with your mod. This is optional.
+edit the entries in the Silverplum directory to match your mod. This is optional.
 
 ### From Windows
 This isn't supported yet. In theory the build scripts just need to be ported to Windows.
