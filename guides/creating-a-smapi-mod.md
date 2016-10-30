@@ -296,8 +296,8 @@ before the game is loaded, when there's no character yet.
 | event | summary |
 |:----- |:------- |
 | TimeOfDayChanged | Called after the in-game clock changes. |
-| OnNewDay | Called when the player is transitioning to a new day and the game is performing its day update logic. This event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
-| DayOfMonthChanged | Called after the day of month changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
+| OnNewDay | Called when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
+| DayOfMonthChanged | Called after the day-of-month value changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
 | SeasonOfYearChanged | Called after the season changes. |
 | YearOfGameChanged | Called after the year changes. |
 
