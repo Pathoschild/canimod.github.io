@@ -21,7 +21,7 @@ Making a mod compile on Linux, Mac, and Windows is pretty straightforward now.
 That's it! Most mods will compile fine on Linux, Mac, and Windows with those changes. (A few mods
 might need further tweaks if they do unusual things.)
 
-## Releasing a mod
+## Preparing a mod release
 Packaging a mod for players on Linux, Mac, and Windows is a bit more work since the game is
 implemented differently on Linux/Mac than Windows. There's some first-time setup, but afterwards
 preparing mod releases is pretty easy.
@@ -51,7 +51,7 @@ your computer, and the other in a virtual machine.
 3. Install [Visual Studio Community](https://www.visualstudio.com/vs/community/) in your VM.
 4. Install Stardew Valley in your VM.
 
-### Preparing a mod release
+### Compiling release packages
 1. Compile one version on your main computer.
 2. Compile another version in your virtual machine.
 3. Create three archives with your mod's name, version, and platform. (To reduce confusion, it's
@@ -82,19 +82,26 @@ PineappleMod-1.2-Mac.tar.gz
 Done! For more information on releasing your mod, see _[creating a SMAPI mod: releasing your mod](creating-a-smapi-mod#releasing-your-mod)_.
 
 ## Experimental alternative: cross-compiling
-An alternative approach is to compile both versions from the same machine. This works in theory,
-but hasn't been extensively tested.
+Instead of compiling your packages using a virtual machine, you can cross-compile from the same
+machine. This works on any platform, but hasn't been extensively tested. Note that you may still
+need a virtual machine to test your mod on both Linux/Mac and Windows.
 
-### From Linux or Mac
-1. Download the [build scripts](https://github.com/rumangerst/StardewValleyMisc/releases/tag/crosscompile-linux-1.0)
-   for cross-compiling on Linux.
-2. Open the `README.md` file and follow the instructions.  
-   _<small>You'll need to gather some files like the XNA runtime (You can use WINE), SMAPI and
-   other libraries. Also do this for Linux. For Mac you can just copy the files for Linux since
-   they're nearly identical.</small>_
+### First-time setup
 
-The build scripts include support for [SilVerPLuM](https://github.com/rumangerst/SilVerPLuM) if you
-edit the entries in the Silverplum directory to match your mod. This is optional.
+1. Install [Mono](http://www.mono-project.com/).
+2. Install [Python 3](https://www.python.org/). Make sure to enable the option that adds it to your
+   path or environment variables.
 
-### From Windows
-This isn't supported yet. In theory the build scripts just need to be ported to Windows.
+### Preparing a mod release
+
+1. Extract [SDVCrosscompile](https://github.com/rumangerst/StardewValleyMisc/releases) into your
+   mod folder. (The `xcompile.py` file should be right next to your mod's `*.sln` file.)
+2. In a terminal or command prompt, run this command from the mod folder:
+
+   ```
+   python xcompile.py --no-silverplum
+   ```
+
+This will create three mod packages in a folder named `xbuild_result_<platform>`.
+
+For more information, see [the SDVCrosscompile readme](https://github.com/rumangerst/StardewValleyMisc/tree/master/Crosscompile).
