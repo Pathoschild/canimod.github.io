@@ -217,10 +217,10 @@ The minimal mod we created above reacts when the player presses a key, but it ca
 These are the events your mod can subscribe to.
 
 ### Control events
-`ControlEvents` are raised when the player uses a controller, keyboard, or mouse input. They're
-raised before the game handles the input, so it's possible to selectively prevent the game from
-responding to it. (That's beyond the scope of this guide, but it involves overwriting
-`Game1.oldKBState`,  `Game1.oldMouseState`, and `Game1.oldPadState`.)
+`ControlEvents` are raised when the player uses a controller, keyboard, or mouse. They're raised
+before the game handles the input, so it's possible to selectively prevent the game from responding
+to it. (That's beyond the scope of this guide, but it involves overwriting `Game1.oldKBState`,
+`Game1.oldMouseState`, and `Game1.oldPadState`.)
 
 Most of these events are split into two variants, `XPressed` and `XReleased`. The `Pressed`
 variant is raised when the player presses the button (holding the button down only triggers the
@@ -228,27 +228,27 @@ event once), and the `Released` variant is raised when they release it.
 
 | event | summary |
 |:----- |:------- |
-| ControllerButtonPressed<br />ControllerButtonReleased | The player pressed/released a button on a gamepad or controller. |
-| ControllerTriggerPressed<br />ControllerTriggerReleased | The player pressed/released a trigger button on a gamepad or controller. |
-| KeyPressed<br />KeyReleased | The player pressed/released a keyboard key. |
-| KeyboardChanged | The game's `KeyboardState` changed. This represents the current set of held-down keys, so it's triggered when the player presses or releases a key. |
-| MouseChanged | The game's `MouseState` changed. This represents the cursor's position and each button's up/down state, so it's triggered when the player moves the mouse or presses/releases a button. |
+| ControllerButtonPressed<br />ControllerButtonReleased | Raised after the player pressed/released a button on a gamepad or controller. These events aren't raised for trigger buttons. |
+| ControllerTriggerPressed<br />ControllerTriggerReleased | Raised after the player pressed/released a trigger button on a gamepad or controller. |
+| KeyPressed<br />KeyReleased | Raised after the player pressed/released a keyboard key. |
+| KeyboardChanged | Raised after the game's `KeyboardState` changed. That happens when the player presses or releases a key. |
+| MouseChanged | Raised after the game's `MouseState` changed. That happens when the player moves the mouse, scrolls the mouse wheel, or presses/releases a button. |
 
 ### Game events
 `GameEvents` are raised when the game changes state.
 
 | event | summary |
 |:----- |:------- |
-| Initialize | Called during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's `Game.Initialize` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
-| GameLoaded | Called during launch after configuring Stardew Valley, loading it into memory, and opening the game window. The window is still blank by this point. |
-| LoadContent | Called before XNA loads or reloads graphics resources. Called from [XNA's `Game.LoadContent` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
-| UpdateTick | Called when the game updates its state (≈60 times per second). |
-| SecondUpdateTick | Called every other tick (≈30 times per second). |
-| FourthUpdateTick | Called every fourth tick (≈15 times per second). |
-| EighthUpdateTick | Called every eighth tick (≈8 times per second). |
-| QuarterSecondTick | Called every 15th tick (≈4 times per second). |
-| HalfSecondTick | Called every 30th tick (≈twice per second). |
-| OneSecondTick | Called every 60th tick (≈once per second). |
+| Initialize | Raised during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's `Game.Initialize` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
+| GameLoaded | Raised during launch after configuring Stardew Valley, loading it into memory, and opening the game window. The window is still blank by this point. |
+| LoadContent | Raised before XNA loads or reloads graphics resources. Called from [XNA's `Game.LoadContent` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
+| UpdateTick | Raised when the game updates its state (≈60 times per second). |
+| SecondUpdateTick | Raised every other tick (≈30 times per second). |
+| FourthUpdateTick | Raised every fourth tick (≈15 times per second). |
+| EighthUpdateTick | Raised every eighth tick (≈8 times per second). |
+| QuarterSecondTick | Raised every 15th tick (≈4 times per second). |
+| HalfSecondTick | Raised every 30th tick (≈twice per second). |
+| OneSecondTick | Raised every 60th tick (≈once per second). |
 
 ### Graphics events
 `GraphicsEvents` are raised during the game's draw loop, when the game is
@@ -256,50 +256,59 @@ rendering content to the window.
 
 | event | summary |
 |:----- |:------- |
-| OnPreRenderEvent<br />OnPostRenderEvent | Called before and after drawing everything to the screen during a draw loop.
-| OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), called before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
-| OnPreRenderHudEvent<br />OnPostRenderHudEvent | Called before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
+| OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing everything to the screen during a draw loop.
+| OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), raised before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
+| OnPreRenderHudEvent<br />OnPostRenderHudEvent | Raised before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
+| Resize | Raised after the game window is resized. |
 | _other events_ | SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
 
 ### Location events
-`LocationEvents` are raised when the player transitions between game locations.
+`LocationEvents` are raised when the player transitions between game locations, a location is added or removed, or the objects in the current location change.
 
 | event | summary |
 |:----- |:------- |
-| CurrentLocationChanged | Called after the player after transitions into a new area. Handlers are given the previous and new locations as arguments. |
-| LocationObjectsChanged | Called after the list of objects in the current location changes (e.g. an object is added or removed). Handlers are given the new list of objects as an argument. |
-| LocationsChanged | Called after a game location is added or removed. Handlers are passed the new list of locations as an argument. |
+| CurrentLocationChanged | Raised after the player warps to a new location. Handlers are given the previous and new locations as arguments. |
+| LocationObjectsChanged | Raised after the list of objects in the current location changes (e.g. an object is added or removed). Handlers are given the new list of objects as an argument. |
+| LocationsChanged | Raised after a game location is added or removed. Handlers are passed the new list of locations as an argument. |
+
+### Menu events
+`MenuEvents` are raised when a game menu is opened or closed (including internal menus like the title screen).
+
+| event | summary |
+|:----- |:------- |
+| MenuChanged | Raised after a game menu is opened or replaced with another menu. This event is not invoked when a menu is closed. Handlers are given the previous menu (if any) and new menu (if any). |
+| MenuClosed | Raised after a game menu is closed. Handlers are given the previous menu. |
 
 ### Mine events
 `MineEvents` are raised when something happens in [The Mines](http://stardewvalleywiki.com/The_Mines).
 
 | event | summary |
 |:----- |:------- |
-| MineLevelChanged | Called after the player transitions to a new level of the mine. Handlers are passed the previous and new mine level as arguments. |
+| MineLevelChanged | Raised after the player warps to a new level of the mine. Handlers are passed the previous and new mine level as arguments. |
 
 ### Player events
 `PlayerEvents` are raised when the player data changes.
 
 | event | summary |
 |:----- |:------- |
-| LoadedGame | Called after the player loads a saved game. |
-| FarmerChanged | Called after the game changes player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
-| InventoryChanged | Called after the player's inventory changes in any way (added or removed item, sorted, etc). |
-| LeveledUp | Called after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
+| LoadedGame | Raised after the player loads a saved game. |
+| FarmerChanged | Raised after the game assigns a new player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
+| InventoryChanged | Raised after the player's inventory changes in any way (added or removed item, sorted, etc). |
+| LeveledUp | Raised after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
 
 Notable bug: the `FarmerChanged`, `InventoryChanged`, and `LeveledUp` events are raised at various times
 before the game is loaded, when there's no character yet.
 
 ### Time events
-`TimeEvents` are raised when the in-game time changes.
+`TimeEvents` are raised when the in-game date or time changes.
 
 | event | summary |
 |:----- |:------- |
-| TimeOfDayChanged | Called after the in-game clock changes. |
-| OnNewDay | Called when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
-| DayOfMonthChanged | Called after the day-of-month value changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
-| SeasonOfYearChanged | Called after the season changes. |
-| YearOfGameChanged | Called after the year changes. |
+| TimeOfDayChanged | Raised after the in-game clock changes. |
+| DayOfMonthChanged | Raised after the day-of-month value changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
+| SeasonOfYearChanged | Raised after the season changes. |
+| YearOfGameChanged | Raised after the year changes. |
+| OnNewDay | Raised when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
 
 ## Building a bigger mod
 If you've been following along, you've created a basic mod and have an idea what events SMAPI
