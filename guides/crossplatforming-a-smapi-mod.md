@@ -86,22 +86,35 @@ Instead of compiling your packages using a virtual machine, you can cross-compil
 machine. This works on any platform, but hasn't been extensively tested. Note that you may still
 need a virtual machine to test your mod on both Linux/Mac and Windows.
 
+For more information, see the [SDVCrosscompile project](https://github.com/rumangerst/SDVCrosscompile).
+The rest of this section shows one way of using it, but there are other options including
+integrated into Visual Studio or MonoDevelop.
+
 ### First-time setup
 
 1. Install [Mono](http://www.mono-project.com/).
 2. Install [Python 3](https://www.python.org/). Make sure to enable the option that adds it to your
    path or environment variables.
+3. Download [SDVCrosscompile](https://github.com/rumangerst/SDVCrosscompile/releases) into its own
+   folder somewhere.
+4. In the mod folder, create the compile script:
+   * On Linux or Mac, create a `compile-packages.sh` file containing this command:
+
+     ```
+     /path/to/xcompile.sh --output "compiled-packages"
+     ```
+
+     Don't forget to `chmod +x` the file so it's executable.
+
+   * On Windows, create a `compile-packages.bat` file containing this command:
+
+     ```
+     C:\path\to\xcompile.bat --output "compiled-packages"
+     ```
 
 ### Preparing a mod release
 
-1. Extract [SDVCrosscompile](https://github.com/rumangerst/StardewValleyMisc/releases) into your
-   mod folder. (The `xcompile.py` file should be right next to your mod's `*.sln` file.)
-2. In a terminal or command prompt, run this command from the mod folder:
+When you want to compile the mod, just run the `compile-packages` script you created above. This
+will create three mod packages in a folder named `compiled-packages`.
 
-   ```
-   python xcompile.py --no-silverplum
-   ```
-
-This will create three mod packages in a folder named `xbuild_result_<platform>`.
-
-For more information, see [the SDVCrosscompile readme](https://github.com/rumangerst/StardewValleyMisc/tree/master/Crosscompile).
+For more information and for support, see the [SDVCrosscompile project](https://github.com/rumangerst/SDVCrosscompile).
