@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Weather
+intro: This page explains how the game handles weather. This is meant as an in depth overview for modders.
 ---
 
 Weather in Stardew Valley runs from multiple sources.
@@ -189,6 +190,10 @@ The following will always apply: snowing sets _7_, sunny _2_, wedding _0_, festi
 In spring, debris weather is _3_, summer will be __unset__, fall _6_, and winter _7_ (the same as snowing)
 
 These icons are located in _LooseSprite/Cursors.xnb_
+
+# Weather and Save Files
+
+Your save file is a snapshot of the day at 0600 the next morning. As such, changing WeatherForTommorow in there will not affect the day loaded. If you really need to alter weather, you'll want to look at the following attributes: ```isRaining, isDebrisWeather, isLightning, isSnowing```
 
 # Comments (Modding)
 
