@@ -1,7 +1,12 @@
 ---
 layout: default
 title: Using mods
-intro: Welcome to Stardew Valley modding! This guide will help you install mods and troubleshoot problems.
+intro: >
+   Welcome to Stardew Valley modding! This guide will help you install mods and troubleshoot problems.
+   <p class="warning">
+     This guide is for the SMAPI 1.0 beta. If you're using the released version, see the
+     <a href="using-mods">guide for the released version</a>.
+   </p>
 ---
 
 ## Some background
@@ -47,7 +52,7 @@ game, and you can stop using mods anytime by just not running its launcher.
 
 ### On Windows
 1. Make sure you're running the latest version of the game.
-2. Download the [latest version of SMAPI](https://github.com/cjsu/SMAPI/releases).
+2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
 3. Unzip the files into your game directory. Typical location:
 
    | Platform | Path  |
@@ -69,49 +74,42 @@ If you play the game through Steam, you can configure Steam to launch SMAPI dire
    ```
 
 ### On Linux
-<p class="warning">
-Linux support is experimental. If you run into any problems or need help, come <a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
-</p>
-
 1. Make sure you're running the latest version of the the game.
-2. Find your game directory (which has the `StardewValley.exe` file). Typical locations:
+2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
+3. Unzip the files into your game directory. Typical location:
 
    | Platform | Path  |
    |:-------- |:----- |
    | GOG      | `~/GOG Games/Stardew Valley/game` |
    | Steam    | `~/.local/share/Steam/steamapps/common/Stardew Valley` |
 
-3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
-4. Unzip the [latest version of SMAPI for Linux](https://github.com/vizv/SMAPI/releases)
-   (unofficial) into your game directory.
+That's it. Just launch the `StardewModdingAPI` launcher instead of `StardewValley` to launch SMAPI
+directly.
 
-That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
-anytime by running `StardewValley.unmodded` instead.
+If you play the game through Steam, you can replace the game launcher to launch SMAPI directly:
+
+1. Open the game directory.
+2. Rename the `StardewValley` launcher to `StardewValley-without-mods`.
+3. Rename the `StardewModdingAPI` launcher to `StardewValley`.
 
 ### On Mac
-<p class="warning">
-Mac support is experimental. If you run into any problems or need help, come
-<a href="https://discord.gg/KCJHWhX">ask us on Discord</a>. :)
-</p>
-
 1. Make sure you're running the latest version of the the game.
-2. Find your game directory (which has the `StardewValley.exe` file). Typical locations:
+2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
+3. Unzip the files into your game directory. Typical locations:
 
    | Platform | Path  |
    |:-------- |:----- |
    | GOG      | _unknown_ (let us know!) |
    | Steam    | `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS` |
 
-3. Rename `StardewValley` in your game directory to `StardewValley.unmodded`.
-4. Unzip the [latest version of SMAPI for Mac](https://github.com/MacLeek/SMAPI/releases)
-   (unofficial) into a temporary directory.
-5. Double-click the `install` file, which will automatically add the other files to the right
-   places.
-6. The installer will preinstall several mods in the `Mods` directory under the game directory.
-   You can safely remove any mods you don't want.
+That's it. Just launch the `StardewModdingAPI` launcher instead of `StardewValley` to launch SMAPI
+directly.
 
-That's it. Just launch Stardew Valley normally to use the game with mods. You can stop using mods
-anytime by running `StardewValley.unmodded` instead.
+If you play the game through Steam, you can replace the game launcher to launch SMAPI directly:
+
+1. Open the game directory.
+2. Rename the `StardewValley` launcher to `StardewValley-without-mods`.
+3. Rename the `StardewModdingAPI` launcher to `StardewValley`.
 
 ## Downloading & installing mods
 If you've done everything above, the hard part is done! To install a mod, just unzip it into the

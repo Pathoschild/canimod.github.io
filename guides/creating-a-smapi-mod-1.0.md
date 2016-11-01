@@ -1,7 +1,12 @@
 ---
 layout: default
 title: Creating a SMAPI mod
-intro: Ready to make your own mod? This page will guide you from creating an empty project to building a small mod that runs on Linux, Mac, and Windows. If you just want the quick version, see the <a href="#quick-start"><em>quick start</em> section</a>.
+intro: > 
+   Ready to make your own mod? This page will guide you from creating an empty project to building a small mod that runs on Linux, Mac, and Windows. If you just want the quick version, see the <a href="#quick-start"><em>quick start</em> section</a>.<br />
+   <p class="warning">
+     This guide is for the SMAPI 1.0 beta. If you're using the released version, see the
+     <a href="creating-a-smapi-mod">guide for the released version</a>.
+   </p>
 ---
 
 ## Introduction
@@ -68,7 +73,7 @@ by following along. (You don't need to remember this section.)
 ### Prerequisites
 Before you start:
 
-* You should read _[using mods](using-mods)_ to learn the basic concepts and install SMAPI.
+* You should read _[using mods](using-mods-1.0)_ to learn the basic concepts and install SMAPI.
 * You should install:
   * Stardew Valley;
   * SMAPI;
@@ -89,6 +94,7 @@ A SMAPI mod is a compiled library (DLL) with an entry method that gets called by
 set that up.
 
 ### Creating the project structure
+
 1. Open Visual Studio or MonoDevelop.
 2. Create a new solution with a library project.
    * <small>In Visual Studio, choose _Class Library_ under _Visual C#_.</small>
@@ -101,9 +107,6 @@ set that up.
 3. Delete the `Class1.cs` or `MyClass.cs` file.
 
 ### Configuring the build
-<p class="warning">
-This section is still experimental. If you run into any problems or need help, come <a href="#help">ask us for help</a>. :)
-</p>
 
 1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
    This will automatically configure your project to load the right modding dependencies for the
@@ -143,7 +146,7 @@ The mod manifest tells SMAPI about your mod.
    ```json
    {
       "Name": "<your project name>",
-      "Authour": "<your name>",
+      "Author": "<your name>",
       "Version": {
          "MajorVersion": 1,
          "MinorVersion": 0,
