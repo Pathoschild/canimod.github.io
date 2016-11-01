@@ -118,9 +118,9 @@ If you've done everything above, the hard part is done! To install a mod, just u
 game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
 
 <p class="warning">
-<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod has a Linux/Mac version
-or specifies Linux/Mac compatibility. SMAPI mods need to be compiled specifically for Linux and Mac.
-Most mods are still Windows-only since Linux/Mac modding is new.
+<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod has a Linux/Mac version.
+SMAPI mods need to be compiled specifically for Linux and Mac. Most mods are still Windows-only
+since crossplatform modding is new.
 </p>
 
 There are two main places to download mods:

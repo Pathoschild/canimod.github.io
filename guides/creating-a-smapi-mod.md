@@ -339,18 +339,13 @@ updating it. Here's how to set it up:
        /*********
        ** Public methods
        *********/
-       /// <summary>Construct a default instance.</summary>
-       public ModConfig()
-       {
-           this.ExampleBoolean = true;
-           this.ExampleFloat = 0.5;
-       }
-
        /// <summary>Construct the default configuration.</summary>
        /// <typeparam name="T">The expected configuration type.</typeparam>
        public override T GenerateDefaultConfig<T>()
        {
-           return new ModConfig() as T;
+           this.ExampleBoolean = true;
+           this.ExampleFloat = 0.5;
+           return this as T;
        }
    }
    ```
@@ -358,7 +353,7 @@ updating it. Here's how to set it up:
 3. In your `ModEntry::Entry` method, add this line:
 
    ```
-   ModConfig config = new ExampleConfig().InitializeConfig(BaseConfigPath);
+   ModConfig config = new ExampleConfig().InitializeConfig(this.BaseConfigPath);
    ```
 
 When the player launches the game, SMAPI will create the `config.json` file automatically if it
@@ -374,9 +369,6 @@ You can replace `ExampleBoolean` and `ExampleFloat` with your own properties. Yo
 settings you want, as long as they're all public non-static properties (like the examples). You can
 even use complex types like `IDictionary<T, T>`; SMAPI will use [Json.NET](http://www.newtonsoft.com/json)
 to serialise and deserialise them.
-
-As a best practice, the constructor should set the default values and `GenerateDefaultConfig`
-should create a new instance.
 
 ### Decompiling the game code
 When you start working on more complex mods, you may need to look at how the game code works.
