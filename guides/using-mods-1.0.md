@@ -48,77 +48,65 @@ released yet.
 
 ## Installing SMAPI
 SMAPI is the modding API which runs the game with mods. It's safely installed alongside your normal
-game, and you can stop using mods anytime by just not running its launcher.
+game, and you can uninstall it anytime.
 
 ### On Windows
+
 1. Make sure you're running the latest version of the game.
-2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
-3. Unzip the files into your game directory. Typical location:
+2. Download the <s>latest version of SMAPI 1.0 beta</s> (not public yet).
+3. Extract the `.zip` file somewhere.
+4. Double-click `install.exe` to install the game. (The installer will detect your game and add
+   SMAPI for you.)
+5. From now on, launch `StardewModdingAPI.exe` instead of the game's normal executable. Here's how:
+   * If you play through Steam:
+      1. In the Steam client, right-click _Stardew Valley_ and choose _Properties_.
+      2. Click _Set Launch Options_.
+      3. Enter this command:
+      
+         ```
+         StardewModdingAPI %command%
+         ```
+   * If you play through a shortcut:
+      1. Right-click on the shortcut and choose _Properties_.
+      2. In the 'Target' box, change `Stardew Valley.exe` to `StardewModdingAPI.exe`.
 
-   | Platform | Path  |
-   |:-------- |:----- |
-   | GOG      | `C:\Program Files (x86)\GalaxyClient\Games\Stardew Valley` |
-   | Steam    | `C:\Program Files (x86)\Steam\steamapps\common\StardewValley` |
+That's it!
 
-That's it. Just launch `StardewModdingAPI.exe` instead of the default executable to use the game
-with mods.
+If you want to remove SMAPI later, just run `install.exe` and choose _uninstall_ (don't forget to
+undo your changes from step 5).
 
-If you play the game through Steam, you can configure Steam to launch SMAPI directly:
+### On Linux or Mac
+1. Make sure you're running the latest version of the game.
+2. Download the <s>latest version of SMAPI 1.0 beta</s> (not public yet).
+3. Extract the `.zip` file somewhere.
+4. Open a terminal in the extracted folder and run `mono install.exe`. (The installer will detect
+   your game and add SMAPI for you.)
 
-1. In the Steam client, right-click Stardew Valley and choose _Properties_.
-2. Click _Set Launch Options_.
-3. Enter the following command, including the quotes. (Correct the path if needed.)
+That's it! You can launch the game the usual way to use SMAPI.
 
-   ```
-   "C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%
-   ```
+If you want to remove SMAPI later, just run `mono install.exe` and choose _uninstall._
 
-### On Linux
-1. Make sure you're running the latest version of the the game.
-2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
-3. Unzip the files into your game directory. Typical location:
+### Manual install (not recommended)
+The installer is the recommended way to install SMAPI, but you can also install it manually.
 
-   | Platform | Path  |
-   |:-------- |:----- |
-   | GOG      | `~/GOG Games/Stardew Valley/game` |
-   | Steam    | `~/.local/share/Steam/steamapps/common/Stardew Valley` |
-
-That's it. Just launch the `StardewModdingAPI` launcher instead of `StardewValley` to launch SMAPI
-directly.
-
-If you play the game through Steam, you can replace the game launcher to launch SMAPI directly:
-
-1. Open the game directory.
-2. Rename the `StardewValley` launcher to `StardewValley-without-mods`.
-3. Rename the `StardewModdingAPI` launcher to `StardewValley`.
-
-### On Mac
-1. Make sure you're running the latest version of the the game.
-2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
-3. Unzip the files into your game directory. Typical locations:
-
-   | Platform | Path  |
-   |:-------- |:----- |
-   | GOG      | _unknown_ (let us know!) |
-   | Steam    | `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS` |
-
-That's it. Just launch the `StardewModdingAPI` launcher instead of `StardewValley` to launch SMAPI
-directly.
-
-If you play the game through Steam, you can replace the game launcher to launch SMAPI directly:
-
-1. Open the game directory.
-2. Rename the `StardewValley` launcher to `StardewValley-without-mods`.
-3. Rename the `StardewModdingAPI` launcher to `StardewValley`.
+1. Make sure you're running the latest version of the game.
+2. Download the <s>latest version of SMAPI 1.0 beta</s> (not public yet).
+3. Unzip the `.zip` file somewhere.
+4. Copy the files from the `Mono` directory (if Linux/Mac) or `Windows` directory (if Windows)
+   into your game directory. If you did it properly, the `StardewModdingAPI.exe` file should be
+   right next to the game's executable.
+5. 
+   * Windows: see the [Windows instructions above](#Windows) to launch SMAPI instead of the game.
+   * Linux/Mac: rename the `StardewValley` launcher to `StardewValley-original`, and rename
+     `StardewModdingAPI` to `StardewValley`.
 
 ## Downloading & installing mods
 If you've done everything above, the hard part is done! To install a mod, just unzip it into the
 game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
 
 <p class="warning">
-<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod has a Linux/Mac version.
-SMAPI mods need to be compiled specifically for Linux and Mac. Most mods are still Windows-only
-since crossplatform modding is new.
+<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod says it supports your
+platform or has a download for it. Most mods are still Windows-only.
 </p>
 
 There are two main places to download mods:
