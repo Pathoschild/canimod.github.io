@@ -195,6 +195,20 @@ These icons are located in _LooseSprite/Cursors.xnb_
 
 Your save file is a snapshot of the day at 0600 the next morning. As such, changing WeatherForTommorow in there will not affect the day loaded. If you really need to alter weather, you'll want to look at the following attributes: ```isRaining, isDebrisWeather, isLightning, isSnowing```
 
+# Detecting Current Weather
+
+This is a brief overview. While it's generally obvious, I'll lay it out
+
+weather | isRaining | isDebrisWeather| isLightning| isSnowing
+-------|-----------|------------|-----------|--------------
+Sunny|F|F|F|F
+Rainy|T|F|F|F
+Storm|T|F|T|F
+Debris|F|T|F|F
+Snowing|F|F|F|T
+Festival|F|F|F|F
+Wedding|F|F|F|F
+
 # Comments (Modding)
 
 Q. How do I fix the TV not being accurate, or add new strings?
