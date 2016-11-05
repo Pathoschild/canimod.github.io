@@ -16,6 +16,10 @@ changes.
 
 The rest of this section describes how to update deprecated methods from earlier versions.
 
+<strong>Note:</strong> your mod probably isn't affected by most of these; the easiest way to update
+is to just play with your mod, see what deprecation warnings are shown, and check this page for
+those.
+
 ### Mod entry method
 _For the latest documentation, see [creating a SMAPI mod: writing your mod code](http://canimod.com/guides/creating-a-smapi-mod-1.0#writing-your-mod-code)._
 
