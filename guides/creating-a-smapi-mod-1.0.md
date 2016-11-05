@@ -223,9 +223,9 @@ automatically create the file and take care of reading, normalising, and updatin
 ### Recommended approach
 Here's the simplest way to use `config.json`:
 
-1. Create a regular class with the properties you want. This can be almost anything, from a few
-   boolean fields to a complex object graph. (You should try to keep it simple for your users,
-   though.)
+1. Create your model. This is just a class with properties for the settings you want, and it can
+   contain almost anything from a few boolean fields to a complex object graph. (You should try to
+   keep it simple for your users, though.)
 
    You can set defaults directly:
 
@@ -265,9 +265,14 @@ automatically if it doesn't exist yet, using the default settings you provided i
 If you need to edit and save the settings, you can use `helper.SaveConfig(config)`. You can
 access the helper in other methods using `this.Helper`.
 
-### Really advanced scenarios
-If your mod has _very_ specific needs (such as direct file I/O or custom serialisation), see
-the _[advanced configuration](creating-a-smapi-mod-advanced-config)_ sub-guide. This is overkill for the vast majority of mods.
+### More JSON scenarios
+For more advanced config and JSON scenarios, see _[advanced configuration](creating-a-smapi-mod-advanced-config)_.
+That sub-guide covers...
+
+* adding custom JSON files;
+* adding per-save JSON files;
+* using a config wrapper for file I/O;
+* overriding JSON serialization.
 
 ## Available events
 The minimal mod we created above reacts when the player presses a key, but it can do much more.
