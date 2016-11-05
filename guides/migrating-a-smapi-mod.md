@@ -2,9 +2,14 @@
 layout: default
 title: Updating a SMAPI mod
 intro: >
-   <strong>Most mods written for older versions of SMAPI will work just fine in newer versions.</strong>
-   However, migrating to 1.0 will simplify your code, prevent deprecation warnings from
-   being shown in the log, and make sure your mod doesn't break in a future version.
+   <strong>Most mods written for older versions of SMAPI will work just fine in newer
+   versions.</strong> However, migrating to 1.0 will simplify your code, prevent
+   deprecation warnings from being shown in the log, and make sure your mod doesn't
+   break in a future version.<br />
+   <p class="warning">
+     This guide is for the SMAPI 1.0 beta. You shouldn't update your mods before 1.0 is
+     released, to avoid breaking your mods for users who don't have the beta.
+   </p>
 ---
 
 ## What changed in 1.0
