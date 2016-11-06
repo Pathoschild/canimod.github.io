@@ -25,8 +25,12 @@ The rest of this section describes how to update deprecated methods from earlier
 is to just play with your mod, see what deprecation warnings are shown, and check this page for
 those.
 
+### Crossplatform support (optional)
+To make your mod compatible with all platforms (Linux, Mac, and Windows), see _[crossplatforming a
+SMAPI mod](/guides/crossplatforming-a-smapi-mod)_. This is optional.
+
 ### Mod entry method
-_For the latest documentation, see [creating a SMAPI mod: writing your mod code](http://canimod.com/guides/creating-a-smapi-mod-1.0#writing-your-mod-code)._
+_For the latest documentation, see [creating a SMAPI mod: writing your mod code](/guides/creating-a-smapi-mod-1.0#writing-your-mod-code)._
 
 Change your mod's entry class from this:
 
@@ -50,7 +54,7 @@ public override void Entry(ModHelper helper)
 ```
 
 ### Mod configuration
-_For the latest documentation, see [creating a SMAPI mod: adding mod settings](http://canimod.com/guides/creating-a-smapi-mod-1.0#adding-mod-settings)._
+_For the latest documentation, see [creating a SMAPI mod: adding mod settings](/guides/creating-a-smapi-mod-1.0#adding-mod-settings)._
 
 If you use `config.json`, it's much easier in 1.0.
 
