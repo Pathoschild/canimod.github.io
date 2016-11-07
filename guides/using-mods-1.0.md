@@ -53,7 +53,7 @@ game, and you can uninstall it anytime.
 ### On Windows
 
 1. Make sure you're running the latest version of the game.
-2. Download the <s>latest version of SMAPI 1.0 beta</s> (not public yet).
+2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
 3. Extract the `.zip` file somewhere.
 4. Double-click `install.exe` to install the game. (The installer will detect your game and add
    SMAPI for you.)
@@ -77,7 +77,7 @@ undo your changes from step 5).
 
 ### On Linux or Mac
 1. Make sure you're running the latest version of the game.
-2. Download the <s>latest version of SMAPI 1.0 beta</s> (not public yet).
+2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
 3. Extract the `.zip` file somewhere.
 4. Open a terminal in the extracted folder and run `mono install.exe`. (The installer will detect
    your game and add SMAPI for you.)
@@ -90,7 +90,7 @@ If you want to remove SMAPI later, just run `mono install.exe` and choose _unins
 The installer is the recommended way to install SMAPI, but you can also install it manually.
 
 1. Make sure you're running the latest version of the game.
-2. Download the <s>latest version of SMAPI 1.0 beta</s> (not public yet).
+2. Download the [latest version of SMAPI 1.0 beta](https://github.com/Pathoschild/SMAPI/releases).
 3. Unzip the `.zip` file somewhere.
 4. Copy the files from the `Mono` directory (if Linux/Mac) or `Windows` directory (if Windows)
    into your game directory. If you did it properly, the `StardewModdingAPI.exe` file should be
