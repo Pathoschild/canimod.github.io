@@ -28,7 +28,7 @@ This is a collaborative open-source site documenting the anarchy.
         <ul>
             <li><a href="guides/creating-a-smapi-mod">Creating a SMAPI mod</a></li>
             <li><a href="guides/crossplatforming-a-smapi-mod">Crossplatforming a SMAPI mod</a></li>
-            <li><a href="guides/migrating-a-smapi-mod">Migrating a SMAPI mod to 1.0</a></li>
+            <li><a href="guides/updating-a-smapi-mod">Updating a SMAPI mod</a></li>
             <li>Advanced topics:
                 <ul>
                     <li><a href="guides/npc-gift-tastes">NPC gift tastes</a></li>
