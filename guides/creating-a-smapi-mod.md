@@ -91,8 +91,8 @@ set that up.
 ### Creating the project structure
 1. Open Visual Studio or MonoDevelop.
 2. Create a new solution with a library project.
-   * <small>In Visual Studio, choose _Class Library_ under _Visual C#_.</small>
-   * <small>In MonoDevelop, choose _Library_ under _Other » .NET_.</small>
+   * <small>In Visual Studio, choose _Visual C# » Class Library_. (Make sure you choose "Class Library", **not** "Class Library (.NET Core)" or "Class Library (Portable)".)</small>
+   * <small>In MonoDevelop, choose _Other » .NET » Library_.</small>
 3. Change the target framework to .NET 4.5 (for compatibility with Linux).
    * <small>In Visual Studio: right-click on the project, click the _Application_ tab, and change
      the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
