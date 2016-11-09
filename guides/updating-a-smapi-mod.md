@@ -43,6 +43,7 @@ These are currently deprecated:
 
 since  | interfaces                | severity | replacement
 :----- | :------------------------ | :------- | :----------
+0.39.3 | `SObject` class          | _notice_ | reimplement if needed.
 0.39.3 | `Extensions.ToSingular(…)` | ***pending removal*** | use `string.Join`.
 
 These are deprecated in the upcoming release:
@@ -71,6 +72,7 @@ since | interfaces                | severity | replacement
 1.0   | `Extensions.GetPrivateFields(…)`¹ | _notice_ | reimplement if needed.
 1.0   | `Extensions.GetBaseFieldValue<T>(…)`¹ | _notice_ | reimplement if needed.
 1.0   | `Extensions.SetBaseFieldValue<T>(…)`¹ | _notice_ | reimplement if needed.
+1.0   | `LogWriter` class | _notice_ | use the main `Log` interface.
 
 ¹ The `Extensions` are meant to be internal, and will no longer be exposed in a future version.
 There are many libraries that provide a more robust set of extensions if you like these.
