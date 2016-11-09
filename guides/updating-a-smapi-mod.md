@@ -14,7 +14,7 @@ intro: >
 You don't need to comb through your code; SMAPI can tell you if you're using a deprecated interface:
 
 1. Use the latest [SMAPI for developers](https://github.com/Pathoschild/SMAPI/releases) download.
-   This will show all deprecation messages in the console (including _notice_-level ones):
+   This will show all deprecation messages in the console:
 
    > ![console message for a deprecated interface](images/updating-a-smapi-mod/deprecated-console.png)
 
@@ -52,30 +52,14 @@ since | interfaces                | severity | replacement
 :---- | :------------------------ | :------- | :----------
 1.0   | `Authour` in `manifest.json` | _notice_ | use `Author`.
 1.0   | `Config` class            | _notice_ | see _[mod configuration](#mod-configuration)_.
-1.0   | `Mod.Entry(object[])`     | _notice_ | see _[mod entry method](#mod-entry-method)_.
+1.0   | `Extensions` class      | _notice_ | reimplement if needed, or use an extensions library.
+1.0   | `LogWriter` class | _notice_ | use the main `Log` interface.
 1.0   | `Mod.BaseConfigPath`      | _notice_ | see _[mod configuration](#mod-configuration)_.
 1.0   | `Mod.PathOnDisk`          | _notice_ | see _[mod configuration](#mod-configuration)_ or use `this.Helper.DirectoryPath`.
 1.0   | `Mod.PerSaveConfigFolder` | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
 1.0   | `Mod.PerSaveConfigPath`   | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
+1.0   | `Mod.Entry(object[])`     | _notice_ | see _[mod entry method](#mod-entry-method)_.
 1.0   | `Version.VersionString`   | _notice_ | use `Version.ToString()`.
-1.0   | `Extensions.Random`¹      | _notice_ | use `new Random()`.
-1.0   | `Extensions.RandomColour()`¹ | _notice_ | use `new Random()` and construct a color with random RGB values.
-1.0   | `Extensions.IsKeyDown(…)`¹ | _notice_ | use `Keyboard.GetState().IsKeyDown`.
-1.0   | `Extensions.GetHash(…)`¹ | _notice_ | reimplement if needed.
-1.0   | `Extensions.ToSingular<T>(…)`¹ | _notice_ | use `string.Join`.
-1.0   | `Extensions.IsInt32(…)`¹    | _notice_ | use `int.TryParse`.
-1.0   | `Extensions.AsInt32(…)`¹    | _notice_ | use `int.TryParse` or `int.Parse`.
-1.0   | `Extensions.IsBool(…)`¹     | _notice_ | use `bool.TryParse`.
-1.0   | `Extensions.AsBool(…)`¹     | _notice_ | use `bool.TryParse` or `bool.Parse`.
-1.0   | `Extensions.RemoveNumerics(…)`¹ | _notice_ | use `new string(str.Where(char.IsLetterOrDigit).ToArray())`<br />(it didn't actually remove numerics).
-1.0   | `Extensions.Cast<T>(…)`¹   | _notice_ | use `obj as T`.
-1.0   | `Extensions.GetPrivateFields(…)`¹ | _notice_ | reimplement if needed.
-1.0   | `Extensions.GetBaseFieldValue<T>(…)`¹ | _notice_ | reimplement if needed.
-1.0   | `Extensions.SetBaseFieldValue<T>(…)`¹ | _notice_ | reimplement if needed.
-1.0   | `LogWriter` class | _notice_ | use the main `Log` interface.
-
-¹ The `Extensions` are meant to be internal, and will no longer be exposed in a future version.
-There are many libraries that provide a more robust set of extensions if you like these.
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.
