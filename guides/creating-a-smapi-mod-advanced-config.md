@@ -4,12 +4,8 @@ title: Advanced SMAPI mod configuration
 intro: > 
    This page explains more advanced ways to use JSON files through <code>this.Helper</code>.
    This page is overkill for the vast majority of mods; see
-   <em><a href="creating-a-smapi-mod-1.0#adding-mod-settings">creating a SMAPI mod</a></em>
-   for a simpler approach that is sufficient for most mods.<br />
-   <p class="warning">
-     This guide is for the SMAPI 1.0 beta. If you're using the released version, see
-     <em><a href="creating-a-smapi-mod">creating a SMAPI mod</a></em>.
-   </p>
+   <em><a href="creating-a-smapi-mod#adding-mod-settings">creating a SMAPI mod</a></em>
+   for a simpler approach that is sufficient for most mods.
 ---
 
 ## Custom JSON files

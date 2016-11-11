@@ -1,7 +1,10 @@
 ---
 layout: default
 title: Creating a SMAPI mod
-intro: Ready to make your own mod? This page will guide you from creating an empty project to building a small mod that runs on Linux, Mac, and Windows. If you just want the quick version, see the <a href="#quick-start"><em>quick start</em> section</a>.
+intro: > 
+   Ready to make your own mod? This page will guide you from creating an empty project
+   to building a small mod that runs on Linux, Mac, and Windows. If you just want the
+   quick version, see the <a href="#quick-start"><em>quick start</em> section</a>.
 ---
 
 ## Introduction
@@ -89,6 +92,7 @@ A SMAPI mod is a compiled library (DLL) with an entry method that gets called by
 set that up.
 
 ### Creating the project structure
+
 1. Open Visual Studio or MonoDevelop.
 2. Create a new solution with a library project.
    * <small>In Visual Studio, choose _Visual C# » Class Library_. (Make sure you choose "Class Library", **not** "Class Library (.NET Core)" or "Class Library (Portable)".)</small>
@@ -101,9 +105,6 @@ set that up.
 3. Delete the `Class1.cs` or `MyClass.cs` file.
 
 ### Configuring the build
-<p class="warning">
-This section is still experimental. If you run into any problems or need help, come <a href="#help">ask us for help</a>. :)
-</p>
 
 1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
    This will automatically configure your project to load the right modding dependencies for the
@@ -143,7 +144,7 @@ The mod manifest tells SMAPI about your mod.
    ```json
    {
       "Name": "<your project name>",
-      "Authour": "<your name>",
+      "Author": "<your name>",
       "Version": {
          "MajorVersion": 1,
          "MinorVersion": 0,
@@ -178,7 +179,8 @@ Almost done! Now for the code SMAPI will run.
            ** Public methods
            *********/
            /// <summary>Initialise the mod.</summary>
-           public override void Entry(params object[] objects)
+           /// <param name="helper">Provides methods for interacting with the mod directory, such as read/writing a config file or custom JSON files.</param>
+           public override void Entry(ModHelper helper)
            {
                ControlEvents.KeyPressed += this.ReceiveKeyPress;
            }
@@ -211,6 +213,64 @@ The mod so far will just send a message to the console window whenever you press
 
 If that didn't work, something went wrong. Try reviewing the above instructions, or
 [ask for help](#help). :)
+
+## Adding mod settings
+If you want to let users configure your mod, you can easily add a `config.json` file. SMAPI will
+automatically create the file and take care of reading, normalising, and updating it.
+
+### Recommended approach
+Here's the simplest way to use `config.json`:
+
+1. Create your model. This is just a class with properties for the settings you want, and it can
+   contain almost anything from a few boolean fields to a complex object graph. (You should try to
+   keep it simple for your users, though.)
+
+   You can set defaults directly:
+
+   ```c#
+   class ModConfig
+   {
+      public bool ExampleBoolean { get; set; } = true;
+      public float ExampleFloat { get; set; } = 0.5;
+   }
+   ```
+
+   ...or with a constructor:
+
+   ```c#
+   class ModConfig
+   {
+      public bool ExampleBoolean { get; set; }
+      public float ExampleFloat { get; set; }
+
+      public ModConfig()
+      {
+         this.ExampleBoolean = true;
+         this.ExampleFloat = 0.5;
+      }
+   }
+   ```
+
+2. In your `ModEntry::Entry` method, add this line to read the settings:
+
+   ```
+   ModConfig config = helper.ReadConfig<ModConfig>();
+   ```
+
+That's it! When the player launches the game, SMAPI will create the `config.json` file
+automatically if it doesn't exist yet, using the default settings you provided in your model.
+
+If you need to edit and save the settings, you can use `helper.SaveConfig(config)`. You can
+access the helper in other methods using `this.Helper`.
+
+### More JSON scenarios
+For more advanced config and JSON scenarios, see _[advanced configuration](creating-a-smapi-mod-advanced-config)_.
+That sub-guide covers...
+
+* adding custom JSON files;
+* adding per-save JSON files;
+* using a config wrapper for file I/O;
+* overriding JSON serialization.
 
 ## Available events
 The minimal mod we created above reacts when the player presses a key, but it can do much more.
@@ -310,82 +370,6 @@ before the game is loaded, when there's no character yet.
 | YearOfGameChanged | Raised after the year changes. |
 | OnNewDay | Raised when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
 
-## Building a bigger mod
-If you've been following along, you've created a basic mod and have an idea what events SMAPI
-provides. We only have two more building blocks to show you, then the rest will be up to you.
-
-### Adding mod settings
-If you want to let users configure your mod, you can use the `StardewModdingAPI.Config` class.
-SMAPI will automatically create a `config.json` file and take care of reading, normalising, and
-updating it. Here's how to set it up:
-
-1. Add a file named `ModConfig.cs` to your project.
-2. Paste this code into the file (inside the `using namespace` block):
-
-   ```c#
-   /// <summary>The mod settings.</summary>
-   internal class ModConfig : StardewModdingAPI.Config
-   {
-       /*********
-       ** Accessors
-       *********/
-       /// <summary>An example boolean setting.</summary>
-       public bool ExampleBoolean { get; set; }
-
-       /// <summary>An example float setting.</summary>
-       public float ExampleFloat { get; set; }
-
-
-       /*********
-       ** Public methods
-       *********/
-       /// <summary>Construct the default configuration.</summary>
-       /// <typeparam name="T">The expected configuration type.</typeparam>
-       public override T GenerateDefaultConfig<T>()
-       {
-           this.ExampleBoolean = true;
-           this.ExampleFloat = 0.5;
-           return this as T;
-       }
-   }
-   ```
-
-3. In your `ModEntry::Entry` method, add this line:
-
-   ```
-   ModConfig config = new ExampleConfig().InitializeConfig(this.BaseConfigPath);
-   ```
-
-When the player launches the game, SMAPI will create the `config.json` file automatically if it
-doesn't exist yet, using the default settings you provided in your model.
-
-You can now:
-
-* read a setting just by accessing its property (like `if(config.ExampleBoolean) { ... }`);
-* reload the settings from the disk using `config.ReloadConfig()`;
-* and save the current settings back to disk using `config.WriteConfig()`.
-
-You can replace `ExampleBoolean` and `ExampleFloat` with your own properties. You can add any
-settings you want, as long as they're all public non-static properties (like the examples). You can
-even use complex types like `IDictionary<T, T>`; SMAPI will use [Json.NET](http://www.newtonsoft.com/json)
-to serialise and deserialise them.
-
-### Decompiling the game code
-When you start working on more complex mods, you may need to look at how the game code works.
-
-Here's how to decompile the game code so you can look at it:
-
-1. Open `StardewValley.exe` in [dotPeek](https://www.jetbrains.com/decompiler/).
-2. Right-click on _Stardew Valley_ and choose _Export to Project_. Accept the default options to
-   create a decompiled project you can open in Visual Studio. (Note that the decompiled code will
-   not be functional due to limitations of the decompiler, but you'll be able to read the game code.)
-
-Here's how to unpack the XNB data files:
-
-1. Download the [Easy XNB Pack/UnPack Toolkit](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/page-6#post-2837587).
-2. Copy the entire `Stardew Valley\Content` game folder into `XNB-Mod-Toolkit\Packed`.
-3. Run `XNB-Mod-Toolkit\UNPACK FILES.bat` to unpack the files into `XNB-Mod-Toolkit\Unpacked`.
-
 ## Releasing your mod
 Ready to share your mod with the world?
 
@@ -416,6 +400,22 @@ the [official modding forums](http://community.playstarbound.com/forums/mods.215
 
 ### Releasing on multiple platforms
 Want to share your mod on Linux, Mac, and Windows? See _[crossplatforming a SMAPI mod](crossplatforming-a-smapi-mod)_.
+
+## Decompiling the game code
+When you start working on more complex mods, you may need to look at how the game code works.
+
+Here's how to decompile the game code so you can look at it:
+
+1. Open `StardewValley.exe` in [dotPeek](https://www.jetbrains.com/decompiler/).
+2. Right-click on _Stardew Valley_ and choose _Export to Project_. Accept the default options to
+   create a decompiled project you can open in Visual Studio. (Note that the decompiled code will
+   not be functional due to limitations of the decompiler, but you'll be able to read the game code.)
+
+Here's how to unpack the XNB data files:
+
+1. Download the [Easy XNB Pack/UnPack Toolkit](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/page-6#post-2837587).
+2. Copy the entire `Stardew Valley\Content` game folder into `XNB-Mod-Toolkit\Packed`.
+3. Run `XNB-Mod-Toolkit\UNPACK FILES.bat` to unpack the files into `XNB-Mod-Toolkit\Unpacked`.
 
 ## See also
 If you read the entire guide, congratulations! If you'd like to read _even more_ documentation,
