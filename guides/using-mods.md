@@ -76,8 +76,9 @@ undo your changes from step 5).
 1. Make sure you're running the latest version of the game.
 2. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
 3. Extract the `.zip` file somewhere.
-4. Open a terminal in the extracted folder and run `mono install.exe`. (The installer will detect
-   your game and add SMAPI for you.)
+4. Open a terminal in the extracted folder and run `mono install.exe`. The installer will detect
+   your game and add SMAPI for you.  
+   <small>_(If you get an error like 'mono: command not found', you probably need to install [Mono](http://www.mono-project.com/).)_</small>
 
 That's it! You can launch the game the usual way to use SMAPI.
 
