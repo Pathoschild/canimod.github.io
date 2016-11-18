@@ -4,7 +4,7 @@ title: Advanced SMAPI mod configuration
 intro: > 
    This page explains more advanced ways to use JSON files through <code>this.Helper</code>.
    This page is overkill for the vast majority of mods; see
-   <em><a href="creating-a-smapi-mod#adding-mod-settings">creating a SMAPI mod</a></em>
+   <em><a href="creating-a-smapi-mod#configuration">creating a SMAPI mod</a></em>
    for a simpler approach that is sufficient for most mods.
 ---
 
@@ -69,7 +69,7 @@ I/O logic:
    }
    ```
 
-2. In your `ModEntry::Entry` method, add this line to initialise your wrapped settings:
+2. In your `ModEntry::Entry` method, add this line to initialise your wrapped configuration:
 
    ```
    ModConfig config = this.Helper.ReadConfig<ModConfig>();
@@ -79,7 +79,7 @@ I/O logic:
    underlying file without using `this.Helper` directly:
 
    ```
-   config.ReloadFromFile(); // reload the settings from the underlying file
+   config.ReloadFromFile(); // reload the config from the underlying file
    config.SaveToFile(); // save changes to the underlying file
    ```
 

@@ -13,7 +13,7 @@ intro: >
 ## How to update your mod
 You don't need to comb through your code; SMAPI can tell you if you're using a deprecated interface:
 
-1. Use the latest [SMAPI for developers](https://github.com/Pathoschild/SMAPI/releases) download.
+1. Use the latest [SMAPI for developers](https://github.com/ClxS/SMAPI/releases) download.
    This will show all deprecation messages in the console:
 
    > ![console message for a deprecated interface](images/updating-a-smapi-mod/deprecated-console.png)
@@ -43,18 +43,20 @@ These are currently deprecated:
 
 since  | interfaces                | severity | replacement
 :----- | :------------------------ | :------- | :----------
-0.39.3 | `SObject` class          | _notice_ | reimplement if needed.
+0.39.3 | `SObject` class           | _notice_ | reimplement if needed.
 0.39.3 | `Extensions.ToSingular(…)` | ***pending removal*** | use `string.Join`.
 1.0    | `Authour` in `manifest.json` | _notice_ | use `Author`.
 1.0    | `Config` class            | _notice_ | see _[mod configuration](#mod-configuration)_.
-1.0    | `Extensions` class      | _notice_ | reimplement if needed, or use an extensions library.
-1.0    | `LogWriter` class | _notice_ | use the main `Log` interface.
+1.0    | `Extensions` class        | _notice_ | reimplement if needed, or use an extensions library.
+1.0    | `LogWriter` class         | _notice_ | use the main `Log` interface.
 1.0    | `Mod.BaseConfigPath`      | _notice_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Mod.PathOnDisk`          | _notice_ | see _[mod configuration](#mod-configuration)_ or use `this.Helper.DirectoryPath`.
 1.0    | `Mod.PerSaveConfigFolder` | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
 1.0    | `Mod.PerSaveConfigPath`   | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
 1.0    | `Mod.Entry(object[])`     | _notice_ | see _[mod entry method](#mod-entry-method)_.
 1.0    | `Version.VersionString`   | _notice_ | use `Version.ToString()`.
+1.1    | `Log` class               | _notice_ | use the `this.Monitor.Log` mod method.
+1.1    | `Mod.Entry(ModHelper)`    | _notice_ | change `ModHelper` to `IModHelper`.
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.
@@ -77,14 +79,14 @@ to this:
 ```c#
 /// <summary>Initialise the mod.</summary>
 /// <param name="helper">Provides methods for interacting with the mod directory, such as read/writing a config file or custom JSON files.</param>
-public override void Entry(ModHelper helper)
+public override void Entry(IModHelper helper)
 {
     // your code
 }
 ```
 
 #### Mod configuration
-_For the latest documentation, see [creating a SMAPI mod: adding mod settings](/guides/creating-a-smapi-mod#adding-mod-settings)._
+_For the latest documentation, see [creating a SMAPI mod: configuration](/guides/creating-a-smapi-mod#configuration)._
 
 If you use `config.json`, it's much easier in 1.0.
 
@@ -155,6 +157,6 @@ If you use `config.json`, it's much easier in 1.0.
    `new SampleConfig().InitializeConfig(this.BaseConfigPath)`<br />`config.UpdateConfig()`<br />`config.LoadConfig(this.BaseConfigPath)`<br />`config.ReloadConfig()` | `helper.ReadConfig<SampleConfig>()`
    `config.WriteConfig()`  | `helper.WriteConfig(config)`
 
-For more information, see [creating a SMAPI mod: adding mod settings](/guides/creating-a-smapi-mod#adding-mod-settings).
+For more information, see [creating a SMAPI mod: configuration](/guides/creating-a-smapi-mod#configuration).
 For help with more advanced configuration (including custom JSON files and per-save configuration),
 see [advanced SMAPI mod configuration](/guides/creating-a-smapi-mod-advanced-config).

@@ -180,7 +180,7 @@ Almost done! Now for the code SMAPI will run.
            *********/
            /// <summary>Initialise the mod.</summary>
            /// <param name="helper">Provides methods for interacting with the mod directory, such as read/writing a config file or custom JSON files.</param>
-           public override void Entry(ModHelper helper)
+           public override void Entry(IModHelper helper)
            {
                ControlEvents.KeyPressed += this.ReceiveKeyPress;
            }
@@ -194,7 +194,7 @@ Almost done! Now for the code SMAPI will run.
            /// <param name="e">The event data.</param>
            private void ReceiveKeyPress(object sender, EventArgsKeyPressed e)
            {
-               Log.Debug($"Player pressed '{e.KeyPressed}'.");
+               this.Monitor.Log($"Player pressed {e.KeyPressed}.");
            }
        }
    }
@@ -214,16 +214,17 @@ The mod so far will just send a message to the console window whenever you press
 If that didn't work, something went wrong. Try reviewing the above instructions, or
 [ask for help](#help). :)
 
-## Adding mod settings
-If you want to let users configure your mod, you can easily add a `config.json` file. SMAPI will
-automatically create the file and take care of reading, normalising, and updating it.
+## Mod features
 
-### Recommended approach
+### Configuration
+You can let users configure your mod through a `config.json` file. SMAPI will automatically create
+the file and take care of reading, normalising, and updating it.
+
 Here's the simplest way to use `config.json`:
 
-1. Create your model. This is just a class with properties for the settings you want, and it can
-   contain almost anything from a few boolean fields to a complex object graph. (You should try to
-   keep it simple for your users, though.)
+1. Create your model. This is just a class with properties for the config options you want, and it
+   can contain almost anything from a few boolean fields to a complex object graph. (You should try
+   to keep it simple for your users, though.)
 
    You can set defaults directly:
 
@@ -251,26 +252,52 @@ Here's the simplest way to use `config.json`:
    }
    ```
 
-2. In your `ModEntry::Entry` method, add this line to read the settings:
+2. In your `ModEntry::Entry` method, add this line to read the config options:
 
    ```
    ModConfig config = helper.ReadConfig<ModConfig>();
    ```
 
 That's it! When the player launches the game, SMAPI will create the `config.json` file
-automatically if it doesn't exist yet, using the default settings you provided in your model.
+automatically if it doesn't exist yet, using the default config options you provided in your model.
 
-If you need to edit and save the settings, you can use `helper.SaveConfig(config)`. You can
-access the helper in other methods using `this.Helper`.
+If you need to edit and save the config, you can use `helper.SaveConfig(config)`. You can access
+the helper in other methods using `this.Helper`.
 
-### More JSON scenarios
-For more advanced config and JSON scenarios, see _[advanced configuration](creating-a-smapi-mod-advanced-config)_.
-That sub-guide covers...
+For more advanced config and JSON scenarios, see _[advanced configuration](creating-a-smapi-mod-advanced-config)_
+which covers...
 
 * adding custom JSON files;
 * adding per-save JSON files;
 * using a config wrapper for file I/O;
 * overriding JSON serialization.
+
+### Logging
+Your mod can write messages to the console window and log file using the monitor. For example,
+this code:
+
+```c#
+this.Monitor.Log("a trace message", LogLevel.Trace);
+this.Monitor.Log("a debug message", LogLevel.Debug);
+this.Monitor.Log("an info message", LogLevel.Info);
+this.Monitor.Log("a warning message", LogLevel.Warn);
+this.Monitor.Log("an error message", LogLevel.Error);
+```
+
+will log something like this:
+
+<pre>
+<span style="color:gray">[18:00:00 TRACE Mod Name] a trace message</span>
+<span style="color:gray">[18:00:00 DEBUG Mod Name] a debug message</span>
+<span style="color:white;">[18:00:00 INFO  Mod Name] an info message</span>
+<span style="color:darkorange;">[18:00:00 WARN  Mod Name] a warning message</span>
+<span style="color:red;">[18:00:00 ERROR Mod Name] an error message</span>
+</pre>
+
+Note that `LogLevel.Trace` messages won't appear in the console window by default, they'll only be
+written to the log file. Trace messages are for troubleshooting details that are useful when
+someone sends you their error log, but which the player normally doesn't need to see. (You can see
+trace messages in the console if you install the "SMAPI for developers" version.)
 
 ## Available events
 The minimal mod we created above reacts when the player presses a key, but it can do much more.
