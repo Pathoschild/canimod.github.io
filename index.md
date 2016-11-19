@@ -11,7 +11,7 @@ This is a collaborative open-source site documenting the anarchy.
         <h3>For players</h3>
         <ul>
             <li><a href="guides/using-mods">Using mods</a></li>
-            <li><a href="guides/asking-for-help">Asking for help</a></li>
+            <li><a href="guides/smapi-faq">Asking for help & FAQ</a></li>
             <li>See also:
                 <ul>
                     <li><a href="http://stardewvalleywiki.com/">Stardew Valley wiki</a></li>

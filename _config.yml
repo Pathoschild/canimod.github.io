@@ -6,3 +6,5 @@ cache_version: "r12" # appended to asset paths
 analytics_id: "UA-86537387-1"
 
 markdown: kramdown
+gems:
+  - jekyll-redirect-from
