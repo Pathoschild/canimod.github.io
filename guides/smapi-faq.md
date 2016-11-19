@@ -31,7 +31,7 @@ or [chatting in Discord](https://discord.gg/KCJHWhX).
 
 See also _[what information should I include in a bug report?](#bug-report)_
 
-<span id="bug-report"></span>
+<section class="anchor" id="bug-report"></section>
 
 ### What information should I include in a bug report?
 Figuring out why something went wrong for someone else can be tough, so it helps if you include
@@ -52,7 +52,7 @@ as much information as possible. Here's the most useful information you can give
    file.  
    (See _[Where is my error log and how can I share it?](#error-log)_)
 
-<span id="error-log"></span>
+<section class="anchor" id="error-log"></section>
 
 ### Where is my error log and how do I share it?
 SMAPI's error log provides information useful for troubleshooting problems, including any errors
