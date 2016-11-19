@@ -3,11 +3,6 @@ url: "http://canimod.com"
 repo_url: "https://github.com/canimod/canimod.github.io"
 baseurl: ""
 cache_version: "r12" # appended to asset paths
+analytics_id: "UA-86537387-1"
 
 markdown: kramdown
-
-tracking_id: #
-
-sass:
-    style: compressed
-    sass_dir: _sass
