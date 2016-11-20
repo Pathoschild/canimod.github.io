@@ -327,8 +327,8 @@ event once), and the `Released` variant is raised when they release it.
 | event | summary |
 |:----- |:------- |
 | Initialize | Raised during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's `Game.Initialize` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
-| GameLoaded | Raised during launch after configuring Stardew Valley, loading it into memory, and opening the game window. The window is still blank by this point. |
 | LoadContent | Raised before XNA loads or reloads graphics resources. Called from [XNA's `Game.LoadContent` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
+| GameLoaded | Raised when the game is ready and initialised. At this point the game data (like `Game1.objectInformation`) is in memory and ready for use. |
 | UpdateTick | Raised when the game updates its state (≈60 times per second). |
 | SecondUpdateTick | Raised every other tick (≈30 times per second). |
 | FourthUpdateTick | Raised every fourth tick (≈15 times per second). |
