@@ -20,7 +20,7 @@ by the user. This is pretty easy using the `ModHelper`:
       public bool ExampleBoolean { get; set; }
       public float ExampleFloat { get; set; }
 
-      public ModConfig()
+      public ModData()
       {
          this.ExampleBoolean = true;
          this.ExampleFloat = 0.5;
@@ -31,16 +31,27 @@ by the user. This is pretty easy using the `ModHelper`:
 2. In your mod code, just use `this.Helper` to read and write to a named file:
 
    ```c#
-   var model = this.Helper.ReadJsonFile<ModData>("data.json");
+   // read file
+   var model = this.Helper.ReadJsonFile<ModData>("data.json") ?? new ModData();
+
+   // save file (if needed)
    this.Helper.WriteJsonFile("data.json", model);
    ```
+   Note that `ReadJsonFile` will return `null` if the file doesn't exist. The above example will
+   create a default instance if that happens; if you don't want to do that, just remove the
+   `?? new ModData()` part.
 
-For more advanced scenarios, you can also use a directory path; the directories will be created
-automatically as needed. For example, here's how you'd create per-save JSON files:
+## Per-save JSON files
+You can also specify a directory path (relative to your mod directory) instead of just the file
+name. The directories will be created automatically if needed. For example, here's how you'd use
+per-save config files:
 
 ```c#
-var model = this.Helper.ReadJsonFile<ModData>($"{Game1.uniqueIDForThisGame}/data.json");
-this.Helper.WriteJsonFile($"{Game1.uniqueIDForThisGame}/data.json", model);
+// read file
+var model = this.Helper.ReadJsonFile<ModData>($"{Constants.SaveFolderName}/config.json") ?? new ModData();
+
+// write file (if needed)
+this.Helper.WriteJsonFile($"{Constants.SaveFolderName}/config.json", model);
 ```
 
 ## File I/O config wrapper
