@@ -47,6 +47,8 @@ released yet.
 SMAPI is the modding API which runs the game with mods. It's safely installed alongside your normal
 game, and you can uninstall it anytime.
 
+(To update SMAPI, just install the latest version.)
+
 ### On Windows
 
 1. Make sure you're running the latest version of the game.
