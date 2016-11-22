@@ -60,11 +60,39 @@ that occurred.
 
 You can find your error log here:
 
-| Platform | Path  |
-|:-------- |:----- |
-| Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
-| Linux    | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
-| Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
+Platform | Path
+:------- |:-----
+ Windows | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
+ Linux   | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
+ Mac     | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
 
 Don't paste the whole log into your message! Instead attach it as a file, or send a [pastebin](http://pastebin.com/)
 link.
+
+## Other
+
+<section class="anchor" id="game-directory"></section>
+
+### Where is my game directory?
+The "game directory" is the directory that contains the `Stardew Valley.exe` or `StardewValley.exe`
+file. The default locations are:
+
+Platform | Path
+:------- | :----
+Windows  | GOG: `C:\Program Files (x86)\GalaxyClient\Games\Stardew Valley`<br />Steam: `C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley`
+Linux    | GOG: `~/GOG Games/Stardew Valley/game`<br />Steam: `~/.local/share/Steam/steamapps/common/Stardew Valley`
+Mac      | GOG: _unknown_<br />Steam: `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS`
+
+If your game isn't in the default location, here's how to find it:
+
+* If you have the GOG version:
+  * Open the GOG Galaxy client.
+  * In the game sidebar, right-click on _Stardew Valley_.
+  * Choose _Manage Installation > Show Folder_ to open the game directory.
+
+* If you have the Steam version:
+  * Open the Steam client and go to the library view (the view that lists your games).
+  * Right-click on _Stardew Valley_.
+  * Click _Properties_.
+  * Click the _Local Files_ tab.
+  * Click the _Browse Local Files..._ button to open the game directory.
