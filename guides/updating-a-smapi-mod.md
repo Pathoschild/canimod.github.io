@@ -48,7 +48,8 @@ since  | interfaces                | severity | replacement
 1.0    | `Authour` in `manifest.json` | _notice_ | use `Author`.
 1.0    | `Config` class            | _notice_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Extensions` class        | _notice_ | reimplement if needed, or use an extensions library.
-1.0    | `LogWriter` class         | _notice_ | use the main `Log` interface.
+1.0    | `LogWriter` class         | _notice_ | use the `this.Monitor.Log` mod method.
+1.0    | `SPlayer` class           | _notice_ | use the game's `Game1.player` property instead.
 1.0    | `Mod.BaseConfigPath`      | _notice_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Mod.PathOnDisk`          | _notice_ | see _[mod configuration](#mod-configuration)_ or use `this.Helper.DirectoryPath`.
 1.0    | `Mod.PerSaveConfigFolder` | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
@@ -57,6 +58,7 @@ since  | interfaces                | severity | replacement
 1.0    | `Version.VersionString`   | _notice_ | use `Version.ToString()`.
 1.1    | `Log` class               | _notice_ | use the `this.Monitor.Log` mod method.
 1.1    | `Mod.Entry(ModHelper)`    | _notice_ | change `ModHelper` to `IModHelper`.
+1.1    | `Command.CallCommand(string)` | _notice_ | replace with `Command.CallCommand(string, IMonitor)`.
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.
