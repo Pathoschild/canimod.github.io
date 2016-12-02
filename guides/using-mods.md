@@ -100,9 +100,10 @@ The installer is the recommended way to install SMAPI, but you can also install 
    * Linux/Mac: rename the `StardewValley` launcher to `StardewValley-original`, and rename
      `StardewModdingAPI` to `StardewValley`.
 
-## Downloading & installing mods
-If you've done everything above, the hard part is done! To install a mod, just unzip it into the
-game's `Mods` folder. To uninstall a mod, just delete it from the `Mods` folder.
+## Using mods
+If you've done everything above, the hard part is done!
+
+### Downloading mods
 
 <p class="warning">
 <strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod says it supports your
@@ -133,23 +134,23 @@ A few tips for downloading mods:
    * Ask! The next player will thank you. If the author never responds, the mod is probably
      abandoned.
 
-## Editing mod config
-Some mods may contain a `config.json` file which allows you to change settings provided by the mod author.
-The `config.json` file is located in the same directory as the mod files. See [Downloading & installing mods above](#downloading--installing-mods) for information on how to find the `Mods` directory.
+### Adding mods
+To install a mod, just unzip it into the game's `Mods` folder. Make sure each mod has its own
+subdirectory; for example, if you have a `PineapplesEverywhere` mod, you should have a
+`Mods\PineapplesEverywhere` directory with a `manifest.json` file in it.
 
-<p class="warning">
-<strong>Note:</strong> If you do not see the config.json file in the mod's directory you need to run StardewModdingAPI.exe first for it to be generated. This only needs to be done once after the mod has been added.
-</p>
+### Removing mods
+To uninstall a mod, just remove it from the `Mods` directory.
 
-To edit the config simply open the `config.json` file in any text editor.
-**For the changes to take effect you will have to restart the game** (unless the mod handles dynamically reloading itself, but this is unlikely).
+### Configuring mods
+Some mods have a `config.json` file in their directory (see [_adding mods_](#adding-mods)). It
+might be created the first time you launch the game with that mod. This file lets you customise
+the mod settings.
 
-What you can change within the config file depends on the mod and should be documented by the mod author somewhere like a README or forum post.
-
-### JSON learning resources
-This isn't a guide on how to use JSON, but there are lots of online resources to help with that:
-* [Basic guide on JSON syntax](http://www.w3schools.com/js/js_json_syntax.asp).
-* [JSON validator](https://jsonformatter.curiousconcept.com/) to ensure your config file is correct.
+To edit the `config.json` file, just open it in a text editor. Make sure the game isn't running
+when you edit it, or your changes might not take effect. See a [basic guide to JSON](http://www.w3schools.com/js/js_json_syntax.asp);
+basically make sure your values are surrounded by quotes (like `"value"`). You can use this
+[JSON validator](https://jsonformatter.curiousconcept.com/) to make sure the format is correct.
 
 ## What to do when something breaks
 Oh no! Something went wrong with your mods. Let's try to fix it yourself, then we'll ask the mod
