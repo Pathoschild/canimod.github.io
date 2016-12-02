@@ -133,6 +133,24 @@ A few tips for downloading mods:
    * Ask! The next player will thank you. If the author never responds, the mod is probably
      abandoned.
 
+## Editing mod config
+Some mods may contain a `config.json` file which allows you to change settings provided by the mod author.
+The `config.json` file is located in the same directory as the mod files. See [Downloading & installing mods above](#downloading--installing-mods) for information on how to find the `Mods` directory.
+
+<p class="warning">
+<strong>Note:</strong> If you do not see the config.json file in the mod's directory you need to run StardewModdingAPI.exe first for it to be generated. This only needs to be done once after the mod has been added.
+</p>
+
+To edit the config simply open the `config.json` file in any text editor.
+**For the changes to take effect you will have to restart the game** (unless the mod handles dynamically reloading itself, but this is unlikely).
+
+What you can change within the config file depends on the mod and should be documented by the mod author somewhere like a README or forum post.
+
+### JSON learning resources
+This isn't a guide on how to use JSON, but there are lots of online resources to help with that:
+* [Basic guide on JSON syntax](http://www.w3schools.com/js/js_json_syntax.asp).
+* [JSON validator](https://jsonformatter.curiousconcept.com/) to ensure your config file is correct.
+
 ## What to do when something breaks
 Oh no! Something went wrong with your mods. Let's try to fix it yourself, then we'll ask the mod
 developer if we can't.
