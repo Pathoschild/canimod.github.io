@@ -16,7 +16,7 @@ This is a collaborative open-source site documenting the anarchy.
                 <ul>
                     <li><a href="http://stardewvalleywiki.com/">Stardew Valley wiki</a></li>
                     <li><a href="http://community.playstarbound.com/forums/mods.215/">Modding forums</a></li>
-                    <li><a href="https://discord.gg/KCJHWhX">General chat</a></li>
+                    <li>Need help? Come <a href="https://discord.gg/kH55QXP">chat on Discord</a></li>
                 </ul>
             </li>
         </ul>
@@ -39,7 +39,8 @@ This is a collaborative open-source site documenting the anarchy.
             <li>See also:
                 <ul>
                     <li><a href="http://community.playstarbound.com/forums/mods.215/">Modding forums</a></li>
-                    <li><a href="https://discordapp.com/invite/0t3fh2xhHVc6Vdyx">Farmhand/SMAPI chat</a></li>
+                    <li><a href="https://discord.gg/kH55QXP">Stardew Valley Discord</a></li>
+                    <li><a href="https://discordapp.com/invite/0t3fh2xhHVc6Vdyx">Farmhand/SMAPI Discord</a></li>
                 </ul>
             </li>
         </ul>

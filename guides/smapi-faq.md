@@ -27,7 +27,7 @@ For help with a mod, the mod author is the best person to ask. These are the bes
 
 For help with SMAPI, or if you can't ask the mod author, you can try asking the community by
 [posting in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
-or [chatting in Discord](https://discord.gg/KCJHWhX).
+or [come chat in Discord](https://discord.gg/kH55QXP).
 
 See also _[what information should I include in a bug report?](#bug-report)_
 
