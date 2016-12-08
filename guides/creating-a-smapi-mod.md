@@ -98,10 +98,10 @@ set that up.
    * <small>In Visual Studio, choose _Visual C# » Class Library_. (Make sure you choose "Class Library", **not** "Class Library (.NET Core)" or "Class Library (Portable)".)</small>
    * <small>In MonoDevelop, choose _Other » .NET » Library_.</small>
 3. Change the target framework to .NET 4.5 (for compatibility with Linux).
-   * <small>In Visual Studio: right-click on the project, click the _Application_ tab, and change
-     the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
-   * <small>In MonoDevelop: right-click on the project, click the _Build » General_ tab, and change
-     the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
+   * <small>In Visual Studio: right-click on the project, choose _Properties_, click the
+     _Application_ tab, and change the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
+   * <small>In MonoDevelop: right-click on the project, choose _Options_, click the _Build »
+     General_ tab, and change the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
 3. Delete the `Class1.cs` or `MyClass.cs` file.
 
 ### Configuring the build
