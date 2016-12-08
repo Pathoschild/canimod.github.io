@@ -96,3 +96,28 @@ If your game isn't in the default location, here's how to find it:
   * Click _Properties_.
   * Click the _Local Files_ tab.
   * Click the _Browse Local Files..._ button to open the game directory.
+
+## Troubleshooting
+
+<section class="anchor" id="trojan"></section>
+
+### SMAPI contains a trojan?
+
+* **Why does this happen?**  
+  Some antivirus programs may warn you that SMAPI contains a trojan with scary names like
+  "Peals.A!cl". Don't worry, SMAPI doesn't actually have a trojan. That warning is based on something
+  called a _heuristic detection_ — basically the antivirus looked at the SMAPI code, and saw
+  something trojan-like. That's because SMAPI can rewrite your mods so they work on your
+  computer (mainly so players can use the same mods on Linux, Mac, or Windows). Rewriting files is
+  something trojans also do, so your antivirus got suspicious.
+
+* **How do I know it doesn't _really_ have a trojan?**  
+  You can check! SMAPI is all open-source, so you can
+  [read the code](https://github.com/Pathoschild/SMAPI) to make sure it's not doing anything shady.
+  If you don't trust the download, you can [decompile it](https://www.jetbrains.com/decompiler/)
+  and see what code it really contains.
+
+* **How do I fix it?**  
+  You just need to tell your antivirus that SMAPI is okay. How you do that depends on which program
+  you use. Try searching online for your antivirus name with the words "add exception" to find
+  answers.
