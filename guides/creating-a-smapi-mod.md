@@ -214,14 +214,14 @@ Now that you have a basic mod, here are the SMAPI features you can use to do mor
 SMAPI publishes several C# events that tell you when something happens. For example, if you want
 to do something after the player loads their save, you can add this to your `Entry` method:
 
-```cs
+```c#
 PlayerEvents.LoadedGame += this.ReceiveLoadedGame;
 ```
 
 Then declare a method like this. (The `EventArgs e` argument will often provide more details about
 what happened, if there are any.)
 
-```cs
+```c#
 /// <summmary>The event handler called after the player loads their save.</summary>
 /// <param name="sender">The event sender.</param>
 /// <param name="e">The event arguments.</param>
@@ -407,10 +407,49 @@ will log something like this:
 <span style="color:red;">[18:00:00 ERROR Mod Name] an error message</span>
 </pre>
 
-Note that `LogLevel.Trace` messages won't appear in the console window by default, they'll only be
-written to the log file. Trace messages are for troubleshooting details that are useful when
+Note that `LogLevel.Trace` messages won't appear in the console window by default, they'll only
+be written to the log file. Trace messages are for troubleshooting details that are useful when
 someone sends you their error log, but which the player normally doesn't need to see. (You can see
 trace messages in the console if you install the "SMAPI for developers" version.)
+
+### Reflection
+<p class="warning">
+This API is available in the upcoming SMAPI 1.4 release.
+</p>
+
+SMAPI provides an API for robustly accessing the game's private fields or methods. You can use it
+from `helper.Reflection` in your entry method, or `this.Helper.Reflection` elsewhere in your
+entry class. It consists of three methods:
+
+* `GetPrivateValue<TValue>(...)` returns the value of a private field.
+* `GetPrivateField<TValue>(...)` returns an object you can use to get or set a field's value.
+* `GetPrivateMethod(...)` returns an object you can use to invoke a method.
+
+Here are a few examples of what this lets you do:
+
+```c#
+// did you pet your pet today?
+bool wasPet = reflection.GetPrivateValue<bool>(pet, "wasPetToday");
+
+// what is the spirit forecast today?
+string forecast = reflection
+   .GetPrivateMethod(new TV(), "getFortuneForecast")
+   .Invoke<string>();
+
+// randomise the mines
+if(Game1.currentLocation is MineShaft)
+   reflection.GetPrivateField<Random>(Game1.currentLocation, "mineRandom").SetValue(new Random());
+```
+
+This works with static or instance fields/methods, caches the reflection to improve performance, and will
+throw useful errors automatically when reflection fails.
+
+If you need to do more, you can also switch to C#'s underlying reflection API:
+
+```c#
+FieldInfo field = reflection.GetPrivateField<string>(…).FieldInfo;
+MethodInfo method = reflection.GetPrivateMethod(…).MethodInfo;
+```
 
 ## Releasing your mod
 Ready to share your mod with the world?
