@@ -2,10 +2,22 @@
 layout: default
 title: Creating a SMAPI mod
 intro: > 
-   Ready to make your own mod? This page will guide you from creating an empty project
-   to building a small mod that runs on Linux, Mac, and Windows. If you just want the
-   quick version, see the <a href="#quick-start"><em>quick start</em> section</a>.
+   Ready to make your own mod? This page will help you create your first mod and document the
+   available APIs and events.
 ---
+
+## Quick start
+The rest of this page will help you create a mod. If you're experienced enough to skip the tutorial,
+here's a quick summary of what this page will walk you through:
+
+1. Create an empty C# library project.
+2. Target .NET Framework 4.5 (for Linux compatibility).
+3. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
+   to automatically add the right references depending on the platform the mod is being compiled on.
+4. Create an entry class which subclasses `StardewModdingAPI.Mod`.
+5. Override the `Entry` method, and write your code using the [SMAPI events and APIs](#mod-apis).
+6. Create a [`manifest.json` file](#creating-your-mod-manifest) which describes your mod for SMAPI.
+6. Create [a zip file containing the mod files](#sharing-your-mod) for release.
 
 ## Introduction
 
@@ -21,12 +33,12 @@ MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the scree
 If you're an experienced developer, you should be fine; if you have little or no experience, there
 are two general requirements:
 
-* Determination. Even with no development experience, you can learn along the way if you're
-  determined. You should be prepared for a steep learning curve depending on the scope of your mod,
-  and be ready to look things up or ask for help sometimes. Many mod developers started with little
-  or no development experience. Don't be too ambitious at first; it's better to start with a small
-  mod when you're figuring it out. It's easy to become overwhelmed at first and give up. The
-  modding community is very welcoming, so don't be afraid to ask questions!
+* Determination. Even with no development experience, you can learn along the way. You should be
+  prepared for a steep learning curve depending on the scope of your mod, and be ready to look
+  things up or ask for help sometimes. Many mod developers started with little or no development
+  experience. Don't be too ambitious at first; it's better to start with a small mod when you're
+  figuring it out. It's easy to become overwhelmed at first and give up. The modding community is
+  very welcoming, so don't be afraid to ask questions!
 * A good sense of logic or puzzle solving. You may need to read and understand portions of the
   decompiled game code, which can be dense. It's sometimes more difficult to do something in a mod,
   because you also need to work around the game which isn't designed to be extended.
@@ -48,27 +60,7 @@ have created a mod! All that will be left is making it do what you want. :)
 
 <span id="help"></span>
 
-### Where can I get help?
-The Stardew Valley modding community is very welcoming. Feel free to ask questions in the
-[modding forums](http://community.playstarbound.com/forums/mods.215/) or join the
-[Farmhand/SMAPI Discord server](https://discordapp.com/invite/0t3fh2xhHVc6Vdyx).
-
-## Quick start
-The rest of this page will help you create a mod. To give you some context, here's what you'll do
-by following along. (You don't need to remember this section.)
-
-1. Create an empty C# library project.
-2. Target .NET Framework 4.5 (for Linux compatibility).
-3. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
-   to automatically add the right references depending on the platform the mod is being compiled on.
-4. Create an entry class which subclasses `StardewModdingAPI.Mod`.
-5. Override the `Entry` method, and write your code using [the SMAPI events](#available-events).
-6. Create a [`manifest.json` file](#creating-your-mod-manifest) which describes your mod for SMAPI.
-6. Create [a zip file containing the mod files](#sharing-your-mod) for release.
-
-## Getting started
-
-### Prerequisites
+### What do I need?
 Before you start:
 
 * You should read _[using mods](using-mods)_ to learn the basic concepts and install SMAPI.
@@ -81,11 +73,10 @@ Before you start:
   guide won't cover its basic usage. If you've never used it before, consider following some
   'getting started' tutorials first. You may occasionally need to look things up.
 
-### Visual Studio vs MonoDevelop
-If you're developing on Windows, Visual Studio is strongly recommended; otherwise MonoDevelop is
-your best option. Visual Studio is the official C# editor with built-in compiling and debugging
-features, but it's only available on Windows. MonoDevelop is an open-source alternative available
-on Linux, Mac, and Windows, but it's less robust and mature.
+
+### Where can I get help?
+The Stardew Valley modding community is very welcoming. Feel free [come chat on Discord](https://discord.gg/kH55QXP)
+or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 
 ## Creating a minimal mod
 A SMAPI mod is a compiled library (DLL) with an entry method that gets called by SMAPI, so let's
@@ -149,7 +140,7 @@ The mod manifest tells SMAPI about your mod.
          "MajorVersion": 1,
          "MinorVersion": 0,
          "PatchVersion": 0,
-         "Build": 0
+         "Build": ""
       },
       "Description": "<One or two sentences about the mod>",
       "UniqueID": "<your project name>",
@@ -214,7 +205,109 @@ The mod so far will just send a message to the console window whenever you press
 If that didn't work, something went wrong. Try reviewing the above instructions, or
 [ask for help](#help). :)
 
-## Mod features
+## Mod APIs
+Now that you have a basic mod, here are the SMAPI features you can use to do more.
+
+### Events
+<span id="available-events"></span>
+
+Here are the available events:
+
+* <span id="control-events"></span>
+  **`ControlEvents`** are raised when the player uses a controller, keyboard, or mouse. They're
+  raised before the game handles the input, so it's possible to selectively prevent the game from
+  responding to it. (That's beyond the scope of this guide, but it involves overwriting
+  `Game1.oldKBState`, `Game1.oldMouseState`, and `Game1.oldPadState`.)
+
+  Most of these events are split into two variants, `XPressed` and `XReleased`. The `Pressed`
+  variant is raised when the player presses the button (holding the button down only triggers the
+  event once), and the `Released` variant is raised when they release it.
+
+  | event | summary |
+  |:----- |:------- |
+  | ControllerButtonPressed<br />ControllerButtonReleased | Raised after the player pressed/released a button on a gamepad or controller. These events aren't raised for trigger buttons. |
+  | ControllerTriggerPressed<br />ControllerTriggerReleased | Raised after the player pressed/released a trigger button on a gamepad or controller. |
+  | KeyPressed<br />KeyReleased | Raised after the player pressed/released a keyboard key. |
+  | KeyboardChanged | Raised after the game's `KeyboardState` changed. That happens when the player presses or releases a key. |
+  | MouseChanged | Raised after the game's `MouseState` changed. That happens when the player moves the mouse, scrolls the mouse wheel, or presses/releases a button. |
+
+* <span id="game-events"></span>
+  **`GameEvents`** are raised when the game changes state.
+
+  | event | summary |
+  |:----- |:------- |
+  | Initialize | Raised during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's `Game.Initialize` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
+  | LoadContent | Raised before XNA loads or reloads graphics resources. Called from [XNA's `Game.LoadContent` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
+  | GameLoaded | Raised when the game is ready and initialised. At this point the game data (like `Game1.objectInformation`) is in memory and ready for use. |
+  | UpdateTick | Raised when the game updates its state (≈60 times per second). |
+  | SecondUpdateTick | Raised every other tick (≈30 times per second). |
+  | FourthUpdateTick | Raised every fourth tick (≈15 times per second). |
+  | EighthUpdateTick | Raised every eighth tick (≈8 times per second). |
+  | QuarterSecondTick | Raised every 15th tick (≈4 times per second). |
+  | HalfSecondTick | Raised every 30th tick (≈twice per second). |
+  | OneSecondTick | Raised every 60th tick (≈once per second). |
+
+* <span id="graphics-events"></span>
+  **`GraphicsEvents`** are raised during the game's draw loop, when the game is rendering content
+  to the window.
+
+  | event | summary |
+  |:----- |:------- |
+  | OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing everything to the screen during a draw loop.
+  | OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), raised before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
+  | OnPreRenderHudEvent<br />OnPostRenderHudEvent | Raised before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
+  | Resize | Raised after the game window is resized. |
+  | _other events_ | SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
+
+* <span id="location-events"></span>
+  **`LocationEvents`** are raised when the player transitions between game locations, a location is
+  added or removed, or the objects in the current location change.
+
+  | event | summary |
+  |:----- |:------- |
+  | CurrentLocationChanged | Raised after the player warps to a new location. Handlers are given the previous and new locations as arguments. |
+  | LocationObjectsChanged | Raised after the list of objects in the current location changes (e.g. an object is added or removed). Handlers are given the new list of objects as an argument. |
+  | LocationsChanged | Raised after a game location is added or removed. Handlers are passed the new list of locations as an argument. |
+
+* <span id="control-events"></span>
+  **`MenuEvents`** are raised when a game menu is opened or closed (including internal menus like
+  the title screen).
+
+  | event | summary |
+  |:----- |:------- |
+  | MenuChanged | Raised after a game menu is opened or replaced with another menu. This event is not invoked when a menu is closed. Handlers are given the previous menu (if any) and new menu (if any). |
+  | MenuClosed | Raised after a game menu is closed. Handlers are given the previous menu. |
+
+* <span id="mine-events"></span>
+  **`MineEvents`** are raised when something happens in [The Mines](http://stardewvalleywiki.com/The_Mines).
+
+  | event | summary |
+  |:----- |:------- |
+  | MineLevelChanged | Raised after the player warps to a new level of the mine. Handlers are passed the previous and new mine level as arguments. |
+
+* <span id="player-events"></span>
+  **`PlayerEvents`** are raised when the player data changes.
+
+  | event | summary |
+  |:----- |:------- |
+  | LoadedGame | Raised after the player loads a saved game. |
+  | FarmerChanged | Raised after the game assigns a new player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
+  | InventoryChanged | Raised after the player's inventory changes in any way (added or removed item, sorted, etc). |
+  | LeveledUp | Raised after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
+
+  Notable bug: the `FarmerChanged`, `InventoryChanged`, and `LeveledUp` events are raised at various times
+  before the game is loaded, when there's no character yet.
+
+* <span id="time-events"></span>
+  **`TimeEvents`** are raised when the in-game date or time changes.
+
+  | event | summary |
+  |:----- |:------- |
+  | TimeOfDayChanged | Raised after the in-game clock changes. |
+  | DayOfMonthChanged | Raised after the day-of-month value changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
+  | SeasonOfYearChanged | Raised after the season changes. |
+  | YearOfGameChanged | Raised after the year changes. |
+  | OnNewDay | Raised when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
 
 ### Configuration
 You can let users configure your mod through a `config.json` file. SMAPI will automatically create
@@ -298,104 +391,6 @@ Note that `LogLevel.Trace` messages won't appear in the console window by defaul
 written to the log file. Trace messages are for troubleshooting details that are useful when
 someone sends you their error log, but which the player normally doesn't need to see. (You can see
 trace messages in the console if you install the "SMAPI for developers" version.)
-
-## Available events
-The minimal mod we created above reacts when the player presses a key, but it can do much more.
-These are the events your mod can subscribe to.
-
-### Control events
-`ControlEvents` are raised when the player uses a controller, keyboard, or mouse. They're raised
-before the game handles the input, so it's possible to selectively prevent the game from responding
-to it. (That's beyond the scope of this guide, but it involves overwriting `Game1.oldKBState`,
-`Game1.oldMouseState`, and `Game1.oldPadState`.)
-
-Most of these events are split into two variants, `XPressed` and `XReleased`. The `Pressed`
-variant is raised when the player presses the button (holding the button down only triggers the
-event once), and the `Released` variant is raised when they release it.
-
-| event | summary |
-|:----- |:------- |
-| ControllerButtonPressed<br />ControllerButtonReleased | Raised after the player pressed/released a button on a gamepad or controller. These events aren't raised for trigger buttons. |
-| ControllerTriggerPressed<br />ControllerTriggerReleased | Raised after the player pressed/released a trigger button on a gamepad or controller. |
-| KeyPressed<br />KeyReleased | Raised after the player pressed/released a keyboard key. |
-| KeyboardChanged | Raised after the game's `KeyboardState` changed. That happens when the player presses or releases a key. |
-| MouseChanged | Raised after the game's `MouseState` changed. That happens when the player moves the mouse, scrolls the mouse wheel, or presses/releases a button. |
-
-### Game events
-`GameEvents` are raised when the game changes state.
-
-| event | summary |
-|:----- |:------- |
-| Initialize | Raised during launch after configuring XNA or MonoGame. The game window hasn't been opened by this point. Called from [XNA's `Game.Initialize` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.initialize.aspx). |
-| LoadContent | Raised before XNA loads or reloads graphics resources. Called from [XNA's `Game.LoadContent` method](https://msdn.microsoft.com/en-us/library/microsoft.xna.framework.game.loadcontent.aspx).
-| GameLoaded | Raised when the game is ready and initialised. At this point the game data (like `Game1.objectInformation`) is in memory and ready for use. |
-| UpdateTick | Raised when the game updates its state (≈60 times per second). |
-| SecondUpdateTick | Raised every other tick (≈30 times per second). |
-| FourthUpdateTick | Raised every fourth tick (≈15 times per second). |
-| EighthUpdateTick | Raised every eighth tick (≈8 times per second). |
-| QuarterSecondTick | Raised every 15th tick (≈4 times per second). |
-| HalfSecondTick | Raised every 30th tick (≈twice per second). |
-| OneSecondTick | Raised every 60th tick (≈once per second). |
-
-### Graphics events
-`GraphicsEvents` are raised during the game's draw loop, when the game is
-rendering content to the window.
-
-| event | summary |
-|:----- |:------- |
-| OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing everything to the screen during a draw loop.
-| OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), raised before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
-| OnPreRenderHudEvent<br />OnPostRenderHudEvent | Raised before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
-| Resize | Raised after the game window is resized. |
-| _other events_ | SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
-
-### Location events
-`LocationEvents` are raised when the player transitions between game locations, a location is added or removed, or the objects in the current location change.
-
-| event | summary |
-|:----- |:------- |
-| CurrentLocationChanged | Raised after the player warps to a new location. Handlers are given the previous and new locations as arguments. |
-| LocationObjectsChanged | Raised after the list of objects in the current location changes (e.g. an object is added or removed). Handlers are given the new list of objects as an argument. |
-| LocationsChanged | Raised after a game location is added or removed. Handlers are passed the new list of locations as an argument. |
-
-### Menu events
-`MenuEvents` are raised when a game menu is opened or closed (including internal menus like the title screen).
-
-| event | summary |
-|:----- |:------- |
-| MenuChanged | Raised after a game menu is opened or replaced with another menu. This event is not invoked when a menu is closed. Handlers are given the previous menu (if any) and new menu (if any). |
-| MenuClosed | Raised after a game menu is closed. Handlers are given the previous menu. |
-
-### Mine events
-`MineEvents` are raised when something happens in [The Mines](http://stardewvalleywiki.com/The_Mines).
-
-| event | summary |
-|:----- |:------- |
-| MineLevelChanged | Raised after the player warps to a new level of the mine. Handlers are passed the previous and new mine level as arguments. |
-
-### Player events
-`PlayerEvents` are raised when the player data changes.
-
-| event | summary |
-|:----- |:------- |
-| LoadedGame | Raised after the player loads a saved game. |
-| FarmerChanged | Raised after the game assigns a new player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
-| InventoryChanged | Raised after the player's inventory changes in any way (added or removed item, sorted, etc). |
-| LeveledUp | Raised after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
-
-Notable bug: the `FarmerChanged`, `InventoryChanged`, and `LeveledUp` events are raised at various times
-before the game is loaded, when there's no character yet.
-
-### Time events
-`TimeEvents` are raised when the in-game date or time changes.
-
-| event | summary |
-|:----- |:------- |
-| TimeOfDayChanged | Raised after the in-game clock changes. |
-| DayOfMonthChanged | Raised after the day-of-month value changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
-| SeasonOfYearChanged | Raised after the season changes. |
-| YearOfGameChanged | Raised after the year changes. |
-| OnNewDay | Raised when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
 
 ## Releasing your mod
 Ready to share your mod with the world?
