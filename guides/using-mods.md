@@ -104,12 +104,6 @@ The installer is the recommended way to install SMAPI, but you can also install 
 If you've done everything above, the hard part is done!
 
 ### Downloading mods
-
-<p class="warning">
-<strong>Note:</strong> if you're playing on Linux or Mac, make sure the mod says it supports your
-platform or has a download for it. Most mods are still Windows-only.
-</p>
-
 There are two main places to download mods:
 
 * [Nexus Mods](http://nexusmods.com/stardewvalley/) has a huge repository of mods available.
