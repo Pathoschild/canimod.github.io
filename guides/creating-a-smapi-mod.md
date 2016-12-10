@@ -367,7 +367,7 @@ Here's the simplest way to use `config.json`:
 
 2. In your `ModEntry::Entry` method, add this line to read the config options:
 
-   ```
+   ```c#
    ModConfig config = helper.ReadConfig<ModConfig>();
    ```
 
@@ -400,9 +400,9 @@ this.Monitor.Log("an error message", LogLevel.Error);
 will log something like this:
 
 <pre>
-<span style="color:gray">[18:00:00 TRACE Mod Name] a trace message</span>
-<span style="color:gray">[18:00:00 DEBUG Mod Name] a debug message</span>
-<span style="color:white;">[18:00:00 INFO  Mod Name] an info message</span>
+<span style="color:#666;">[18:00:00 TRACE Mod Name] a trace message</span>
+<span style="color:#666;">[18:00:00 DEBUG Mod Name] a debug message</span>
+<span style="color:black;">[18:00:00 INFO  Mod Name] an info message</span>
 <span style="color:darkorange;">[18:00:00 WARN  Mod Name] a warning message</span>
 <span style="color:red;">[18:00:00 ERROR Mod Name] an error message</span>
 </pre>

@@ -114,32 +114,12 @@ code {
     font-size: 0.9em;
 }
 
-pre, :not(a) > code {
-    background: #151915;
-    white-space: pre;
-    word-wrap: break-word;
-    overflow: auto;
+pre {
+    margin-left: 3px;
+    padding: 1em;
     font-family: monospace;
-}
-
-pre.highlight, :not(a) > code {
-    border-radius: 4px;
-    border: 1px solid #292929;
-    position: relative;
-}
-
-:not(a) > code {
-    display: inline;
-    padding: 1px 4px;
     font-size: 0.9em;
-    color: #aed581;
-}
-
-pre.highlight code {
-    display: block;
-    padding: 15px 16px;
-    overflow-x: auto;
-    color: #aed581;
+    overflow: auto;
 }
 
 /*********
