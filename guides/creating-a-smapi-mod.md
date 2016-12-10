@@ -211,6 +211,26 @@ Now that you have a basic mod, here are the SMAPI features you can use to do mor
 ### Events
 <span id="available-events"></span>
 
+SMAPI publishes several C# events that tell you when something happens. For example, if you want
+to do something after the player loads their save, you can add this to your `Entry` method:
+
+```cs
+PlayerEvents.LoadedGame += this.ReceiveLoadedGame;
+```
+
+Then declare a method like this. (The `EventArgs e` argument will often provide more details about
+what happened, if there are any.)
+
+```cs
+/// <summmary>The event handler called after the player loads their save.</summary>
+/// <param name="sender">The event sender.</param>
+/// <param name="e">The event arguments.</param>
+public void ReceiveLoadedGame(object sender, EventArgs e)
+{
+   this.Monitor.Log("The player loaded their game! This is a good time to do things.");
+}
+```
+
 Here are the available events:
 
 * <span id="control-events"></span>
