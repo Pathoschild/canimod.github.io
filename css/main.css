@@ -122,7 +122,8 @@ pre {
     overflow: auto;
 }
 
-pre.highlight {
+pre.highlight,
+pre.cshighlight {
     background: #FFF;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;

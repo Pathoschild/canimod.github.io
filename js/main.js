@@ -1,6 +1,9 @@
 ﻿$(function() {
     "use strict";
 
+    // add class for C# syntax highlighting
+    $(".language-c\\# .highlight").removeClass("highlight").addClass("cshighlight");
+
     // Markdown isn't parsed inside a <section> tag. As a hack, wrap any section.anchor tags around the next section.
     $("section.anchor").each(function() {
         var section = $(this);
