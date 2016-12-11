@@ -12,9 +12,8 @@ redirect_from:
 See _[using mods](/guides/using-mods)_ for an introduction.
 
 ### How do I create my own mod?
-See _[creating a SMAPI mod](/guides/creating-a-smapi-mod)_, which will walk you through creating
-your first mod. This also contains references for experienced developers who just want to look up
-the available events and features.
+See _[creating a SMAPI mod](/guides/creating-a-smapi-mod)_, which walks you through creating a mod
+and documents the available events and APIs.
 
 ## Asking for help
 
@@ -71,10 +70,26 @@ link.
 
 ## Other
 
-<section class="anchor" id="game-directory"></section>
+<section class="anchor" id="save-folder"></section>
 
-### Where is my game directory?
-The "game directory" is the directory that contains the `Stardew Valley.exe` or `StardewValley.exe`
+### Where are my save files?
+The game puts save files here:
+
+Platform | Path
+:------- |:-----
+ Windows | `%appdata%\StardewValley\Saves`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
+ Linux   | `~/.config/StardewValley/Saves`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
+ Mac     | `~/.config/StardewValley/Saves`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
+
+Each save has a folder like `JonSnow_123456789`, with two main files inside it:
+`JonSnow_123456789` and `SaveGameInfo`. Both files are needed to load the save.
+
+To share your save, zip the entire `JonSnow_123456789` folder and send that.
+
+<section class="anchor" id="game-folder"></section>
+
+### Where is my game folder?
+The "game folder" is the folder that contains the `Stardew Valley.exe` or `StardewValley.exe`
 file. The default locations are:
 
 Platform | Path
@@ -88,14 +103,14 @@ If your game isn't in the default location, here's how to find it:
 * If you have the GOG version:
   * Open the GOG Galaxy client.
   * In the game sidebar, right-click on _Stardew Valley_.
-  * Choose _Manage Installation > Show Folder_ to open the game directory.
+  * Choose _Manage Installation > Show Folder_ to open the game folder.
 
 * If you have the Steam version:
   * Open the Steam client and go to the library view (the view that lists your games).
   * Right-click on _Stardew Valley_.
   * Click _Properties_.
   * Click the _Local Files_ tab.
-  * Click the _Browse Local Files..._ button to open the game directory.
+  * Click the _Browse Local Files..._ button to open the game folder.
 
 ## Troubleshooting
 
