@@ -413,9 +413,6 @@ someone sends you their error log, but which the player normally doesn't need to
 trace messages in the console if you install the "SMAPI for developers" version.)
 
 ### Reflection
-<p class="warning">
-This API is available in the upcoming SMAPI 1.4 release.
-</p>
 
 SMAPI provides an API for robustly accessing the game's private fields or methods. You can use it
 from `helper.Reflection` in your entry method, or `this.Helper.Reflection` elsewhere in your
