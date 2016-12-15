@@ -30,31 +30,24 @@ SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses 
 MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen, user input, etc).
 
 ### Am I qualified to make a SMAPI mod?
-If you're an experienced developer, you should be fine; if you have little or no experience, there
-are two general requirements:
+* **Scenario A: you're new to programming.**  
+  Many mod developers start with little or no programming experience. You can certainly learn along
+  the way if you're determined, but you should be prepared for a steep learning curve. Don't be too
+  ambitious at first; it's better to start with a small mod when you're figuring it out. It's easy
+  to become overwhelmed at first and give up. The modding community is very welcoming, so don't be
+  afraid to ask questions!
+  
+  Since mods are written in C#, it's a good idea to get acquainted with it first.
+  _[C# Fundamentals for Absolute Beginners](https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169)_
+  will walk you through the basics of C# needed to write SMAPI mods, from the basic concepts to
+  event-driven programming (which is what SMAPI mods use).
 
-* Determination. Even with no development experience, you can learn along the way. You should be
-  prepared for a steep learning curve depending on the scope of your mod, and be ready to look
-  things up or ask for help sometimes. Many mod developers started with little or no development
-  experience. Don't be too ambitious at first; it's better to start with a small mod when you're
-  figuring it out. It's easy to become overwhelmed at first and give up. The modding community is
-  very welcoming, so don't be afraid to ask questions!
-* A good sense of logic or puzzle solving. You may need to read and understand portions of the
-  decompiled game code, which can be dense. It's sometimes more difficult to do something in a mod,
-  because you also need to work around the game which isn't designed to be extended.
-
-Those requirements aren't absolute — for some simple mods, you might not need to read any game code
-at all, for example. If you're not sure how hard something will be, try asking an experienced mod
-developer.
-
-Here are some things which are **not** required:
-
-* Development experience in C# or Java. That will make things much easier for you, though — you're
-  already familiar with their concepts of object-oriented programming, organising your code, and
-  ideally source control. C# and Java are close enough that Java experience transfers well.
-* A good grasp of math. You'll mainly use math for positioning when drawing to the screen, and
-  that's mostly adding/subtracting offsets or multiplying for pixel zoom.
-
+* **Scenario B: you already have programming experience.**  
+  You should be fine. Programming experience in C# or Java will make things easier, but it isn't
+  critical. If you're unfamiliar with C#, you can skim through
+  _[C# Fundamentals for Absolute Beginners](https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169)_
+  to fill in any gaps.
+  
 The next few sections will walk you through creating a very simple mod. If you follow along, you'll
 have created a mod! All that will be left is making it do what you want. :)
 
@@ -413,7 +406,6 @@ someone sends you their error log, but which the player normally doesn't need to
 trace messages in the console if you install the "SMAPI for developers" version.)
 
 ### Reflection
-
 SMAPI provides an API for robustly accessing the game's private fields or methods. You can use it
 from `helper.Reflection` in your entry method, or `this.Helper.Reflection` elsewhere in your
 entry class. It consists of three methods:
