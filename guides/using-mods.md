@@ -50,55 +50,64 @@ game, and you can uninstall it anytime.
 (To update SMAPI, just install the latest version.)
 
 ### On Windows
+1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+2. Extract the `.zip` file somewhere.
+3. Double-click `install.exe`, and follow the on-screen instructions.  
+   _The installer will detect your game and add SMAPI for you._
+4. To play with mods, you need to launch `StardewModdingAPI.exe`.  
+   * **Scenario A: you launch the game through Steam:**
+     1. In the Steam client, right-click _Stardew Valley_ and choose _Properties_.
+     2. Click _Set Launch Options_.
+     3. Enter `StardewModdingAPI %command%`
+     4. Save your changes.  
+        _From now on, launching the game through Steam will run SMAPI. The Steam overlay and
+        achievements should work fine._
+   * **Scenario B: you launch the game through a shortcut:**
+     1. Right-click on the shortcut and choose _Properties_.
+     2. In the 'Target' box, change `Stardew Valley.exe` to `StardewModdingAPI.exe`.  
+        _From now on, using the shortcut will run SMAPI._
 
-1. Make sure you're running the latest version of the game.
-2. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
-3. Extract the `.zip` file somewhere.
-4. Double-click `install.exe` to install the game. (The installer will detect your game and add
-   SMAPI for you.)
-5. From now on, launch `StardewModdingAPI.exe` instead of the game's normal executable. Here's how:
-   * If you play through Steam:
-      1. In the Steam client, right-click _Stardew Valley_ and choose _Properties_.
-      2. Click _Set Launch Options_.
-      3. Enter this command:
-      
-         ```
-         StardewModdingAPI %command%
-         ```
-   * If you play through a shortcut:
-      1. Right-click on the shortcut and choose _Properties_.
-      2. In the 'Target' box, change `Stardew Valley.exe` to `StardewModdingAPI.exe`.
+That's it! To remove SMAPI later, just run `install.exe` again and choose _uninstall_. (Don't
+forget to undo your step 4 changes.)
 
-That's it!
+### On Linux
+1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+2. Extract the `.zip` file somewhere.
+3. Open a terminal in the extracted folder and run `mono install.exe`.  
+   _The installer will detect your game and add SMAPI for you. (If you get an error like
+   'mono: command not found', you need to install [Mono](http://www.mono-project.com/).)_
 
-If you want to remove SMAPI later, just run `install.exe` and choose _uninstall_ (don't forget to
-undo your changes from step 5).
+That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
+again and choose _uninstall_.
 
-### On Linux or Mac
-1. Make sure you're running the latest version of the game.
-2. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
-3. Extract the `.zip` file somewhere.
-4. Open a terminal in the extracted folder and run `mono install.exe`. The installer will detect
-   your game and add SMAPI for you.  
-   <small>_(If you get an error like 'mono: command not found', you probably need to install [Mono](http://www.mono-project.com/).)_</small>
+### On Mac
+1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+2. Extract the `.zip` file somewhere.  
+3. Open a terminal in the extracted folder and run `mono install.exe`.  
+   _Here's how: (1) open the Terminal app; (2) type `mono` then a space; (3) drag & drop the
+   `install.exe` file onto the Terminal window to paste its file path; (4) press enter on your
+   keyboard._  
+   _(If you get an error like 'mono: command not found', you need to install
+   [Mono](http://www.mono-project.com/) first.)_
 
-That's it! You can launch the game the usual way to use SMAPI.
-
-If you want to remove SMAPI later, just run `mono install.exe` and choose _uninstall._
+That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
+again and choose _uninstall_.
 
 ### Manual install (not recommended)
 The installer is the recommended way to install SMAPI, but you can also install it manually.
 
-1. Make sure you're running the latest version of the game.
-2. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
-3. Unzip the `.zip` file somewhere.
-4. Copy the files from the `Mono` directory (if Linux/Mac) or `Windows` directory (if Windows)
-   into your game directory. If you did it properly, the `StardewModdingAPI.exe` file should be
-   right next to the game's executable.
-5. 
-   * Windows: see the [Windows instructions above](#Windows) to launch SMAPI instead of the game.
-   * Linux/Mac: rename the `StardewValley` launcher to `StardewValley-original`, and rename
-     `StardewModdingAPI` to `StardewValley`.
+1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+2. Unzip the `.zip` file somewhere.
+3. Copy the files from the `Mono` folder (if Linux/Mac) or `Windows` folder (if Windows) into
+   [your game folder](http://canimod.com/guides/smapi-faq#game-folder). If you did it properly, the
+   `StardewModdingAPI.exe` file should be right next to the game's executable.
+4. Make sure the game launches with SMAPI.
+   * **Scenario A: you play on Windows:**  
+     See [step 4 in the Windows instructions](#on-windows).
+   * **Scenario B: you play on Linux or Mac:**  
+     1. Open the game folder.
+     2. Rename the `StardewValley` file (with no extension) to `StardewValley-original`.
+     3. Rename the `StardewModdingAPI` file (with no extension) to `StardewValley`.
 
 ## Using mods
 If you've done everything above, the hard part is done!
@@ -129,9 +138,18 @@ A few tips for downloading mods:
      abandoned.
 
 ### Adding mods
-To install a mod, just unzip it into the game's `Mods` folder. Make sure each mod has its own
-subdirectory; for example, if you have a `PineapplesEverywhere` mod, you should have a
-`Mods\PineapplesEverywhere` directory with a `manifest.json` file in it.
+To install a mod, just unzip it into the `Mods` folder inside
+[your game folder](http://canimod.com/guides/smapi-faq#game-folder). Make sure each mod has its own
+subdirectory; for example, if you have a `PineapplesEverywhere` mod, you should have a file
+structure like this:
+
+```
+<game folder>
+   Mods/
+      PineapplesEverywhere/
+         PineapplesEverywhere.dll
+         manifest.json
+```
 
 ### Removing mods
 To uninstall a mod, just remove it from the `Mods` directory.
