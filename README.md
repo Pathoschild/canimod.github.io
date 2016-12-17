@@ -1,7 +1,7 @@
 ﻿**Can I Mod** is an open-source website dedicated to documenting [Stardew Valley](http://stardewvalley.net/)
 modding — everything from simple user guides (from installing SMAPI to troubleshooting mods) to
 modding resources (from creating a minimal SMAPI mod to in-depth guides like parsing event data).
-The site is [freely licensed](https://github.com/canimod/canimod.github.io/blob/master/LICENSE),
+The site is [freely licensed](https://github.com/Pathoschild/canimod.github.io/blob/master/LICENSE),
 continuously deployed to [canimod.com](http://canimod.com/), and anyone can contribute.
 
 ## Ways to contribute
@@ -9,8 +9,8 @@ continuously deployed to [canimod.com](http://canimod.com/), and anyone can cont
 You can propose changes to individual files right here on GitHub — no knowledge of Git needed.
 Here's how:
 
-1. Open the file you want to change on GitHub. The front page is [`index.md`](https://github.com/canimod/canimod.github.io/blob/master/index.md),
-   and the guide pages are in [`/guides`](https://github.com/canimod/canimod.github.io/blob/master/guides).
+1. Open the file you want to change on GitHub. The front page is [`index.md`](https://github.com/Pathoschild/canimod.github.io/blob/master/index.md),
+   and the guide pages are in [`/guides`](https://github.com/Pathoschild/canimod.github.io/blob/master/guides).
 2. Click the edit button in the top-right corner:
 
    ![screenshot of edit button](images/readme/edit-on-github-1.png)
