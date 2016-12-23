@@ -136,3 +136,28 @@ If your game isn't in the default location, here's how to find it:
   You just need to tell your antivirus that SMAPI is okay. How you do that depends on which program
   you use. Try searching online for your antivirus name with the words "add exception" to find
   answers.
+
+<section class="anchor" id="sehexception"></section>
+
+## "SEHException: External component has thrown an exception"
+You might see an error like this with "Microsoft.Xna.Framework.Audio" in the text:
+
+```
+System.Runtime.InteropServices.SEHException (0x80004005): External component has thrown an exception.
+   at new[](UInt32 )
+   at Microsoft.Xna.Framework.Audio.UnsafeNativeMethods.AllocateArrayAndReadFile(String filename, Void** ppData, UInt32* pdwBufferSize)
+   at Microsoft.Xna.Framework.Audio.UnsafeNativeMethods.WaveBank.CreateHandle(UInt32 hEngine, String string, Int32 length, IntPtr& pCleanup)
+   at Microsoft.Xna.Framework.Audio.WaveBank..ctor(AudioEngine audioEngine, String nonStreamingWaveBankFilename)
+   at StardewValley.Game1.Initialize()
+   at StardewModdingAPI.Inheritance.SGame.Initialize() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Inheritance\SGame.cs:line 302
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at StardewModdingAPI.Program.StartGame() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Program.cs:line 274
+```
+
+This happens when your computer doesn't have enough resources to start the game fast enough (which
+the game doesn't handle very well). This typically isn't caused by SMAPI itself.
+
+Common solutions:
+* Close your browsers and any other open application before playing.
+* Remove any mods intended to change the game's audio (e.g. more music).
