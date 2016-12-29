@@ -139,8 +139,16 @@ If your game isn't in the default location, here's how to find it:
 
 <section class="anchor" id="sehexception"></section>
 
-## "SEHException: External component has thrown an exception"
-You might see an error like this with "Microsoft.Xna.Framework.Audio" in the text:
+### FileNotFoundException: Could not load file or assembly 'Stardew Valley'
+That error means SMAPI couldn't find your `Stardew Valley.exe` (Windows) or `StardewValley.exe`
+(Linux/Mac) file, probably because SMAPI isn't in the right folder. Make sure you're running
+`StardewModdingAPI.exe` in your [game folder](#game-folder), _not_ the one in the downloaded
+installer folder. See the [official install instructions](/guides/using-mods#installing-smapi) for
+detailed steps.
+
+
+### SEHException: External component has thrown an exception
+An error like this with "Microsoft.Xna.Framework.Audio" in the text:
 
 ```
 System.Runtime.InteropServices.SEHException (0x80004005): External component has thrown an exception.
@@ -155,9 +163,10 @@ System.Runtime.InteropServices.SEHException (0x80004005): External component has
    at StardewModdingAPI.Program.StartGame() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Program.cs:line 274
 ```
 
-This happens when your computer doesn't have enough resources to start the game fast enough (which
+...usually means your computer didn't have enough resources to start the game fast enough (which
 the game doesn't handle very well). This typically isn't caused by SMAPI itself.
 
 Common solutions:
+
 * Close your browsers and any other open application before playing.
 * Remove any mods intended to change the game's audio (e.g. more music).
