@@ -51,10 +51,10 @@ game, and you can uninstall it anytime.
 
 ### On Windows
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
-2. Extract the `.zip` file somewhere.
+2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Double-click `install.exe`, and follow the on-screen instructions.  
    _The installer will detect your game and add SMAPI for you._
-4. To play with mods, you need to launch `StardewModdingAPI.exe`.  
+4. To play with mods, you need to launch the `StardewModdingAPI.exe` that was added to your game folder (not the one in the installer folder).  
    * **Scenario A: you launch the game through Steam:**
      1. In the Steam client, right-click _Stardew Valley_ and choose _Properties_.
      2. Click _Set Launch Options_.
@@ -72,7 +72,7 @@ forget to undo your step 4 changes.)
 
 ### On Linux
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
-2. Extract the `.zip` file somewhere.
+2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
    _The installer will detect your game and add SMAPI for you. (If you get an error like
    'mono: command not found', you need to install [Mono](http://www.mono-project.com/).)_
@@ -82,7 +82,7 @@ again and choose _uninstall_.
 
 ### On Mac
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
-2. Extract the `.zip` file somewhere.  
+2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
    _Here's how: (1) open the Terminal app; (2) type `mono` then a space; (3) drag & drop the
    `install.exe` file onto the Terminal window to paste its file path; (4) press enter on your
