@@ -101,6 +101,8 @@ set that up.
    * <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
      `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
      for Stardew Valley mods_ and click _Add Package_.</small>
+2. _(optional)_ See the package's _[Simplify mod development](https://github.com/Pathoschild/Stardew.ModBuildConfig#simplify-mod-development)_
+   to automatically package your mod into your mod folder and enable debugging while the game is running.
 
 That's all you need (usually). Try building the project; if you get an error that says "failed to
 find the game install path automatically", your game is probably not installed to its default path.
