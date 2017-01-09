@@ -125,9 +125,68 @@ Let's run through a quick checklist:
    [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 
 2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
-   problems. Try manually downloading the mod.
+   problems. Try downloading the mod manually.
 
 3. See the sections below for solutions to specific errors.
+
+### FileNotFoundException: Could not load file or assembly 'Stardew Valley'
+That error means SMAPI couldn't find your `Stardew Valley.exe` (Windows) or `StardewValley.exe`
+(Linux/Mac) file, probably because SMAPI isn't in the right folder. Make sure you're running
+`StardewModdingAPI.exe` in your [game folder](#game-folder), _not_ the one in the downloaded
+installer folder. See the [official install instructions](/guides/using-mods#installing-smapi) for
+detailed steps.
+
+### Ignored folder "..." which doesn't have a manifest.json
+SMAPI couldn't find the `manifest.json` file for the mod in that folder. Common solutions:
+
+1. If the mod doesn't have a `manifest.json` file, it's not a SMAPI mod so it won't work from the
+   `Mods` folder. See that mod's documentation for setup instructions.
+
+1. If the mod has a `manifest.json` file, make sure the files are in a `Mods` subfolder. For
+   example, the files should look like this:
+
+   ```
+   Stardew Valley/
+      Mods/
+         PineapplesEverywhere/
+            PineapplesEverywhere.dll
+            manifest.json
+   ```
+
+   ...and _not_ like this sub-subfolder:
+
+   ```
+   Stardew Valley/
+      Mods/
+         PineapplesEverywhere-1.3/
+            PineapplesEverywhere/
+               PineapplesEverywhere.dll
+               manifest.json
+   ```
+
+### SEHException: External component has thrown an exception
+An error like this with "Microsoft.Xna.Framework.Audio" in the text:
+
+```
+System.Runtime.InteropServices.SEHException (0x80004005): External component has thrown an exception.
+   at new[](UInt32 )
+   at Microsoft.Xna.Framework.Audio.UnsafeNativeMethods.AllocateArrayAndReadFile(String filename, Void** ppData, UInt32* pdwBufferSize)
+   at Microsoft.Xna.Framework.Audio.UnsafeNativeMethods.WaveBank.CreateHandle(UInt32 hEngine, String string, Int32 length, IntPtr& pCleanup)
+   at Microsoft.Xna.Framework.Audio.WaveBank..ctor(AudioEngine audioEngine, String nonStreamingWaveBankFilename)
+   at StardewValley.Game1.Initialize()
+   at StardewModdingAPI.Inheritance.SGame.Initialize() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Inheritance\SGame.cs:line 302
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at StardewModdingAPI.Program.StartGame() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Program.cs:line 274
+```
+
+...usually means your computer didn't have enough resources to start the game fast enough (which
+the game doesn't handle very well). This typically isn't caused by SMAPI itself.
+
+Common solutions:
+
+* Close your browsers and any other open application before playing.
+* Remove any mods intended to change the game's audio (e.g. more music).
 
 <section class="anchor" id="trojan"></section>
 
@@ -153,35 +212,3 @@ Let's run through a quick checklist:
   answers.
 
 <section class="anchor" id="sehexception"></section>
-
-### FileNotFoundException: Could not load file or assembly 'Stardew Valley'
-That error means SMAPI couldn't find your `Stardew Valley.exe` (Windows) or `StardewValley.exe`
-(Linux/Mac) file, probably because SMAPI isn't in the right folder. Make sure you're running
-`StardewModdingAPI.exe` in your [game folder](#game-folder), _not_ the one in the downloaded
-installer folder. See the [official install instructions](/guides/using-mods#installing-smapi) for
-detailed steps.
-
-
-### SEHException: External component has thrown an exception
-An error like this with "Microsoft.Xna.Framework.Audio" in the text:
-
-```
-System.Runtime.InteropServices.SEHException (0x80004005): External component has thrown an exception.
-   at new[](UInt32 )
-   at Microsoft.Xna.Framework.Audio.UnsafeNativeMethods.AllocateArrayAndReadFile(String filename, Void** ppData, UInt32* pdwBufferSize)
-   at Microsoft.Xna.Framework.Audio.UnsafeNativeMethods.WaveBank.CreateHandle(UInt32 hEngine, String string, Int32 length, IntPtr& pCleanup)
-   at Microsoft.Xna.Framework.Audio.WaveBank..ctor(AudioEngine audioEngine, String nonStreamingWaveBankFilename)
-   at StardewValley.Game1.Initialize()
-   at StardewModdingAPI.Inheritance.SGame.Initialize() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Inheritance\SGame.cs:line 302
-   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
-   at Microsoft.Xna.Framework.Game.Run()
-   at StardewModdingAPI.Program.StartGame() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Program.cs:line 274
-```
-
-...usually means your computer didn't have enough resources to start the game fast enough (which
-the game doesn't handle very well). This typically isn't caused by SMAPI itself.
-
-Common solutions:
-
-* Close your browsers and any other open application before playing.
-* Remove any mods intended to change the game's audio (e.g. more music).
