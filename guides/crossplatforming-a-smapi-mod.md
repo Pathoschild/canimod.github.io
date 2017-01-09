@@ -7,7 +7,7 @@ intro: >
    <em><a href="/guides/creating-a-smapi-mod">creating a SMAPI mod</a></em> instead.<br />
 ---
 
-## What's different between Linux/Mac and Windows?
+## Differences between Linux/Mac and Windows
 Stardew Valley uses [MonoGame](http://www.monogame.net/) on Linux/Mac, and [XNA Framework](https://en.wikipedia.org/wiki/Microsoft_XNA)
 on Windows. Although MonoGame is highly compatible with XNA Framework, the mapping isn't perfect —
 some APIs are slightly different, and their internal implementations are often different. This has
@@ -40,12 +40,14 @@ Here's how to maximise compatibility:
 3. Avoid using reflection to access internal MonoGame/XNA code when possible.
 4. Ideally, test your mod on both Linux (or Mac) and Windows. (See the next section.)
 
-## Testing a mod on all platforms
+## Advanced
+
+### Test on all platforms
 If you want to test your mod on all platforms, there's some first-time setup you need to get out of
 the way. Essentially you need to test your mod twice: once on Windows, and again on Linux or Mac.
 You can do that by testing one version on your computer, and the other in a virtual machine.
 
-### If your main computer is Windows
+#### If your main computer is Windows
 
 1. Install [VirtualBox](https://www.virtualbox.org/).
 2. Add [this premade Linux virtual machine](https://www.dropbox.com/s/nrq9xsde2afp4ey/StardewValleyLinuxModding.7z)
@@ -57,17 +59,17 @@ You can do that by testing one version on your computer, and the other in a virt
    _<small>Tip: don't change the default install path, or you'll need to customise the mod's build
    configuration.</small>_
 
-### If your main computer is Linux or Mac
+#### If your main computer is Linux or Mac
 
 1. Install [VirtualBox](https://www.virtualbox.org/).
 2. [Create a VM with Windows](http://www.macworld.co.uk/how-to/mac-software/run-windows-10-on-your-mac-using-virtualbox-3621650/).
 3. Install [Visual Studio Community](https://www.visualstudio.com/vs/community/) in your VM.
 4. Install Stardew Valley in your VM.
 
-## Compiling per-platform packages
+### Compile per-platform packages
 **You usually don't need to do this!** Only do this if your mod isn't rewritten correctly by SMAPI.
 
-### Using a virtual machine
+#### Using a virtual machine
 
 1. Compile one version on your main computer.
 2. Compile another version in your virtual machine (see previous section).
@@ -98,7 +100,7 @@ PineappleMod-1.2-Mac.zip
 
 Done! For more information on releasing your mod, see _[creating a SMAPI mod: releasing your mod](creating-a-smapi-mod#releasing-your-mod)_.
 
-### Using experimental cross-compiling
+#### Using experimental cross-compiling
 Instead of compiling your packages using a virtual machine, you can cross-compile from the same
 machine. This works on any platform, but hasn't been extensively tested. Note that you may still
 need a virtual machine to test your mod on both Linux/Mac and Windows.
@@ -107,7 +109,7 @@ For more information, see the [SDVCrosscompile project](https://github.com/ruman
 The rest of this section shows one way of using it, but there are other options including
 integrated into Visual Studio or MonoDevelop.
 
-#### First-time setup
+##### First-time setup
 
 1. Install [Mono](http://www.mono-project.com/).
 2. Install [Python 3](https://www.python.org/). Make sure to enable the option that adds it to your
@@ -129,7 +131,7 @@ integrated into Visual Studio or MonoDevelop.
      C:\path\to\xcompile.bat --output "compiled-packages"
      ```
 
-#### Preparing a mod release
+##### Preparing a mod release
 
 When you want to compile the mod, just run the `compile-packages` script you created above. This
 will create three mod packages in a folder named `compiled-packages`.

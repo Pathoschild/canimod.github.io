@@ -2,7 +2,7 @@
 layout: default
 title: Creating a SMAPI mod
 intro: > 
-   Ready to make your own mod? This page will help you create your first mod and document the
+   Ready to make your own mod? This page will help you create your first mod and use the
    available APIs and events.
 ---
 
@@ -16,12 +16,12 @@ here's a quick summary of what this page will walk you through:
    to automatically add the right references depending on the platform the mod is being compiled on.
 4. Create an entry class which subclasses `StardewModdingAPI.Mod`.
 5. Override the `Entry` method, and write your code using the [SMAPI events and APIs](#mod-apis).
-6. Create a [`manifest.json` file](#creating-your-mod-manifest) which describes your mod for SMAPI.
-6. Create [a zip file containing the mod files](#sharing-your-mod) for release.
+6. Create a [`manifest.json` file](#add-your-manifest) which describes your mod for SMAPI.
+6. Create [a zip file containing the mod files](#share-your-mod) for release.
 
-## Introduction
+## Intro
 
-### What is a SMAPI mod?
+### What is SMAPI?
 A SMAPI mod uses the [SMAPI](https://github.com/cjsu/SMAPI) modding API to extend the game logic.
 You can run code when something happens (e.g. mouse clicked or menu opened), or periodically (e.g.
 once per game tick).
@@ -29,7 +29,7 @@ once per game tick).
 SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses XNA (on Windows) or
 MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen, user input, etc).
 
-### Am I qualified to make a SMAPI mod?
+### Can I make a mod?
 * **Scenario A: you're new to programming.**  
   Many mod developers start with little or no programming experience. You can certainly learn along
   the way if you're determined, but you should be prepared for a steep learning curve. Don't be too
@@ -71,11 +71,11 @@ Before you start:
 The Stardew Valley modding community is very welcoming. Feel free [come chat on Discord](https://discord.gg/kH55QXP)
 or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 
-## Creating a minimal mod
+## How to make a mod
 A SMAPI mod is a compiled library (DLL) with an entry method that gets called by SMAPI, so let's
 set that up.
 
-### Creating the project structure
+### Create the project structure
 
 1. Open Visual Studio or MonoDevelop.
 2. Create a new solution with a library project.
@@ -88,7 +88,7 @@ set that up.
      General_ tab, and change the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
 3. Delete the `Class1.cs` or `MyClass.cs` file.
 
-### Configuring the build
+### Configure the build
 
 1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
    This will automatically configure your project to load the right modding dependencies for the
@@ -121,7 +121,7 @@ You just need to specify where it is:
    default paths, so your mod will still work on other computers (e.g. if someone else recompiles
    it on a different platform for you).
 
-### Creating your mod manifest
+### Add your manifest
 The mod manifest tells SMAPI about your mod.
 
 1. Add a file named `manifest.json` to your project.
@@ -144,7 +144,7 @@ The mod manifest tells SMAPI about your mod.
    ```
    This will listed in the console output when the game is launching.
 
-### Writing your mod code
+### Write the code
 Almost done! Now for the code SMAPI will run.
 
 1. Add a C# class file called `ModEntry.cs` to your project.
@@ -186,12 +186,13 @@ Almost done! Now for the code SMAPI will run.
    }
    ```
 
-### Trying your mod
+### Try your mod
 
 1. Build the project.
-2. In the game's `Mods` directory, add a folder with your mod's name.
-3. Copy your `manifest.json` and compiled files into the folder you created.
-4. Run the game through SMAPI.
+2. Copy the mod into your game's `Mods` folder (only if you didn't do step 2 of _[configure the build](#configure-the-build)_).
+   1. In the game's `Mods` directory, add a folder with your mod's name.
+   2. Copy your `manifest.json` and compiled files into the folder you created.
+3. Run the game through SMAPI.
 
 The mod so far will just send a message to the console window whenever you press a key in the game:
 
@@ -442,13 +443,13 @@ FieldInfo field = reflection.GetPrivateField<string>(…).FieldInfo;
 MethodInfo method = reflection.GetPrivateMethod(…).MethodInfo;
 ```
 
-## Releasing your mod
+## Release your mod
 Ready to share your mod with the world?
 
 Let's say you created a mod named _Pineapples Everywhere_ which turns all NPCs into pineapples;
 here's how you would release it for others to use.
 
-### Sharing your mod
+### Share your mod
 1. Copy your `manifest.json` and compiled files into a folder matching your mod's name (like
    `PineapplesEverywhere`). A few tips:
    * Only use letters in the folder name (no spaces or symbols) to simplify troubleshooting later.
@@ -470,10 +471,10 @@ PineapplesEverywhere-1.0-Windows.zip
 The best places to share your mod are [Nexus Mods](http://www.nexusmods.com/stardewvalley) and
 the [official modding forums](http://community.playstarbound.com/forums/mods.215/).
 
-### Releasing on multiple platforms
+### Release on multiple platforms
 Want to share your mod on Linux, Mac, and Windows? See _[crossplatforming a SMAPI mod](crossplatforming-a-smapi-mod)_.
 
-## Decompiling the game code
+## Decompile the game code
 When you start working on more complex mods, you may need to look at how the game code works.
 
 Here's how to decompile the game code so you can look at it:

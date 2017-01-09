@@ -8,14 +8,14 @@ redirect_from:
 
 ## General
 
-### How do I use mods and what is SMAPI?
+### How do I use mods? What is SMAPI?
 See _[using mods](/guides/using-mods)_ for an introduction.
 
-### How do I create my own mod?
+### How do I create a mod?
 See _[creating a SMAPI mod](/guides/creating-a-smapi-mod)_, which walks you through creating a mod
 and documents the available events and APIs.
 
-## Asking for help
+## Getting help
 
 ### Where can I ask for help?
 For help with a mod, the mod author is the best person to ask. These are the best ways to contact them:
@@ -24,15 +24,14 @@ For help with a mod, the mod author is the best person to ask. These are the bes
 2. the 'bugs' section on the Nexus mod page (if any);
 3. otherwise contact the author directly (e.g. use the 'Contact' button on the Nexus mod page).
 
-For help with SMAPI, or if you can't ask the mod author, you can try asking the community by
-[posting in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
-or [come chat in Discord](https://discord.gg/kH55QXP).
+For help with SMAPI, or if you can't ask the mod author, [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
+or [ask in Discord](https://discord.gg/kH55QXP).
 
 See also _[what information should I include in a bug report?](#bug-report)_
 
 <section class="anchor" id="bug-report"></section>
 
-### What information should I include in a bug report?
+### What should I mention in a bug report?
 Figuring out why something went wrong for someone else can be tough, so it helps if you include
 as much information as possible. Here's the most useful information you can give.
 
@@ -53,7 +52,7 @@ as much information as possible. Here's the most useful information you can give
 
 <section class="anchor" id="error-log"></section>
 
-### Where is my error log and how do I share it?
+### Where is my error log?
 SMAPI's error log provides information useful for troubleshooting problems, including any errors
 that occurred.
 
