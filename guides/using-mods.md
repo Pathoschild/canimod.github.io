@@ -164,28 +164,9 @@ when you edit it, or your changes might not take effect. See a [basic guide to J
 basically make sure your values are surrounded by quotes (like `"value"`). You can use this
 [JSON validator](https://jsonformatter.curiousconcept.com/) to make sure the format is correct.
 
-## What to do when something breaks
-Oh no! Something went wrong with your mods. Let's try to fix it yourself, then we'll ask the mod
-developer if we can't.
+## Troubleshooting
+Oh no! Something went wrong with your mods.
 
-### Fixing it yourself
-Let's run through a quick checklist:
-
-1. Are you running the latest Stardew Valley and SMAPI? Your current versions are listed at the top
-   of the console window:
-
-   > ![](images/using-mods/smapi-versions.png)
-   
-   Make sure "SDV Version" matches the [latest version of Stardew Valley](http://stardewvalleywiki.com/Version_History),
-   and "SMAPI Version" matches the latest version of SMAPI ([see download links](#installing-smapi)).
-   If not, update them and try again.
-
-2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
-   problems. Try manually downloading the mod.
-
-3. Are your mods in two places? (Some mod managers do that.) Make sure all your mods are in
-   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try
-   again.
-
-### Asking for help
-Couldn't fix it yourself? See _[asking for help](/guides/asking-for-help)._
+1. See _[troubleshooting in the SMAPI FAQ](/guides/smapi-faq#troubleshooting)_ for solutions to
+   common issues.
+2. If that didn't work, see _[asking for help](/guides/asking-for-help)._
