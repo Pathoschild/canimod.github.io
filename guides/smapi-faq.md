@@ -117,21 +117,18 @@ If your game isn't in the default location, here's how to find it:
 ### Common issues
 Let's run through a quick checklist:
 
-1. Are you running the latest Stardew Valley and SMAPI? Your current versions are listed at the top
-   of the console window:
+1. Are you running the latest versions? The versions are listed in the first line of the console
+   window:
 
    > ![](images/smapi-faq/smapi-versions.png)
    
-   Make sure "SDV Version" matches the [latest version of Stardew Valley](http://stardewvalleywiki.com/Version_History),
-   and "SMAPI Version" matches the latest version of SMAPI ([see download links](#installing-smapi)).
-   If not, update them and try again.
+   Make sure you have [Stardew Valley 1.11](http://stardewvalleywiki.com/Version_History) and the
+   [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 
 2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
    problems. Try manually downloading the mod.
 
-3. Are your mods in two places? (Some mod managers do that.) Make sure all your mods are in
-   `<game install path>\Mods`; delete anything in `%appdata%\StardewValley\Mods` and try
-   again.
+3. See the sections below for solutions to specific errors.
 
 <section class="anchor" id="trojan"></section>
 
