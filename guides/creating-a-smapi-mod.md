@@ -151,10 +151,11 @@ Almost done! Now for the code SMAPI will run.
 2. Put this code in the file (replace `<your project name>` with the name of your project):
 
    ```c#
+   using System;
+   using Microsoft.Xna.Framework;
    using StardewModdingAPI;
    using StardewModdingAPI.Events;
    using StardewValley;
-   using Microsoft.Xna.Framework;
 
    namespace <your project name>
    {
