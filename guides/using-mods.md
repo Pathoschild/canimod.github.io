@@ -44,10 +44,9 @@ The rest of this article will focus on SMAPI. You should not use Storm mods, and
 released yet.
 
 ## Installing SMAPI
-SMAPI is the modding API which runs the game with mods. It's safely installed alongside your normal
-game, and you can uninstall it anytime.
-
-(To update SMAPI, just install the latest version.)
+SMAPI is the tool which launches the game with mods (which are [downloaded separately](#using-mods)).
+It's safely installed alongside your normal game, and you can uninstall it anytime. To update SMAPI,
+just install the latest version.
 
 ### On Windows
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
