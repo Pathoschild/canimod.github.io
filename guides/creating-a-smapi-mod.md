@@ -212,7 +212,7 @@ SMAPI publishes several C# events that tell you when something happens. For exam
 to do something after the player loads their save, you can add this to your `Entry` method:
 
 ```c#
-PlayerEvents.LoadedGame += this.ReceiveLoadedGame;
+SaveEvents.AfterLoad += this.ReceiveAfterLoad;
 ```
 
 Then declare a method like this. (The `EventArgs e` argument will often provide more details about
@@ -222,9 +222,10 @@ what happened, if there are any.)
 /// <summmary>The event handler called after the player loads their save.</summary>
 /// <param name="sender">The event sender.</param>
 /// <param name="e">The event arguments.</param>
-public void ReceiveLoadedGame(object sender, EventArgs e)
+public void ReceiveAfterLoad(object sender, EventArgs e)
 {
    this.Monitor.Log("The player loaded their game! This is a good time to do things.");
+   this.Monitor.Log("Everything in the world is ready to interact with at this point.");
 }
 ```
 
@@ -307,13 +308,20 @@ Here are the available events:
 
   | event | summary |
   |:----- |:------- |
-  | LoadedGame | Raised after the player loads a saved game. |
-  | FarmerChanged | Raised after the game assigns a new player character. This happens just before the `LoadedGame` event; it's unclear how this would happen any other time. |
   | InventoryChanged | Raised after the player's inventory changes in any way (added or removed item, sorted, etc). |
   | LeveledUp | Raised after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
 
-  Notable bug: the `FarmerChanged`, `InventoryChanged`, and `LeveledUp` events are raised at various times
-  before the game is loaded, when there's no character yet.
+  Notable bug: the `InventoryChanged` and `LeveledUp` events are raised at various times before
+  the game is loaded, when there's no character yet.
+
+* <span id="save-events"></span>
+  **`SaveEvents`** are raised when the player saves or loads the game.
+
+  | event | summary |
+  | ----- | ------- |
+  | AfterLoad | Raised after the player loads a saved game. The world is ready for mods to modify at this point.
+  | BeforeSave | Raised before the game updates the save file. (The save won't be written until all mods have finished handling this event.)
+  | AfterSave | Raised after the game finishes updating the save file.
 
 * <span id="time-events"></span>
   **`TimeEvents`** are raised when the in-game date or time changes.
@@ -321,10 +329,9 @@ Here are the available events:
   | event | summary |
   |:----- |:------- |
   | TimeOfDayChanged | Raised after the in-game clock changes. |
-  | DayOfMonthChanged | Raised after the day-of-month value changes. Unlike `OnNewDay`, this method is called when loading a save (which starts the day) and when day changes outside the game's control (e.g. through a SMAPI mod). If the player transitions to the same day of month (e.g. fall 15 to winter 15), the event isn't triggered. |
+  | DayOfMonthChanged | Raised after the day-of-month value changes (including when the player loads a save). |
   | SeasonOfYearChanged | Raised after the season changes. |
   | YearOfGameChanged | Raised after the year changes. |
-  | OnNewDay | Raised when the player is transitioning to a new day and the game is performing its day update logic. This event is triggered twice: once after the game starts transitioning, and again after it finishes. Event handlers are passed a `newDay` argument which is `true` when the transition is beginning, and `false` when it's ended.<br/>Note: this event is not called after loading a save (which starts the day), nor if the day changes outside the game's control (e.g. through a SMAPI mod). |
 
 ### Configuration
 You can let users configure your mod through a `config.json` file. SMAPI will automatically create

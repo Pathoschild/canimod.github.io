@@ -62,6 +62,9 @@ since  | interfaces                | severity | replacement
 1.5    | `Mod.Manifest` | _notice_ | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
 1.5    | `Constants.Version` | _notice_ | use `Constants.ApiVersion` <small>(changes type from `Version` to `ISemanticVersion`)</small>.
 1.5    | `Version` class | _notice_ | use `SemanticVersion`.
+1.6    | `PlayerEvents.FarmerChanged` | _notice_ | serves no purpose (does anyone even use this?).
+1.6    | `PlayerEvents.LoadedGame` | _notice_ | use `SaveEvents.AfterLoad`.
+1.6    | `TimeEvents.OnNewDay` | _notice_ | unreliable and doesn't do what you think; use `TimeEvents.DayOfMonthChanged` to detect a day change, and `SaveEvents.BeforeSave` + `SaveEvents.AfterSave` to detect saves.
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.
