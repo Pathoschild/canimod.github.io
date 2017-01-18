@@ -136,6 +136,8 @@ if TASTE is neutral and not HAS_UNIVERSAL_NEUTRAL_ID:
       taste = hate
    if item has a price < 20g:
       taste = dislike
+      
+   //This branch never gets executed
    if it's an artifact:
       taste = dislike
       if npc is Penny:
