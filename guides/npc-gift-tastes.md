@@ -136,12 +136,6 @@ if TASTE is neutral and not HAS_UNIVERSAL_NEUTRAL_ID:
       taste = hate
    if item has a price < 20g:
       taste = dislike
-      
-   //This branch never gets executed
-   if it's an artifact:
-      taste = dislike
-      if npc is Penny:
-         taste = like
 
 // part IV: sometimes override with personal tastes
 if ((npc loves itemID OR (item has a category AND npc loves category)) AND (item has no category OR npc doesn't personally love category OR no universal taste for itemID)
