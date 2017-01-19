@@ -43,7 +43,7 @@ These are currently deprecated:
 
 since  | interfaces                | severity | replacement
 :----- | :------------------------ | :------- | :----------
-0.39.3 | `SObject` class           | _info_ | reimplement if needed.
+0.39.3 | `SObject` class           | ***pending removal*** | reimplement if needed.
 0.39.3 | `Extensions.ToSingular(…)` | ***pending removal*** | use `string.Join`.
 1.0    | `Authour` in `manifest.json` | _notice_ | use `Author`.
 1.0    | `Config` class            | _notice_ | see _[mod configuration](#mod-configuration)_.
@@ -52,19 +52,20 @@ since  | interfaces                | severity | replacement
 1.0    | `SPlayer` class           | _info_ | use the game's `Game1.player` property instead.
 1.0    | `Mod.BaseConfigPath`      | _notice_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Mod.PathOnDisk`          | _notice_ | see _[mod configuration](#mod-configuration)_ or use `this.Helper.DirectoryPath`.
-1.0    | `Mod.PerSaveConfigFolder` | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
-1.0    | `Mod.PerSaveConfigPath`   | _notice_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
+1.0    | `Mod.PerSaveConfigFolder` | _info_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
+1.0    | `Mod.PerSaveConfigPath`   | _info_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
 1.0    | `Mod.Entry(object[])`     | _notice_ | see _[mod entry method](#mod-entry-method)_.
-1.0    | `Version.VersionString`   | _notice_ | use `Version.ToString()`.
+1.0    | `Version.VersionString`   | _info_ | use `Version.ToString()`.
 1.1    | `Log` class               | _notice_ | use the `this.Monitor.Log` mod method.
-1.1    | `Mod.Entry(ModHelper)`    | _info_ | change `ModHelper` to `IModHelper`.
+1.1    | `LogWriter` class         | ***pending removal*** | use `this.Monitor.Log` mod method.
+1.1    | `Mod.Entry(ModHelper)`    | ***pending removal*** | change `ModHelper` to `IModHelper`.
 1.1    | `Command.CallCommand(string)` | _notice_ | use `Command.CallCommand(string, IMonitor)`.
-1.5    | `Mod.Manifest` | _notice_ | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
-1.5    | `Constants.Version` | _notice_ | use `Constants.ApiVersion` <small>(changes type from `Version` to `ISemanticVersion`)</small>.
-1.5    | `Version` class | _notice_ | use `SemanticVersion`.
+1.5    | `Mod.Manifest`            | _notice_ | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
+1.5    | `Constants.Version`       | _notice_ | use `Constants.ApiVersion` <small>(changes type from `Version` to `ISemanticVersion`)</small>.
+1.5    | `Version` class           | _notice_ | use `SemanticVersion`.
 1.6    | `PlayerEvents.FarmerChanged` | _notice_ | serves no purpose (does anyone even use this?).
 1.6    | `PlayerEvents.LoadedGame` | _notice_ | use `SaveEvents.AfterLoad`.
-1.6    | `TimeEvents.OnNewDay` | _notice_ | unreliable and doesn't do what you think; use `TimeEvents.DayOfMonthChanged` to detect a day change, and `SaveEvents.BeforeSave` + `SaveEvents.AfterSave` to detect saves.
+1.6    | `TimeEvents.OnNewDay`     | _notice_ | unreliable and doesn't do what you think; use `TimeEvents.DayOfMonthChanged` to detect a day change, and `SaveEvents.BeforeSave` + `SaveEvents.AfterSave` to detect saves.
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.

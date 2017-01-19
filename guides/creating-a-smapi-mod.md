@@ -429,16 +429,16 @@ Here are a few examples of what this lets you do:
 
 ```c#
 // did you pet your pet today?
-bool wasPet = reflection.GetPrivateValue<bool>(pet, "wasPetToday");
+bool wasPet = this.Helper.Reflection.GetPrivateValue<bool>(pet, "wasPetToday");
 
 // what is the spirit forecast today?
-string forecast = reflection
+string forecast = this.Helper.Reflection
    .GetPrivateMethod(new TV(), "getFortuneForecast")
    .Invoke<string>();
 
 // randomise the mines
 if(Game1.currentLocation is MineShaft)
-   reflection.GetPrivateField<Random>(Game1.currentLocation, "mineRandom").SetValue(new Random());
+   this.Helper.Reflection.GetPrivateField<Random>(Game1.currentLocation, "mineRandom").SetValue(new Random());
 ```
 
 This works with static or instance fields/methods, caches the reflection to improve performance, and will
@@ -447,8 +447,23 @@ throw useful errors automatically when reflection fails.
 If you need to do more, you can also switch to C#'s underlying reflection API:
 
 ```c#
-FieldInfo field = reflection.GetPrivateField<string>(…).FieldInfo;
-MethodInfo method = reflection.GetPrivateMethod(…).MethodInfo;
+FieldInfo field = this.Helper.Reflection.GetPrivateField<string>(…).FieldInfo;
+MethodInfo method = this.Helper.Reflection.GetPrivateMethod(…).MethodInfo;
+```
+
+### Mod registry
+Your mod can get information about loaded mods, or check if a particular mod is loaded. (All mods
+are loaded by the time your mod's `Entry(…)` method is called.)
+
+```c#
+// check if a mod is loaded
+bool isLoaded = this.Helper.ModRegistry.IsLoaded("UniqueModID");
+
+// get manifest info for a mod (name, description, version, etc.)
+IManifest manifest = this.Helper.ModRegistry.Get("UniqueModID");
+
+// get manifest info for all loaded mods
+foreach(IManifest manifest in this.Helper.ModRegistry.GetAll()) { … }
 ```
 
 ## Release your mod
