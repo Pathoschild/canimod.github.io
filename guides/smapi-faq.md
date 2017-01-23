@@ -95,7 +95,7 @@ Platform | Path
 :------- | :----
 Windows  | GOG: `C:\Program Files (x86)\GalaxyClient\Games\Stardew Valley`<br />Steam: `C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley`
 Linux    | GOG: `~/GOG Games/Stardew Valley/game`<br />Steam: `~/.local/share/Steam/steamapps/common/Stardew Valley`
-Mac      | GOG: _unknown_<br />Steam: `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS`
+Mac      | GOG: `/Applications/Stardew Valley.app/Contents/MacOS`<br />Steam: `~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS`
 
 If your game isn't in the default location, here's how to find it:
 
