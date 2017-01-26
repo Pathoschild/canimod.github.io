@@ -172,20 +172,24 @@ section.anchor:target {
 /*********
 ** Main page
 *********/
-body[data-section="main-page"] .playerbox,
-body[data-section="main-page"] .devbox {
+body[data-section="main-page"] .box {
     float: left;
-    width: 18em;
-    margin-right: 0.5em;
+    padding: 0.25em 0.5em;
+    margin-right: 1em;
+    border-radius: 10px;
+    border: 20px solid transparent;
+    -webkit-border-image: url("/images/scroll-borders.png") 36 fill;
+    -o-border-image: url("/images/scroll-borders.png") 36 fill;
+    border-image: url("/images/scroll-borders.png") 36 fill;
 }
 
-body[data-section="main-page"] .playerbox .container,
-body[data-section="main-page"] .devbox .container {
+body[data-section="main-page"] .box .container {
     padding: 0.25em;
     margin: -0.5em 0;
 }
 
 body[data-section="main-page"] h3 {
+    margin-top: 0.5em;
     line-height: 0.5em;
 }
 
