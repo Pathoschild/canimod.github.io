@@ -138,7 +138,7 @@ The mod manifest tells SMAPI about your mod.
          "Build": ""
       },
       "Description": "<One or two sentences about the mod>",
-      "UniqueID": "<your project name>",
+      "UniqueID": "<your name>.<your project name>",
       "EntryDll": "<your project name>.dll"
    }
    ```
