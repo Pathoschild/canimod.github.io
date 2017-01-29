@@ -162,7 +162,7 @@ You can set tile properties to perform actions when the player steps on the tile
 it. Each property has a name (which defines the type of property)
 and value (which configures the property).
 
-To view and edit map properties in Tiled:
+To view and edit tile properties in Tiled:
 
 1. _No idea. (todo)_
 
