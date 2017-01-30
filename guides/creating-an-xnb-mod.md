@@ -54,43 +54,38 @@ or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 ## Getting started
 
 ### First time-setup
-<p class="warning">
-This guide only covers Windows. If you know how to do this on Linux/Mac, let us know!
-</p>
-
-Before you start, you'll need these:
-
-* **[XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/)**
-  is a toolkit for unpacking and packing the game's XNB files. This is a portable app — no install
-  needed.
-* To edit images:
-  * **[Paint.NET](http://www.getpaint.net/download.html)** is a free tool that lets you edit image
-    files. (If you already have a favourite image editor, feel free to use that instead.)
-* To edit maps:
-  * **[tIDE 2.0.8](https://cdn.discordapp.com/attachments/156109690059751424/249890421805678592/tIDESetup208.msi)**
-    is a map editor for the game's map format. This version was customised by Kithi to enable
-    conversion between the game's `.tbin` files and the `.tmx` files we'll be editing. It fixes
-    an issue where exporting to `.tmx` would lose tile data like animations.
-  * **[Tiled](http://www.mapeditor.org/)** is the map editor we'll use to edit the game's maps. It
-    has some advantages over tIDE like automatic edge-fixing, better performance, and fewer bugs
-    when editing Stardew Valley maps.
-
-Backing up your game's `Content` folder at this point is strongly recommended, so you can recover
-the original files if you make a mistake.
+1. Before you start, you should install these:
+   * **[XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/)**
+     is a toolkit for unpacking and packing the game's XNB files.
+   * To edit images:
+     * **[Paint.NET](http://www.getpaint.net/download.html)** lets you edit image files. (If you
+       already have a favourite image editor, feel free to use that instead.)
+   * To edit maps:
+     * **[tIDE 2.0.8](https://cdn.discordapp.com/attachments/156109690059751424/249890421805678592/tIDESetup208.msi)**
+       is a map editor for the game's map format. This version was customised by Kithi to enable
+       conversion between the game's `.tbin` files and the `.tmx` files we'll be editing. It fixes
+       an issue where exporting to `.tmx` would lose tile data like animations.
+   * **[Tiled](http://www.mapeditor.org/)** is the map editor we'll use to edit the game's maps. It
+     has some advantages over tIDE like automatic edge-fixing, better performance, fewer bugs
+     when editing Stardew Valley maps, and features like copying & pasting between maps.
+2. You should back up your game's `Content` folder now, so you can recover the original files if
+   you make a mistake.
 
 <span id="packing"></span>
 
 ### Unpack & pack game files
 You can't edit an `.xnb` file itself, you need to edit the file that's inside it. Pulling out that
-inner file is called _unpacking_, and putting in back in is called _packing_. Here's how to do it:
+inner file is called _unpacking_, and putting it back is called _packing_. Here's how to do it:
 
 1. Unpack the file for editing:
    1. Find the file you want to edit in the `Contents` folder.
    2. Copy it into XNB Extract's `Packed` folder.
-   3. Run `UNPACK FILES.bat`.
+   3. On Windows, double-click `UNPACK FILES.bat`.  
+      On Linux/Mac, run the command inside `UNPACK FILES.bat`.
 2. Edit the unpacked file (see below).
 3. Repack the file for the game:
-   1. Run `PACK FILES.bat`.
+   1. On Windows, double-click `PACK FILES.bat`.  
+      On Linux/Mac, run the command inside `PACK FILES.bat`.
    2. Move the repacked `.xnb` file back to the original location.
 
 ## Editing a spritesheet
@@ -98,16 +93,16 @@ inner file is called _unpacking_, and putting in back in is called _packing_. He
 ### Basic concepts
 A spritesheet is just an image file that contains many smaller images in a regular grid pattern:
 
-  ![tile](images/creating-an-xnb-mod/tilesheet.png)
+![tile](images/creating-an-xnb-mod/tilesheet.png)
 
-  Each square in the spritesheet's grid pattern is called a **sprite**, and is typically 16×16
-  pixels. For example, here's a single sprite from the above spritesheet:
+Each square in the spritesheet's grid pattern is called a **sprite**, and is typically 16×16
+pixels. For example, here's a single sprite from the above spritesheet:
 
-  ![tile](images/creating-an-xnb-mod/tile-1.png)
+![tile](images/creating-an-xnb-mod/tile-1.png)
 
-  Note that sprites might be drawn next to each other to create the illusion of a larger object:
+Note that sprites might be drawn next to each other to create the illusion of a larger object:
 
-  ![tile](images/creating-an-xnb-mod/tile-2.png)
+![tile](images/creating-an-xnb-mod/tile-2.png)
 
 ### Making changes
 Spritesheets are easy to edit:
