@@ -336,9 +336,10 @@ Here's how to do it in Tiled:
 1. Select the tile you want to animate in the _Tilesets_ pane.
 2. Click _View > Tile Animation Editor_ in the toolbar to show that pane.
 3. In the _Tile Animation Editor_ pane, drag tiles from the tilesheet into the box on the left to
-   create a _frame_ (one image in the sequence). Double-click the number to change how long that
-   frame stays on the screen before the next one (in milliseconds). For example, here's the
-   animation editor showing one of the tiles of Gil rocking:  
+   create a _frame_ (one image in the sequence).
+4. Double-click the numbers to change how long each frame stays on the screen before the next one
+   (in milliseconds). **Make sure every frame has the same time; the game can't handle variable
+   frame times.** For example, here's the animation editor showing one of the tiles of Gil rocking:  
    ![](images/creating-an-xnb-mod/example-animation-pane.gif)
 4. When you're done, close the pane.
 5. The animated tiles in the _Tilesets_ pane will now have a little symbol in the bottom-right corner:  
