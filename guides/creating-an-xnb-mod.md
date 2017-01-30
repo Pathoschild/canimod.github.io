@@ -269,7 +269,7 @@ To add a new object:
    one with the same name as the right tile layer._
 2. Choose the ![](images/creating-an-xnb-mod/tiled-buttons-object-insert-rectangle.png) _insert
    rectangle_ tool from the toolbar.
-3. Click and drag the rectangle over the rectangle you want to edit. Make sure it snaps to the tile
+3. Click and drag the rectangle over the tile you want to edit. Make sure it snaps to the tile
    grid (see [recommended settings](#recommended-settings)), and only one tile is selected.
 4. See previous for how to edit its properties.
 
@@ -337,17 +337,14 @@ Here's how to do it in Tiled:
 2. Click _View > Tile Animation Editor_ in the toolbar to show that pane.
 3. In the _Tile Animation Editor_ pane, drag tiles from the tilesheet into the box on the left to
    create a _frame_ (one image in the sequence). Double-click the number to change how long that
-   frame stays on the screen before the next one (in milliseconds).
+   frame stays on the screen before the next one (in milliseconds). For example, here's the
+   animation editor showing one of the tiles of Gil rocking:  
+   ![](images/creating-an-xnb-mod/example-animation-pane.gif)
 4. When you're done, close the pane.
 5. The animated tiles in the _Tilesets_ pane will now have a little symbol in the bottom-right corner:  
    ![](images/creating-an-xnb-mod/example-animation-tileset.png)  
    The animation is now part of that tile. Every instance of that tile on the map will now have the
    same animation.
-
-For example, here's the animation editor showing one of the tiles of Gil rocking:  
-![](images/creating-an-xnb-mod/example-animation-pane.gif)
-
-The animation is stored in the tileset.
 
 ### Editing maps from a SMAPI mod
 The previous sections describe how to edit a map by editing its file, but you can also edit it
