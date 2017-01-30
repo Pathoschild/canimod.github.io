@@ -235,13 +235,45 @@ property | explanation
 
 ### Tile properties
 You can set tile properties to perform actions when the player steps on the tile or interacts with
-it. Each property has a name (which defines the type of property)
-and value (which configures the property).
+it. Each property has a name (which defines the type of property) and value (which configures the
+property).
 
-To view and edit tile properties in Tiled:
+In Tiled these are represented by two types: _object properties_ only apply to the selected tile,
+while _tile properties_ apply to every instance of that tile. In general you'll always set _object
+properties_, so we'll only cover those.
 
-1. _No idea. (todo)_
+#### View & edit properties
+To view object properties in Tiled:
 
+1. Select the object layer in the _Layers_ pane.
+2. Choose the ![](images/creating-an-xnb-mod/select-object-tool.png) _select object_ tool in the
+   toolbar.
+3. Click the object whose properties you want to view. Objects are represented with a gray
+   selection box on the map:  
+   ![](images/creating-an-xnb-mod/map-object.png)
+4. The object properties will be shown in the _Properties_ pane.  
+   ![](images/creating-an-xnb-mod/tiled-properties-pane.png)
+
+To edit properties for an existing object:
+
+* Change a value: click the value field and enter the new value.
+* Change a name: select the property and click the ![](images/creating-an-xnb-mod/tiled-properties-edit-icon.png)
+  icon.
+* Add a property: click the ![](images/creating-an-xnb-mod/tiled-properties-add-icon.png) icon,
+  enter the property name, make sure the selected type is "string", and click OK.
+
+To add a new object:
+
+1. Select the object layer in the _Layers_ pane.  
+   _There should be one object layer for each tile layer. If the object layer is missing, create
+   one with the same name as the right tile layer._
+2. Choose the ![](images/creating-an-xnb-mod/tiled-buttons-object-insert-rectangle.png) _insert
+   rectangle_ tool from the toolbar.
+3. Click and drag the rectangle over the rectangle you want to edit. Make sure it snaps to the tile
+   grid (see [recommended settings](#recommended-settings)), and only one tile is selected.
+4. See previous for how to edit its properties.
+
+#### Known properties
 Known tile properties (excluding specialised properties like `TouchAction WomensLocker`):<sup>1</sup>
 
 layer | property | explanation
@@ -294,6 +326,28 @@ layer | property | explanation
 
 <small><sup>1</sup> Tile properties are handled throughout the codebase using `GameLocation::doesTileHaveProperty`. Actions and touch actions are handled by `GameLocation::performAction` and `GameLocation::performTouchAction` respectively. Emote IDs are listed as `Character` constants.</small>  
 <small><sup>2</sup> The `T` value (short for _true_) is conventional, but any non-empty value will work too.</small>
+
+### Animating tiles
+You can animate tiles to create effects like Gil in his rocking chair:  
+![](images/creating-an-xnb-mod/example-animation.gif)
+
+Here's how to do it in Tiled:
+
+1. Select the tile you want to animate in the _Tilesets_ pane.
+2. Click _View > Tile Animation Editor_ in the toolbar to show that pane.
+3. In the _Tile Animation Editor_ pane, drag tiles from the tilesheet into the box on the left to
+   create a _frame_ (one image in the sequence). Double-click the number to change how long that
+   frame stays on the screen before the next one (in milliseconds).
+4. When you're done, close the pane.
+5. The animated tiles in the _Tilesets_ pane will now have a little symbol in the bottom-right corner:  
+   ![](images/creating-an-xnb-mod/example-animation-tileset.png)  
+   The animation is now part of that tile. Every instance of that tile on the map will now have the
+   same animation.
+
+For example, here's the animation editor showing one of the tiles of Gil rocking:  
+![](images/creating-an-xnb-mod/example-animation-pane.gif)
+
+The animation is stored in the tileset.
 
 ### Editing maps from a SMAPI mod
 The previous sections describe how to edit a map by editing its file, but you can also edit it
