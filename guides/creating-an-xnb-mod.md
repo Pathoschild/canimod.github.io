@@ -144,6 +144,14 @@ That's it! You can launch the game to see your changes.
   talking about mods), which contains the available tiles that are put together to form the visible
   map.
 
+### Recommended Tiled settings
+The following settings in Tiled are strongly recommended:
+
+setting | value | reason
+------- | ----- | ------
+_View > Snap to Grid_ | ✓ enabled | This is required to convert objects back into the game's format.
+_Highlight Current Layer_ | ✓ enabled | This makes it more clear which tile you're editing.
+
 ### Making changes
 Here's how to edit a Stardew Valley map:
 
@@ -186,7 +194,6 @@ You can add custom sprites (images) to a map:
       cursor.
    3. Move the cursor to the map, and you'll see an overlay with the tiles you selected.
    5. Click the map to place those tiles on the selected layer.
-   6. Right-click to stop placing tiles.
 
 ### Map properties
 Each map can have multiple map properties, which define attributes and behaviour associated with
@@ -222,7 +229,6 @@ property | explanation
 `Arch` | ignored?
 `Debris` | ignored?
 `Fish` | ignored?
-
 
 <small><sup>1</sup> Map properties are handled in `GameLocation::resetForPlayerEntry` and `GameLocation::loadObjects`.</small>  
 <small><sup>2</sup> The `T` value (short for _true_) is conventional, but any non-empty value will work too.</small>
