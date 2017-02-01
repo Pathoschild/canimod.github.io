@@ -57,7 +57,7 @@ just install the latest version.
    * **Scenario A: you launch the game through Steam:**
      1. In the Steam client, right-click _Stardew Valley_ and choose _Properties_.
      2. Click _Set Launch Options_.
-     3. Enter `StardewModdingAPI.exe %command%`
+     3. Enter `StardewModdingAPI %command%`
      4. Save your changes.  
         _From now on, launching the game through Steam will run SMAPI. The Steam overlay and
         achievements should work fine._
