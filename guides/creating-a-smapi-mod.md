@@ -104,22 +104,8 @@ set that up.
 2. _(optional)_ See the package's _[Simplify mod development](https://github.com/Pathoschild/Stardew.ModBuildConfig#simplify-mod-development)_
    to automatically package your mod into your mod folder and enable debugging while the game is running.
 
-That's all you need (usually). Try building the project; if you get an error that says "failed to
-find the game install path automatically", your game is probably not installed to its default path.
-You just need to specify where it is:
-
-1. Open your `*.csproj` file for editing.
-2. Right under the `<Project ...>` line, add this (with your install path):
-  
-   ```xml
-   <PropertyGroup>
-      <GamePath>your\path\to\Stardew Valley</GamePath>
-   </PropertyGroup>
-   ```
-
-   That will add the path to the places it checks. It it doesn't exist, it'll fall back to the
-   default paths, so your mod will still work on other computers (e.g. if someone else recompiles
-   it on a different platform for you).
+That's it! Try building the project and make sure you don't get any errors. If you get an error
+like "failed to find the game install path", see [the package's _Troubleshooting_ section](https://github.com/Pathoschild/Stardew.ModBuildConfig#troubleshoot).
 
 ### Add your manifest
 The mod manifest tells SMAPI about your mod.
