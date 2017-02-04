@@ -53,6 +53,16 @@ body {
     margin: 2em auto;
 }
 
+dt {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+dd > p:not(:last-child),
+dd li > p:not(:last-child) {
+    margin: 0 0 1em 0;
+}
+
 /*********
 ** Table of contents
 *********/

@@ -21,57 +21,74 @@ here's a quick summary of what this page will walk you through:
 
 ## Intro
 
-### What is SMAPI?
-A SMAPI mod uses the [SMAPI](https://github.com/cjsu/SMAPI) modding API to extend the game logic.
-You can run code when something happens (e.g. mouse clicked or menu opened), or periodically (e.g.
-once per game tick).
+<dl>
+<dt>What is SMAPI?</dt>
+<dd>
+   <p>A SMAPI mod uses the <a href="https://github.com/Pathoschild/SMAPI">SMAPI</a> modding API to
+   extend the game logic. You can run code when something happens (e.g. mouse clicked or menu
+   opened), or periodically (e.g. once per game tick).</p>
+   
+   <p>SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses XNA (on
+   Windows) or MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen,
+   user input, etc).</p>
+</dd>
 
-SMAPI mods are written in C# using the .NET Framework. Stardew Valley also uses XNA (on Windows) or
-MonoGame (on Linux and Mac) for the fundamental game logic (drawing to the screen, user input, etc).
+<dt>Can I make a mod?</dt>
+<dd>
+   <ul>
+      <li>
+         <p><strong>Scenario A: you're new to programming.</strong><br />
+         Many mod developers start with little or no programming experience. You can certainly learn
+         along the way if you're determined, but you should be prepared for a steep learning curve.
+         Don't be too ambitious at first; it's better to start with a small mod when you're figuring
+         it out. It's easy to become overwhelmed at first and give up. The modding community is very
+         welcoming, so don't be afraid to ask questions!</p>
+         
+         <p>Since mods are written in C#, it's a good idea to get acquainted with it first.
+         <a href="https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169"><em>C# Fundamentals for Absolute Beginners</em></a>
+         will walk you through the basics of C# needed to write SMAPI mods, from the basic concepts to
+         event-driven programming (which is what SMAPI mods use).</p>
+      </li>
+      <li>
+         <strong>Scenario B: you already have programming experience.</strong><br />
+         You should be fine. Programming experience in C# or Java will make things easier, but it
+         isn't critical. If you're unfamiliar with C#, you can skim through
+         <a href="https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169"><em>C# Fundamentals for Absolute Beginners</em></a>
+         to fill in any gaps.
+      </li>
+   </ul>
+   
+   The next few sections will walk you through creating a very simple mod. If you follow along,
+   you'll have created a mod! All that will be left is making it do what you want. :)
+</dd>
 
-### Can I make a mod?
-* **Scenario A: you're new to programming.**  
-  Many mod developers start with little or no programming experience. You can certainly learn along
-  the way if you're determined, but you should be prepared for a steep learning curve. Don't be too
-  ambitious at first; it's better to start with a small mod when you're figuring it out. It's easy
-  to become overwhelmed at first and give up. The modding community is very welcoming, so don't be
-  afraid to ask questions!
-  
-  Since mods are written in C#, it's a good idea to get acquainted with it first.
-  _[C# Fundamentals for Absolute Beginners](https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169)_
-  will walk you through the basics of C# needed to write SMAPI mods, from the basic concepts to
-  event-driven programming (which is what SMAPI mods use).
+<dt>What do I need?</dt>
+<dd>
+   Before you start:
+   <ul>
+      <li>You should read <a href="using-mods"><em>using mods</em></a> to learn the basic concepts
+      and install SMAPI.</li>
+      <li>You should install:<ul>
+         <li>Stardew Valley;</li>
+         <li>SMAPI;</li>
+         <li>and <a href="https://www.visualstudio.com/vs/community/">Visual Studio Community</a> (on Windows)
+         or <a href="http://www.monodevelop.com/">MonoDevelop</a> (on Linux/Mac).</li>
+      </ul></li>
+      <li>You should familiarise yourself with the code editor (Visual Studio or MonoDevelop),
+      since this guide won't cover its basic usage. If you've never used it before, consider
+      following some 'getting started' tutorials first. You may occasionally need to look things up.</li>
+   </ul>
+</dd>
 
-* **Scenario B: you already have programming experience.**  
-  You should be fine. Programming experience in C# or Java will make things easier, but it isn't
-  critical. If you're unfamiliar with C#, you can skim through
-  _[C# Fundamentals for Absolute Beginners](https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169)_
-  to fill in any gaps.
-  
-The next few sections will walk you through creating a very simple mod. If you follow along, you'll
-have created a mod! All that will be left is making it do what you want. :)
+<dt id="help">Where can I get help?</dt>
+<dd>
+   The Stardew Valley modding community is very welcoming. Feel free to
+   <a href="https://discord.gg/kH55QXP">come chat on Discord</a> or
+   <a href="http://community.playstarbound.com/forums/mods.215/">post in the forums</a>.
+</dd>
+</dl>
 
-<span id="help"></span>
-
-### What do I need?
-Before you start:
-
-* You should read _[using mods](using-mods)_ to learn the basic concepts and install SMAPI.
-* You should install:
-  * Stardew Valley;
-  * SMAPI;
-  * and [Visual Studio Community](https://www.visualstudio.com/vs/community/) (on Windows) or
-    [MonoDevelop](http://www.monodevelop.com/) (on Linux/Mac).
-* You should familiarise yourself with the code editor (Visual Studio or MonoDevelop), since this
-  guide won't cover its basic usage. If you've never used it before, consider following some
-  'getting started' tutorials first. You may occasionally need to look things up.
-
-
-### Where can I get help?
-The Stardew Valley modding community is very welcoming. Feel free [come chat on Discord](https://discord.gg/kH55QXP)
-or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
-
-## How to make a mod
+## Create a mod
 A SMAPI mod is a compiled library (DLL) with an entry method that gets called by SMAPI, so let's
 set that up.
 

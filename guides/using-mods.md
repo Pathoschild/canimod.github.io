@@ -30,7 +30,7 @@ wrong with those, and harder to fix when it does. The rest of this page is about
 
 ### What are SMAPI, Storm, and Farmhand?
 You need something that will load the mods and let them change the game. That something is commonly
-called the _modding API_ for simplicity. The _de facto_ modding API is [SMAPI](https://github.com/cjsu/SMAPI),
+called the _modding API_ for simplicity. The _de facto_ modding API is [SMAPI](https://github.com/Pathoschild/SMAPI),
 which nearly all mods use. It's compatible with the latest versions of the game and decently
 powerful. **This is the one you should use.**
 
