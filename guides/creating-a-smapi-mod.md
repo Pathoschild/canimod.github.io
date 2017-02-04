@@ -469,36 +469,82 @@ IManifest manifest = this.Helper.ModRegistry.Get("UniqueModID");
 foreach(IManifest manifest in this.Helper.ModRegistry.GetAll()) { … }
 ```
 
-## Release your mod
-Ready to share your mod with the world?
+## Final considerations
 
-Let's say you created a mod named _Pineapples Everywhere_ which turns all NPCs into pineapples;
-here's how you would release it for others to use.
+### Crossplatform support
+SMAPI will automatically adjust your mod so it works on Linux, Mac, and Windows. However, there are
+a few things you should do to avoid problems:
 
-### Share your mod
-1. Copy your `manifest.json` and compiled files into a folder matching your mod's name (like
-   `PineapplesEverywhere`). A few tips:
-   * Only use letters in the folder name (no spaces or symbols) to simplify troubleshooting later.
-   * Add your default `config.json` if you have settings, so users can edit it before first run.
-   * Include the compiled `*.pdb` file, so error messages include line numbers.
+1. Use the [crossplatform build config](https://github.com/Pathoschild/Stardew.ModBuildConfig#readme)
+   package to automatically set up your project references. This makes crossplatform compatibility
+   easier and lets your code compile on any platform. (If you followed the above guide, you already
+   have this.)
+
+2. Use `Path.Combine` to build file paths, don't hardcode path separators since they won't work on
+   all platforms.
+
+   ```cs
+   // ✘ Don't do this! It will crash on Linux/Mac.
+   string path = helper.DirectoryPath + "\assets\asset.xnb";
+
+   // ✓ This is OK
+   string path = Path.Combine(helper.DirectoryPath, "assets", "asset.xnb");
+   ```
+
+3. Use `helper.DirectoryPath`, don't try to determine the mod path yourself.
+
+   ```cs
+   // ✘ Don't do this! It will crash on other platforms.
+   string modFolder = Assembly.GetCallingAssembly().Location;
+
+   // ✓ This is OK
+   string modFolder = helper.DirectoryPath;
+   ```
+
+### Test on all platforms
+If you want to test your mod on all platforms, there's some first-time setup you need to get out of
+the way. Essentially you need to test your mod twice: once on Windows, and again on Linux or Mac.
+You can do that by testing one version on your computer, and the other in a virtual machine.
+
+#### If your main computer is Windows
+
+1. Install [VirtualBox](https://www.virtualbox.org/).
+2. Add [this premade Linux virtual machine](https://www.dropbox.com/s/nrq9xsde2afp4ey/StardewValleyLinuxModding.7z)
+   (requires a 64-bit computer).  
+   _<small>In VirtualBox, click Machine » Add and choose the downloaded `.vbox` file. This is a
+   [Manjaro](https://manjaro.org/) virtual machine with Chromium (web browser), Steam, and
+   [MonoDevelop](http://www.monodevelop.com/) preinstalled.</small>_
+4. Launch the virtual machine, and install Stardew Valley from the Steam client (preinstalled) or GOG website.  
+   _<small>Tip: don't change the default install path, or you'll need to customise the mod's build
+   configuration.</small>_
+
+#### If your main computer is Linux or Mac
+
+1. Install [VirtualBox](https://www.virtualbox.org/).
+2. [Create a VM with Windows](http://www.macworld.co.uk/how-to/mac-software/run-windows-10-on-your-mac-using-virtualbox-3621650/).
+3. Install [Visual Studio Community](https://www.visualstudio.com/vs/community/) in your VM.
+4. Install Stardew Valley in your VM.
+
+### Release your mod
+Ready to share your mod with the world? Let's say you created a mod named _Pineapples Everywhere_
+which turns all NPCs into pineapples; here's how you would release it for others to use.
+
+1. Copy your compiled mod and `manifest.json` into a folder matching your mod's name.
 2. Create a zip archive with your mod's name, version, and platform.
 
-Your mod structure should look something like this:
+   Your mod structure should look something like this:
 
-```
-PineapplesEverywhere-1.0-Windows.zip
-   PineapplesEverywhere/
-      PineapplesEverywhere.dll
-      PineapplesEverywhere.pdb
-      config.json
-      manifest.json
-```
+   ```
+   PineapplesEverywhere-1.0-Windows.zip
+      PineapplesEverywhere/
+         PineapplesEverywhere.dll
+         PineapplesEverywhere.pdb
+         config.json
+         manifest.json
+   ```
 
-The best places to share your mod are [Nexus Mods](http://www.nexusmods.com/stardewvalley) and
-the [official modding forums](http://community.playstarbound.com/forums/mods.215/).
-
-### Release on multiple platforms
-Want to share your mod on Linux, Mac, and Windows? See _[crossplatforming a SMAPI mod](crossplatforming-a-smapi-mod)_.
+3. Upload your mod to [Nexus Mods](http://www.nexusmods.com/stardewvalley), the
+   [official modding forums](http://community.playstarbound.com/forums/mods.215/), or both.
 
 ## Decompile the game code
 When you start working on more complex mods, you may need to look at how the game code works.
@@ -515,8 +561,3 @@ Here's how to unpack the XNB data files:
 1. Download the [Easy XNB Pack/UnPack Toolkit](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/page-6#post-2837587).
 2. Copy the entire `Stardew Valley\Content` game folder into `XNB-Mod-Toolkit\Packed`.
 3. Run `XNB-Mod-Toolkit\UNPACK FILES.bat` to unpack the files into `XNB-Mod-Toolkit\Unpacked`.
-
-## See also
-If you read the entire guide, congratulations! If you'd like to read _even more_ documentation,
-[go back to the index](/) and look at the 'Advanced topics' list. These cover much more specialised
-topics, like how to parse weather data.
