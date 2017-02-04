@@ -10,7 +10,7 @@ intro: This page explains how the game stores and parses event data. This is an 
 Events are stored in `Data\Events\*.xnb` (one file per location), which can be unpacked using
 [XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/).
 
-Here's the raw data for hospital events (as of 1.1.1) for reference:
+Here's the raw data for saloon events (as of 1.1.1) for reference:
 
 ```yaml
 xnbData: 
