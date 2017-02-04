@@ -47,8 +47,8 @@ since  | interfaces                | severity | replacement
 0.39.3 | `Extensions.ToSingular(…)` | ***pending removal*** | use `string.Join`.
 1.0    | `Authour` in `manifest.json` | _notice_ | use `Author`.
 1.0    | `Config` class            | _notice_ | see _[mod configuration](#mod-configuration)_.
-1.0    | `Extensions` class        | _info_ | reimplement if needed, or use an extensions library.
-1.0    | `LogWriter` class         | _info_ | use the `this.Monitor.Log` mod method.
+1.0    | `Extensions` class        | ***pending removal*** | reimplement if needed, or use an extensions library.
+1.0    | `LogWriter` class         | ***pending removal*** | use the `this.Monitor.Log` mod method.
 1.0    | `SPlayer` class           | _info_ | use the game's `Game1.player` property instead.
 1.0    | `Mod.BaseConfigPath`      | _notice_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Mod.PathOnDisk`          | _notice_ | see _[mod configuration](#mod-configuration)_ or use `this.Helper.DirectoryPath`.
@@ -57,7 +57,6 @@ since  | interfaces                | severity | replacement
 1.0    | `Mod.Entry(object[])`     | _notice_ | see _[mod entry method](#mod-entry-method)_.
 1.0    | `Version.VersionString`   | _info_ | use `Version.ToString()`.
 1.1    | `Log` class               | _notice_ | use the `this.Monitor.Log` mod method.
-1.1    | `LogWriter` class         | ***pending removal*** | use `this.Monitor.Log` mod method.
 1.1    | `Mod.Entry(ModHelper)`    | ***pending removal*** | change `ModHelper` to `IModHelper`.
 1.1    | `Command.CallCommand(string)` | _notice_ | use `Command.CallCommand(string, IMonitor)`.
 1.5    | `Mod.Manifest`            | _notice_ | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.

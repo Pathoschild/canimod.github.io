@@ -97,9 +97,9 @@ The installer is the recommended way to install SMAPI, but you can also install 
 
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
 2. Unzip the `.zip` file somewhere.
-3. Copy the files from the `Mono` folder (if Linux/Mac) or `Windows` folder (if Windows) into
-   [your game folder](http://canimod.com/guides/smapi-faq#game-folder). If you did it properly, the
-   `StardewModdingAPI.exe` file should be right next to the game's executable.
+3. Copy the files from the `internal/Mono` folder (if Linux/Mac) or `internal/Windows` folder (if
+   Windows) into [your game folder](http://canimod.com/guides/smapi-faq#game-folder). If you did it
+   properly, the `StardewModdingAPI.exe` file should be right next to the game's executable.
 4. Make sure the game launches with SMAPI.
    * **Scenario A: you play on Windows:**  
      See [step 4 in the Windows instructions](#on-windows).
