@@ -76,7 +76,124 @@ Fri Sat Sun`, which means _event #97, requires 3 hearts with Clint, between 7pm 
 Each event has a value which is the event script. This specifies what happens in the event —
 everything from lighting and music to NPC movement and dialogue.
 
-_TODO: document script format._
+As an example we'll use one of the above mentioned events from the saloon.
+```yaml
+96/f Gus 1000/f Pam 500/p Gus: "jaunty/10 21/farmer -100 -100 0 Gus 10 21 2 Pam -101 -101 0/skippable/pause 200/emote Gus 28/pause 500/playSound doorClose/warp farmer 14 24/pause 500/faceDirection Gus 1 true/move farmer 0 -3 3/speak Gus \"Oh, Hello there, buddy.^Hi, @.\"/pause 500/faceDirection Gus 2/move farmer -3 0 2/pause 800/faceDirection farmer 3/pause 400/emote farmer 8/pause 700/speak Gus \"*sigh*...I'm just looking over last month's earnings... and It's not looking very good, @.$s#$b#The worst thing... and I hate to say this because she's my friend... is Pam! She hasn't paid off her tab in weeks!$s#$b#...But I can't ask her to do it. I know she'll get defensive, and I don't want to hurt her feelings.$s\"/pause 600/faceDirection Gus 1/speak Gus \"@, you gotta help me!$s\"/stopMusic/pause 500/playSound doorClose/warp Pam 14 24/move Pam 0 -3 3/faceDirection Gus 1 true/faceDirection farmer 1/emote Gus 16/speak Pam \"Hiya!$h#$b#Gus... I'm awful thirsty, if you catch my drift.\"/emote Gus 28/speak Gus \"Er... Well, okay Pam.$s\"/emote Gus 28/pause 700/emote Pam 8/pause 400/speak Pam \"$q 207 null#@, what's going on here?#$r 207 -50 event_credit1#You need to pay your tab right now!#$r 208 15 event_credit2#The saloon isn't doing well, financially\"/pause 400/faceDirection Pam 1/emote Pam 12/speak Pam \"....$u#$b#*sigh* ...Well, I guess I'd better pay off that tab, then.$s\"/move Pam -2 0 0/move Pam 0 -1 3/move Pam -2 0 2/faceDirection Gus 0/faceDirection farmer 3/playSound money/pause 500/speak Gus \"Thanks, Pam!$h\"/pause 500/faceDirection Gus 1/speak Gus \"And thank you, @.$u\"/pause 500/faceDirection Gus 0/speak Gus \"Now, let's get you that drink, Pam.$h\"/friendship Gus 50/end dialogue Gus \"Thanks for your help, @. This cash is going to be a big help to the saloon.\"" #!String
+```
+Our information starts after the ":" and be contained with in two " symbols.
+Every Event in the .xnb file ends with #!String, make sure to never forget adding it or your event will not work!
+
+Every command is contained between two / (forward slash symbols) except for the very first one. The first four commands must be in the specific order that they are listed.
+
+command | what it's used for
+---------- | ----------------
+jaunty | defines the music that will play during the event. This can be changed during the event with "playMusic (songname)" or "stopMusic". jaunty is an example of a song, this can be any of the songs in the name that you know the title of. A list of names can be found further down the page.
+10 21 | these are the coordinates of the tile that the camera(viewport) centers on at the start of the event.
+farmer -100 -100 0 Gus 10 21 2 Pam -101 -101 0 | character initialization. syntax is "Character Name" "X" "Y" "Direction²".
+skippable | wether or not the event is skippable. If you include this command the event will be skippable, if you don't the event will not be skippable.
+
+<small>² Direction works as follows: 0 is looking up, 1 is looking right, 2 is looking down and 3 is looking left.</small>
+
+After this, the order of the commands no longer matters, because from now on its all about the sequence of things happening during the event.
+
+command | what it's used for
+---------- | ---------------
+pause x | x is number in milliseconds.
+emote (Name) x | emotes work simply by writing the name of the character who you want to show the emote and then the number of a frame of the emote you want to show. Ex: 8 is the "?" emote while 16 is the "!" emote. Check Content\TileSheets\emotes.xnb for all the emotes.
+move (name) X Y D | again, you write the name of the character you want to move. Then X amount of tiles to the left(-) or right(+) and Y  amount of tiles up(-) or down(+). D is for the direction the character will be facing AFTER the movement. You can ONLY move on the X or Y axis, not both in the same command, you'll have to have multiple move commands following each other.
+speak (name) \" text \" | defines who is speaking and what they are saying. Text formatting will be handeled further down the page, there is a LOT of documentation needed for it.
+viewport X Y | this will instantly jump the camera(viewport) to center on the tile at X,Y coordinates. There seems to be the possibility for having "viewport X Y true" however, what the true does is unclear.
+viewport move X Y x | moves the camera(viewport) in the same way that the normal move command works, X and Y can be positive or negative and will move in the given direction for the given amount of x milliseconds.
+globalFade | makes the map fade to black. However this is only temporary for some reason, if you want a more permanent fade to black use "globalFade/viewport -1000 -1000" to move the camera offscreen after the fade. (Doesn't have to be -1000 -1000!)
+warp (name) X Y | instantly warps the named character to the tile with X,Y coordinates. Just like with the viewport, you can use this to warp characters offscreen.
+faceDirection (name) D | named character will look in the given direction².
+showFrame (name) x | show the specified frame on named characters spritesheet. Check Content\Characters\(name).xnb for spritesheet.
+speed (name) x | the next action taken by the named character will happen with the specified speed. 3 is default speed.
+playSound (soundname) | plays the specified sound. List of known sounds further down the page.
+shake (name) x | shakes the named character for the specified amount of milliseconds.
+jump (name) | makes the named character jump. What did you expect?
+textAboveHead (name) \" text \" | displays a small textbubble above named characters head with the given text. Text formatting same as the speak command.
+addQuest x | adds the quest with the given quest ID.
+message \" text \" | shows a message, written in the same text formatting as speak.
+animate (name) (true/false) (true/false) x (frames) | animates the named character using the given frames from their spritesheet for x milliseconds per frame. the true/false are slightly unclear, however if both are true it makes the animation loop, both false will make it not loop.
+stopAnimation (name) | stops the named characters animation given with the animate command.
+mail (mailname) | you'll recieve the specified mail the following morning. Check Content\Data\mail.xnb for mail events.
+friendship (name) x | adds x amount of friendship points to the named character. (250 points is one heart.)
+playMusic (songname) | starts playing the named song. Song name list further down the page.
+stopMusic | stops music currently playing.
+specificTemporarySprite (spritename) | shows the specified sprite in your event. Currently unclear where these sprites are defined or how the game knows where to place them.
+changeLocations (mapname) | changes the locations where the event is taking place to the specified map mid-event.
+changeToTemporaryMap (temporarymapname) | changes the locations where the event is taking place to the specified temporary map mid-event.
+ambientLight x x x | creates ambient lighting effects. Currently undocumented as to what the three different numbers do.
+positionOffset (name) X Y | offsets named character X (right + or left -) and/or Y (down + or up -) amount of pixels.
+
+Text formatting for speak, textAboveHead and message:
+
+Using question is like having to make a dicision rather than a question someone asks.
+question (fork0/fork1) \"question#answer1#answer2\"/fork (forkname)
+the way this works is that it forks the current event to a sub event.
+Lets look at an example:
+    question fork1 \"Share food with Linus?#Share it#Keep it\"/fork noFoodforLinus/(continue current event)
+    
+In the same event file you would then have an event with the id noFoodforLinus, but you skip the music, viewport and actor positions because these carry over from the main event. Because I chose fork1 we fork the event if you choose the second answer. While fork0 would fork from the first answer. (Currently unknown if you can have more than 2 options.)
+
+$q however is used inside a speak command. So it is a question being asked by the current speaker.
+Example:
+    speak Lewis \"$q -1 null#What do you think of my role as mayor?#$r -1 0 mayor_role1#You're very important to the town!#$r -1 0 mayor_role2#You're not needed.\"
+Depending on your picked answer it will (in this example case) go to Content\Characters\Dialogue\Lewis.xnb and then read the responses listed as mayor_role1 or mayor_role2 which can be something like this:
+    mayor_role1: "I'm glad you think that! It means I'm doing my job correctly$h" #!String
+    mayor_role2: "Oh... well, if you say so...$s" #!String
+
+Command | What it does.
+----------|-----------
+$h | uses the speaking characters happy portrait.³
+$s | uses the speaking characters sad portrait.³
+$u | uses the speaking characters unique portrait.³
+$neutral | uses the speaking characters neutral portrait.³
+$l | uses the speaking characters love portrait.³
+$a | uses the speaking characters angry portrait.³
+$e | stands for "dialogueEnd", everything before $e is talking to a character once. everything after $e is talking to a person again after the first.
+$b | breaks the text from before the command and after it into different text boxes.
+$k | stands for "dialogueKill", currently undocumented what this does.
+$c x | stands for "dialogueChance", given a number between 0 and 1 will be the percentage that the given text will be shown.
+$d (worldstate) | stands for "dialogueDependingOnWorldState". Only three states seem to be used ingame: bus, Joja (also joja) and cc
+$y | stands for "dialogueQuickResponse", it works like $q but within one and the same text line. (Further documentation needed)
+$p | stands for "dialoguePrerequisite", currently undocumented what this does.
+$1 | stands for "dialogueSingle", currently unsure what this means, but it seems to be a check for if the player is dating (the speaking character?).³
+$q | Is used for questions, format is as follows: "$q -1 null#Question#$r -1 0 dialoguename1#Response 1#$r -1 0 dialoguename2#Response 2" the way this works is that it will switch to the given dialoguename inside the speaking characters dialog file. Make sure to add them in Content\Characters\Dialogue\(name).xnb
+$r | stands for "dialogueResponse". check $q for more information.
+{ | stands for "breakSpecialCharacter", currently undocumented what this does. 
+@ | when used in text it is replaced by the players name.
+^ | This is a "Gender switch". Before the switch is for male, after is for female. Ex: "Oh, good morning Mr. @!^Oh, good morning Ms. @!"
+\* | stands for "quickResponseDelineator", currently undocumented what this does. 
+%adj | is replaced by a random adjective.
+%noun | is replaced by a random noun.
+%place | is replaced by a random place. seems to be unused?
+%spouse | if married this (should) return the name of the players spouse. Seems to be unused?
+%name | stands for "randomNameSpecialCharacter". Seems to return a random name? 
+%firstnameletter | stands for "firstNameLettersSpecialCharacter". Unused?
+%time | returns current time.
+%band | unused?
+%book | unused?
+%rival | unused?
+%pet | returns pet name.
+%farm | returns farm name
+%favorite | returns favorite thing? unused?
+%fork | Seems to have to do with questions and forks, however is used sparingly in originals game code. seems to be replaced with the actual question command.
+%kid1 | returns the name of your first child.
+%kid2 | returns the name of your second child.
+
+<small>³ while $h, $s, $u, $neutral, $l and $a on the faces, so do $0 and up. However these have to be at the end of a sentence. if $1 is used at the start of a sentence it is instead used as the "dialogueSingle" command.</small>
+
+Currently undocumented commands:
+advancedMove
+
+## Song and Sound title list
+
+## Mail events
+
+TODO: Add list of all known song and sound titles!
+TODO2: Add documentation for mail events!
 
 ## See also
 * [JavaScript to parse an event precondition string](https://gist.github.com/Pathoschild/95efc5ba5a23dc2c4da219ca2ddde679)
