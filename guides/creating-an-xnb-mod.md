@@ -65,9 +65,9 @@ or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
        is a map editor for the game's map format. This version was customised by Kithi to enable
        conversion between the game's `.tbin` files and the `.tmx` files we'll be editing. It fixes
        an issue where exporting to `.tmx` would lose tile data like animations.
-   * **[Tiled](http://www.mapeditor.org/)** is the map editor we'll use to edit the game's maps. It
-     has some advantages over tIDE like automatic edge-fixing, better performance, fewer bugs
-     when editing Stardew Valley maps, and features like copying & pasting between maps.
+     * **[Tiled](http://www.mapeditor.org/)** is the map editor we'll use to edit the game's maps. It
+       has some advantages over tIDE like automatic edge-fixing, better performance, fewer bugs
+       when editing Stardew Valley maps, and features like copying & pasting between maps.
 2. You should back up your game's `Content` folder now, so you can recover the original files if
    you make a mistake.
 
