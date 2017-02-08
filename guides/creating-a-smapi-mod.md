@@ -274,7 +274,7 @@ Here are the available events:
 
   | event | summary |
   |:----- |:------- |
-  | OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing everything to the screen during a draw loop.
+  | OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing the world to the screen.
   | OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), raised before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
   | OnPreRenderHudEvent<br />OnPostRenderHudEvent | Raised before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
   | Resize | Raised after the game window is resized. |
