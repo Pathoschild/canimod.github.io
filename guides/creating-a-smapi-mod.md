@@ -325,6 +325,7 @@ Here are the available events:
   | AfterLoad | Raised after the player loads a saved game. The world is ready for mods to modify at this point.
   | BeforeSave | Raised before the game updates the save file. (The save won't be written until all mods have finished handling this event.)
   | AfterSave | Raised after the game finishes updating the save file.
+  | AfterReturnToTitle | **\[SMAPI 1.9 beta]** Raised after the player exits to the title screen.
 
 * <span id="time-events"></span>
   **`TimeEvents`** are raised when the in-game date or time changes.
