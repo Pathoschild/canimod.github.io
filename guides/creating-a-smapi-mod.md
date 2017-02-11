@@ -278,7 +278,7 @@ Here are the available events:
   | OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), raised before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
   | OnPreRenderHudEvent<br />OnPostRenderHudEvent | Raised before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
   | Resize | Raised after the game window is resized. |
-  | _other events_ | SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
+  | _other events_ | **\[removed in SMAPI 1.9 beta\]** SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
 
 * <span id="location-events"></span>
   **`LocationEvents`** are raised when the player transitions between game locations, a location is
@@ -325,15 +325,16 @@ Here are the available events:
   | AfterLoad | Raised after the player loads a saved game. The world is ready for mods to modify at this point.
   | BeforeSave | Raised before the game updates the save file. (The save won't be written until all mods have finished handling this event.)
   | AfterSave | Raised after the game finishes updating the save file.
-  | AfterReturnToTitle | **\[SMAPI 1.9 beta]** Raised after the player exits to the title screen.
+  | AfterReturnToTitle | **\[added in SMAPI 1.9 beta\]** Raised after the player exits to the title screen.
 
 * <span id="time-events"></span>
   **`TimeEvents`** are raised when the in-game date or time changes.
 
   | event | summary |
   |:----- |:------- |
+  | AfterDayStarted | **\[added in SMAPI 1.9 beta\]** Raised after the game begins a new day, including when loading a save. |
   | TimeOfDayChanged | Raised after the in-game clock changes. |
-  | DayOfMonthChanged | Raised after the day-of-month value changes (including when the player loads a save). |
+  | DayOfMonthChanged | Raised after the day-of-month value changes (including when the player loads a save). This may happen before an end-of-day save; in most cases you should use `AfterDayStarted` instead. |
   | SeasonOfYearChanged | Raised after the season changes. |
   | YearOfGameChanged | Raised after the year changes. |
 
