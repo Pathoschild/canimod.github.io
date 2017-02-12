@@ -61,6 +61,18 @@ just install the latest version.
      4. Save your changes.  
         _From now on, launching the game through Steam will run SMAPI. The Steam overlay and
         achievements should work fine._
+     5. Test that your Steam overlay works. If it does, you're done, continue playing as you were before.
+     6. If it doesn't, close out of Stardew Valley and repeat Steps 1.
+     7. Click on _Local Files_ along the top bar
+     8. Select _Browse Local Files_
+     9. In the Explorer window that has opened click in any white-space of the adresss bar.
+     10. Copy the address to your clipboard (Ctrl-C).
+     11. Return to the Stardew Valley properties menu.
+     12. Open the _General_ tab along the top bar.
+     13. Select _Set Launch Options_ and clear out the text box
+     14. Enter `"<path from your clipboard (Ctrl-V)>\StardewValleyModdingAPI.exe" %command%` the double quotes are neccessary.
+         _If Steam and Stardew Valley are in the default install location your command may be `"C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.exe" %command%`_
+         _Steam overlay should now work_
    * **Scenario B: you launch the game through a shortcut:**
      1. Right-click on the shortcut and choose _Properties_.
      2. In the 'Target' box, change `Stardew Valley.exe` to `StardewModdingAPI.exe`.  
