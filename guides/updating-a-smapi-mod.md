@@ -52,6 +52,7 @@ since  | interfaces                | severity | replacement
 1.1    | `Log` class               | _notice_ | use the `this.Monitor.Log` mod method.
 1.6    | `PlayerEvents.LoadedGame` | _notice_ | use `SaveEvents.AfterLoad`.
 1.6    | `TimeEvents.OnNewDay`     | _notice_ | unreliable and doesn't do what you think; use `TimeEvents.DayOfMonthChanged` to detect a day change, and `SaveEvents.BeforeSave` + `SaveEvents.AfterSave` to detect saves.
+1.9    | `Command` class           | _notice_ | use `helper.ConsoleCommands`.
 
 These have been removed:
 
