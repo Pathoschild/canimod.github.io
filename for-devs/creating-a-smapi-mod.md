@@ -4,6 +4,9 @@ title: Creating a SMAPI mod
 intro: > 
    Ready to make your own mod? This page will help you create your first mod and use the
    available APIs and events.
+permalink: /for-devs/creating-a-smapi-mod
+redirect_from:
+    - /guides/creating-a-smapi-mod
 ---
 
 ## Quick start

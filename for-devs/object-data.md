@@ -1,7 +1,12 @@
 ---
 layout: default
 title: Object data
-intro: This page explains how the game stores and parses object data. This is an advanced guide for mod developers.
+intro: >
+    This page explains how the game stores and parses object data. This is an advanced guide for
+    mod developers.
+permalink: /for-devs/object-data
+redirect_from:
+    - /guides/object-data
 ---
 
 ## Reading the raw data

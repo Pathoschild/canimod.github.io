@@ -1,7 +1,12 @@
 ---
 layout: default
 title: NPC gift tastes
-intro: This page explains how the game calculates NPC gift tastes. This is an advanced guide for mod developers.
+intro: >
+    This page explains how the game calculates NPC gift tastes. This is an advanced guide for mod
+    developers.
+permalink: /for-devs/npc-gift-tastes
+redirect_from:
+    - /guides/npc-gift-tastes
 ---
 
 ## Reading the raw data

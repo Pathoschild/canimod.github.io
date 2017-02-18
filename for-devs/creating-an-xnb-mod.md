@@ -9,6 +9,9 @@ intro: >
     <a href="https://github.com/Pathoschild/canimod.github.io#ways-to-contribute">feel free to contribute</a>
     any corrections and improvements.
     </p>
+permalink: /for-devs/creating-an-xnb-mod
+redirect_from:
+    - /guides/creating-an-xnb-mod
 ---
 
 ## Intro
@@ -349,7 +352,7 @@ Here's how to do it in Tiled:
 
 ### Editing maps from a SMAPI mod
 The previous sections describe how to edit a map by editing its file, but you can also edit it
-programmatically at runtime in a [SMAPI mod](/guides/creating-a-smapi-mod):
+programmatically at runtime in a [SMAPI mod](/for-devs/creating-a-smapi-mod):
 
 ```c#
 GameLocation location = Game1.currentLocation;
