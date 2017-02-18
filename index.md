@@ -9,8 +9,10 @@ This is a collaborative open-source site documenting the anarchy.
 <div class="scroll-box">
     <h3>For players</h3>
     <ul>
-        <li><a href="for-players/using-mods">Using mods</a></li>
-        <li><a href="for-players/faq">Troubleshooting & FAQ</a></li>
+        <li><a href="for-players/intro">Intro to modding</a></li>
+        <li><a href="for-players/install-smapi">Install SMAPI</a></li>
+        <li><a href="for-players/use-mods">Use mods</a></li>
+        <li><a href="for-players/faqs">Troubleshooting & FAQ</a></li>
         <li>Need help? <a href="https://discord.gg/kH55QXP">Ask on Discord</a></li>
     </ul>
 </div>

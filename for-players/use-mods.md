@@ -72,5 +72,5 @@ basically make sure your values are surrounded by quotes (like `"value"`). You c
 [JSON validator](https://jsonformatter.curiousconcept.com/) to make sure the format is correct.
 
 <div class="scroll-box" style="display: inline-block;">
-<big><strong>next:</strong> <a href="/for-players/use-mods">Troubleshooting & FAQs →</a></big>
+<big><strong>next:</strong> <a href="/for-players/faqs">Troubleshooting & FAQs →</a></big>
 </div>
