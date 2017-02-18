@@ -23,7 +23,8 @@ SMAPI is the tool which launches the game with mods (which are [downloaded separ
 It's safely installed alongside your normal game, and you can uninstall it anytime. To update SMAPI,
 just install the latest version.
 
-## On Windows
+## Automatic install
+### On Windows
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Double-click `install.exe`, and follow the on-screen instructions.  
@@ -44,7 +45,7 @@ just install the latest version.
 That's it! To remove SMAPI later, just run `install.exe` again and choose _uninstall_. (Don't
 forget to undo your step 4 changes.)
 
-## On Linux
+### On Linux
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
@@ -54,7 +55,7 @@ forget to undo your step 4 changes.)
 That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
 again and choose _uninstall_.
 
-## On Mac
+### On Mac
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
@@ -67,7 +68,7 @@ again and choose _uninstall_.
 That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
 again and choose _uninstall_.
 
-## Manual install (not recommended)
+## Manual install
 The installer is the recommended way to install SMAPI, but you can also install it manually.
 
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
