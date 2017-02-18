@@ -1,12 +1,24 @@
 ---
 layout: default
-title: SMAPI FAQ
-intro: This page is a quick reference for common questions about SMAPI.
-permalink: /for-players/faq
+title: Player's guide to using mods » troubleshooting & FAQs
+intro: >
+   Welcome to Stardew Valley modding! This guide will help you install mods and
+   fix any problems that come up.
+permalink: /for-players/faqs
 redirect_from:
     - /guides/asking-for-help
     - /guides/smapi-faq
 ---
+
+<div class="scroll-box" style="float: right;">
+<strong>For players</strong>
+<ul>
+   <li><a href="/for-players/intro">Intro</a></li>
+   <li><a href="/for-players/install-smapi">Install SMAPI</a></li>
+   <li><a href="/for-players/install-smapi">Use mods</a></li>
+   <li><a href="/for-players/faqs">Troubleshooting & FAQs</a></li>
+</ul>
+</div>
 
 ## General
 
