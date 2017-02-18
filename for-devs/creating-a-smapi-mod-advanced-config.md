@@ -6,6 +6,9 @@ intro: >
    This page is overkill for the vast majority of mods; see
    <em><a href="creating-a-smapi-mod#configuration">creating a SMAPI mod</a></em>
    for a simpler approach that is sufficient for most mods.
+permalink: /for-devs/creating-a-smapi-mod-advanced-config
+redirect_from:
+    - /guides/creating-a-smapi-mod-advanced-config
 ---
 
 ## Custom JSON files

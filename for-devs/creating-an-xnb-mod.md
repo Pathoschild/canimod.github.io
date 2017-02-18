@@ -9,6 +9,9 @@ intro: >
     <a href="https://github.com/Pathoschild/canimod.github.io#ways-to-contribute">feel free to contribute</a>
     any corrections and improvements.
     </p>
+permalink: /for-devs/creating-an-xnb-mod
+redirect_from:
+    - /guides/creating-an-xnb-mod
 ---
 
 ## Intro

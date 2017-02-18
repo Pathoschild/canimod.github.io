@@ -4,6 +4,9 @@ title: Using mods
 intro: >
    Welcome to Stardew Valley modding! This guide will help you install mods and
    troubleshoot problems.
+permalink: /for-players/using-mods
+redirect_from:
+    - /guides/using-mods
 ---
 
 ## Some background

@@ -2,8 +2,10 @@
 layout: default
 title: SMAPI FAQ
 intro: This page is a quick reference for common questions about SMAPI.
+permalink: /for-players/faq
 redirect_from:
     - /guides/asking-for-help
+    - /guides/smapi-faq
 ---
 
 ## General

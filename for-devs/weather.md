@@ -1,7 +1,12 @@
 ---
 layout: default
 title: Weather
-intro: This page explains how the game handles weather. This is meant as an in depth overview for modders.
+intro: >
+    This page explains how the game handles weather. This is meant as an in-depth overview for
+    modders.
+permalink: /for-devs/weather
+redirect_from:
+    - /guides/weather
 ---
 
 Weather in Stardew Valley runs from multiple sources.

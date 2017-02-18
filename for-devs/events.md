@@ -1,7 +1,12 @@
 ---
 layout: default
 title: Events
-intro: This page explains how the game stores and parses event data. This is an advanced guide for mod developers.
+intro: >
+    This page explains how the game stores and parses event data. This is an advanced guide for mod
+    developers.
+permalink: /for-devs/events
+redirect_from:
+    - /guides/events
 ---
 
 ## Reading the raw data
