@@ -352,7 +352,7 @@ Here's how to do it in Tiled:
 
 ### Editing maps from a SMAPI mod
 The previous sections describe how to edit a map by editing its file, but you can also edit it
-programmatically at runtime in a [SMAPI mod](/guides/creating-a-smapi-mod):
+programmatically at runtime in a [SMAPI mod](/for-devs/creating-a-smapi-mod):
 
 ```c#
 GameLocation location = Game1.currentLocation;

@@ -10,20 +10,20 @@ redirect_from:
 ---
 
 <div class="scroll-box" style="float: right;">
-<strong>For players</strong>
-<ul>
-   <li><a href="/for-players/intro">Intro</a></li>
-   <li><a href="/for-players/install-smapi">Install SMAPI</a></li>
-   <li><a href="/for-players/faqs">Troubleshooting & FAQs</a></li>
-</ul>
+    <strong>For players</strong>
+    <ul>
+        <li><a href="/for-players/intro">Intro</a></li>
+        <li><strong>Install SMAPI</strong></li>
+        <li><a href="/for-players/use-mods">Use mods</a></li>
+        <li><a href="/for-players/faqs">Troubleshooting & FAQs</a></li>
+    </ul>
 </div>
 
-## Installing SMAPI
 SMAPI is the tool which launches the game with mods (which are [downloaded separately](#using-mods)).
 It's safely installed alongside your normal game, and you can uninstall it anytime. To update SMAPI,
 just install the latest version.
 
-### On Windows
+## On Windows
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Double-click `install.exe`, and follow the on-screen instructions.  
@@ -44,7 +44,7 @@ just install the latest version.
 That's it! To remove SMAPI later, just run `install.exe` again and choose _uninstall_. (Don't
 forget to undo your step 4 changes.)
 
-### On Linux
+## On Linux
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
@@ -54,7 +54,7 @@ forget to undo your step 4 changes.)
 That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
 again and choose _uninstall_.
 
-### On Mac
+## On Mac
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
@@ -67,13 +67,13 @@ again and choose _uninstall_.
 That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
 again and choose _uninstall_.
 
-### Manual install (not recommended)
+## Manual install (not recommended)
 The installer is the recommended way to install SMAPI, but you can also install it manually.
 
 1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
 2. Unzip the `.zip` file somewhere.
 3. Copy the files from the `internal/Mono` folder (if Linux/Mac) or `internal/Windows` folder (if
-   Windows) into [your game folder](http://canimod.com/guides/smapi-faq#game-folder). If you did it
+   Windows) into [your game folder](http://canimod.com/for-devs/faqs#game-folder). If you did it
    properly, the `StardewModdingAPI.exe` file should be right next to the game's executable.
 4. Make sure the game launches with SMAPI.
    * **Scenario A: you play on Windows:**  

@@ -8,19 +8,19 @@ permalink: /for-players/use-mods
 ---
 
 <div class="scroll-box" style="float: right;">
-<strong>For players</strong>
-<ul>
-   <li><a href="/for-players/intro">Intro</a></li>
-   <li><a href="/for-players/install-smapi">Install SMAPI</a></li>
-   <li><a href="/for-players/install-smapi">Use mods</a></li>
-   <li><a href="/for-players/faqs">Troubleshooting & FAQs</a></li>
-</ul>
+    <strong>For players</strong>
+    <ul>
+        <li><a href="/for-players/intro">Intro</a></li>
+        <li><a href="/for-players/install-smapi">Install SMAPI</a></li>
+        <li><strong>Use mods</strong></li>
+        <li><a href="/for-players/faqs">Troubleshooting & FAQs</a></li>
+    </ul>
 </div>
 
-## Using mods
-If you've done everything above, the hard part is done!
+If you've followed the guide so far, you already [installed SMAPI](/for-players/install-smapi). The
+hard part is done!
 
-### Downloading mods
+## Download mods
 There are two main places to download mods:
 
 * [Nexus Mods](http://nexusmods.com/stardewvalley/) has a huge repository of mods available.
@@ -45,9 +45,9 @@ A few tips for downloading mods:
    * Ask! The next player will thank you. If the author never responds, the mod is probably
      abandoned.
 
-### Adding mods
+## Add or remove mods
 To install a mod, just unzip it into the `Mods` folder inside
-[your game folder](http://canimod.com/guides/smapi-faq#game-folder). Make sure each mod has its own
+[your game folder](http://canimod.com/for-players/faqs#game-folder). Make sure each mod has its own
 subdirectory; for example, if you have a `PineapplesEverywhere` mod, you should have a file
 structure like this:
 
@@ -59,10 +59,9 @@ structure like this:
          manifest.json
 ```
 
-### Removing mods
 To uninstall a mod, just remove it from the `Mods` directory.
 
-### Configuring mods
+## Configure mods
 Some mods have a `config.json` file in their directory (see [_adding mods_](#adding-mods)). It
 might be created the first time you launch the game with that mod. This file lets you customise
 the mod settings.

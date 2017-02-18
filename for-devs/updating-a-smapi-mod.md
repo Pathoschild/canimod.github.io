@@ -49,8 +49,8 @@ since  | interfaces                | severity | replacement
 1.0    | `Config` class            | _info_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Mod.BaseConfigPath`      | _info_ | see _[mod configuration](#mod-configuration)_.
 1.0    | `Mod.PathOnDisk`          | _info_ | see _[mod configuration](#mod-configuration)_ or use `this.Helper.DirectoryPath`.
-1.0    | `Mod.PerSaveConfigFolder` | _info_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
-1.0    | `Mod.PerSaveConfigPath`   | _info_ | use [per-save JSON files](/guides/creating-a-smapi-mod-advanced-config) instead.
+1.0    | `Mod.PerSaveConfigFolder` | _info_ | use [per-save JSON files](/for-devs/creating-a-smapi-mod-advanced-config) instead.
+1.0    | `Mod.PerSaveConfigPath`   | _info_ | use [per-save JSON files](/for-devs/creating-a-smapi-mod-advanced-config) instead.
 1.0    | `Mod.Entry(object[])`     | _info_ | see _[mod entry method](#mod-entry-method)_.
 1.1    | `Log` class               | _info_ | use the `this.Monitor.Log` mod method.
 1.6    | `PlayerEvents.FarmerChanged` | _info_ | serves no purpose.
@@ -78,7 +78,7 @@ deprecated | removed | interfaces | replacement
 This section provides more information for some migrations mentioned in the previous section.
 
 #### Mod entry method
-_For the latest documentation, see [creating a SMAPI mod: writing your mod code](/guides/creating-a-smapi-mod#writing-your-mod-code)._
+_For the latest documentation, see [creating a SMAPI mod: writing your mod code](/for-devs/creating-a-smapi-mod#writing-your-mod-code)._
 
 Change your mod's entry class from this:
 
@@ -102,7 +102,7 @@ public override void Entry(IModHelper helper)
 ```
 
 #### Mod configuration
-_For the latest documentation, see [creating a SMAPI mod: configuration](/guides/creating-a-smapi-mod#configuration)._
+_For the latest documentation, see [creating a SMAPI mod: configuration](/for-devs/creating-a-smapi-mod#configuration)._
 
 If you use `config.json`, it's much easier in 1.0.
 
@@ -173,6 +173,6 @@ If you use `config.json`, it's much easier in 1.0.
    `new SampleConfig().InitializeConfig(this.BaseConfigPath)`<br />`config.UpdateConfig()`<br />`config.LoadConfig(this.BaseConfigPath)`<br />`config.ReloadConfig()` | `helper.ReadConfig<SampleConfig>()`
    `config.WriteConfig()`  | `helper.WriteConfig(config)`
 
-For more information, see [creating a SMAPI mod: configuration](/guides/creating-a-smapi-mod#configuration).
+For more information, see [creating a SMAPI mod: configuration](/for-devs/creating-a-smapi-mod#configuration).
 For help with more advanced configuration (including custom JSON files and per-save configuration),
-see [advanced SMAPI mod configuration](/guides/creating-a-smapi-mod-advanced-config).
+see [advanced SMAPI mod configuration](/for-devs/creating-a-smapi-mod-advanced-config).
