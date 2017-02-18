@@ -16,7 +16,7 @@ redirect_from:
 ## How to update your mod
 You don't need to comb through your code; SMAPI can tell you if you're using a deprecated interface:
 
-1. Use the latest [SMAPI for developers](https://github.com/ClxS/SMAPI/releases) download.
+1. Use the latest [SMAPI for developers](https://github.com/Pathoschild/SMAPI/releases) download.
    This will show all deprecation messages in the console:
 
    > ![console message for a deprecated interface](images/updating-a-smapi-mod/deprecated-console.png)

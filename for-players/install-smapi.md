@@ -24,7 +24,7 @@ It's safely installed alongside your normal game, and you can uninstall it anyti
 just install the latest version.
 
 ## On Windows
-1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Double-click `install.exe`, and follow the on-screen instructions.  
    _The installer will detect your game and add SMAPI for you._
@@ -45,7 +45,7 @@ That's it! To remove SMAPI later, just run `install.exe` again and choose _unins
 forget to undo your step 4 changes.)
 
 ## On Linux
-1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
    _The installer will detect your game and add SMAPI for you. (If you get an error like
@@ -55,7 +55,7 @@ That's it! Just launch the game to play with mods. To remove SMAPI later, run `m
 again and choose _uninstall_.
 
 ## On Mac
-1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Open a terminal in the extracted folder and run `mono install.exe`.  
    _Here's how: (1) open the Terminal app; (2) type `mono` then a space; (3) drag & drop the
@@ -70,7 +70,7 @@ again and choose _uninstall_.
 ## Manual install (not recommended)
 The installer is the recommended way to install SMAPI, but you can also install it manually.
 
-1. Download the [latest version of SMAPI](https://github.com/ClxS/SMAPI/releases).
+1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Unzip the `.zip` file somewhere.
 3. Copy the files from the `internal/Mono` folder (if Linux/Mac) or `internal/Windows` folder (if
    Windows) into [your game folder](http://canimod.com/for-devs/faqs#game-folder). If you did it
