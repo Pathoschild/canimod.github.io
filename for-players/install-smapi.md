@@ -25,25 +25,44 @@ just install the latest version.
 
 ## Automatic install
 ### On Windows
+#### Part 1: install SMAPI
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 2. Extract the `.zip` file somewhere (but not in your game folder!).
 3. Double-click `install.exe`, and follow the on-screen instructions.  
    _The installer will detect your game and add SMAPI for you._
-4. To play with mods, you need to launch the `StardewModdingAPI.exe` that was added to your game folder (not the one in the installer folder).  
-   * **Scenario A: you launch the game through Steam:**
-     1. In the Steam client, right-click _Stardew Valley_ and choose _Properties_.
-     2. Click _Set Launch Options_.
-     3. Enter `StardewModdingAPI %command%`
-     4. Save your changes.  
-        _From now on, launching the game through Steam will run SMAPI. The Steam overlay and
-        achievements should work fine._
-   * **Scenario B: you launch the game through a shortcut:**
-     1. Right-click on the shortcut and choose _Properties_.
-     2. In the 'Target' box, change `Stardew Valley.exe` to `StardewModdingAPI.exe`.  
-        _From now on, using the shortcut will run SMAPI._
 
-That's it! To remove SMAPI later, just run `install.exe` again and choose _uninstall_. (Don't
-forget to undo your step 4 changes.)
+From now on, just run `StardewModdingAPI.exe` in [your game folder](http://canimod.com/for-players/faqs#game-folder)
+to play with mods. To remove SMAPI later, just run `install.exe` again and choose _uninstall_.
+
+#### Part 2: configure Steam
+If you use Steam, you can launch SMAPI from the Steam client to enable the Steam overlay and
+achievements. This requires a few more steps.
+
+1. In the Steam client, right-click on _Stardew Valley_ and choose _Properties_:
+
+   > ![](images/install-smapi/steam-right-click.png)
+
+2. Click _General > Set Launch Options_:
+
+   > ![](images/install-smapi/steam-launch-options.png)
+
+3. In the textbox, enter this text exactly as shown:
+
+   ```"\StardewModdingAPI.exe" %command%```
+
+4. Open [your game folder](http://canimod.com/for-players/faqs#game-folder), select the full
+   address, and press `CTRL` + `C` to copy it. (Your path is probably different; that's fine.)
+
+   > ![](images/install-smapi/steam-copy-path.png)
+
+5. In the textbox right before `\`, press `CTRL` + `V` to paste the address. The textbox should now
+   look something like this:
+
+   > ![](images/install-smapi/steam-launch-options-filled.png)
+
+6. Click OK to save your changes.
+7. From now on, just launch the game through Steam to run SMAPI with the Steam overlay and
+   achievements.
 
 ### On Linux
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
@@ -78,7 +97,7 @@ The installer is the recommended way to install SMAPI, but you can also install 
    properly, the `StardewModdingAPI.exe` file should be right next to the game's executable.
 4. Make sure the game launches with SMAPI.
    * **Scenario A: you play on Windows:**  
-     See [step 4 in the Windows instructions](#on-windows).
+     See [part 2 in the Windows instructions](#on-windows).
    * **Scenario B: you play on Linux or Mac:**  
      1. Open the game folder.
      2. Rename the `StardewValley` file (with no extension) to `StardewValley-original`.
