@@ -77,11 +77,11 @@ You can find your error log here:
 
 * SMAPI 1.9 beta:
 
-Platform | Path
-:------- |:-----
- Windows | `%appdata%\StardewValley\ErrorLogs\SMAPI-latest.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
- Linux   | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
- Mac     | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
+  Platform | Path
+  :------- |:-----
+  Windows | `%appdata%\StardewValley\ErrorLogs\SMAPI-latest.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
+  Linux   | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
+  Mac     | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
 
 Don't paste the whole log into your message! Instead attach it as a file, or send a [pastebin](http://pastebin.com/)
 link.
