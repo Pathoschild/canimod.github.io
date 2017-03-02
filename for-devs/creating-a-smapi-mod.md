@@ -69,8 +69,8 @@ here's a quick summary of what this page will walk you through:
 <dd>
    Before you start:
    <ul>
-      <li>You should read <a href="using-mods"><em>using mods</em></a> to learn the basic concepts
-      and install SMAPI.</li>
+      <li>You should read the <a href="/for-players/intro"><em>intro to using mods</em></a> to
+      learn the basic concepts and install SMAPI.</li>
       <li>You should install:<ul>
          <li>Stardew Valley;</li>
          <li>SMAPI;</li>
