@@ -4,11 +4,6 @@ title: Creating an XNB mod
 intro: >
     This page explains how to create a mod which replaces game files in order to change game data,
     images, and maps.
-    <p class="warning">
-    This guide is still very new and may have inaccuracies. Use at your discretion, and
-    <a href="https://github.com/Pathoschild/canimod.github.io#ways-to-contribute">feel free to contribute</a>
-    any corrections and improvements.
-    </p>
 permalink: /for-devs/creating-an-xnb-mod
 redirect_from:
     - /guides/creating-an-xnb-mod
