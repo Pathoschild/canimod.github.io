@@ -73,6 +73,7 @@ deprecated | removed | interfaces | replacement
 1.5        | 1.9     | `Version` class | use `SemanticVersion`.
 1.5        | 1.9     | `Mod.Manifest` | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
 1.5        | 1.9     | `Constants.Version` | use `Constants.ApiVersion` <small>(changes type from `Version` to `ISemanticVersion`)</small>.
+1.0<br /><small><em>experimental API</em></small> | 1.9 | `IConfigFile` and `ConfigFile` | reimplement if needed.
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.

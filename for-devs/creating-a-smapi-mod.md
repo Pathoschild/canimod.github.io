@@ -237,6 +237,14 @@ public void ReceiveAfterLoad(object sender, EventArgs e)
 
 Here are the available events:
 
+* <span id="content-events"></span>
+  **`ContentEvents`** are raised when the game loads content from its XNB files or changes locale.
+
+  | event | summary |
+  |:----- |:------- |
+  | AssetLoading | **[SMAPI 2.0+ only]** Raised when an XNB file is being read into the cache. Mods can change the data here before it's cached.
+  | AfterLocaleChanged | **[SMAPI 1.9+ only]** Raised after the content language changes.
+
 * <span id="control-events"></span>
   **`ControlEvents`** are raised when the player uses a controller, keyboard, or mouse. They're
   raised before the game handles the input, so it's possible to selectively prevent the game from
@@ -328,14 +336,14 @@ Here are the available events:
   | AfterLoad | Raised after the player loads a saved game. The world is ready for mods to modify at this point.
   | BeforeSave | Raised before the game updates the save file. (The save won't be written until all mods have finished handling this event.)
   | AfterSave | Raised after the game finishes updating the save file.
-  | AfterReturnToTitle | **\[added in SMAPI 1.9 beta\]** Raised after the player exits to the title screen.
+  | AfterReturnToTitle | **\[SMAPI 1.9+ only\]** Raised after the player exits to the title screen.
 
 * <span id="time-events"></span>
   **`TimeEvents`** are raised when the in-game date or time changes.
 
   | event | summary |
   |:----- |:------- |
-  | AfterDayStarted | **\[added in SMAPI 1.9 beta\]** Raised after the game begins a new day, including when loading a save. |
+  | AfterDayStarted | **\[SMAPI 1.9+ only\]** Raised after the game begins a new day, including when loading a save. |
   | TimeOfDayChanged | Raised after the in-game clock changes. |
   | DayOfMonthChanged | Raised after the day-of-month value changes (including when the player loads a save). This may happen before an end-of-day save; in most cases you should use `AfterDayStarted` instead. |
   | SeasonOfYearChanged | Raised after the season changes. |
