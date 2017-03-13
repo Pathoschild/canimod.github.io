@@ -62,18 +62,20 @@ These have been removed:
 
 deprecated | removed | interfaces | replacement
 :--------- | :------ | :--------- | :----------
-0.39.3     | 1.9     | `SObject` class | reimplement if needed.
-0.39.3     | 1.9     | `Extensions.ToSingular(…)` | use `string.Join`.
-1.0        | 1.9     |  `Authour` in `manifest.json` | use `Author`.
-1.0        | 1.9     | `Extensions` class | reimplement if needed, or use an extensions library.
-1.0        | 1.9     | `LogWriter` class | use `this.Monitor.Log`.
-1.0        | 1.9     | `SPlayer` class | use `Game1.player`.
-1.1        | 1.9     | `Command.CallCommand(string)` | use `Command.CallCommand(string, IMonitor)`.
-1.1        | 1.9     | `Mod.Entry(ModHelper)` | change `ModHelper` to `IModHelper`.
-1.5        | 1.9     | `Version` class | use `SemanticVersion`.
-1.5        | 1.9     | `Mod.Manifest` | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
-1.5        | 1.9     | `Constants.Version` | use `Constants.ApiVersion` <small>(changes type from `Version` to `ISemanticVersion`)</small>.
-1.0<br /><small><em>experimental API</em></small> | 1.9 | `IConfigFile` and `ConfigFile` | reimplement if needed.
+0.39.3     | 1.9¹    | `SObject` class | reimplement if needed.
+0.39.3     | 1.9¹    | `Extensions.ToSingular(…)` | use `string.Join`.
+1.0        | 1.9¹    |  `Authour` in `manifest.json` | use `Author`.
+1.0        | 1.9¹    | `Extensions` class | reimplement if needed, or use an extensions library.
+1.0        | 1.9¹    | `LogWriter` class | use `this.Monitor.Log`.
+1.0        | 1.9¹    | `SPlayer` class | use `Game1.player`.
+1.1        | 1.9¹    | `Command.CallCommand(string)` | use `Command.CallCommand(string, IMonitor)`.
+1.1        | 1.9¹    | `Mod.Entry(ModHelper)` | change `ModHelper` to `IModHelper`.
+1.5        | 1.9¹    | `Version` class | use `SemanticVersion`.
+1.5        | 1.9¹    | `Mod.Manifest` | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
+1.5        | 1.9¹    | `Constants.Version` | use `Constants.ApiVersion` <small>(changes type from `Version` to `ISemanticVersion`)</small>.
+1.0<br /><small><em>experimental API</em></small> | 1.9¹ | `IConfigFile` and `ConfigFile` | reimplement if needed.
+
+<small>¹ Stardew Valley 1.2 broke many existing mods, so SMAPI 1.9 used the opportunity to remove the most rarely-used deprecated APIs.</small>
 
 ### Migration guides
 This section provides more information for some migrations mentioned in the previous section.
