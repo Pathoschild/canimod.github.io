@@ -299,7 +299,7 @@ layer | property | explanation
 `Back` | `TouchAction PoolEntrance` | Switches the player between swimming and walking mode.
 `Back` | `TouchAction Sleep` | Ends the day if the player confirms.
 
-The `TouchAction` property makes something happen when the player interacts (e.g. clicks) with the tile:
+The `Action` property makes something happen when the player interacts (e.g. clicks) with the tile:
 
 layer | property | explanation
 ----- | -------- | -----------
