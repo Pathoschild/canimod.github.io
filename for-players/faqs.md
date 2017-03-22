@@ -36,9 +36,9 @@ For help with a mod, the mod author is the best person to ask. These are the bes
 For help with SMAPI, or if you can't ask the mod author, [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
 or [ask in Discord](https://discord.gg/kH55QXP).
 
+### What to include in a bug report
 <section class="anchor" id="bug-report"></section>
 
-### What to include in a bug report
 Figuring out why something went wrong for someone else can be tough, so it helps if you include
 as much information as possible. Here's the most useful information you can give.
 
@@ -58,10 +58,9 @@ as much information as possible. Here's the most useful information you can give
    (See _[Where is my error log and how can I share it?](#error-log)_)
 
 ## Files
-
+### Error log
 <section class="anchor" id="error-log"></section>
 
-### Error log
 SMAPI's error log provides information useful for troubleshooting problems, including any errors
 that occurred.
 
@@ -86,9 +85,9 @@ You can find your error log here:
 Don't paste the whole log into your message! Instead attach it as a file, or send a [pastebin](http://pastebin.com/)
 link.
 
+### Save files
 <section class="anchor" id="save-folder"></section>
 
-### Save files
 The game puts save files here:
 
 Platform | Path
@@ -102,9 +101,9 @@ Each save has a folder like `JonSnow_123456789`, with two main files inside it:
 
 To share your save, zip the entire `JonSnow_123456789` folder and send that.
 
+### Game folder
 <section class="anchor" id="game-folder"></section>
 
-### Game folder
 The "game folder" is the folder that contains the `Stardew Valley.exe` or `StardewValley.exe`
 file. The default locations are:
 
@@ -182,6 +181,8 @@ SMAPI couldn't find the `manifest.json` file for the mod in that folder. Common 
    ```
 
 ### SEHException: External component has thrown an exception
+<section class="anchor" id="sehexception"></section>
+
 An error like this with "Microsoft.Xna.Framework.Audio" in the text:
 
 ```
@@ -205,9 +206,8 @@ Common solutions:
 * Close your browsers and any other open application before playing.
 * Remove any mods intended to change the game's audio (e.g. more music).
 
-<section class="anchor" id="trojan"></section>
-
 ### SMAPI contains a trojan?
+<section class="anchor" id="trojan"></section>
 
 * **Why does this happen?**  
   Some antivirus programs may warn you that SMAPI contains a trojan with scary names like
@@ -227,5 +227,3 @@ Common solutions:
   You just need to tell your antivirus that SMAPI is okay. How you do that depends on which program
   you use. Try searching online for your antivirus name with the words "add exception" to find
   answers.
-
-<section class="anchor" id="sehexception"></section>
