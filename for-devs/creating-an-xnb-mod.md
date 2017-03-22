@@ -308,18 +308,28 @@ layer | property | explanation
 `Buildings` | `Action Arcade_Minecart` | Shows the _Junimo Kart_ arcade game.
 `Buildings` | `Action BuyBackpack` | Shows a menu which lets the player upgrade their backpack if an upgrade is available.
 `Buildings` | `Action Billboard` | Shows the calendar menu.
+`Buildings` | `Action BusTicket` | Shows the prompt for buying a bus ticket to the Desert.
 `Buildings` | `Action ColaMachine` | Offers to let the player buy a Joja cola.
 `Buildings` | `Action ClubShop` | Shows the casino shop menu.
 `Buildings` | `Action ClubSlots` | Shows the casino slots minigame.
+`Buildings` | `Action Garbage 0` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Sam's house.
+`Buildings` | `Action Garbage 1` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Haley's house.
+`Buildings` | `Action Garbage 2` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Mayor Lewis's house.
+`Buildings` | `Action Garbage 3` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of the Archeology Office.
+`Buildings` | `Action Garbage 4` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of the Blacksmith.
+`Buildings` | `Action Garbage 5` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of the Saloon.
+`Buildings` | `Action Garbage 6` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Alex's house.
 `Buildings` | `Action JojaShop` | Shows the Joja shopping screen.
 `Buildings` | `Action Jukebox` | Shows the jukebox menu to choose the ambient music.
 `Buildings` | `Action kitchen` | Shows the cooking menu.
 `Buildings` | `Action Letter {str text}` | Shows the letter menu on-screen with the given text, with the syntax used by `Data\mail.xnb`.<br />_Example: `Action Letter Hey there!^I had some extra wood lying around... I thought maybe you could use it. Take care!  ^   -Robin %item object 388 50 %%`_.
+`Buildings` | `Action LockedDoorWarp [{int toX} {int toY} {string toArea} {int openTime} {int closeTime}]` | Creates an activation warp normally used on doors with a time window for when it can be used. Note that you must use 24-hour times, i.e. 2000 for 8pm. <br />_Example: 6 29 SeedShop 900 2100._ 
 `Buildings` | `Action Mailbox` | Shows the next letter from the player's mailbox (if any).
 `Buildings` | `Action Material` | Shows a summary of the player's stockpiled wood and stone.
 `Buildings` | `Action MinecartTransport` | Shows the minecart destination menu (or a message if not unlocked).
 `Buildings` | `Action Notes {int noteID}` | If the player has found the specified lost book, displays its museum note text and marks it read.<br />_Example: Action Notes 17_.
 `Buildings` | `Action Warp {int x} {int y} {str area}` | Warps the player to the `x y` tile coordinate in the `area` game location.<br />_Example: Action Warp Mountain 76 9_.
+`Buildings` | `Action WarpCommunityCenter` | Warps the player to the inside of the Community Center. The map chosen will represent the current status of the Community Center (i.e. run down, restored, or Joja).
 `Buildings` | `Action WizardShrine` | Shows the character customisation menu normally available from the Wizard's tower.
 
 <small><sup>1</sup> Tile properties are handled throughout the codebase using `GameLocation::doesTileHaveProperty`. Actions and touch actions are handled by `GameLocation::performAction` and `GameLocation::performTouchAction` respectively. Emote IDs are listed as `Character` constants.</small>  
