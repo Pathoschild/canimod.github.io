@@ -22,7 +22,7 @@ redirect_from:
 
 ## Intro
 
-### Use or create  mods
+### Use or create mods
 See the _[intro pages](/for-players/intro)_ for using mods, or
 _[creating a SMAPI mod](/for-devs/creating-a-smapi-mod)_ for creating mods.
 

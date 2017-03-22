@@ -32,10 +32,11 @@
                 section = $("<section></section>", { id: header.attr("id") }).insertAfter(header);
 
             // add metadata
-            section.attr("data-name", header.text());
-            section.attr("data-level", headerTagName.substr(1));
-            header.removeAttr("id"); // avoid conflict with section
-            header.attr("data-id", section.attr("id"));
+            section
+                .attr("data-name", header.text()); // shown in TOC
+            header
+                .removeAttr("id") // avoid conflict with section
+                .attr("data-id", section.attr("id")); // used for anchor hover links
 
             // get section contents
             var contents = section.nextUntil(function() {
@@ -99,9 +100,14 @@
     /*********
     ** Initialise
     *********/
+    // syntax highlighting
     addSyntaxHighlighting();
-    prepareSections("h2, h3");
 
+    // sections & TOC
+    prepareSections("h2, h3");
     var sectionHierarchy = getSectionHierarchy($("#content").children("section"));
     $("#toc").append(getTableOfContents(sectionHierarchy));
+
+    // anchor hover links
+    anchors.add("h2, h3");
 })();
