@@ -37,7 +37,7 @@ For help with SMAPI, or if you can't ask the mod author, [post in this thread](h
 or [ask in Discord](https://discord.gg/kH55QXP).
 
 ### What to include in a bug report
-<section class="anchor" id="bug-report"></section>
+<section id="bug-report"></section>
 
 Figuring out why something went wrong for someone else can be tough, so it helps if you include
 as much information as possible. Here's the most useful information you can give.
@@ -59,8 +59,6 @@ as much information as possible. Here's the most useful information you can give
 
 ## Files
 ### Error log
-<section class="anchor" id="error-log"></section>
-
 SMAPI's error log provides information useful for troubleshooting problems, including any errors
 that occurred.
 
@@ -86,8 +84,6 @@ Don't paste the whole log into your message! Instead attach it as a file, or sen
 link.
 
 ### Save files
-<section class="anchor" id="save-folder"></section>
-
 The game puts save files here:
 
 Platform | Path
@@ -102,8 +98,6 @@ Each save has a folder like `JonSnow_123456789`, with two main files inside it:
 To share your save, zip the entire `JonSnow_123456789` folder and send that.
 
 ### Game folder
-<section class="anchor" id="game-folder"></section>
-
 The "game folder" is the folder that contains the `Stardew Valley.exe` or `StardewValley.exe`
 file. The default locations are:
 
@@ -181,7 +175,7 @@ SMAPI couldn't find the `manifest.json` file for the mod in that folder. Common 
    ```
 
 ### SEHException: External component has thrown an exception
-<section class="anchor" id="sehexception"></section>
+<section id="sehexception"></section>
 
 An error like this with "Microsoft.Xna.Framework.Audio" in the text:
 
@@ -207,7 +201,7 @@ Common solutions:
 * Remove any mods intended to change the game's audio (e.g. more music).
 
 ### SMAPI contains a trojan?
-<section class="anchor" id="trojan"></section>
+<section id="trojan"></section>
 
 * **Why does this happen?**  
   Some antivirus programs may warn you that SMAPI contains a trojan with scary names like

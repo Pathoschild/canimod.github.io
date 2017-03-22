@@ -173,9 +173,9 @@ table tbody tr:nth-child(odd) th {
 /*********
 ** Highlight anchor target
 *********/
-section.anchor:target {
+section:target {
     padding: 1em;
-    border:5px solid #96473a;
+    border: 5px solid #96473a;
     background: #f9b163;
 }
 
