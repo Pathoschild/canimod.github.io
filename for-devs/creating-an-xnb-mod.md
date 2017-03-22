@@ -308,17 +308,9 @@ layer | property | explanation
 `Buildings` | `Action Arcade_Minecart` | Shows the _Junimo Kart_ arcade game.
 `Buildings` | `Action BuyBackpack` | Shows a menu which lets the player upgrade their backpack if an upgrade is available.
 `Buildings` | `Action Billboard` | Shows the calendar menu.
-`Buildings` | `Action BusTicket` | Shows the prompt for buying a bus ticket to the Desert.
 `Buildings` | `Action ColaMachine` | Offers to let the player buy a Joja cola.
 `Buildings` | `Action ClubShop` | Shows the casino shop menu.
 `Buildings` | `Action ClubSlots` | Shows the casino slots minigame.
-`Buildings` | `Action Garbage 0` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Sam's house.
-`Buildings` | `Action Garbage 1` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Haley's house.
-`Buildings` | `Action Garbage 2` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Mayor Lewis's house.
-`Buildings` | `Action Garbage 3` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of the Archeology Office.
-`Buildings` | `Action Garbage 4` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of the Blacksmith.
-`Buildings` | `Action Garbage 5` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of the Saloon.
-`Buildings` | `Action Garbage 6` | Allows the tile to be activated once per day for random garbage items normally found inside the garbage can outside of Alex's house.
 `Buildings` | `Action JojaShop` | Shows the Joja shopping screen.
 `Buildings` | `Action Jukebox` | Shows the jukebox menu to choose the ambient music.
 `Buildings` | `Action kitchen` | Shows the cooking menu.
