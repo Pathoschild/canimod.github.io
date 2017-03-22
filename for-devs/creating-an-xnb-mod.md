@@ -321,7 +321,7 @@ layer | property | explanation
 `Buildings` | `Action MinecartTransport` | Shows the minecart destination menu (or a message if not unlocked).
 `Buildings` | `Action Notes {int noteID}` | If the player has found the specified lost book, displays its museum note text and marks it read.<br />_Example: Action Notes 17_.
 `Buildings` | `Action Warp {int x} {int y} {str area}` | Warps the player to the `x y` tile coordinate in the `area` game location.<br />_Example: Action Warp Mountain 76 9_.
-`Buildings` | `Action WarpCommunityCenter` | Warps the player to the inside of the Community Center. The map chosen will represent the current status of the Community Center (i.e. run down, restored, or Joja).
+`Buildings` | `Action WarpCommunityCenter` | Warps the player to the inside of the Community Center if they have access (else show an "it's locked" message).
 `Buildings` | `Action WizardShrine` | Shows the character customisation menu normally available from the Wizard's tower.
 
 <small><sup>1</sup> Tile properties are handled throughout the codebase using `GameLocation::doesTileHaveProperty`. Actions and touch actions are handled by `GameLocation::performAction` and `GameLocation::performTouchAction` respectively. Emote IDs are listed as `Character` constants.</small>  
