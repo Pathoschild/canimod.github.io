@@ -74,7 +74,7 @@ here's a quick summary of what this page will walk you through:
       <li>You should install:<ul>
          <li>Stardew Valley;</li>
          <li>SMAPI;</li>
-         <li>and <a href="https://www.visualstudio.com/vs/community/">Visual Studio Community</a> (on Windows)
+         <li>and <a href="https://www.visualstudio.com/vs/community/">Visual Studio 2017 Community</a> (on Windows)
          or <a href="http://www.monodevelop.com/">MonoDevelop</a> (on Linux/Mac).</li>
       </ul></li>
       <li>You should familiarise yourself with the code editor (Visual Studio or MonoDevelop),
@@ -97,12 +97,12 @@ set that up.
 
 ### Create the project structure
 
-1. Open Visual Studio or MonoDevelop.
+1. Open Visual Studio 2017 or MonoDevelop.
 2. Create a new solution with a library project.
-   * <small>In Visual Studio, choose _Visual C# » Class Library_. (Make sure you choose "Class Library", **not** "Class Library (.NET Core)" or "Class Library (Portable)".)</small>
-   * <small>In MonoDevelop, choose _Other » .NET » Library_.</small>
-3. Change the target framework to .NET 4.5 (for compatibility with Linux).
-   * <small>In Visual Studio: right-click on the project, choose _Properties_, click the
+   * <small>In Visual Studio 2017: choose _Visual C# » Class Library (.NET Framework)_. Make sure you choose the .NET Framework one, not .NET Core or .NET Standard.</small>
+   * <small>In MonoDevelop: choose _Other » .NET » Library_.</small>
+3. Change the target framework to .NET Framework 4.5 (for compatibility with Linux).
+   * <small>In Visual Studio 2017: right-click on the project, choose _Properties_, click the
      _Application_ tab, and change the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
    * <small>In MonoDevelop: right-click on the project, choose _Options_, click the _Build »
      General_ tab, and change the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
@@ -114,7 +114,7 @@ set that up.
    This will automatically configure your project to load the right modding dependencies for the
    current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
    debugging the mod in-game.
-   * <small>In Visual Studio: click _Tools » NuGet Package Manager » Manage NuGet Packages for
+   * <small>In Visual Studio 2017: click _Tools » NuGet Package Manager » Manage NuGet Packages for
      Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
      _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
      _Install_ button.</small>
@@ -507,7 +507,7 @@ a few things you should do to avoid problems:
 3. Use `helper.DirectoryPath`, don't try to determine the mod path yourself.
 
    ```cs
-   // ✘ Don't do this! It will crash on other platforms.
+   // ✘ Don't do this! It will crash if SMAPI rewrites the assembly (e.g. to update or crossplatform it).
    string modFolder = Assembly.GetCallingAssembly().Location;
 
    // ✓ This is OK
