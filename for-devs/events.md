@@ -12,8 +12,8 @@ redirect_from:
 ## Reading the raw data
 
 ### Source
-Events are stored in `Data\Events\*.xnb` (one file per location), which can be unpacked using
-[XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/).
+Events are stored in `Data\Events\*.xnb` (one file per location), which can be
+[unpacked using XNB Extract](creating-an-xnb-mod#unpacking).
 
 Here's the raw data for saloon events (as of 1.1.1) for reference:
 
