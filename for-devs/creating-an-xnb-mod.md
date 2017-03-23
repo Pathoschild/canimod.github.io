@@ -51,10 +51,10 @@ or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 
 ## Getting started
 
-### First time-setup
+### First-time setup
 1. Before you start, you should install these:
-   * **[XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/)**
-     is a toolkit for unpacking and packing the game's XNB files.
+   * **[XNB Extract 0.2.2](https://www.mediafire.com/?b86xecd27yti6f6)**
+     is a toolkit for unpacking and packing the game's XNB files. <small>(See [forum post](http://community.playstarbound.com/threads/beginners-guide-to-xnb-node-and-graphics-editing.110976/).)</small>
    * To edit images:
      * **[Paint.NET](http://www.getpaint.net/download.html)** lets you edit image files. (If you
        already have a favourite image editor, feel free to use that instead.)
@@ -69,21 +69,22 @@ or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 2. You should back up your game's `Content` folder now, so you can recover the original files if
    you make a mistake.
 
-<span id="packing"></span>
-
 ### Unpack & pack game files
+<section id="unpacking"></section>
+
 You can't edit an `.xnb` file itself, you need to edit the file that's inside it. Pulling out that
 inner file is called _unpacking_, and putting it back is called _packing_. Here's how to do it:
 
+1. Download XNB Extract (see [first-time setup](#first-time-setup)).
 1. Unpack the file for editing:
    1. Find the file you want to edit in the `Contents` folder.
    2. Copy it into XNB Extract's `Packed` folder.
-   3. On Windows, double-click `UNPACK FILES.bat`.  
+   3. On Windows, double-click `UnpackFiles.bat`.  
       On Linux/Mac, run the command inside `UNPACK FILES.bat`.
 2. Edit the unpacked file (see below).
 3. Repack the file for the game:
-   1. On Windows, double-click `PACK FILES.bat`.  
-      On Linux/Mac, run the command inside `PACK FILES.bat`.
+   1. On Windows, double-click `PackFiles.bat`.  
+      On Linux/Mac, run the command inside `PackFiles.bat`.
    2. Move the repacked `.xnb` file back to the original location.
 
 ## Editing a spritesheet
@@ -105,10 +106,10 @@ Note that sprites might be drawn next to each other to create the illusion of a 
 ### Making changes
 Spritesheets are easy to edit:
 
-1. [Unpack the file](#packing) you want to change.
+1. [Unpack the file](#unpacking) you want to change.
 2. Open the unpacked `.png` file in Paint.NET (or your preferred image editor).
 3. Make changes directly to the image.
-4. [Repack the file](#packing) and copy it back to the original location.
+4. [Repack the file](#unpacking) and copy it back to the original location.
 
 That's it! You can launch the game to see your changes.
 
@@ -154,7 +155,7 @@ _Highlight Current Layer_ | ✓ enabled | This makes it more clear which tile yo
 Here's how to edit a Stardew Valley map:
 
 1. **Get the file for editing:**
-   1. [Unpack the file](#packing) you want to change.
+   1. [Unpack the file](#unpacking) you want to change.
    3. Open the unpacked `.tbin` file in tIDE.
    4. Resave the file as "Tiled XML Map Files (*.tmx)".
    5. When asked how to store the layer data, choose "CSV".
@@ -165,7 +166,7 @@ Here's how to edit a Stardew Valley map:
 3. **Repack the file for the game:**
    1. Open the `.tmx` file in tIDE.
    2. Resave the file as "tIDE Binary Map Files (*.tbin)".
-   3. [Repack the file](#packing) and copy it back to the original location.
+   3. [Repack the file](#unpacking) and copy it back to the original location.
 
 The [Tiled documentation](http://doc.mapeditor.org/) might help with questions about using it.
 
