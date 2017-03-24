@@ -13,7 +13,7 @@ redirect_from:
 The rest of this page will help you create a mod. If you're experienced enough to skip the tutorial,
 here's a quick summary of what this page will walk you through:
 
-1. Create an empty C# library project.
+1. Create an empty C# class library project.
 2. Target .NET Framework 4.5 (for Linux compatibility).
 3. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
    to automatically add the right references depending on the platform the mod is being compiled on.
@@ -77,9 +77,9 @@ here's a quick summary of what this page will walk you through:
          <li>and <a href="https://www.visualstudio.com/vs/community/">Visual Studio 2017 Community</a> (on Windows)
          or <a href="http://www.monodevelop.com/">MonoDevelop</a> (on Linux/Mac).</li>
       </ul></li>
-      <li>You should familiarise yourself with the code editor (Visual Studio or MonoDevelop),
-      since this guide won't cover its basic usage. If you've never used it before, consider
-      following some 'getting started' tutorials first. You may occasionally need to look things up.</li>
+      <li>If you're not familiar with Visual Studio 2017 (on Windows) or MonoDevelop (on Linux/Mac),
+      the <a href="creating-a-smapi-mod-ide-primer"><em>IDE primer</em> subguide</a> explains how
+      to do the important stuff you need for this guide.</li>
    </ul>
 </dd>
 
@@ -95,33 +95,21 @@ here's a quick summary of what this page will walk you through:
 A SMAPI mod is a compiled library (DLL) with an entry method that gets called by SMAPI, so let's
 set that up.
 
-### Create the project structure
+### Create the project
 
 1. Open Visual Studio 2017 or MonoDevelop.
-2. Create a new solution with a library project.
-   * <small>In Visual Studio 2017: choose _Visual C# » Class Library (.NET Framework)_. Make sure you choose the .NET Framework one, not .NET Core or .NET Standard.</small>
-   * <small>In MonoDevelop: choose _Other » .NET » Library_.</small>
-3. Change the target framework to .NET Framework 4.5 (for compatibility with Linux).
-   * <small>In Visual Studio 2017: right-click on the project, choose _Properties_, click the
-     _Application_ tab, and change the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
-   * <small>In MonoDevelop: right-click on the project, choose _Options_, click the _Build »
-     General_ tab, and change the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
-3. Delete the `Class1.cs` or `MyClass.cs` file.
+2. Create a solution with a C# class library project (see [how to](creating-a-smapi-mod-ide-primer#create-project)).
+3. Change the target framework to .NET Framework 4.5 for compatibility with Linux (see [how to](creating-a-smapi-mod-ide-primer#set-target-framework)).
+3. Delete the `Class1.cs` or `MyClass.cs` file (see [how to](creating-a-smapi-mod-ide-primer#delete-file)).
 
 ### Configure the build
 
-1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
+   (see [how to](creating-a-smapi-mod-ide-primer#add-nuget)).
    This will automatically configure your project to load the right modding dependencies for the
    current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
    debugging the mod in-game.
-   * <small>In Visual Studio 2017: click _Tools » NuGet Package Manager » Manage NuGet Packages for
-     Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
-     _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
-     _Install_ button.</small>
-   * <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
-     `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
-     for Stardew Valley mods_ and click _Add Package_.</small>
-2. _(optional)_ See the package's _[Simplify mod development](https://github.com/Pathoschild/Stardew.ModBuildConfig#simplify-mod-development)_
+2. _(optional)_ See _[simplify mod development](https://github.com/Pathoschild/Stardew.ModBuildConfig#simplify-mod-development)_
    to automatically package your mod into your mod folder and enable debugging while the game is running.
 
 That's it! Try building the project and make sure you don't get any errors. If you get an error
@@ -196,9 +184,10 @@ Almost done! Now for the code SMAPI will run.
 ### Try your mod
 
 1. Build the project.
-2. Copy the mod into your game's `Mods` folder (only if you didn't do step 2 of _[configure the build](#configure-the-build)_).
+2. Copy your mod into your game's `Mods` folder (only if you didn't do step 2 of _[configure the build](#configure-the-build)_).
    1. In the game's `Mods` directory, add a folder with your mod's name.
-   2. Copy your `manifest.json` and compiled files into the folder you created.
+   2. Copy your `manifest.json` and compiled files (see [how to find them](creating-a-smapi-mod-ide-primer#build-output))
+      into the folder you created.
 3. Run the game through SMAPI.
 
 The mod so far will just send a message to the console window whenever you press a key in the game:
