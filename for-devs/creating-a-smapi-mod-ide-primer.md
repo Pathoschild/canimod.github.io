@@ -160,7 +160,7 @@ project is a `.csproj` file, and can be edited from within the IDE.
    ![](images/creating-a-smapi-mod-ide-primer/show-solution-pane-vs.png)
 2. From the Solution Explorer pane, right-click on the project and choose _Unload_:  
    ![](images/creating-a-smapi-mod-ide-primer/edit-project-file-vs-1.png)
-3. Right-click on the project again and choose _Edit <project name>.csproj_:  
+3. Right-click on the project again and choose _Edit &lt;project name&gt;.csproj_:  
    ![](images/creating-a-smapi-mod-ide-primer/edit-project-file-vs-2.png)
 4. Make your changes in the editor that appears and save.
 5. When you're done, right-click on the project again and choose _Reload Project_:  
