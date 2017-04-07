@@ -58,30 +58,28 @@ as much information as possible. Here's the most useful information you can give
    (See _[Where is my error log and how can I share it?](#error-log)_)
 
 ## Files
-### Error log
-SMAPI's error log provides information useful for troubleshooting problems, including any errors
-that occurred.
+### SMAPI log
+The SMAPI log provides useful information for troubleshooting problems. It includes your game and
+SMAPI version, which mods you have, where the game is installed, any errors that occurred, and
+what happened.
 
-You can find your error log here:
+Here's how to share it:
 
-* SMAPI 1.8 or earlier:
+1. Find the log file here:
 
-  Platform | Path
-  :------- |:-----
-  Windows  | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
-  Linux    | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
-  Mac      | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
+   Platform | Path
+   :------- |:-----
+   Windows | `%appdata%\StardewValley\ErrorLogs\SMAPI-latest.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
+   Linux   | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
+   Mac     | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
 
-* SMAPI 1.9 beta:
+   <small>(If you see a `MODDED_ProgramLog.Log_LATEST.txt` file instead, you have an older version of
+   SMAPI. Try [updating to the latest version](https://github.com/Pathoschild/SMAPI/releases).)</small>
 
-  Platform | Path
-  :------- |:-----
-  Windows | `%appdata%\StardewValley\ErrorLogs\SMAPI-latest.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
-  Linux   | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
-  Mac     | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
-
-Don't paste the whole log into your message! Instead attach it as a file, or send a [pastebin](http://pastebin.com/)
-link.
+2. If you're sharing it...
+   * In the [`#modding` Discord channel](https://discord.gg/kH55QXP): just drag the file onto the
+     channel to attach it.
+   * Somewhere else: attach the file, or send a [pastebin](http://pastebin.com/) link.
 
 ### Save files
 The game puts save files here:
