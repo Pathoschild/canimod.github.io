@@ -84,7 +84,7 @@ everything from lighting and music to NPC movement and dialogue.
 command | syntax | description
 ------- | ------ | -----------
 move | `move <actor> <x> <y> <facing> <continue>` | Tell an actor to move to a position and face in a direction. TODO: explain <continue>
-speak | `speak <character> "<text>"` | Show dialogue <text> from <character>.
+speak | `speak <character> "<text>"` | Show dialogue &lt;text&gt; from &lt;character&gt;.
 minedeath | `minedeath` |
 hospitaldeath | `hospitaldeath` |
 end | `end ?` | TODO: Investigate Event.endBehaviors
@@ -101,7 +101,7 @@ stopAdvancedMoves | `stopAdvancedMoves` | Stop movement from advancedMove.
 doAction | `doAction <x> <y>` | TODO: Explain GameLocation.checkAction(new Location(x,y), viewport, player)
 removeTile | `removeTile <x> <y> <layer>` | Remove a tile from the specified layer.
 textAboveHead | `textAboveHead <actor> "<text>"` | TODO: Investigate Character.showTextAboveHead
-showFrame | <code>showFrame &lt;actor&gt; &lt;flip&#124;frame number&gt;</code> | Set an actor's current frame. 'flip' is only valid for farmers.TODO: Behavior with farmer looks strange?
+showFrame | <code>showFrame &lt;actor&gt; &lt;flip&#124;frame number&gt;</code> | Set an actor's current frame. 'flip' is only valid for farmers. TODO: Behavior with farmer looks strange?
 farmerAnimation | `farmerAnimation <anim>` | Sets the farmer's current animation.
 animate | `animate <actor> <frame duration> <flip> <loop> <frames...>` | Animate an actor. 'flip' and 'loop' are boolean.
 stopAnimation | `stopAnimation <actor> <end frame>` | Stop the animation of an actor. Note that 'end frame' is only valid for NPCs. It is unused for farmers.
@@ -152,13 +152,13 @@ stopSwimming | `stopSwimming <actor>` | Make an actor stop swimming.
 tutorialMenu | `tutorialMenu` | Show the tutorial menu if no other menu is open.
 animalNaming | `animalNaming` | Show the animal naming menu if no other menu is open. Uses the current location as Coop. Appears to only work for 'hatched' animals.
 splitSpeak | `splitSpeak <actor> "<text>"` | Dialogue, but chosen based on previous answer. ('~' is the separator used.)
-catQuestion | `catquestion` | Trigger question about adopting your pet.
+catQuestion | `catQuestion` | Trigger question about adopting your pet.
 taxvote | `taxvote` | Trigger voting for or against a 3% shipping tax. (No effect on game?)
 ambientLight | `ambientLight <r> <g> <b>` | Set the ambient light level.
 bloom | `bloom <threshold> <blur> <bloom intensity> <base intensity> <bloom saturation> <base saturation> [whiteOnly]` | Sets the current bloom settings. If 'whiteOnly' is not empty, then BloomSettings.brightWhiteOnly is true.
 ellioitbooktalk | `elliotbooktalk` | Elliot book talk.
 removeItem | `removeItem <object ID>` | Remove the first of an object from a player's inventory.
-friendship | `friendship <npc> <amount>` | Add <amount> friendship points with <npc>.
+friendship | `friendship <npc> <amount>` | Add &lt;amount&gt; friendship points with &lt;npc&gt;.
 setRunning | `setRunning` | Set the player as running.
 extendSourceRect | <code>extendSourceRect &lt;actor&gt; (reset &#124; &lt;horizontal&gt; &lt;vertical&gt; [ignoreUpdates])</code> | For the reset version, resets the actors sprite. TODO: Explain Character.extendSourceRect
 waitForOtherPlayers | `waitForOtherPlayers` | Wait for other players (vanilla MP).
@@ -168,9 +168,9 @@ eyes | `eyes <eyes> <blink>` | Change the player's eyes.
 addMailReceived | `addMailReceived <letter ID>` | Set a letter as received.
 fade | `fade [fadeOut]` | If 'fadeOut' is not specified, it will fade in. (?)
 changeMapTile | `changeMapTile <layer> <x> <y> <tile index>` | Change the specified tile to a particular value.
-changeSprite | `changeSprite <actor> <sprite>` | Change the actor's sprite to be from "Characters/<actor>_<sprite>".
+changeSprite | `changeSprite <actor> <sprite>` | Change the actor's sprite to be from "Characters/&lt;actor&gt;_&lt;sprite&gt;".
 proceedPosition | `proceedPosition <actor>` | TODO: Explain
-changePortrait | `changePortrait <npc> <portrait>` | Change the NPC's portrait to be from "Portraits/<actor>_<sprite>".
+changePortrait | `changePortrait <npc> <portrait>` | Change the NPC's portrait to be from "Portraits/&lt;actor&gt;_&lt;sprite&gt".
 changeYSourceRectOffset | `changeYSourceRectOffset <npc> <offset>` | Change the NPC's vertical texture offset (?).
 addTemporaryActor | <code>addTemporaryActor &lt;character&gt; &lt;sprite width&gt; &lt;sprite height&gt; &lt;tile x&gt; &lt;tile y&gt; &lt;facing&gt; [breather] [Character&#124;Animal&#124;Monster] [animal name]` | Add a temporary actor. 'breather' is boolean. The category determines where the texture will be loaded from, default is Character. Animal name only applies to animal.
 changeToTemporaryMap | `changeToTemporaryMap <map> [pan]` | Change the location to a temporary one, loaded from a map file. If 'pan' is not specified, the screen will pan to (0, 0).
@@ -185,7 +185,7 @@ loadActors | `loadActors <layer>` | Load the actors from a layer in the map file
 removeSprite | `removeSprite <x> <y>` | Remove the temporary sprite at a position.
 viewport | `viewport move <targetX> <targetY> <targetZ>` or <code>viewport &lt;x&gt; &lt;y&gt; [true [unfreeze]&#124;clamp [true&#124;unfreeze]]</code> | TODO: Explain
 playerControl | `playerControl` | Give the player control back.
-question | <code>question (null&#124;fork&lt;0,1,2...&gt;) "text"` | Give the player a question. The number for fork determines which is the 'correct' answer (ie. which will allow the next `fork` command to trigger.). TODO: Describe format for choices
+question | <code>question (null&#124;fork&lt;0,1,2...&gt;) "text"</code> | Give the player a question. The number for fork determines which is the 'correct' answer (ie. which will allow the next `fork` command to trigger.). TODO: Describe format for choices
 
 ## See also
 * [JavaScript to parse an event precondition string](https://gist.github.com/Pathoschild/95efc5ba5a23dc2c4da219ca2ddde679)
