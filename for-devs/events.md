@@ -51,17 +51,17 @@ char code¹ | syntax | precondition
 100 | `d <day of week>` | Today is **not** one of the specified days (may specify multiple days).
 101 | `e <event ID>` | Player has seen the specified event (may contain multiple event IDs).
 102 | `f <name> <number>` | Player has that many friendship points with NPC (may contain multiple name/number pairs). Each heart is 250 points.
-103 | `g <gender>` | Player is **not** the specified gender ("male" or "female").
-104 | `h <pet>` | Player has the specified pet ("cat" or "dog").
+103 | `g <gender>` | Player is the specified gender ("male" or "female").
+104 | `h <pet>` | Player doesn't have a pet and their preferred pet matches ("cat" or "dog").
 105 | `i <item ID>` | Player has specified item in their inventory.
 106 | `j <number>` | Player has played **more** than that many days.
 107 | `k <event ID>` | Player has **not** seen that event (may contain multiple event IDs).
-108 | `l <letter ID>` | Player has received that mail letter. This is often overloaded as a general flag, by specifying an invalid mail letter and marking it read when an arbitrary condition is met.
+108 | `l <letter ID>` | Player has **not** received that mail letter. This is often overloaded as a general flag, by specifying an invalid mail letter and marking it read when an arbitrary condition is met.
 109 | `m <number>` | Player has earned at least this much money.
-110 | `n <letter ID>` | Same as #108.
+110 | `n <letter ID>` | Same as #108, but has received that mail letter.
 111 | `o <name>` | Player is **not** married to that NPC.
 112 | `p <name>` | Specified character is in the current game location.
-113 | `q <dialogue ID>` | Player has answered the specified dialogue question (may contain multiple dialogue IDs). Unclear whether this is the question ID or answer ID.
+113 | `q <dialogue ID>` | Player has answered a dialogue with the specified answer ID.
 114 | `r <number>` | % chance (value between 0 and 1).
 115 | `s <item ID> <number>` | Player has shipped at least this many of the specified item (may specify multiple item/number pairs).
 116 | `t <min time> <max time>` | Current time is between between the specified times.
@@ -70,7 +70,7 @@ char code¹ | syntax | precondition
 119 | `w <weather>` | Current weather matches specified value ("rainy" or "sunny").
 120 | `x <event ID> <letter ID>` | Marks the specified ID as seen, adds the specified letter to tomorrow's mail, then returns false.
 121 | `y <year>` | If `<year>` is 1, must be in the first year. Otherwise, year must be at least this value.
-122 | `z <season>` | Current season is **not** one of the specified values (may contain multiple seasons).
+122 | `z <season>` | Current season is **not** one of the specified values.
 
 <small>¹ For convenience when looking at the decompiled code in `GameLocation::checkEventPrecondition`.</small>
 
