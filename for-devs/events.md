@@ -9,9 +9,7 @@ redirect_from:
     - /guides/events
 ---
 
-## Reading the raw data
-
-### Source
+## Source
 Events are stored in `Data\Events\*.xnb` (one file per location), which can be
 [unpacked using XNB Extract](creating-an-xnb-mod#unpacking).
 
@@ -39,7 +37,7 @@ content:  #!Dictionary<String,String>
     rejectJosh: "pause 100/playMusic none/shake Alex 2000/emote Alex 28/speak Alex \"...Oh...$s#$b#I...I'm sorry if I made you uncomfortable...$s\"/pause 2000/speak Alex \"I'm not hungry anymore...$s\"/viewport move 1 1 5000/globalFade/viewport -1000 -1000/pause 4000/end dialogue Alex \"...$l\"" #!String
 ```
 
-### Precondition format
+## Event preconditions
 Each event has a key which includes an event ID and any preconditions. Event preconditions include
 any number of the following arguments (separated by `/`):
 
@@ -77,7 +75,8 @@ char code¹ | syntax | precondition
 For example, Clint's Saloon heart event preconditions are `97/f Clint 750/t 1900 2300/d Tue Wed Thu
 Fri Sat Sun`, which means _event #97, requires 3 hearts with Clint, between 7pm and 11pm on Monday_.
 
-### Script format
+## Event scripts
+### Basic format
 Each event has a value which is the event script. This specifies what happens in the event —
 everything from lighting and music to NPC movement and dialogue. The script consists of multiple
 commands separated by `/` characters.
