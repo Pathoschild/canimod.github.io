@@ -1,25 +1,113 @@
-﻿$(function() {
+﻿/**
+ * These scripts are run when the DOM body is loaded, but before the DOM is done loading.
+ */
+(function() {
     "use strict";
 
-    // add class for C# syntax highlighting
-    $(".language-c\\# .highlight").removeClass("highlight").addClass("cshighlight");
+    /*********
+    ** Initialisation scripts
+    *********/
+    /**
+     * Adjust elements to support C# syntax highlighting using a separate syntax highlighter.
+     */
+    var addSyntaxHighlighting = function() {
+        $(".language-c\\# .highlight").removeClass("highlight").addClass("cshighlight");
+    }
 
-    // Markdown isn't parsed inside a <section> tag. As a hack, wrap any section.anchor tags around the next section.
-    $("section.anchor").each(function() {
-        var section = $(this);
+    /**
+     * Wrap each header group into a <section>. If a <section> already exists right after the
+     * header tag, wrap it into that <section> (as a workaround for Markdown not working inside an
+     * HTML tag.)
+     * @param {string|jQuery} headerSelector - A jQuery selector matching the headers to convert into sections.
+     */
+    var prepareSections = function(headerSelector) {
+        $(headerSelector).each(function() {
+            // get header
+            var header = $(this);
+            var headerTagName = header.get(0).tagName;
 
-        // get header
-        var header = section.next("h1, h2, h3, h4, h5");
-        if (!header.length)
-            return;
-        var headerTagName = header.get(0).tagName;
+            // get or create <section> after header
+            var section = header.next("section");
+            if (!section.length)
+                section = $("<section></section>", { id: header.attr("id") }).insertAfter(header);
 
-        // get contents within section
-        var contents = header.nextUntil(function() { var element = $(this); return element.is("section") || (element.is("h1, h2, h3, h4, h5") && element.get(0).tagName <= headerTagName); }); // everything up to the next equal or higher header
+            // add metadata
+            section
+                .attr("data-name", header.text()); // shown in TOC
+            header
+                .removeAttr("id") // avoid conflict with section
+                .attr("data-id", section.attr("id")); // used for anchor hover links
 
-        // wrap content into section
-        // don't put header in section to avoid breaking TOC
-        section.insertAfter(header);
-        section.append(contents);
-    });
-});
+            // get section contents
+            var contents = section.nextUntil(function() {
+                var element = $(this);
+                return element.is(headerSelector)
+                    && element.get(0).tagName <= headerTagName; // everything up to the next equal or higher header
+            });
+
+            // wrap everything into <section>
+            section.append(header);
+            section.append(contents);
+        });
+    };
+
+    /**
+     * Get metadata for a hierarchy of <section> tags.
+     * @param {string|jQuery} parents - The elements for which to build a hierarchy.
+     * @returns {object[]}
+     */
+    var getSectionHierarchy = function(parents) {
+        parents = $(parents);
+        var hierarchy = [];
+
+        for (var i = 0; i < parents.length; i++) {
+            var parent = $(parents[i]);
+            hierarchy.push({
+                id: parent.attr("id"),
+                text: parent.attr("data-name"),
+                children: getSectionHierarchy(parent.children("section"))
+            });
+        }
+
+        return hierarchy;
+    };
+
+    /**
+     * Build a table of contents.
+     * @param {object[]} hierarchy - The section metadata hierarchy returned by {@see getSectionHierarchy}.
+     * @returns {jQuery|null}
+     */
+    var getTableOfContents = function(hierarchy) {
+        if (!hierarchy || !hierarchy.length)
+            return null;
+
+        var list = $("<ul></ul>");
+        for(var i = 0; i < hierarchy.length; i++) {
+            var entry = hierarchy[i];
+
+            list.append($("<li></li>",
+            {
+                append: [
+                    $("<a></a>", { href: "#" + entry.id, text: entry.text }),
+                    getTableOfContents(entry.children)
+                ]
+            }));
+        }
+        return list;
+    };
+
+
+    /*********
+    ** Initialise
+    *********/
+    // syntax highlighting
+    addSyntaxHighlighting();
+
+    // sections & TOC
+    prepareSections("h2, h3");
+    var sectionHierarchy = getSectionHierarchy($("#content").children("section"));
+    $("#toc").append(getTableOfContents(sectionHierarchy));
+
+    // anchor hover links
+    anchors.add("h2, h3");
+})();

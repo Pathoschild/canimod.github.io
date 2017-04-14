@@ -4,13 +4,16 @@ title: Creating a SMAPI mod
 intro: > 
    Ready to make your own mod? This page will help you create your first mod and use the
    available APIs and events.
+permalink: /for-devs/creating-a-smapi-mod
+redirect_from:
+    - /guides/creating-a-smapi-mod
 ---
 
 ## Quick start
 The rest of this page will help you create a mod. If you're experienced enough to skip the tutorial,
 here's a quick summary of what this page will walk you through:
 
-1. Create an empty C# library project.
+1. Create an empty C# class library project.
 2. Target .NET Framework 4.5 (for Linux compatibility).
 3. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
    to automatically add the right references depending on the platform the mod is being compiled on.
@@ -66,17 +69,17 @@ here's a quick summary of what this page will walk you through:
 <dd>
    Before you start:
    <ul>
-      <li>You should read <a href="using-mods"><em>using mods</em></a> to learn the basic concepts
-      and install SMAPI.</li>
+      <li>You should read the <a href="/for-players/intro"><em>intro to using mods</em></a> to
+      learn the basic concepts and install SMAPI.</li>
       <li>You should install:<ul>
          <li>Stardew Valley;</li>
          <li>SMAPI;</li>
-         <li>and <a href="https://www.visualstudio.com/vs/community/">Visual Studio Community</a> (on Windows)
+         <li>and <a href="https://www.visualstudio.com/vs/community/">Visual Studio 2017 Community</a> (on Windows)
          or <a href="http://www.monodevelop.com/">MonoDevelop</a> (on Linux/Mac).</li>
       </ul></li>
-      <li>You should familiarise yourself with the code editor (Visual Studio or MonoDevelop),
-      since this guide won't cover its basic usage. If you've never used it before, consider
-      following some 'getting started' tutorials first. You may occasionally need to look things up.</li>
+      <li>If you're not familiar with Visual Studio 2017 (on Windows) or MonoDevelop (on Linux/Mac),
+      the <a href="creating-a-smapi-mod-ide-primer"><em>IDE primer</em> subguide</a> explains how
+      to do the important stuff you need for this guide.</li>
    </ul>
 </dd>
 
@@ -92,33 +95,21 @@ here's a quick summary of what this page will walk you through:
 A SMAPI mod is a compiled library (DLL) with an entry method that gets called by SMAPI, so let's
 set that up.
 
-### Create the project structure
+### Create the project
 
-1. Open Visual Studio or MonoDevelop.
-2. Create a new solution with a library project.
-   * <small>In Visual Studio, choose _Visual C# » Class Library_. (Make sure you choose "Class Library", **not** "Class Library (.NET Core)" or "Class Library (Portable)".)</small>
-   * <small>In MonoDevelop, choose _Other » .NET » Library_.</small>
-3. Change the target framework to .NET 4.5 (for compatibility with Linux).
-   * <small>In Visual Studio: right-click on the project, choose _Properties_, click the
-     _Application_ tab, and change the _Target framework_ dropdown to _.NET Framework 4.5_.</small>
-   * <small>In MonoDevelop: right-click on the project, choose _Options_, click the _Build »
-     General_ tab, and change the _Target framework_ dropdown to _Mono / .NET 4.5_.</small>
-3. Delete the `Class1.cs` or `MyClass.cs` file.
+1. Open Visual Studio 2017 or MonoDevelop.
+2. Create a solution with a C# class library project (see [how to](creating-a-smapi-mod-ide-primer#create-project)).
+3. Change the target framework to .NET Framework 4.5 for compatibility with Linux (see [how to](creating-a-smapi-mod-ide-primer#set-target-framework)).
+3. Delete the `Class1.cs` or `MyClass.cs` file (see [how to](creating-a-smapi-mod-ide-primer#delete-file)).
 
 ### Configure the build
 
-1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig).
+1. Reference the [`Pathoschild.Stardew.ModBuildConfig` NuGet package](https://github.com/Pathoschild/Stardew.ModBuildConfig)
+   (see [how to](creating-a-smapi-mod-ide-primer#add-nuget)).
    This will automatically configure your project to load the right modding dependencies for the
    current platform, so your mod can be built on Linux, Mac, or Windows. It also adds support for
    debugging the mod in-game.
-   * <small>In Visual Studio: click _Tools » NuGet Package Manager » Manage NuGet Packages for
-     Solution_ and search for `Pathoschild.Stardew.ModBuildConfig`. Select the package named
-     _MSBuild config for Stardew Valley mods_, check the box next to your project, and click the
-     _Install_ button.</small>
-   * <small>In MonoDevelop: click _Project » Add NuGet Packages_ and search for
-     `Pathoschild.Stardew.ModBuildConfig`. Select the package named _MSBuild config
-     for Stardew Valley mods_ and click _Add Package_.</small>
-2. _(optional)_ See the package's _[Simplify mod development](https://github.com/Pathoschild/Stardew.ModBuildConfig#simplify-mod-development)_
+2. _(optional)_ See _[simplify mod development](https://github.com/Pathoschild/Stardew.ModBuildConfig#simplify-mod-development)_
    to automatically package your mod into your mod folder and enable debugging while the game is running.
 
 That's it! Try building the project and make sure you don't get any errors. If you get an error
@@ -193,9 +184,10 @@ Almost done! Now for the code SMAPI will run.
 ### Try your mod
 
 1. Build the project.
-2. Copy the mod into your game's `Mods` folder (only if you didn't do step 2 of _[configure the build](#configure-the-build)_).
+2. Copy your mod into your game's `Mods` folder (only if you didn't do step 2 of _[configure the build](#configure-the-build)_).
    1. In the game's `Mods` directory, add a folder with your mod's name.
-   2. Copy your `manifest.json` and compiled files into the folder you created.
+   2. Copy your `manifest.json` and compiled files (see [how to find them](creating-a-smapi-mod-ide-primer#build-output))
+      into the folder you created.
 3. Run the game through SMAPI.
 
 The mod so far will just send a message to the console window whenever you press a key in the game:
@@ -233,6 +225,14 @@ public void ReceiveAfterLoad(object sender, EventArgs e)
 ```
 
 Here are the available events:
+
+* <span id="content-events"></span>
+  **`ContentEvents`** are raised when the game loads content from its XNB files or changes locale.
+
+  | event | summary |
+  |:----- |:------- |
+  | AssetLoading | **[SMAPI 2.0+ only]** Raised when an XNB file is being read into the cache. Mods can change the data here before it's cached.
+  | AfterLocaleChanged | Raised after the content language changes.
 
 * <span id="control-events"></span>
   **`ControlEvents`** are raised when the player uses a controller, keyboard, or mouse. They're
@@ -274,11 +274,10 @@ Here are the available events:
 
   | event | summary |
   |:----- |:------- |
-  | OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing everything to the screen during a draw loop.
+  | OnPreRenderEvent<br />OnPostRenderEvent | Raised before and after drawing the world to the screen.
   | OnPreRenderGuiEvent<br />OnPostRenderGuiEvent | When a menu is open (`Game1.activeClickableMenu != null`), raised before and after drawing that menu to the screen. This includes the game's internal menus like the title screen. |
   | OnPreRenderHudEvent<br />OnPostRenderHudEvent | Raised before and after drawing the HUD (item toolbar, clock, etc) to the screen. The HUD is available at this point, but not necessarily visible. (For example, the event is called even if a menu is open.) |
   | Resize | Raised after the game window is resized. |
-  | _other events_ | SMAPI has a few esoteric graphics events which probably shouldn't be used, so they're not documented here. |
 
 * <span id="location-events"></span>
   **`LocationEvents`** are raised when the player transitions between game locations, a location is
@@ -325,14 +324,16 @@ Here are the available events:
   | AfterLoad | Raised after the player loads a saved game. The world is ready for mods to modify at this point.
   | BeforeSave | Raised before the game updates the save file. (The save won't be written until all mods have finished handling this event.)
   | AfterSave | Raised after the game finishes updating the save file.
+  | AfterReturnToTitle | Raised after the player exits to the title screen.
 
 * <span id="time-events"></span>
   **`TimeEvents`** are raised when the in-game date or time changes.
 
   | event | summary |
   |:----- |:------- |
+  | AfterDayStarted | Raised after the game begins a new day, including when loading a save. |
   | TimeOfDayChanged | Raised after the in-game clock changes. |
-  | DayOfMonthChanged | Raised after the day-of-month value changes (including when the player loads a save). |
+  | DayOfMonthChanged | Raised after the day-of-month value changes (including when the player loads a save). This may happen before an end-of-day save; in most cases you should use `AfterDayStarted` instead. |
   | SeasonOfYearChanged | Raised after the season changes. |
   | YearOfGameChanged | Raised after the year changes. |
 
@@ -494,7 +495,7 @@ a few things you should do to avoid problems:
 3. Use `helper.DirectoryPath`, don't try to determine the mod path yourself.
 
    ```cs
-   // ✘ Don't do this! It will crash on other platforms.
+   // ✘ Don't do this! It will crash if SMAPI rewrites the assembly (e.g. to update or crossplatform it).
    string modFolder = Assembly.GetCallingAssembly().Location;
 
    // ✓ This is OK

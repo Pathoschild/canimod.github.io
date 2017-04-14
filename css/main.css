@@ -173,19 +173,17 @@ table tbody tr:nth-child(odd) th {
 /*********
 ** Highlight anchor target
 *********/
-section.anchor:target {
+section:target {
     padding: 1em;
-    border:5px solid #96473a;
+    border: 5px solid #96473a;
     background: #f9b163;
 }
 
 /*********
-** Main page
+** Scroll banner boxes
 *********/
-body[data-section="main-page"] .box {
-    float: left;
-    padding: 0.25em 0.5em;
-    margin-right: 1em;
+.scroll-box {
+    padding: 0 0.25em;
     border-radius: 10px;
     border: 20px solid transparent;
     -webkit-border-image: url("/images/scroll-borders.png") 36 fill;
@@ -193,13 +191,16 @@ body[data-section="main-page"] .box {
     border-image: url("/images/scroll-borders.png") 36 fill;
 }
 
-body[data-section="main-page"] .box .container {
-    padding: 0.25em;
-    margin: -0.5em 0;
+/*********
+** Main page
+*********/
+body[data-section="main-page"] .scroll-box {
+    float: left;
+    margin-right: 1em;
 }
 
 body[data-section="main-page"] h3 {
-    margin-top: 0.5em;
+    margin: 0.5em 0 0 0;
     line-height: 0.5em;
 }
 

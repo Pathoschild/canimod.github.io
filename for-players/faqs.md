@@ -1,23 +1,32 @@
 ---
 layout: default
-title: SMAPI FAQ
-intro: This page is a quick reference for common questions about SMAPI.
+title: Player's guide to using mods » troubleshooting & FAQs
+intro: >
+   Welcome to Stardew Valley modding! This guide will help you install mods and
+   fix any problems that come up.
+permalink: /for-players/faqs
 redirect_from:
     - /guides/asking-for-help
+    - /guides/smapi-faq
 ---
 
-## General
+<div class="scroll-box" style="float: right;">
+    <strong>For players</strong>
+    <ul>
+        <li><a href="/for-players/intro">Intro</a></li>
+        <li><a href="/for-players/install-smapi">Install SMAPI</a></li>
+        <li><a href="/for-players/use-mods">Use mods</a></li>
+        <li><strong><a href="/for-players/faqs">Troubleshooting & FAQs</a></strong></li>
+    </ul>
+</div>
 
-### How do I use mods? What is SMAPI?
-See _[using mods](/guides/using-mods)_ for an introduction.
+## Intro
 
-### How do I create a mod?
-See _[creating a SMAPI mod](/guides/creating-a-smapi-mod)_, which walks you through creating a mod
-and documents the available events and APIs.
+### Use or create mods
+See the _[intro pages](/for-players/intro)_ for using mods, or
+_[creating a SMAPI mod](/for-devs/creating-a-smapi-mod)_ for creating mods.
 
-## Getting help
-
-### Where can I ask for help?
+### Find help
 For help with a mod, the mod author is the best person to ask. These are the best ways to contact them:
 
 1. the discussion thread linked to on the mod page (if any);
@@ -27,11 +36,9 @@ For help with a mod, the mod author is the best person to ask. These are the bes
 For help with SMAPI, or if you can't ask the mod author, [post in this thread](http://community.playstarbound.com/threads/dos-and-donts-of-reporting-issues-with-smapi-mods.125211/)
 or [ask in Discord](https://discord.gg/kH55QXP).
 
-See also _[what information should I include in a bug report?](#bug-report)_
+### What to include in a bug report
+<section id="bug-report"></section>
 
-<section class="anchor" id="bug-report"></section>
-
-### What should I mention in a bug report?
 Figuring out why something went wrong for someone else can be tough, so it helps if you include
 as much information as possible. Here's the most useful information you can give.
 
@@ -50,28 +57,31 @@ as much information as possible. Here's the most useful information you can give
    file.  
    (See _[Where is my error log and how can I share it?](#error-log)_)
 
-<section class="anchor" id="error-log"></section>
+## Files
+### SMAPI log
+The SMAPI log provides useful information for troubleshooting problems. It includes your game and
+SMAPI version, which mods you have, where the game is installed, any errors that occurred, and
+what happened.
 
-### Where is my error log?
-SMAPI's error log provides information useful for troubleshooting problems, including any errors
-that occurred.
+Here's how to share it:
 
-You can find your error log here:
+1. Find the log file here:
 
-Platform | Path
-:------- |:-----
- Windows | `%appdata%\StardewValley\ErrorLogs\MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
- Linux   | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
- Mac     | `~/.config/StardewValley/ErrorLogs/MODDED_ProgramLog.Log_LATEST.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
+   Platform | Path
+   :------- |:-----
+   Windows | `%appdata%\StardewValley\ErrorLogs\SMAPI-latest.txt`<br /><small>(Paste "`%appdata%`" into the address bar, Windows knows where it is.)</small>
+   Linux   | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Files, click _Go » Enter Location_ and enter "~/.config".)</small>
+   Mac     | `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`<br /><small>(The folder is hidden by default. From Finder, click _Go » Go to Folder_ and enter "~/.config".)</small>
 
-Don't paste the whole log into your message! Instead attach it as a file, or send a [pastebin](http://pastebin.com/)
-link.
+   <small>(If you see a `MODDED_ProgramLog.Log_LATEST.txt` file instead, you have an older version of
+   SMAPI. Try [updating to the latest version](https://github.com/Pathoschild/SMAPI/releases).)</small>
 
-## Other
+2. If you're sharing it...
+   * In the [`#modding` Discord channel](https://discord.gg/kH55QXP): just drag the file onto the
+     channel to attach it.
+   * Somewhere else: attach the file, or send a [pastebin](http://pastebin.com/) link.
 
-<section class="anchor" id="save-folder"></section>
-
-### Where are my save files?
+### Save files
 The game puts save files here:
 
 Platform | Path
@@ -85,9 +95,7 @@ Each save has a folder like `JonSnow_123456789`, with two main files inside it:
 
 To share your save, zip the entire `JonSnow_123456789` folder and send that.
 
-<section class="anchor" id="game-folder"></section>
-
-### Where is my game folder?
+### Game folder
 The "game folder" is the folder that contains the `Stardew Valley.exe` or `StardewValley.exe`
 file. The default locations are:
 
@@ -119,7 +127,7 @@ Let's run through a quick checklist:
 1. Are you running the latest versions? The versions are listed in the first line of the console
    window:
 
-   > ![](images/smapi-faq/smapi-versions.png)
+   > ![](images/faqs/smapi-versions.png)
    
    Make sure you have [Stardew Valley 1.11](http://stardewvalleywiki.com/Version_History) and the
    [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
@@ -129,11 +137,11 @@ Let's run through a quick checklist:
 
 3. See the sections below for solutions to specific errors.
 
-### FileNotFoundException: Could not load file or assembly 'Stardew Valley'
+### Could not load file or assembly 'Stardew Valley'
 That error means SMAPI couldn't find your `Stardew Valley.exe` (Windows) or `StardewValley.exe`
 (Linux/Mac) file, probably because SMAPI isn't in the right folder. Make sure you're running
 `StardewModdingAPI.exe` in your [game folder](#game-folder), _not_ the one in the downloaded
-installer folder. See the [official install instructions](/guides/using-mods#installing-smapi) for
+installer folder. See the [official install instructions](/for-players/install-smapi) for
 detailed steps.
 
 ### Ignored folder "..." which doesn't have a manifest.json
@@ -165,6 +173,8 @@ SMAPI couldn't find the `manifest.json` file for the mod in that folder. Common 
    ```
 
 ### SEHException: External component has thrown an exception
+<section id="sehexception"></section>
+
 An error like this with "Microsoft.Xna.Framework.Audio" in the text:
 
 ```
@@ -188,9 +198,8 @@ Common solutions:
 * Close your browsers and any other open application before playing.
 * Remove any mods intended to change the game's audio (e.g. more music).
 
-<section class="anchor" id="trojan"></section>
-
 ### SMAPI contains a trojan?
+<section id="trojan"></section>
 
 * **Why does this happen?**  
   Some antivirus programs may warn you that SMAPI contains a trojan with scary names like
@@ -210,5 +219,3 @@ Common solutions:
   You just need to tell your antivirus that SMAPI is okay. How you do that depends on which program
   you use. Try searching online for your antivirus name with the words "add exception" to find
   answers.
-
-<section class="anchor" id="sehexception"></section>

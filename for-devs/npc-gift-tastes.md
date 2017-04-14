@@ -1,15 +1,20 @@
 ---
 layout: default
 title: NPC gift tastes
-intro: This page explains how the game calculates NPC gift tastes. This is an advanced guide for mod developers.
+intro: >
+    This page explains how the game calculates NPC gift tastes. This is an advanced guide for mod
+    developers.
+permalink: /for-devs/npc-gift-tastes
+redirect_from:
+    - /guides/npc-gift-tastes
 ---
 
 ## Reading the raw data
 
 ### Source
-NPC gift tastes are stored in `Content\Data\NPCGiftTastes.xnb`, which can be unpacked using
-[XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/).
-Here's the raw data (as of 1.1.1) for reference:
+NPC gift tastes are stored in `Content\Data\NPCGiftTastes.xnb`, which can be
+[unpacked using XNB Extract](creating-an-xnb-mod#unpacking). Here's the raw data (as of 1.1.1) for
+reference:
 
 ```yaml
 content:  #!Dictionary<String,String>

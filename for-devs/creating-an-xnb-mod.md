@@ -4,11 +4,9 @@ title: Creating an XNB mod
 intro: >
     This page explains how to create a mod which replaces game files in order to change game data,
     images, and maps.
-    <p class="warning">
-    This guide is still very new and may have inaccuracies. Use at your discretion, and
-    <a href="https://github.com/Pathoschild/canimod.github.io#ways-to-contribute">feel free to contribute</a>
-    any corrections and improvements.
-    </p>
+permalink: /for-devs/creating-an-xnb-mod
+redirect_from:
+    - /guides/creating-an-xnb-mod
 ---
 
 ## Intro
@@ -53,10 +51,10 @@ or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 
 ## Getting started
 
-### First time-setup
+### First-time setup
 1. Before you start, you should install these:
-   * **[XNB Extract by Drogean](http://community.playstarbound.com/threads/modding-guides-and-general-modding-discussion-redux.109131/)**
-     is a toolkit for unpacking and packing the game's XNB files.
+   * **[XNB Extract 0.2.2](https://www.mediafire.com/?b86xecd27yti6f6)**
+     is a toolkit for unpacking and packing the game's XNB files. <small>(See [forum post](http://community.playstarbound.com/threads/beginners-guide-to-xnb-node-and-graphics-editing.110976/).)</small>
    * To edit images:
      * **[Paint.NET](http://www.getpaint.net/download.html)** lets you edit image files. (If you
        already have a favourite image editor, feel free to use that instead.)
@@ -71,21 +69,22 @@ or [post in the forums](http://community.playstarbound.com/forums/mods.215/).
 2. You should back up your game's `Content` folder now, so you can recover the original files if
    you make a mistake.
 
-<span id="packing"></span>
-
 ### Unpack & pack game files
+<section id="unpacking"></section>
+
 You can't edit an `.xnb` file itself, you need to edit the file that's inside it. Pulling out that
 inner file is called _unpacking_, and putting it back is called _packing_. Here's how to do it:
 
+1. Download XNB Extract (see [first-time setup](#first-time-setup)).
 1. Unpack the file for editing:
    1. Find the file you want to edit in the `Contents` folder.
    2. Copy it into XNB Extract's `Packed` folder.
-   3. On Windows, double-click `UNPACK FILES.bat`.  
+   3. On Windows, double-click `UnpackFiles.bat`.  
       On Linux/Mac, run the command inside `UNPACK FILES.bat`.
 2. Edit the unpacked file (see below).
 3. Repack the file for the game:
-   1. On Windows, double-click `PACK FILES.bat`.  
-      On Linux/Mac, run the command inside `PACK FILES.bat`.
+   1. On Windows, double-click `PackFiles.bat`.  
+      On Linux/Mac, run the command inside `PackFiles.bat`.
    2. Move the repacked `.xnb` file back to the original location.
 
 ## Editing a spritesheet
@@ -107,10 +106,10 @@ Note that sprites might be drawn next to each other to create the illusion of a 
 ### Making changes
 Spritesheets are easy to edit:
 
-1. [Unpack the file](#packing) you want to change.
+1. [Unpack the file](#unpacking) you want to change.
 2. Open the unpacked `.png` file in Paint.NET (or your preferred image editor).
 3. Make changes directly to the image.
-4. [Repack the file](#packing) and copy it back to the original location.
+4. [Repack the file](#unpacking) and copy it back to the original location.
 
 That's it! You can launch the game to see your changes.
 
@@ -156,7 +155,7 @@ _Highlight Current Layer_ | ✓ enabled | This makes it more clear which tile yo
 Here's how to edit a Stardew Valley map:
 
 1. **Get the file for editing:**
-   1. [Unpack the file](#packing) you want to change.
+   1. [Unpack the file](#unpacking) you want to change.
    3. Open the unpacked `.tbin` file in tIDE.
    4. Resave the file as "Tiled XML Map Files (*.tmx)".
    5. When asked how to store the layer data, choose "CSV".
@@ -167,7 +166,7 @@ Here's how to edit a Stardew Valley map:
 3. **Repack the file for the game:**
    1. Open the `.tmx` file in tIDE.
    2. Resave the file as "tIDE Binary Map Files (*.tbin)".
-   3. [Repack the file](#packing) and copy it back to the original location.
+   3. [Repack the file](#unpacking) and copy it back to the original location.
 
 The [Tiled documentation](http://doc.mapeditor.org/) might help with questions about using it.
 
@@ -301,7 +300,7 @@ layer | property | explanation
 `Back` | `TouchAction PoolEntrance` | Switches the player between swimming and walking mode.
 `Back` | `TouchAction Sleep` | Ends the day if the player confirms.
 
-The `TouchAction` property makes something happen when the player interacts (e.g. clicks) with the tile:
+The `Action` property makes something happen when the player interacts (e.g. clicks) with the tile:
 
 layer | property | explanation
 ----- | -------- | -----------
@@ -317,11 +316,13 @@ layer | property | explanation
 `Buildings` | `Action Jukebox` | Shows the jukebox menu to choose the ambient music.
 `Buildings` | `Action kitchen` | Shows the cooking menu.
 `Buildings` | `Action Letter {str text}` | Shows the letter menu on-screen with the given text, with the syntax used by `Data\mail.xnb`.<br />_Example: `Action Letter Hey there!^I had some extra wood lying around... I thought maybe you could use it. Take care!  ^   -Robin %item object 388 50 %%`_.
+`Buildings` | `Action LockedDoorWarp [{int toX} {int toY} {string toArea} {int openTime} {int closeTime}]` | Creates an activation warp normally used on doors with a time window for when it can be used. Note that you must use 24-hour times, i.e. 2000 for 8pm. <br />_Example: 6 29 SeedShop 900 2100._ 
 `Buildings` | `Action Mailbox` | Shows the next letter from the player's mailbox (if any).
 `Buildings` | `Action Material` | Shows a summary of the player's stockpiled wood and stone.
 `Buildings` | `Action MinecartTransport` | Shows the minecart destination menu (or a message if not unlocked).
 `Buildings` | `Action Notes {int noteID}` | If the player has found the specified lost book, displays its museum note text and marks it read.<br />_Example: Action Notes 17_.
 `Buildings` | `Action Warp {int x} {int y} {str area}` | Warps the player to the `x y` tile coordinate in the `area` game location.<br />_Example: Action Warp Mountain 76 9_.
+`Buildings` | `Action WarpCommunityCenter` | Warps the player to the inside of the Community Center if they have access (else show an "it's locked" message).
 `Buildings` | `Action WizardShrine` | Shows the character customisation menu normally available from the Wizard's tower.
 
 <small><sup>1</sup> Tile properties are handled throughout the codebase using `GameLocation::doesTileHaveProperty`. Actions and touch actions are handled by `GameLocation::performAction` and `GameLocation::performTouchAction` respectively. Emote IDs are listed as `Character` constants.</small>  
@@ -349,7 +350,7 @@ Here's how to do it in Tiled:
 
 ### Editing maps from a SMAPI mod
 The previous sections describe how to edit a map by editing its file, but you can also edit it
-programmatically at runtime in a [SMAPI mod](/guides/creating-a-smapi-mod):
+programmatically at runtime in a [SMAPI mod](/for-devs/creating-a-smapi-mod):
 
 ```c#
 GameLocation location = Game1.currentLocation;
