@@ -79,30 +79,18 @@ Fri Sat Sun`, which means _event #97, requires 3 hearts with Clint, between 7pm 
 
 ### Script format
 Each event has a value which is the event script. This specifies what happens in the event —
-everything from lighting and music to NPC movement and dialogue.
+everything from lighting and music to NPC movement and dialogue. The script consists of multiple
+commands separated by `/` characters.
 
-<<<<<<< HEAD
-As an example we'll use one of the above mentioned events from the saloon.
-```yaml
-96/f Gus 1000/f Pam 500/p Gus: "jaunty/10 21/farmer -100 -100 0 Gus 10 21 2 Pam -101 -101 0/skippable/pause 200/emote Gus 28/pause 500/playSound doorClose/warp farmer 14 24/pause 500/faceDirection Gus 1 true/move farmer 0 -3 3/speak Gus \"Oh, Hello there, buddy.^Hi, @.\"/pause 500/faceDirection Gus 2/move farmer -3 0 2/pause 800/faceDirection farmer 3/pause 400/emote farmer 8/pause 700/speak Gus \"*sigh*...I'm just looking over last month's earnings... and It's not looking very good, @.$s#$b#The worst thing... and I hate to say this because she's my friend... is Pam! She hasn't paid off her tab in weeks!$s#$b#...But I can't ask her to do it. I know she'll get defensive, and I don't want to hurt her feelings.$s\"/pause 600/faceDirection Gus 1/speak Gus \"@, you gotta help me!$s\"/stopMusic/pause 500/playSound doorClose/warp Pam 14 24/move Pam 0 -3 3/faceDirection Gus 1 true/faceDirection farmer 1/emote Gus 16/speak Pam \"Hiya!$h#$b#Gus... I'm awful thirsty, if you catch my drift.\"/emote Gus 28/speak Gus \"Er... Well, okay Pam.$s\"/emote Gus 28/pause 700/emote Pam 8/pause 400/speak Pam \"$q 207 null#@, what's going on here?#$r 207 -50 event_credit1#You need to pay your tab right now!#$r 208 15 event_credit2#The saloon isn't doing well, financially\"/pause 400/faceDirection Pam 1/emote Pam 12/speak Pam \"....$u#$b#*sigh* ...Well, I guess I'd better pay off that tab, then.$s\"/move Pam -2 0 0/move Pam 0 -1 3/move Pam -2 0 2/faceDirection Gus 0/faceDirection farmer 3/playSound money/pause 500/speak Gus \"Thanks, Pam!$h\"/pause 500/faceDirection Gus 1/speak Gus \"And thank you, @.$u\"/pause 500/faceDirection Gus 0/speak Gus \"Now, let's get you that drink, Pam.$h\"/friendship Gus 50/end dialogue Gus \"Thanks for your help, @. This cash is going to be a big help to the saloon.\"" #!String
-```
-Our information starts after the ":" and be contained with in two " symbols.
-Every Event in the .xnb file ends with #!String, make sure to never forget adding it or your event will not work!
+Every script must start with three commands in this exact order:
 
-Every command is contained between two / (forward slash symbols) except for the very first one. The first four commands must be in the specific order that they are listed.
+index | syntax         | description
+----- | -------------- | -----------
+0     | `<music ID>` | The background music to play. Some example values are `jaunty`, `ocean`, and `rain`.
+1     | `<x> <y>`     | The tile coordinates the camera should center on at the start of the event.
+2     | `<npc ID> <x> <y> <direction>` | Initialises an NPC's starting tile position and [direction](#directions). The NPC ID can be `farmer` or an NPC name like `Abigail`.
 
-command | what it's used for
----------- | ----------------
-jaunty | defines the music that will play during the event. This can be changed during the event with "playMusic (songname)" or "stopMusic". jaunty is an example of a song, this can be any of the songs in the name that you know the title of. A list of names can be found further down the page.
-10 21 | these are the coordinates of the tile that the camera(viewport) centers on at the start of the event.
-farmer -100 -100 0 Gus 10 21 2 Pam -101 -101 0 | character initialization. syntax is "Character Name" "X" "Y" "Direction²".
-skippable | wether or not the event is skippable. If you include this command the event will be skippable, if you don't the event will not be skippable.
-
-<small>² Direction works as follows: 0 is looking up, 1 is looking right, 2 is looking down and 3 is looking left.</small>
-
-After this, the order of the commands no longer matters, because from now on its all about the sequence of things happening during the event.
-=======
->>>>>>> master
+Those three commands may be followed by any sequence of the following commands:
 
 command | syntax | description
 ------- | ------ | -----------
@@ -114,76 +102,40 @@ addLantern | `addLantern <row in tex.> <x> <y> <light radius>` | Adds a glowing 
 addMailReceived | `addMailReceived <letter ID>` | Set a letter as received.
 addObject | `addObject <row in tex.> <x> <y>` | Adds a temporary sprite at the specified tile.
 addProp | `addProp <prop index> <x> <y> [solid width] [solid height] [display height]` | Add a solid prop from the current festival texture. Default solid width/height is 1. Default display height is solid height.
-<<<<<<< HEAD
-addQuest x | adds the quest with the given quest ID.
-=======
 addQuest | `addQuest <quest ID>` | Add the specified quest to the quest log.
->>>>>>> master
 addTemporaryActor | `addTemporaryActor <character> <sprite width> <sprite height> <tile x> <tile y> <facing> [breather] [Character|Animal|Monster] [animal name]` | Add a temporary actor. 'breather' is boolean. The category determines where the texture will be loaded from, default is Character. Animal name only applies to animal.
 addToTable | `addToTable <x> <y> <object ID>` | Places on object on the furniture at a position. If the location is FarmHouse, then it will always be placed on the initial table.
 addTool | `addTool <Sword|Wand>` | Adds either a Battered Sword or Return Scepter (teleports you to your farm, unobtainable in vanilla) to the player's inventory.
 advancedMove | `advancedMove <npc> <loop> <x y>...` | TODO: Explain
-<<<<<<< HEAD
-ambientLight x x x | creates ambient lighting effects. Currently undocumented as to what the three different numbers do.
-=======
 ambientLight | `ambientLight <r> <g> <b>` | Set the ambient light level.
->>>>>>> master
 animalNaming | `animalNaming` | Show the animal naming menu if no other menu is open. Uses the current location as Coop. Appears to only work for 'hatched' animals.
-<<<<<<< HEAD
-animate (name) (true/false) (true/false) x (frames) | animates the named character using the given frames from their spritesheet for x milliseconds per frame. the true/false are slightly unclear, however if both are true it makes the animation loop, both false will make it not loop.
-=======
-animate | `animate <actor> <frame duration> <flip> <loop> <frames...>` | Animate an actor. 'flip' and 'loop' are boolean.
->>>>>>> master
+animate | `animate <actor> <frame duration> <flip> <loop> <frames...>` | Animate a named actor, using the one or more `<frames>` from their spritesheet, for `<frame duration>` milliseconds per frame. `<flip>` indicates whether to flip the sprites along the Y axis; `<loop>` indicates whether to repeat the animation.
 attachCharacterToTempSprite | `attachCharacterToTempSprite <actor>` | Attach an actor to the most recent temporary sprite.
 awardFestivalPrize | `awardFestivalPrize [pan|sculpture|rod|sword|hero|joja|slimeegg]` | Awards the festival prize to the winner for the easter egg hunt and ice fishing contest. Otherwise, awards the specified item.
 bloom | `bloom <threshold> <blur> <bloom intensity> <base intensity> <bloom saturation> <base saturation> [whiteOnly]` | Sets the current bloom settings. If 'whiteOnly' is not empty, then BloomSettings.brightWhiteOnly is true.
 catQuestion | `catQuestion` | Trigger question about adopting your pet.
 cave | `cave` | Trigger the question for the farm cave type. This will work again later, however changing from bats to mushrooms will not remove the mushroom spawning objects.
-<<<<<<< HEAD
-changeLocations (mapname) | changes the locations where the event is taking place to the specified map mid-event.
-=======
-changeLocation | `changeLocation <location>` | Move the event to another location.
->>>>>>> master
+changeLocation | `changeLocation <location>` | Change to another location and run the remaining event script there.
 changeMapTile | `changeMapTile <layer> <x> <y> <tile index>` | Change the specified tile to a particular value.
 changePortrait | `changePortrait <npc> <portrait>` | Change the NPC's portrait to be from "Portraits/`<actor>`_<sprite&gt".
 changeSprite | `changeSprite <actor> <sprite>` | Change the actor's sprite to be from "Characters/`<actor>`_`<sprite>`".
-<<<<<<< HEAD
-changeToTemporaryMap (temporarymapname) | changes the locations where the event is taking place to the specified temporary map mid-event.
-=======
-changeToTemporaryMap | `changeToTemporaryMap <map> [pan]` | Change the location to a temporary one, loaded from a map file. If 'pan' is not specified, the screen will pan to (0, 0).
->>>>>>> master
+changeToTemporaryMap | `changeToTemporaryMap <map> [pan]` | Change the location to a temporary one loaded from the map file specified by `<map>`. The `pan` argument indicates the tile coordinates to pan to (defaults to `0, 0`).
 changeYSourceRectOffset | `changeYSourceRectOffset <npc> <offset>` | Change the NPC's vertical texture offset (?).
 characterSelect | `characterSelect` | Seemingly unused. Sets Game1.gameMode to 5 and Game1.menuChoice = 0.
 cutscene | `cutscene <cutscene>` | Activate a cutscene. See cutscene list. (TODO: Pull list from my event editor)
 doAction | `doAction <x> <y>` | TODO: Explain GameLocation.checkAction(new Location(x,y), viewport, player)
 ellioitbooktalk | `elliotbooktalk` | Elliot book talk.
-<<<<<<< HEAD
-emote (Name) x | emotes work simply by writing the name of the character who you want to show the emote and then the number of a frame of the emote you want to show. Ex: 8 is the "?" emote while 16 is the "!" emote. Check Content\TileSheets\emotes.xnb for all the emotes.
-=======
-emote | `emote <actor> <emote ID>` | Make an actor do an emote. TODO: Investigate Character.doEmote
->>>>>>> master
+emote | `emote <actor> <emote ID>` | Make the given NPC name perform an emote, which is a little icon shown above the NPC's head. Emotes are stored in `Content\TileSheets\emotes.xnb` (see [list of emotes](https://www.reddit.com/r/StardewValley/comments/5s5m9g/help_annoyed_squiggle/ddd33qg/)).
 end | `end ?` | TODO: Investigate Event.endBehaviors
 extendSourceRect | `extendSourceRect <actor> (reset | <horizontal> <vertical> [ignoreUpdates])` | For the reset version, resets the actors sprite. TODO: Explain Character.extendSourceRect
 eyes | `eyes <eyes> <blink>` | Change the player's eyes.
-<<<<<<< HEAD
-faceDirection (name) D | named character will look in the given direction².
-=======
-faceDirection | `faceDirection <actor> <direction> [continue]` | Make an actor face a direction. If no parameter supplied for [continue], the game will pause.
->>>>>>> master
+faceDirection | `faceDirection <actor> <direction> [continue]` | Make a named NPC face a [direction](#directions). If no parameter is supplied for [continue], the game will pause.
 fade | `fade [fadeOut]` | If 'fadeOut' is not specified, it will fade in. (?)
 farmerAnimation | `farmerAnimation <anim>` | Sets the farmer's current animation.
 farmerEat | `farmerEat <object ID>` | Make the player eat an object
-fork | `fork <name>` or `fork <name> <req>` | Fork to another event. 'req' can be a mail ID or dialogue answer ID. If no 'req' is specified, then it will check `specialEventVariable1` (set by things such as `question`).
-<<<<<<< HEAD
-friendship (name) x | adds x amount of friendship points to the named character. (250 points is one heart.)
-=======
-friendship | `friendship <npc> <amount>` | Add the given number of friendship points with a given NPC name.
->>>>>>> master
-<<<<<<< HEAD
-globalFade | makes the map fade to black. However this is only temporary for some reason, if you want a more permanent fade to black use "globalFade/viewport -1000 -1000" to move the camera offscreen after the fade. (Doesn't have to be -1000 -1000!)
-=======
-globalFade | `globalFade [speed]` | Fade to black at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished.
->>>>>>> master
+fork | `fork <event ID> [<req>]` | End the current command script and starts a different script with the given ID, but only if the `<req>` condition is met. The `<req>` condition can be a mail ID or dialogue answer ID; if not specified, it checks if the `specialEventVariable1` variable was set (e.g. by a `question` command). The new script should have the same format as a normal event script, but without the mandatory three start fields.
+friendship | `friendship <npc> <amount>` | Add the given number of friendship points with the named NPC. (There are 250 points per heart.)
+globalFade | `globalFade [speed]` | Fade to black at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished. The fade effect disappears when this command is done; to avoid that, use the `viewport` command to move the camera off-screen.
 globalFadeToClear | `globalFadeToClear [speed]` | Fade to clear (unfade?) at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished.
 glow | `glow <r> <g> <b> <hold>` | Make the screen glow once. TODO: Explain hold (true/false).
 grabObject | `grabObject <object ID>` | Causes the player to hold an object.
@@ -193,52 +145,21 @@ grandpaEvaluation2 | `grandpaEvaluation2` | Do grandpa evaluation (manually resu
 halt | `halt` | Make everyone stop.
 hospitaldeath | `hospitaldeath` |
 itemAboveHead | `itemAboveHead [pan|hero|sculpture|joja|slimeEgg|rod|sword|ore]` | Show an item above the player's head. If no item is specified, then they will 'hold' nothing?
-<<<<<<< HEAD
-jump (name) | makes the named character jump. What did you expect?
-=======
-jump | `jump <actor> [intensity]` | Make an actor jump. Default intensity of 8.
->>>>>>> master
+jump | `jump <actor> [intensity]` | Make a the named NPC jump. The default `intensity` is 8.
 loadActors | `loadActors <layer>` | Load the actors from a layer in the map file.
-<<<<<<< HEAD
-mail (mailname) | you'll recieve the specified mail the following morning. Check Content\Data\mail.xnb for mail events.
-=======
-mail | `mail <letter ID>` | Queue a letter for tomorrow.
->>>>>>> master
-<<<<<<< HEAD
-message \" text \" | shows a message, written in the same text formatting as speak.
-=======
-message | `message "<text>"` | Show a dialogue box (no speaker).
->>>>>>> master
+mail | `mail <letter ID>` | Queue a letter to be received tomorrow (see `Content\Data\mail.xnb` for available mail).
+message | `message "<text>"` | Show a dialogue box (no speaker). See [dialogue format](#dialogue-format) for `text` format.
 minedeath | `minedeath` |
-<<<<<<< HEAD
-move (name) X Y D | again, you write the name of the character you want to move. Then X amount of tiles to the left(-) or right(+) and Y  amount of tiles up(-) or down(+). D is for the direction the character will be facing AFTER the movement. You can ONLY move on the X or Y axis, not both in the same command, you'll have to have multiple move commands following each other.
-=======
-move | `move <actor> <x> <y> <facing> <continue>` | Tell an actor to move to a position and face in a direction. TODO: explain `<continue>`
->>>>>>> master
-<<<<<<< HEAD
-pause x | x is number in milliseconds.
-=======
-pause | `pause <duration>` | Pause the game.
->>>>>>> master
+move | `move <actor> <x> <y> <facing> <continue>` | Make a named NPC move by the given tile offset from their current position (along one axis _only_), and face the given [direction](#directions) when they're done. To move along multiple axes, you must specify multiple `move` commands. TODO: explain `<continue>`
+pause | `pause <duration>` | Pause the game for the given number of milliseconds.
 pixelZoom | `pixelZoom <zoom>` | Sets the current pixel zoom.
-<<<<<<< HEAD
-playMusic (songname) | starts playing the named song. Song name list further down the page.
-=======
-playMusic | `playMusic <track>` | Play the specified music track. If the track is 'samBand', the track played will change depend on certain dialogue answers (76-79).
->>>>>>> master
-<<<<<<< HEAD
-playSound (soundname) | plays the specified sound. List of known sounds further down the page.
-=======
-playSound | `playSound <sound>` | Play a sound from the game sound bank.
->>>>>>> master
+playMusic | `playMusic <track>` | Play the specified music track ID. If the track is 'samBand', the track played will change depend on certain dialogue answers (76-79).
+playSound | `playSound <sound>` | Play a given sound ID from the game's sound bank.
 playerControl | `playerControl` | Give the player control back.
-<<<<<<< HEAD
-positionOffset (name) X Y | offsets named character X (right + or left -) and/or Y (down + or up -) amount of pixels.
-=======
-positionOffset | `positionOffset <actor> <x> <y>` | Offset the position of an actor. Instantaneous, no walking animation.
->>>>>>> master
+positionOffset | `positionOffset <actor> <x> <y>` | Offset the position of the named NPC by the given number of pixels. This happens instantly, with no walking animation.
 proceedPosition | `proceedPosition <actor>` | TODO: Explain
-question | `question (null|fork<0,1,2...>) "text"` | Give the player a question. The number for fork determines which is the 'correct' answer (ie. which will allow the next `fork` command to trigger.). TODO: Describe format for choices
+question <small>(variant 1)</small> | `question null "<question>#<answer1>#<answer2>"` | Show a dialogue box with some answers and an optional question. When the player chooses an answer, the event script continues with no other effect.
+question <small>(variant 2)</small> | `question fork<answer index> "<question>#<answer 0>#<answer 1>#..."` | Show a dialogue with some answers and an optional question. When the player chooses the answer matching the `fork<answer index>` (like `fork0` for the first answer), the `specialEventVariable1` variable is set. Usually followed by a `fork` command.
 removeItem | `removeItem <object ID>` | Remove the first of an object from a player's inventory.
 removeObject | `removeObject <x> <y>` | Remove the prop at a position.
 removeQuest | `removeQuest <quest ID>` | Remove the specified quest from the quest log.
@@ -249,136 +170,100 @@ resetVariable | `resetVariable` | Set the first event variable to false.
 rustyKey | `rustyKey` | Gives the player the rusty key. (Sewer key)
 screenFlash | `screenFlash <alpha>` | Game1.flashAlpha = alpha;
 setRunning | `setRunning` | Set the player as running.
-<<<<<<< HEAD
-shake (name) x | shakes the named character for the specified amount of milliseconds.
-=======
-shake | `shake <actor> <duration>` | Shake an actor for a duration.
->>>>>>> master
-<<<<<<< HEAD
-showFrame (name) x | show the specified frame on named characters spritesheet. Check Content\Characters\(name).xnb for spritesheet.
-=======
-showFrame | `showFrame <actor> <flip|frame number>` | Set an actor's current frame. 'flip' is only valid for farmers. TODO: Behavior with farmer looks strange?
->>>>>>> master
+shake | `shake <actor> <duration>` | Shake the named NPC for the given number of milliseconds.
+showFrame <small>(variant 1)</small> | `showFrame farmer flip` | Flip the farmer's current sprite along the Y axis. TODO: Behavior with farmer looks strange?
+showFrame <small>(variant 2)</small> | `showFrame <actor> <frame ID>` | Set the named NPC's current frame in their `Content\Characters\*.xnb` spritesheet. TODO: Behavior with farmer looks strange?
 showRivalFrame | `showRivalFrame <frame>` | Set the 'rival' actor's sprite to a specific frame.
 skippable | `skippable` | Allow skipping this event.
-<<<<<<< HEAD
-speak (name) \" text \" | defines who is speaking and what they are saying. Text formatting will be handeled further down the page, there is a LOT of documentation needed for it.
-=======
-speak | `speak <character> "<text>"` | Show dialogue text from a given character name.
->>>>>>> master
-<<<<<<< HEAD
-specificTemporarySprite (spritename) | shows the specified sprite in your event. Currently unclear where these sprites are defined or how the game knows where to place them.
-=======
-specificTemporarySprite | `specificTemporarySprite <sprite> [other params]` | See specific temporary sprite list. Parameters change depending on the sprite.
->>>>>>> master
-<<<<<<< HEAD
-speed (name) x | the next action taken by the named character will happen with the specified speed. 3 is default speed.
-=======
-speed | `speed <actor> <speed>` | Sets an actor's speed. (In the case of the farmer, it is a speed modifier.)
->>>>>>> master
+speak | `speak <character> "<text>"` | Show dialogue text from a named NPC; see [dialogue format](#dialogue-format).
+specificTemporarySprite | `specificTemporarySprite <sprite> [other params]` | Shows the given temporary sprite. Parameters change depending on the sprite.
+speed | `speed farmer <modifier>` | Add a speed modifier to the farmer. TODO: for the next action only?
+speed | `speed <actor> <speed>` | Sets the named NPC's speed (default speed is 3). Not applicable to the farmer. TODO: for the next action only?
 splitSpeak | `splitSpeak <actor> "<text>"` | Dialogue, but chosen based on previous answer. ('~' is the separator used.)
 startJittering | `startJittering` | Make the player start jittering.
 stopAdvancedMoves | `stopAdvancedMoves` | Stop movement from advancedMove.
-<<<<<<< HEAD
-stopAnimation (name) | stops the named characters animation given with the animate command.
-=======
-stopAnimation | `stopAnimation <actor> <end frame>` | Stop the animation of an actor. Note that 'end frame' is only valid for NPCs. It is unused for farmers.
->>>>>>> master
+stopAnimation | `stopAnimation farmer` | Stop the farmer's current animation.
+stopAnimation | `stopAnimation <actor> <end frame>` | Stop the named NPC's current animation. Not applicable to the farmer.
 stopGlowing | `stopGlowing` | Make the screen stop glowing.
 stopJittering | `stopJittering` | Make the player stop jittering.
-<<<<<<< HEAD
-stopMusic | stops music currently playing.
-=======
 stopMusic | `stopMusic` | Stop any currently playing music.
->>>>>>> master
-stopRunning | `stopRunning` | Set the player to not running.
+stopRunning | `stopRunning` | Make the farmer stop running.
 stopSwimming | `stopSwimming <actor>` | Make an actor stop swimming.
 swimming | `swimming <actor>` | Make an actor start swimming.
 switchEvent | `switchEvent <event ID>` | Changes the current event (ie. event commands) to another event in the same location.
 taxvote | `taxvote` | Trigger voting for or against a 3% shipping tax. (No effect on game?)
 temporarySprite | `temporarySprite <x> <y> <row in texture> <animation length> <animation interval> <flipped> <loop count>` | Create a temporary sprite with the given parameters.
-<<<<<<< HEAD
-textAboveHead (name) \" text \" | displays a small textbubble above named characters head with the given text. Text formatting same as the speak command.
-=======
-textAboveHead | `textAboveHead <actor> "<text>"` | TODO: Investigate Character.showTextAboveHead
->>>>>>> master
+textAboveHead | `textAboveHead <actor> "<text>"` | Show a small text bubble over the named NPC's head with the given text; see [dialogue format](#dialogue-format).
 tutorialMenu | `tutorialMenu` | Show the tutorial menu if no other menu is open.
 updateMinigame | `updateMinigame <event data>` | Send an event to the current minigame.
-<<<<<<< HEAD
-viewport X Y | this will instantly jump the camera(viewport) to center on the tile at X,Y coordinates. There seems to be the possibility for having "viewport X Y true" however, what the true does is unclear.
-viewport move X Y x | moves the camera(viewport) in the same way that the normal move command works, X and Y can be positive or negative and will move in the given direction for the given amount of x milliseconds.
-=======
-viewport | `viewport move <targetX> <targetY> <targetZ>` or `viewport <x> <y> [true [unfreeze]|clamp [true|unfreeze]]` | TODO: Explain
->>>>>>> master
+viewport <small>(variant 1)</small> | `viewport move <x> <y> <duration>` | Pan the the camera for the given duration in milliseconds until it's centered on the given X, Y tile position.
+viewport <small>(variant 2)</small> | `viewport <x> <y> [true [unfreeze]|clamp [true|unfreeze]]` | Instantly reposition the camera to center on the given X, Y tile position. TODO: explain other parameters.
 waitForKey | `waitForKey <key> <message on finish>` | TODO: Explain
 waitForOtherPlayers | `waitForOtherPlayers` | Wait for other players (vanilla MP).
-<<<<<<< HEAD
-warp (name) X Y | instantly warps the named character to the tile with X,Y coordinates. Just like with the viewport, you can use this to warp characters offscreen.
-=======
-warp | `warp <actor> <x> <y>` | Warp an actor to a position in the current location.
->>>>>>> master
+warp | `warp <actor> <x> <y>` | Warp the named NPC to a position to the given X, Y tile coordinate. This can be used to warp characters off-screen.
 weddingSprite | `weddingSprite <frame>` | Sets the actor known as 'WeddingOutfits' to a particular frame.
 
-<<<<<<< HEAD
-Text formatting for speak, textAboveHead and message:
+### Directions
+When event commands refer to a facing direction, they'll use one of these values:
 
-Using question is like having to make a dicision rather than a question someone asks.
-question (fork0/fork1) \"question#answer1#answer2\"/fork (forkname)
-the way this works is that it forks the current event to a sub event.
-Lets look at an example:
-    question fork1 \"Share food with Linus?#Share it#Keep it\"/fork noFoodforLinus/(continue current event)
-    
-In the same event file you would then have an event with the id noFoodforLinus, but you skip the music, viewport and actor positions because these carry over from the main event. Because I chose fork1 we fork the event if you choose the second answer. While fork0 would fork from the first answer. (Currently unknown if you can have more than 2 options.)
+Value | Meaning
+----- | -------
+0     | looking up
+1     | looking right
+2     | looking down
+3     | looking left
 
-$q however is used inside a speak command. So it is a question being asked by the current speaker.
-Example:
-    speak Lewis \"$q -1 null#What do you think of my role as mayor?#$r -1 0 mayor_role1#You're very important to the town!#$r -1 0 mayor_role2#You're not needed.\"
-Depending on your picked answer it will (in this example case) go to Content\Characters\Dialogue\Lewis.xnb and then read the responses listed as mayor_role1 or mayor_role2 which can be something like this:
-    mayor_role1: "I'm glad you think that! It means I'm doing my job correctly$h" #!String
-    mayor_role2: "Oh... well, if you say so...$s" #!String
+### Dialogue format
+Some event commands (like `speak`, `textAboveHead`, and `message`) take a dialogue message which
+supports special tokens to control the dialogue box.
 
-Command | What it does.
-----------|-----------
-$h | uses the speaking characters happy portrait.³
-$s | uses the speaking characters sad portrait.³
-$u | uses the speaking characters unique portrait.³
-$neutral | uses the speaking characters neutral portrait.³
-$l | uses the speaking characters love portrait.³
-$a | uses the speaking characters angry portrait.³
-$e | stands for "dialogueEnd", everything before $e is talking to a character once. everything after $e is talking to a person again after the first.
-$b | breaks the text from before the command and after it into different text boxes.
-$k | stands for "dialogueKill", currently undocumented what this does.
-$c x | stands for "dialogueChance", given a number between 0 and 1 will be the percentage that the given text will be shown.
-$d (worldstate) | stands for "dialogueDependingOnWorldState". Only three states seem to be used ingame: bus, Joja (also joja) and cc
-$y | stands for "dialogueQuickResponse", it works like $q but within one and the same text line. (Further documentation needed)
-$p | stands for "dialoguePrerequisite", currently undocumented what this does.
-$1 | stands for "dialogueSingle", currently unsure what this means, but it seems to be a check for if the player is dating (the speaking character?).³
-$q | Is used for questions, format is as follows: "$q -1 null#Question#$r -1 0 dialoguename1#Response 1#$r -1 0 dialoguename2#Response 2" the way this works is that it will switch to the given dialoguename inside the speaking characters dialog file. Make sure to add them in Content\Characters\Dialogue\(name).xnb
-$r | stands for "dialogueResponse". check $q for more information.
-{ | stands for "breakSpecialCharacter", currently undocumented what this does. 
-@ | when used in text it is replaced by the players name.
-^ | This is a "Gender switch". Before the switch is for male, after is for female. Ex: "Oh, good morning Mr. @!^Oh, good morning Ms. @!"
-\* | stands for "quickResponseDelineator", currently undocumented what this does. 
-%adj | is replaced by a random adjective.
-%noun | is replaced by a random noun.
-%place | is replaced by a random place. seems to be unused?
-%spouse | if married this (should) return the name of the players spouse. Seems to be unused?
-%name | stands for "randomNameSpecialCharacter". Seems to return a random name? 
-%firstnameletter | stands for "firstNameLettersSpecialCharacter". Unused?
-%time | returns current time.
-%band | unused?
-%book | unused?
-%rival | unused?
-%pet | returns pet name.
-%farm | returns farm name
-%favorite | returns favorite thing? unused?
-%fork | Seems to have to do with questions and forks, however is used sparingly in originals game code. seems to be replaced with the actual question command.
-%kid1 | returns the name of your first child.
-%kid2 | returns the name of your second child.
+Special tokens:
 
-<small>³ while $h, $s, $u, $neutral, $l and $a on the faces, so do $0 and up. However these have to be at the end of a sentence. if $1 is used at the start of a sentence it is instead used as the "dialogueSingle" command.</small>
-=======
->>>>>>> master
+character | description
+--------- |-------------
+`#`       | Separates two commands in a dialogue string.
+`{`       | TODO. Stands for "breakSpecialCharacter".
+`^`       | Gender switch character. The text before it is shown for male farmers, the text after it for female farmers.<br />_Example: `Oh, good morning Mr. @!^Oh, good morning Ms. @!`_
+`*`       | TODO. Stands for "quickResponseDelineator".
+
+Dialogue commands:
+
+group     | command | description
+--------- | ------- |-------------
+portraits | `$h` | Switch the speaking character to their happy portrait.
+portraits | `$s` | Switch the speaking character to their sad portrait.
+portraits | `$u` | Switch the speaking character to their unique portrait.
+portraits | `$neutral` | Switch the speaking character to their neutral portrait.
+portraits | `$l` | Switch the speaking character to their love portrait.
+portraits | `$a` | Switch the speaking character to their angry portrait.
+portraits | `$<id>` | Switch the speaking character to the portrait at the given index in their portraits file. NOTE: `$1` can't be used as the first dialogue command (see `$1` below).
+dialogue  | `$q <?> <?>#<text>` | TODO. Show a dialogue box containing the given question text.
+dialogue  | `$r <?> <?> <response ID>#<answer text>` | TODO. Adds an `<answer text>` option to the question dialogue, which when selected triggers the response indicated by `<response ID>` from the speaker's `Content\Characters\Dialogue\*.xnb` file.
+dialogue  | `$e` | End the current dialogue. Everything before `$e` is shown the first time you talk to an NPC; everything after is shown in subsequent conversations.
+dialogue  | `$b` | End the current textbox, so the next part of the dialogue is shown in a new box.
+dialogue  | `$k` | TODO. Stands for "dialogueKill".
+dialogue  | `$c <probability>` | Choose the given text with a `probability` between 0 and 1.
+dialogue  | `$d {bus|joja|cc}` | TODO. Stands for "dialogueDependingOnWorldState".
+dialogue  | `$y` | TODO. Stands for "dialogueQuickResponse"; works like $q, but within one and the same text line.
+dialogue  | `$p` | TODO. Stands for "dialoguePrerequisite".
+dialogue  | `$1` | TODO. When used as the first dialogue command, stands for "dialogueSingle". Possibly a check for whether the player is dating (the speaking character?).
+dialogue  | `%fork` | TODO. Seems to have to do with questions and forks, however is used sparingly in originals game code. Seems to be replaced with the actual question command.
+content   | `@`  | Replaced with the player's name.<br />_Example: `Hi there @!`_
+content   | `%adj` | Replaced with a random adjective.
+content   | `%noun` | Replaced with a random noun.
+content   | `%place` | Replaced with a random place name.
+content   | `%spouse` | Replaced with the name of the farmer's spouse.
+content   | `%name` | TODO. Stands for "randomNameSpecialCharacter". Seems to return a random name? 
+content   | `%firstnameletter` | TODO. Stands for "firstNameLettersSpecialCharacter".
+content   | `%time` | Replaced with the current time.
+content   | `%band` | TODO.
+content   | `%book` | TODO.
+content   | `%rival` | TODO.
+content   | `%pet` | Replaced with the name of the farmer's pet.
+content   | `%farm` | Replaced with the farm name.
+content   | `%favorite` | TODO. Returns favorite thing? Unused?
+content   | `%kid1` | Replaced with the name of the farmer's first child.
+content   | `%kid2` | Replaced with the name of the farmer's second child.
 
 ## See also
 * [JavaScript to parse an event precondition string](https://gist.github.com/Pathoschild/95efc5ba5a23dc2c4da219ca2ddde679)
