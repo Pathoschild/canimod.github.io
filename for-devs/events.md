@@ -91,116 +91,116 @@ index | syntax         | description
 
 Those three commands may be followed by any sequence of the following commands:
 
-command | syntax | description
-------- | ------ | -----------
-addBigProp | `addBigProp <x> <y> <object ID>` | Adds an object at the specified tile.
-addCookingRecipe | `addCookingRecipe <recipe>` | Adds the specified cooking recipe to the player.
-addCraftingRecipe | `addCraftingRecipe <recipe>` | Adds the specified crafting recipe to the player.
-addFloorPop | `addFloorProp <prop index> <x> <y> [solid width] [solid height] [display height]` | Add a non-solid prop from the current festival texture. Default solid width/height is 1. Default display height is solid height.
-addLantern | `addLantern <row in tex.> <x> <y> <light radius>` | Adds a glowing temporary sprite.
-addMailReceived | `addMailReceived <letter ID>` | Set a letter as received.
-addObject | `addObject <row in tex.> <x> <y>` | Adds a temporary sprite at the specified tile.
-addProp | `addProp <prop index> <x> <y> [solid width] [solid height] [display height]` | Add a solid prop from the current festival texture. Default solid width/height is 1. Default display height is solid height.
-addQuest | `addQuest <quest ID>` | Add the specified quest to the quest log.
-addTemporaryActor | `addTemporaryActor <character> <sprite width> <sprite height> <tile x> <tile y> <facing> [breather] [Character|Animal|Monster] [animal name]` | Add a temporary actor. 'breather' is boolean. The category determines where the texture will be loaded from, default is Character. Animal name only applies to animal.
-addToTable | `addToTable <x> <y> <object ID>` | Places on object on the furniture at a position. If the location is FarmHouse, then it will always be placed on the initial table.
-addTool | `addTool <Sword|Wand>` | Adds either a Battered Sword or Return Scepter (teleports you to your farm, unobtainable in vanilla) to the player's inventory.
-advancedMove | `advancedMove <npc> <loop> <x y>...` | TODO: Explain
-ambientLight | `ambientLight <r> <g> <b>` | Set the ambient light level.
-animalNaming | `animalNaming` | Show the animal naming menu if no other menu is open. Uses the current location as Coop. Appears to only work for 'hatched' animals.
-animate | `animate <actor> <frame duration> <flip> <loop> <frames...>` | Animate a named actor, using the one or more `<frames>` from their spritesheet, for `<frame duration>` milliseconds per frame. `<flip>` indicates whether to flip the sprites along the Y axis; `<loop>` indicates whether to repeat the animation.
-attachCharacterToTempSprite | `attachCharacterToTempSprite <actor>` | Attach an actor to the most recent temporary sprite.
-awardFestivalPrize | `awardFestivalPrize [pan|sculpture|rod|sword|hero|joja|slimeegg]` | Awards the festival prize to the winner for the easter egg hunt and ice fishing contest. Otherwise, awards the specified item.
-bloom | `bloom <threshold> <blur> <bloom intensity> <base intensity> <bloom saturation> <base saturation> [whiteOnly]` | Sets the current bloom settings. If 'whiteOnly' is not empty, then BloomSettings.brightWhiteOnly is true.
-catQuestion | `catQuestion` | Trigger question about adopting your pet.
-cave | `cave` | Trigger the question for the farm cave type. This will work again later, however changing from bats to mushrooms will not remove the mushroom spawning objects.
-changeLocation | `changeLocation <location>` | Change to another location and run the remaining event script there.
-changeMapTile | `changeMapTile <layer> <x> <y> <tile index>` | Change the specified tile to a particular value.
-changePortrait | `changePortrait <npc> <portrait>` | Change the NPC's portrait to be from "Portraits/`<actor>`_<sprite&gt".
-changeSprite | `changeSprite <actor> <sprite>` | Change the actor's sprite to be from "Characters/`<actor>`_`<sprite>`".
-changeToTemporaryMap | `changeToTemporaryMap <map> [pan]` | Change the location to a temporary one loaded from the map file specified by `<map>`. The `pan` argument indicates the tile coordinates to pan to (defaults to `0, 0`).
-changeYSourceRectOffset | `changeYSourceRectOffset <npc> <offset>` | Change the NPC's vertical texture offset (?).
-characterSelect | `characterSelect` | Seemingly unused. Sets Game1.gameMode to 5 and Game1.menuChoice = 0.
-cutscene | `cutscene <cutscene>` | Activate a cutscene. See cutscene list. (TODO: Pull list from my event editor)
-doAction | `doAction <x> <y>` | TODO: Explain GameLocation.checkAction(new Location(x,y), viewport, player)
-ellioitbooktalk | `elliotbooktalk` | Elliot book talk.
-emote | `emote <actor> <emote ID>` | Make the given NPC name perform an emote, which is a little icon shown above the NPC's head. Emotes are stored in `Content\TileSheets\emotes.xnb` (see [list of emotes](https://www.reddit.com/r/StardewValley/comments/5s5m9g/help_annoyed_squiggle/ddd33qg/)).
-end | `end ?` | TODO: Investigate Event.endBehaviors
-extendSourceRect | `extendSourceRect <actor> (reset | <horizontal> <vertical> [ignoreUpdates])` | For the reset version, resets the actors sprite. TODO: Explain Character.extendSourceRect
-eyes | `eyes <eyes> <blink>` | Change the player's eyes.
-faceDirection | `faceDirection <actor> <direction> [continue]` | Make a named NPC face a [direction](#directions). If no parameter is supplied for [continue], the game will pause.
-fade | `fade [fadeOut]` | If 'fadeOut' is not specified, it will fade in. (?)
-farmerAnimation | `farmerAnimation <anim>` | Sets the farmer's current animation.
-farmerEat | `farmerEat <object ID>` | Make the player eat an object
-fork | `fork <event ID> [<req>]` | End the current command script and starts a different script with the given ID, but only if the `<req>` condition is met. The `<req>` condition can be a mail ID or dialogue answer ID; if not specified, it checks if the `specialEventVariable1` variable was set (e.g. by a `question` command). The new script should have the same format as a normal event script, but without the mandatory three start fields.
-friendship | `friendship <npc> <amount>` | Add the given number of friendship points with the named NPC. (There are 250 points per heart.)
-globalFade | `globalFade [speed]` | Fade to black at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished. The fade effect disappears when this command is done; to avoid that, use the `viewport` command to move the camera off-screen.
-globalFadeToClear | `globalFadeToClear [speed]` | Fade to clear (unfade?) at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished.
-glow | `glow <r> <g> <b> <hold>` | Make the screen glow once. TODO: Explain hold (true/false).
-grabObject | `grabObject <object ID>` | Causes the player to hold an object.
-grandpaCandles | `grandpaCandles` | Do grandpa candles
-grandpaEvaluation | `grandpaEvaluation` | Do grandpa evaluation
-grandpaEvaluation2 | `grandpaEvaluation2` | Do grandpa evaluation (manually resummoned)
-halt | `halt` | Make everyone stop.
-hospitaldeath | `hospitaldeath` |
-itemAboveHead | `itemAboveHead [pan|hero|sculpture|joja|slimeEgg|rod|sword|ore]` | Show an item above the player's head. If no item is specified, then they will 'hold' nothing?
-jump | `jump <actor> [intensity]` | Make a the named NPC jump. The default `intensity` is 8.
-loadActors | `loadActors <layer>` | Load the actors from a layer in the map file.
-mail | `mail <letter ID>` | Queue a letter to be received tomorrow (see `Content\Data\mail.xnb` for available mail).
-message | `message "<text>"` | Show a dialogue box (no speaker). See [dialogue format](#dialogue-format) for `text` format.
-minedeath | `minedeath` |
-move | `move <actor> <x> <y> <facing> <continue>` | Make a named NPC move by the given tile offset from their current position (along one axis _only_), and face the given [direction](#directions) when they're done. To move along multiple axes, you must specify multiple `move` commands. TODO: explain `<continue>`
-pause | `pause <duration>` | Pause the game for the given number of milliseconds.
-pixelZoom | `pixelZoom <zoom>` | Sets the current pixel zoom.
-playMusic | `playMusic <track>` | Play the specified music track ID. If the track is 'samBand', the track played will change depend on certain dialogue answers (76-79).
-playSound | `playSound <sound>` | Play a given sound ID from the game's sound bank.
-playerControl | `playerControl` | Give the player control back.
-positionOffset | `positionOffset <actor> <x> <y>` | Offset the position of the named NPC by the given number of pixels. This happens instantly, with no walking animation.
-proceedPosition | `proceedPosition <actor>` | TODO: Explain
-question <small>(variant 1)</small> | `question null "<question>#<answer1>#<answer2>"` | Show a dialogue box with some answers and an optional question. When the player chooses an answer, the event script continues with no other effect.
-question <small>(variant 2)</small> | `question fork<answer index> "<question>#<answer 0>#<answer 1>#..."` | Show a dialogue with some answers and an optional question. When the player chooses the answer matching the `fork<answer index>` (like `fork0` for the first answer), the `specialEventVariable1` variable is set. Usually followed by a `fork` command.
-removeItem | `removeItem <object ID>` | Remove the first of an object from a player's inventory.
-removeObject | `removeObject <x> <y>` | Remove the prop at a position.
-removeQuest | `removeQuest <quest ID>` | Remove the specified quest from the quest log.
-removeSprite | `removeSprite <x> <y>` | Remove the temporary sprite at a position.
-removeTemporarySprites | `removeTemporarySprites` | Remove all temporary sprites.
-removeTile | `removeTile <x> <y> <layer>` | Remove a tile from the specified layer.
-resetVariable | `resetVariable` | Set the first event variable to false.
-rustyKey | `rustyKey` | Gives the player the rusty key. (Sewer key)
-screenFlash | `screenFlash <alpha>` | Game1.flashAlpha = alpha;
-setRunning | `setRunning` | Set the player as running.
-shake | `shake <actor> <duration>` | Shake the named NPC for the given number of milliseconds.
-showFrame <small>(variant 1)</small> | `showFrame farmer flip` | Flip the farmer's current sprite along the Y axis. TODO: Behavior with farmer looks strange?
-showFrame <small>(variant 2)</small> | `showFrame <actor> <frame ID>` | Set the named NPC's current frame in their `Content\Characters\*.xnb` spritesheet. TODO: Behavior with farmer looks strange?
-showRivalFrame | `showRivalFrame <frame>` | Set the 'rival' actor's sprite to a specific frame.
-skippable | `skippable` | Allow skipping this event.
-speak | `speak <character> "<text>"` | Show dialogue text from a named NPC; see [dialogue format](#dialogue-format).
-specificTemporarySprite | `specificTemporarySprite <sprite> [other params]` | Shows the given temporary sprite. Parameters change depending on the sprite.
-speed | `speed farmer <modifier>` | Add a speed modifier to the farmer. TODO: for the next action only?
-speed | `speed <actor> <speed>` | Sets the named NPC's speed (default speed is 3). Not applicable to the farmer. TODO: for the next action only?
-splitSpeak | `splitSpeak <actor> "<text>"` | Dialogue, but chosen based on previous answer. ('~' is the separator used.)
-startJittering | `startJittering` | Make the player start jittering.
-stopAdvancedMoves | `stopAdvancedMoves` | Stop movement from advancedMove.
-stopAnimation | `stopAnimation farmer` | Stop the farmer's current animation.
-stopAnimation | `stopAnimation <actor> <end frame>` | Stop the named NPC's current animation. Not applicable to the farmer.
-stopGlowing | `stopGlowing` | Make the screen stop glowing.
-stopJittering | `stopJittering` | Make the player stop jittering.
-stopMusic | `stopMusic` | Stop any currently playing music.
-stopRunning | `stopRunning` | Make the farmer stop running.
-stopSwimming | `stopSwimming <actor>` | Make an actor stop swimming.
-swimming | `swimming <actor>` | Make an actor start swimming.
-switchEvent | `switchEvent <event ID>` | Changes the current event (ie. event commands) to another event in the same location.
-taxvote | `taxvote` | Trigger voting for or against a 3% shipping tax. (No effect on game?)
-temporarySprite | `temporarySprite <x> <y> <row in texture> <animation length> <animation interval> <flipped> <loop count>` | Create a temporary sprite with the given parameters.
-textAboveHead | `textAboveHead <actor> "<text>"` | Show a small text bubble over the named NPC's head with the given text; see [dialogue format](#dialogue-format).
-tutorialMenu | `tutorialMenu` | Show the tutorial menu if no other menu is open.
-updateMinigame | `updateMinigame <event data>` | Send an event to the current minigame.
-viewport <small>(variant 1)</small> | `viewport move <x> <y> <duration>` | Pan the the camera for the given duration in milliseconds until it's centered on the given X, Y tile position.
-viewport <small>(variant 2)</small> | `viewport <x> <y> [true [unfreeze]|clamp [true|unfreeze]]` | Instantly reposition the camera to center on the given X, Y tile position. TODO: explain other parameters.
-waitForKey | `waitForKey <key> <message on finish>` | TODO: Explain
-waitForOtherPlayers | `waitForOtherPlayers` | Wait for other players (vanilla MP).
-warp | `warp <actor> <x> <y>` | Warp the named NPC to a position to the given X, Y tile coordinate. This can be used to warp characters off-screen.
-weddingSprite | `weddingSprite <frame>` | Sets the actor known as 'WeddingOutfits' to a particular frame.
+command | description
+------- | -----------
+`addBigProp <x> <y> <object ID>` | Adds an object at the specified tile.
+`addCookingRecipe <recipe>` | Adds the specified cooking recipe to the player.
+`addCraftingRecipe <recipe>` | Adds the specified crafting recipe to the player.
+`addFloorProp <prop index> <x> <y> [solid width] [solid height] [display height]` | Add a non-solid prop from the current festival texture. Default solid width/height is 1. Default display height is solid height.
+`addLantern <row in tex.> <x> <y> <light radius>` | Adds a glowing temporary sprite.
+`addMailReceived <letter ID>` | Set a letter as received.
+`addObject <row in tex.> <x> <y>` | Adds a temporary sprite at the specified tile.
+`addProp <prop index> <x> <y> [solid width] [solid height] [display height]` | Add a solid prop from the current festival texture. Default solid width/height is 1. Default display height is solid height.
+`addQuest <quest ID>` | Add the specified quest to the quest log.
+`addTemporaryActor <character> <sprite width> <sprite height> <tile x> <tile y> <facing> [breather] [Character|Animal|Monster] [animal name]` | Add a temporary actor. 'breather' is boolean. The category determines where the texture will be loaded from, default is Character. Animal name only applies to animal.
+`addToTable <x> <y> <object ID>` | Places on object on the furniture at a position. If the location is FarmHouse, then it will always be placed on the initial table.
+`addTool <Sword|Wand>` | Adds either a Battered Sword or Return Scepter (teleports you to your farm, unobtainable in vanilla) to the player's inventory.
+`advancedMove <npc> <loop> <x y>...` | TODO: Explain
+`ambientLight <r> <g> <b>` | Set the ambient light level.
+`animalNaming` | Show the animal naming menu if no other menu is open. Uses the current location as Coop. Appears to only work for 'hatched' animals.
+`animate <actor> <frame duration> <flip> <loop> <frames...>` | Animate a named actor, using the one or more `<frames>` from their spritesheet, for `<frame duration>` milliseconds per frame. `<flip>` indicates whether to flip the sprites along the Y axis; `<loop>` indicates whether to repeat the animation.
+`attachCharacterToTempSprite <actor>` | Attach an actor to the most recent temporary sprite.
+`awardFestivalPrize [pan|sculpture|rod|sword|hero|joja|slimeegg]` | Awards the festival prize to the winner for the easter egg hunt and ice fishing contest. Otherwise, awards the specified item.
+`bloom <threshold> <blur> <bloom intensity> <base intensity> <bloom saturation> <base saturation> [whiteOnly]` | Sets the current bloom settings. If 'whiteOnly' is not empty, then BloomSettings.brightWhiteOnly is true.
+`catQuestion` | Trigger question about adopting your pet.
+`cave` | Trigger the question for the farm cave type. This will work again later, however changing from bats to mushrooms will not remove the mushroom spawning objects.
+`changeLocation <location>` | Change to another location and run the remaining event script there.
+`changeMapTile <layer> <x> <y> <tile index>` | Change the specified tile to a particular value.
+`changePortrait <npc> <portrait>` | Change the NPC's portrait to be from "Portraits/`<actor>`_<sprite&gt".
+`changeSprite <actor> <sprite>` | Change the actor's sprite to be from "Characters/`<actor>`_`<sprite>`".
+`changeToTemporaryMap <map> [pan]` | Change the location to a temporary one loaded from the map file specified by `<map>`. The `pan` argument indicates the tile coordinates to pan to (defaults to `0, 0`).
+`changeYSourceRectOffset <npc> <offset>` | Change the NPC's vertical texture offset (?).
+`characterSelect` | Seemingly unused. Sets Game1.gameMode to 5 and Game1.menuChoice = 0.
+`cutscene <cutscene>` | Activate a cutscene. See cutscene list. (TODO: Pull list from my event editor)
+`doAction <x> <y>` | TODO: Explain GameLocation.checkAction(new Location(x,y), viewport, player)
+`elliotbooktalk` | Elliot book talk.
+`emote <actor> <emote ID>` | Make the given NPC name perform an emote, which is a little icon shown above the NPC's head. Emotes are stored in `Content\TileSheets\emotes.xnb` (see [list of emotes](https://www.reddit.com/r/StardewValley/comments/5s5m9g/help_annoyed_squiggle/ddd33qg/)).
+`end ?` | TODO: Investigate Event.endBehaviors
+`extendSourceRect <actor> (reset | <horizontal> <vertical> [ignoreUpdates])` | For the reset version, resets the actors sprite. TODO: Explain Character.extendSourceRect
+`eyes <eyes> <blink>` | Change the player's eyes.
+`faceDirection <actor> <direction> [continue]` | Make a named NPC face a [direction](#directions). If no parameter is supplied for [continue], the game will pause.
+`fade [fadeOut]` | If 'fadeOut' is not specified, it will fade in. (?)
+`farmerAnimation <anim>` | Sets the farmer's current animation.
+`farmerEat <object ID>` | Make the player eat an object
+`fork <event ID> [<req>]` | End the current command script and starts a different script with the given ID, but only if the `<req>` condition is met. The `<req>` condition can be a mail ID or dialogue answer ID; if not specified, it checks if the `specialEventVariable1` variable was set (e.g. by a `question` command). The new script should have the same format as a normal event script, but without the mandatory three start fields.
+`friendship <npc> <amount>` | Add the given number of friendship points with the named NPC. (There are 250 points per heart.)
+`globalFade [speed]` | Fade to black at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished. The fade effect disappears when this command is done; to avoid that, use the `viewport` command to move the camera off-screen.
+`globalFadeToClear [speed]` | Fade to clear (unfade?) at a particular speed (default 0.007). If no speed is specified, the event will continue immediately; otherwise, it will continue after the fade is finished.
+`glow <r> <g> <b> <hold>` | Make the screen glow once. TODO: Explain hold (true/false).
+`grabObject <object ID>` | Causes the player to hold an object.
+`grandpaCandles` | Do grandpa candles
+`grandpaEvaluation` | Do grandpa evaluation
+`grandpaEvaluation2` | Do grandpa evaluation (manually resummoned)
+`halt` | Make everyone stop.
+`hospitaldeath` |
+`itemAboveHead [pan|hero|sculpture|joja|slimeEgg|rod|sword|ore]` | Show an item above the player's head. If no item is specified, then they will 'hold' nothing?
+`jump <actor> [intensity]` | Make a the named NPC jump. The default `intensity` is 8.
+`loadActors <layer>` | Load the actors from a layer in the map file.
+`mail <letter ID>` | Queue a letter to be received tomorrow (see `Content\Data\mail.xnb` for available mail).
+`message "<text>"` | Show a dialogue box (no speaker). See [dialogue format](#dialogue-format) for `text` format.
+`minedeath` |
+`move <actor> <x> <y> <facing> <continue>` | Make a named NPC move by the given tile offset from their current position (along one axis _only_), and face the given [direction](#directions) when they're done. To move along multiple axes, you must specify multiple `move` commands. TODO: explain `<continue>`
+`pause <duration>` | Pause the game for the given number of milliseconds.
+`pixelZoom <zoom>` | Sets the current pixel zoom.
+`playMusic <track>` | Play the specified music track ID. If the track is 'samBand', the track played will change depend on certain dialogue answers (76-79).
+`playSound <sound>` | Play a given sound ID from the game's sound bank.
+`playerControl` | Give the player control back.
+`positionOffset <actor> <x> <y>` | Offset the position of the named NPC by the given number of pixels. This happens instantly, with no walking animation.
+`proceedPosition <actor>` | TODO: Explain
+`question null "<question>#<answer1>#<answer2>"` | Show a dialogue box with some answers and an optional question. When the player chooses an answer, the event script continues with no other effect.
+`question fork<answer index> "<question>#<answer 0>#<answer 1>#..."` | Show a dialogue with some answers and an optional question. When the player chooses the answer matching the `fork<answer index>` (like `fork0` for the first answer), the `specialEventVariable1` variable is set. Usually followed by a `fork` command.
+`removeItem <object ID>` | Remove the first of an object from a player's inventory.
+`removeObject <x> <y>` | Remove the prop at a position.
+`removeQuest <quest ID>` | Remove the specified quest from the quest log.
+`removeSprite <x> <y>` | Remove the temporary sprite at a position.
+`removeTemporarySprites` | Remove all temporary sprites.
+`removeTile <x> <y> <layer>` | Remove a tile from the specified layer.
+`resetVariable` | Set the first event variable to false.
+`rustyKey` | Gives the player the rusty key. (Sewer key)
+`screenFlash <alpha>` | Game1.flashAlpha = alpha;
+`setRunning` | Set the player as running.
+`shake <actor> <duration>` | Shake the named NPC for the given number of milliseconds.
+`showFrame farmer flip` | Flip the farmer's current sprite along the Y axis. TODO: Behavior with farmer looks strange?
+`showFrame <actor> <frame ID>` | Set the named NPC's current frame in their `Content\Characters\*.xnb` spritesheet. TODO: Behavior with farmer looks strange?
+`showRivalFrame <frame>` | Set the 'rival' actor's sprite to a specific frame.
+`skippable` | Allow skipping this event.
+`speak <character> "<text>"` | Show dialogue text from a named NPC; see [dialogue format](#dialogue-format).
+`specificTemporarySprite <sprite> [other params]` | Shows the given temporary sprite. Parameters change depending on the sprite.
+`speed farmer <modifier>` | Add a speed modifier to the farmer. TODO: for the next action only?
+`speed <actor> <speed>` | Sets the named NPC's speed (default speed is 3). Not applicable to the farmer. TODO: for the next action only?
+`splitSpeak <actor> "<text>"` | Dialogue, but chosen based on previous answer. ('~' is the separator used.)
+`startJittering` | Make the player start jittering.
+`stopAdvancedMoves` | Stop movement from advancedMove.
+`stopAnimation farmer` | Stop the farmer's current animation.
+`stopAnimation <actor> <end frame>` | Stop the named NPC's current animation. Not applicable to the farmer.
+`stopGlowing` | Make the screen stop glowing.
+`stopJittering` | Make the player stop jittering.
+`stopMusic` | Stop any currently playing music.
+`stopRunning` | Make the farmer stop running.
+`stopSwimming <actor>` | Make an actor stop swimming.
+`swimming <actor>` | Make an actor start swimming.
+`switchEvent <event ID>` | Changes the current event (ie. event commands) to another event in the same location.
+`taxvote` | Trigger voting for or against a 3% shipping tax. (No effect on game?)
+`temporarySprite <x> <y> <row in texture> <animation length> <animation interval> <flipped> <loop count>` | Create a temporary sprite with the given parameters.
+`textAboveHead <actor> "<text>"` | Show a small text bubble over the named NPC's head with the given text; see [dialogue format](#dialogue-format).
+`tutorialMenu` | Show the tutorial menu if no other menu is open.
+`updateMinigame <event data>` | Send an event to the current minigame.
+`viewport move <x> <y> <duration>` | Pan the the camera for the given duration in milliseconds until it's centered on the given X, Y tile position.
+`viewport <x> <y> [true [unfreeze]|clamp [true|unfreeze]]` | Instantly reposition the camera to center on the given X, Y tile position. TODO: explain other parameters.
+`waitForKey <key> <message on finish>` | TODO: Explain
+`waitForOtherPlayers` | Wait for other players (vanilla MP).
+`warp <actor> <x> <y>` | Warp the named NPC to a position to the given X, Y tile coordinate. This can be used to warp characters off-screen.
+`weddingSprite <frame>` | Sets the actor known as 'WeddingOutfits' to a particular frame.
 
 ### Directions
 When event commands refer to a facing direction, they'll use one of these values:
