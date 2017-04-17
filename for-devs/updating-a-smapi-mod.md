@@ -56,7 +56,7 @@ since  | interfaces                | severity | replacement
 1.6    | `PlayerEvents.FarmerChanged` | _info_ | serves no purpose.
 1.6    | `PlayerEvents.LoadedGame` | _info_ | use `SaveEvents.AfterLoad`.
 1.6    | `TimeEvents.OnNewDay`     | _info_ | unreliable and doesn't do what you think; use `TimeEvents.DayOfMonthChanged` to detect a day change, and `SaveEvents.BeforeSave` + `SaveEvents.AfterSave` to detect saves.
-1.9    | `Command` class           | _info_ | use `helper.ConsoleCommands`.
+1.9    | `Command` class           | _info_ | use `this.Helper.ConsoleCommands`.
 
 These have been removed:
 
@@ -68,7 +68,7 @@ deprecated | removed | interfaces | replacement
 1.0        | 1.9¹    | `Extensions` class | reimplement if needed, or use an extensions library.
 1.0        | 1.9¹    | `LogWriter` class | use `this.Monitor.Log`.
 1.0        | 1.9¹    | `SPlayer` class | use `Game1.player`.
-1.1        | 1.9¹    | `Command.CallCommand(string)` | use `Command.CallCommand(string, IMonitor)`.
+1.1        | 1.9¹    | `Command.CallCommand(string)` | use `this.Helper.ConsoleCommands`.
 1.1        | 1.9¹    | `Mod.Entry(ModHelper)` | change `ModHelper` to `IModHelper`.
 1.5        | 1.9¹    | `Version` class | use `SemanticVersion`.
 1.5        | 1.9¹    | `Mod.Manifest` | use `Mod.ModManifest` <small>(changes type from `Manifest` to `IManifest`)</small>.
