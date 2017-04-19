@@ -175,7 +175,7 @@ SMAPI couldn't find the `manifest.json` file for the mod in that folder. Common 
 ### SEHException: External component has thrown an exception
 <section id="sehexception"></section>
 
-An error like this with "Microsoft.Xna.Framework.Audio" in the text:
+You may see an error like this with `SEHException` in the text:
 
 ```
 System.Runtime.InteropServices.SEHException (0x80004005): External component has thrown an exception.
@@ -190,13 +190,15 @@ System.Runtime.InteropServices.SEHException (0x80004005): External component has
    at StardewModdingAPI.Program.StartGame() in D:\source\_Stardew\SMAPI\src\StardewModdingAPI\Program.cs:line 274
 ```
 
-...usually means your computer didn't have enough resources to start the game fast enough (which
-the game doesn't handle very well). This typically isn't caused by SMAPI itself.
+That error happens in the game's audio startup code, which is very sensitive to resources being
+used before the audio is ready. This isn't caused by SMAPI directly, though SMAPI uses some extra
+resources during startup.
 
 Common solutions:
 
-* Close your browsers and any other open application before playing.
-* Remove any mods intended to change the game's audio (e.g. more music).
+* Restart your computer.
+* Close your browsers and any open apps before playing. (You can reopen them once the game is started.)
+* Remove any mods that change the game's audio (e.g. mods which add more music).
 
 ### SMAPI contains a trojan?
 <section id="trojan"></section>
