@@ -119,7 +119,7 @@ like "failed to find the game install path", see [the package's _Troubleshooting
 The mod manifest tells SMAPI about your mod.
 
 1. Add a file named `manifest.json` to your project.
-2. Paste this code into the file (changing the `<..>` placeholders accordingly):
+2. Paste this code into the file (replacing the `<...>` placeholders):
 
    ```json
    {
@@ -129,14 +129,15 @@ The mod manifest tells SMAPI about your mod.
          "MajorVersion": 1,
          "MinorVersion": 0,
          "PatchVersion": 0,
-         "Build": ""
+         "Build": null
       },
       "Description": "<One or two sentences about the mod>",
       "UniqueID": "<your name>.<your project name>",
       "EntryDll": "<your project name>.dll"
    }
    ```
-   This will listed in the console output when the game is launching.
+   This will be listed in the console output when the game is launching. (For more info about the
+   version number, see [semantic versioning](http://semver.org/).)
 
 ### Write the code
 Almost done! Now for the code SMAPI will run.
