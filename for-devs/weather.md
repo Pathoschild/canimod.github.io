@@ -50,7 +50,7 @@ day | season | year |weather
 1|fall|any|weather_sunny
 16|fall|any|weather_festival
 27|fall|any|weather_festival
-1|winter|any|weather_festival
+1|winter|any|weather_sunny
 8|winter|any|weather_festival
 25|winter|any|weather_festival
 
