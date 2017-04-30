@@ -395,6 +395,7 @@ which covers...
 * overriding JSON serialization.
 
 ### Content
+<section id="content-api"></section>
 <p class="warning">This is pre-release documentation for an API added in SMAPI 1.11.</p>
 
 If your mod needs custom textures or maps, you can load them with SMAPI's content API. You can load
