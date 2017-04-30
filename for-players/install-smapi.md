@@ -20,19 +20,19 @@ redirect_from:
 </div>
 
 SMAPI is the tool which launches the game with mods (which are [downloaded separately](#using-mods)).
-It's safely installed alongside your normal game, and you can uninstall it anytime. To update SMAPI,
-just install the latest version.
+It's safely installed alongside your normal game, and you can uninstall it anytime.
 
-## Automatic install
+## Install SMAPI
 ### On Windows
 #### Part 1: install SMAPI
-1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
-2. Extract the `.zip` file somewhere (but not in your game folder!).
-3. Double-click `install.exe`, and follow the on-screen instructions.  
+1. Run the game without SMAPI at least once so it can do first-time setup if needed.
+2. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
+3. Extract the `.zip` file somewhere (but not in your game folder!).
+4. Double-click `install.exe`, and follow the on-screen instructions.  
    _The installer will detect your game and add SMAPI for you._
 
-From now on, just run `StardewModdingAPI.exe` in [your game folder](http://canimod.com/for-players/faqs#game-folder)
-to play with mods. To remove SMAPI later, just run `install.exe` again and choose _uninstall_.
+**If you have Steam, continue to the next section.** Otherwise just run `StardewModdingAPI.exe`
+in [your game folder](http://canimod.com/for-players/faqs#game-folder) to play with mods.
 
 #### Part 2: configure Steam
 If you use Steam, you can launch SMAPI from the Steam client to enable the Steam overlay and
@@ -87,7 +87,7 @@ again and choose _uninstall_.
 That's it! Just launch the game to play with mods. To remove SMAPI later, run `mono install.exe`
 again and choose _uninstall_.
 
-## Manual install
+### Manual install
 The installer is the recommended way to install SMAPI, but you can also install it manually.
 
 1. Download the [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
@@ -102,6 +102,14 @@ The installer is the recommended way to install SMAPI, but you can also install 
      1. Open the game folder.
      2. Rename the `StardewValley` file (with no extension) to `StardewValley-original`.
      3. Rename the `StardewModdingAPI` file (with no extension) to `StardewValley`.
+
+## Update SMAPI
+To update SMAPI, just install the new version. The installer will automatically clean up previous
+versions. (If you use Steam, you don't need to set the launch options again.)
+
+## Uninstall SMAPI
+To remove SMAPI, just run `install.exe` again and choose _uninstall_. If you need to uninstall
+manually, just do the opposite of _[manual install](#manual-install)_.
 
 <div class="scroll-box" style="display: inline-block;">
 <big><strong>next:</strong> <a href="/for-players/use-mods">Use mods →</a></big>
