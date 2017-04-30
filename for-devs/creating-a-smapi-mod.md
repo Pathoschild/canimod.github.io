@@ -394,6 +394,34 @@ which covers...
 * using a config wrapper for file I/O;
 * overriding JSON serialization.
 
+### Content
+<p class="warning">This is pre-release documentation for an API added in SMAPI 1.11.</p>
+
+If your mod needs custom textures or maps, you can load them with SMAPI's content API. You can load
+any `.xnb` file the game supports, or load a `.png` file into a texture.
+
+Example usage:
+
+* Load an image from your mod folder (from an `assets` subfolder in this example):
+  ```c#
+  // load an XNB file
+  var texture = helper.Content.Load<Texture2D>(@"assets\texture.xnb", ContentSource.ModFolder);
+
+  // load a PNG file
+  var texture = helper.Content.Load<Texture2D>(@"assets\texture.png", ContentSource.ModFolder);
+  ```
+* Load an asset from game's content folder:
+  ```c#
+  var data = helper.Content.Load<Dictionary<int, string>>(@"Data\ObjectInformation.xnb", ContentSource.GameContent);
+  ```
+* Load a custom tilesheet for a map:
+  ```c#
+  tilesheet.ImageSource = helper.Content.GetActualAssetKey(@"assets\tilesheet.png");
+  ```
+
+You should avoid calling `content.Load<T>` in draw code for performance reasons, since drawing
+happens ≈60 times per second. Instead, load your content ahead of time and reuse it.
+
 ### Logging
 Your mod can write messages to the console window and log file using the monitor. For example,
 this code:
