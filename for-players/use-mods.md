@@ -23,16 +23,16 @@ hard part is done!
 ## Download mods
 There are two main places to download mods:
 
-* [Nexus Mods](http://nexusmods.com/stardewvalley/) has a huge repository of mods available.
+* [Nexus Mods](http://nexusmods.com/stardewvalley/) has a huge repository of mods available. [The
+  most popular mods](http://www.nexusmods.com/stardewvalley/mods/topalltime/) are a good place to
+  start, or see this [list of mod recommendations for a first playthrough](https://www.reddit.com/r/StardewValley/comments/5u3znf/any_mods_to_install_through_my_first_playthrough/dds5897/).
 * [The official Stardew Valley forums](http://community.playstarbound.com/forums/mods.215/)
   is a good place to ask questions, and some mods are available there. It's a bit more ad hoc, but
   feel free to ask for help.
 * Stardewvalleymods.net **is not recommended**. The site operates by stealing mods without
-  permission and profiting from the ad revenue. To be fair, their site can be convenient: they
-  repackage mods from many authors into one place, and you can search by game version to filter out
-  abandoned mods. However, there's no guarantee they're hosting the latest version and there's very
-  little oversight to prevent abuse. (Also, letting a company profit by stealing free work from
-  volunteers is morally nebulous at best.)
+  permission and profiting from the ad revenue. While it may be convenient to have many mods in one
+  place, they're often heavily outdated and letting a company profit by stealing free work from
+  volunteers is morally nebulous at best.
 
 A few tips for downloading mods:
 
@@ -45,7 +45,7 @@ A few tips for downloading mods:
    * Ask! The next player will thank you. If the author never responds, the mod is probably
      abandoned.
 
-## Add or remove mods
+## Install mods
 To install a mod, just unzip it into the `Mods` folder inside
 [your game folder](http://canimod.com/for-players/faqs#game-folder). Make sure each mod has its own
 subdirectory; for example, if you have a `PineapplesEverywhere` mod, you should have a file
@@ -59,6 +59,7 @@ structure like this:
          manifest.json
 ```
 
+## Uninstall mods
 To uninstall a mod, just remove it from the `Mods` directory.
 
 ## Configure mods
