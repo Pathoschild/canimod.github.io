@@ -129,7 +129,7 @@ Let's run through a quick checklist:
 
    > ![](images/faqs/smapi-versions.png)
    
-   Make sure you have [Stardew Valley 1.11](http://stardewvalleywiki.com/Version_History) and the
+   Make sure you have [Stardew Valley 1.2.26+](http://stardewvalleywiki.com/Version_History) and the
    [latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
 
 2. Are you using a Stardew Valley mod manager? Those are still experimental, so they can cause
@@ -145,32 +145,9 @@ installer folder. See the [official install instructions](/for-players/install-s
 detailed steps.
 
 ### Ignored folder "..." which doesn't have a manifest.json
-SMAPI couldn't find the `manifest.json` file for the mod in that folder. Common solutions:
-
-1. If the mod doesn't have a `manifest.json` file, it's not a SMAPI mod so it won't work from the
-   `Mods` folder. See that mod's documentation for setup instructions.
-
-1. If the mod has a `manifest.json` file, make sure the files are in a `Mods` subfolder. For
-   example, the files should look like this:
-
-   ```
-   Stardew Valley/
-      Mods/
-         PineapplesEverywhere/
-            PineapplesEverywhere.dll
-            manifest.json
-   ```
-
-   ...and _not_ like this sub-subfolder:
-
-   ```
-   Stardew Valley/
-      Mods/
-         PineapplesEverywhere-1.3/
-            PineapplesEverywhere/
-               PineapplesEverywhere.dll
-               manifest.json
-   ```
+SMAPI couldn't find the `manifest.json` file for the mod in that folder. That usually means it's
+not a SMAPI mod, so it won't work from the `Mods` folder. See that mod's documentation for install
+instructions.
 
 ### SEHException: External component has thrown an exception
 <section id="sehexception"></section>

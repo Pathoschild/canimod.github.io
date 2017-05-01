@@ -57,6 +57,8 @@ since  | interfaces                | severity | replacement
 1.6    | `PlayerEvents.LoadedGame` | _info_ | use `SaveEvents.AfterLoad`.
 1.6    | `TimeEvents.OnNewDay`     | _info_ | unreliable and doesn't do what you think; use `TimeEvents.DayOfMonthChanged` to detect a day change, and `SaveEvents.BeforeSave` + `SaveEvents.AfterSave` to detect saves.
 1.9    | `Command` class           | _info_ | use `this.Helper.ConsoleCommands`.
+1.10   | `GameEvents.Initialize` | _info_ | move any code into your `Entry` method.
+1.10   | `GameEvents.LoadContent` | _info_ | move any code into your `Entry` method.
 
 These have been removed:
 
