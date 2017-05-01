@@ -555,12 +555,12 @@ Ready to share your mod with the world? Let's say you created a mod named _Pinea
 which turns all NPCs into pineapples; here's how you would release it for others to use.
 
 1. Copy your compiled mod and `manifest.json` into a folder matching your mod's name.
-2. Create a zip archive with your mod's name, version, and platform.
+2. Create a zip archive with your mod's name and version.
 
    Your mod structure should look something like this:
 
    ```
-   PineapplesEverywhere-1.0-Windows.zip
+   PineapplesEverywhere-1.0.zip
       PineapplesEverywhere/
          PineapplesEverywhere.dll
          PineapplesEverywhere.pdb
