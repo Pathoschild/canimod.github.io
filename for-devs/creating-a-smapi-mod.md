@@ -312,9 +312,6 @@ Here are the available events:
   | InventoryChanged | Raised after the player's inventory changes in any way (added or removed item, sorted, etc). |
   | LeveledUp | Raised after the player levels up a skill. This happens as soon as they level up, not when the game notifies the player after their character goes to bed. |
 
-  Notable bug: the `InventoryChanged` and `LeveledUp` events are raised at various times before
-  the game is loaded, when there's no character yet.
-
 * <span id="save-events"></span>
   **`SaveEvents`** are raised when the player saves or loads the game.
 
