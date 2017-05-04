@@ -9,6 +9,10 @@ redirect_from:
     - /guides/npc-gift-tastes
 ---
 
+<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Gift_taste_data">Modding:Gift taste data</a>.
+</div>
+
 ## Reading the raw data
 
 ### Source

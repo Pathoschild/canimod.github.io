@@ -9,6 +9,10 @@ redirect_from:
     - /guides/events
 ---
 
+<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Event_data">Modding:Event data</a>.
+</div>
+
 ## Source
 Events are stored in `Data\Events\*.xnb` (one file per location), which can be
 [unpacked using XNB Extract](creating-an-xnb-mod#unpacking).

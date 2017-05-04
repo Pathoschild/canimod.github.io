@@ -13,6 +13,10 @@ redirect_from:
     - /guides/updating-a-smapi-mod
 ---
 
+<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Updating_deprecated_SMAPI_code">Modding:Updating deprecated SMAPI code</a>.
+</div>
+
 ## How to update your mod
 You don't need to comb through your code; SMAPI can tell you if you're using a deprecated interface:
 

@@ -7,6 +7,10 @@ intro: >
    for the main guide.
 ---
 
+<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:IDE_reference">Modding:IDE reference</a>.
+</div>
+
 ## Before you start
 * You should install [Visual Studio 2017 Community](https://www.visualstudio.com/vs/community/) (on Windows) or [MonoDevelop](http://www.monodevelop.com/) (on Linux/Mac).
 * Reviewing [_C# Fundamentals for Absolute Beginners_](https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169)

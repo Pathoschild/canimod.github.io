@@ -9,6 +9,10 @@ redirect_from:
     - /guides/weather
 ---
 
+<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Weather_data">Modding:Weather data</a>.
+</div>
+
 Weather in Stardew Valley runs from multiple sources.
 
 ## Coding Explanation

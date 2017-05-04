@@ -9,6 +9,10 @@ redirect_from:
     - /guides/object-data
 ---
 
+<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Object_data">Modding:Object data</a>.
+</div>
+
 ## Reading the raw data
 
 ### Source
