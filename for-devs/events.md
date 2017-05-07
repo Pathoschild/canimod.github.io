@@ -2,16 +2,16 @@
 layout: default
 title: Events
 intro: >
+    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+        This page is has been moved to the wiki. See the latest version at
+        <a href="http://stardewvalleywiki.com/Modding:Event_data">Modding:Event data</a>.
+    </div>
     This page explains how the game stores and parses event data. This is an advanced guide for mod
     developers.
 permalink: /for-devs/events
 redirect_from:
     - /guides/events
 ---
-
-<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Event_data">Modding:Event data</a>.
-</div>
 
 ## Source
 Events are stored in `Data\Events\*.xnb` (one file per location), which can be

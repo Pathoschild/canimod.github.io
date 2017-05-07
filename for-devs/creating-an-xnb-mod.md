@@ -2,16 +2,16 @@
 layout: default
 title: Creating an XNB mod
 intro: >
+    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+        This page is has been moved to the wiki. See the latest version at
+        <a href="http://stardewvalleywiki.com/Modding:Creating_an_XNB_mod">Modding:Creating an XNB mod</a>.
+    </div>
     This page explains how to create a mod which replaces game files in order to change game data,
     images, and maps.
 permalink: /for-devs/creating-an-xnb-mod
 redirect_from:
     - /guides/creating-an-xnb-mod
 ---
-
-<div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-This page is has been moved to the wiki. See the latest version at <a href="http://stardewvalleywiki.com/Modding:Creating_an_XNB_mod">Modding:Creating an XNB mod</a>.
-</div>
 
 ## Intro
 
