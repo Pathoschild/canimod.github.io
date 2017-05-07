@@ -2,10 +2,6 @@
 layout: default
 title: Advanced SMAPI mod configuration
 intro: > 
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        <a href="http://stardewvalleywiki.com/Modding:Creating_a_SMAPI_mod">Modding:Creating a SMAPI mod</a>.
-    </div>
     This page explains more advanced ways to use JSON files through <code>this.Helper</code>.
     This page is overkill for the vast majority of mods; see
     <em><a href="creating-a-smapi-mod#configuration">creating a SMAPI mod</a></em>
@@ -13,6 +9,7 @@ intro: >
 permalink: /for-devs/creating-a-smapi-mod-advanced-config
 redirect_from:
     - /guides/creating-a-smapi-mod-advanced-config
+movedToWiki: Modding:Creating a SMAPI mod
 ---
 
 ## Custom JSON files

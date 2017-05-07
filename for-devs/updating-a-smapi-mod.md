@@ -2,10 +2,6 @@
 layout: default
 title: Updating a SMAPI mod
 intro: >
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        <a href="http://stardewvalleywiki.com/Modding:Updating_deprecated_SMAPI_code">Modding:Updating deprecated SMAPI code</a>.
-    </div>
     In rare cases, SMAPI needs to change the interfaces it exposes to mods. (This
     doesn't happen often, because SMAPI strives to expose abstract interfaces that
     aren't tightly coupled to changes in the game.) When an interface does need to
@@ -15,6 +11,7 @@ intro: >
 permalink: /for-devs/updating-a-smapi-mod
 redirect_from:
     - /guides/updating-a-smapi-mod
+movedToWiki: Modding:Updating deprecated SMAPI code
 ---
 
 ## How to update your mod

@@ -33,6 +33,14 @@
 
     <!-- page -->
     <div id="content">
+        <!-- moved to wiki notice -->
+        {% if page.movedToWiki %}
+        <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
+            This page is has been moved to the wiki. See the latest version at
+            <a href="http://stardewvalleywiki.com/{{page.movedToWiki | replace: " ", "_" | uri_escape}}">{{page.movedToWiki}}</a>.
+        </div>
+        {% endif %}
+
         <!-- title section -->
         {% if page.section != "main-page" %}
         <a href="{{site.url}}{{site.baseurl}}">« back to index</a>

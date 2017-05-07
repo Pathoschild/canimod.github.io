@@ -2,13 +2,10 @@
 layout: default
 title: Creating a SMAPI mod » IDE primer
 intro: > 
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        <a href="http://stardewvalleywiki.com/Modding:IDE_reference">Modding:IDE reference</a>.
-    </div>
     This page is a quick reference for how to use Visual Studio 2017 or MonoDevelop/Xamarin when
     creating or editing a SMAPI mod. See <em><a href="creating-a-smapi-mod">creating a SMAPI mod</a></em>
     for the main guide.
+movedToWiki: Modding:IDE reference
 ---
 
 ## Before you start

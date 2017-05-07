@@ -2,15 +2,12 @@
 layout: default
 title: Object data
 intro: >
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        <a href="http://stardewvalleywiki.com/Modding:Object_data">Modding:Object data</a>.
-    </div>
     This page explains how the game stores and parses object data. This is an advanced guide for
     mod developers.
 permalink: /for-devs/object-data
 redirect_from:
     - /guides/object-data
+movedToWiki: Modding:Object data
 ---
 
 ## Reading the raw data

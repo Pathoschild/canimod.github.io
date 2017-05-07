@@ -2,15 +2,12 @@
 layout: default
 title: Weather
 intro: >
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        a href="http://stardewvalleywiki.com/Modding:Weather_data">Modding:Weather data</a>.
-    </div>
     This page explains how the game handles weather. This is meant as an in-depth overview for
     modders.
 permalink: /for-devs/weather
 redirect_from:
     - /guides/weather
+movedToWiki: Modding:Weather data
 ---
 
 Weather in Stardew Valley runs from multiple sources.

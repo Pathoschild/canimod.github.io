@@ -2,15 +2,12 @@
 layout: default
 title: NPC gift tastes
 intro: >
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        <a href="http://stardewvalleywiki.com/Modding:Gift_taste_data">Modding:Gift taste data</a>.
-    </div>
     This page explains how the game calculates NPC gift tastes. This is an advanced guide for mod
     developers.
 permalink: /for-devs/npc-gift-tastes
 redirect_from:
     - /guides/npc-gift-tastes
+movedToWiki: Modding:Gift taste data
 ---
 
 ## Reading the raw data

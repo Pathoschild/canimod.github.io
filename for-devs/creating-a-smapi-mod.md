@@ -2,15 +2,12 @@
 layout: default
 title: Creating a SMAPI mod
 intro: > 
-    <div style="border:2px solid #CAA; border-left:1em solid red; padding:1em;">
-        This page is has been moved to the wiki. See the latest version at
-        <a href="http://stardewvalleywiki.com/Modding:Creating_a_SMAPI_mod">Modding:Creating a SMAPI mod</a>.
-    </div>
     Ready to make your own mod? This page will help you create your first mod and use the
     available APIs and events.
 permalink: /for-devs/creating-a-smapi-mod
 redirect_from:
     - /guides/creating-a-smapi-mod
+movedToWiki: Modding:Creating a SMAPI mod
 ---
 
 ## Quick start
