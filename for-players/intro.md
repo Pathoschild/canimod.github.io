@@ -52,18 +52,6 @@ the game files, so you can stop using it anytime. Most mods don't affect your sa
 add or remove them at will. It's a good idea to back up your save files even if you don't use mods
 (save problems are almost always caused by the game itself).
 
-### What are 'Farmhand' and 'Storm'?
-These are alternative modding APIs.
-
-* [Farmhand](https://github.com/ClxS/Stardew-Farmhand) is an alternative modding API in development
-since [April 2016](http://community.playstarbound.com/threads/what-happened-to-storm.112305/#post-2855809)
-as a possible alternative to SMAPI. It rewrites your `Stardew Valley.exe` file to hook itself into
-the game, so it can offer abstraction APIs to simplify mod development. This is a complex approach,
-and there's no timeline or roadmap for release.
-
-* [Storm](http://community.playstarbound.com/threads/storm-modding-api.108484/) is alternative
-  modding API that took a similar approach to Farmhand. It was never finished and is now abandoned.
-
 <div class="scroll-box" style="display: inline-block;">
 <big><strong>next:</strong> <a href="/for-players/install-smapi">Install SMAPI →</a></big>
 </div>
