@@ -177,6 +177,16 @@ Common solutions:
 * Close your browsers and any open apps before playing. (You can reopen them once the game is started.)
 * Remove any mods that change the game's audio (e.g. mods which add more music).
 
+### Access to Path '...' is denied
+This error means that the SMAPI process doesn't have permissions to access the file requested. 
+This could mean that you haven't rebooted since the SMAPI install process or that you installed
+SMAPI (or mods) with admin permissions and are now running as a lower privlidged user. 
+
+Common solutions:
+
+* Restart your computer.
+* Take ownership of the files. `takeown /f [path} /r /d Y` or [Windows 10 GUI](http://winaero.com/blog/how-to-take-ownership-and-get-full-access-to-files-and-folders-in-windows-10/)
+
 ### SMAPI contains a trojan?
 <section id="trojan"></section>
 
