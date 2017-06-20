@@ -33,28 +33,28 @@
 
     <!-- page -->
     <div id="content">
-        <!-- moved to wiki notice -->
         {% if page.movedToWiki %}
-        <div style="margin-bottom: 2em; padding:1em; border:2px solid red; border-left:1em solid red; font-weight: bold;">
-            This page has been moved to the wiki. See the latest version at
-            <a href="http://stardewvalleywiki.com/{{page.movedToWiki | replace: " ", "_" | uri_escape}}">{{page.movedToWiki}}</a>.
-        </div>
-        {% endif %}
+            <!-- moved to wiki notice -->
+            <div style="margin-bottom: 2em; padding:1em; border:2px solid red; border-left:1em solid red; font-weight: bold;">
+                This page has been moved to the wiki. See the latest version at
+                <a href="http://stardewvalleywiki.com/{{page.movedToWiki | replace: " ", "_" | uri_escape}}">{{page.movedToWiki}}</a>.
+            </div>
+        {% else %}
+            <!-- title section -->
+            {% if page.section != "main-page" %}
+            <a href="{{site.url}}{{site.baseurl}}">« back to index</a>
+            {% endif %}
+            <h1>{{page.title}}</h1>
+            {{page.intro}}
 
-        <!-- title section -->
-        {% if page.section != "main-page" %}
-        <a href="{{site.url}}{{site.baseurl}}">« back to index</a>
-        {% endif %}
-        <h1>{{page.title}}</h1>
-        {{page.intro}}
+            <!-- table of contents -->
+            {% if page.section != "main-page" %}
+            <div id="toc"></div>
+            {% endif %}
 
-        <!-- table of contents -->
-        {% if page.section != "main-page" %}
-        <div id="toc"></div>
+            <!-- content -->
+            {{content}}
         {% endif %}
-
-        <!-- content -->
-        {{content}}
     </div>
 
     <div id="footer">Is the site missing something? Does it need copyediting? <a href="{{site.repo_url}}#readme">You can edit it!</a> :)</div>
