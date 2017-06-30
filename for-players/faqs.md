@@ -8,6 +8,7 @@ permalink: /for-players/faqs
 redirect_from:
     - /guides/asking-for-help
     - /guides/smapi-faq
+movedToWiki: Modding:Player FAQs
 ---
 
 <div class="scroll-box" style="float: right;">

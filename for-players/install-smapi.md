@@ -7,7 +7,8 @@ intro: >
 permalink: /for-players/install-smapi
 redirect_from:
     - /guides/using-mods
----
+movedToWiki: Modding:Installing SMAPI
+--- 
 
 <div class="scroll-box" style="float: right;">
     <strong>For players</strong>

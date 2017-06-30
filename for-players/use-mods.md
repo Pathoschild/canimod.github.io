@@ -5,6 +5,7 @@ intro: >
    Welcome to Stardew Valley modding! This guide will help you install mods and
    fix any problems that come up.
 permalink: /for-players/use-mods
+movedToWiki: Modding:Player FAQs
 ---
 
 <div class="scroll-box" style="float: right;">
