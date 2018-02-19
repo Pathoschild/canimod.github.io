@@ -1,4 +1,10 @@
-﻿**Can I Mod** is an open-source website dedicated to documenting [Stardew Valley](http://stardewvalley.net/)
+﻿**This repository is no longer maintained.**  
+The content was transferred into [a new modding section on the official wiki](https://stardewvalleywiki.com/Modding:Index).
+All former canimod.com URLs now redirect to the equivalent wiki pages.
+
+----
+
+**Can I Mod** is an open-source website dedicated to documenting [Stardew Valley](http://stardewvalley.net/)
 modding — everything from simple user guides (from installing SMAPI to troubleshooting mods) to
 modding resources (from creating a minimal SMAPI mod to in-depth guides like parsing event data).
 The site is [freely licensed](https://github.com/Pathoschild/canimod.github.io/blob/master/LICENSE),
